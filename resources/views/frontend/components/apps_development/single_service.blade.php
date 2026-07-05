@@ -712,7 +712,7 @@
           </div>
 
           <p class="reveal-up" style="font-style:italic;color:#64748b;border-left:3px solid #22c55e;padding-left:16px;">
-            <i class="fa-regular fa-quote-left" style="color:#22c55e;margin-right:8px;"></i>
+            <i class="fa-solid fa-quote-left" style="color:#22c55e;margin-right:8px;"></i>
             Contact us today to discuss your app development project and get started!
           </p>
 
@@ -726,7 +726,7 @@
         <!-- Sidebar Card -->
         <div class="sidebar-card reveal-right">
           <div class="icon-wrap">
-            <i class="fa-regular fa-mobile-screen-button"></i>
+            <i class="fa-solid fa-mobile-screen-button"></i>
           </div>
           <h3>Apps Development</h3>
           <ul>

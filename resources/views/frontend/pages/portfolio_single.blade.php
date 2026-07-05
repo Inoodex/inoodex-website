@@ -86,7 +86,12 @@
   </style>
 </head>
 
-<body class="overflow-x-hidden">
+<body class="tt-magic-cursor overflow-x-hidden">
+  <!-- Magic Cursor Start -->
+  <div id="magic-cursor">
+    <div id="ball"></div>
+  </div>
+  <!-- Magic Cursor End -->
   @include('layout.headerNav')
   <!-- Header -->
   <header class="py-16 text-center">

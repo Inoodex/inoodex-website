@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="zxx">
 @include('layout.header')
-<body style="background:#0f172a;color:#e2e8f0;">
+<body class="tt-magic-cursor" style="background:#0f172a;color:#e2e8f0;">
+    <!-- Magic Cursor Start -->
+    <div id="magic-cursor">
+        <div id="ball"></div>
+    </div>
+    <!-- Magic Cursor End -->
     @include('layout.headerNav')
 
     <canvas id="svcCanvas" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>

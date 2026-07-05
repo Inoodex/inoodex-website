@@ -627,7 +627,12 @@
   </style>
 </head>
 
-<body>
+<body class="tt-magic-cursor">
+  <!-- Magic Cursor Start -->
+  <div id="magic-cursor">
+    <div id="ball"></div>
+  </div>
+  <!-- Magic Cursor End -->
 
   <!-- Glow Orbs -->
   <div class="glow-orb glow-orb-1"></div>

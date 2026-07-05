@@ -640,7 +640,12 @@
   </style>
 </head>
 
-<body style="background:#0a0e1a;color:#e2e8f0;margin:0;padding:0;">
+<body class="tt-magic-cursor" style="background:#0a0e1a;color:#e2e8f0;margin:0;padding:0;">
+  <!-- Magic Cursor Start -->
+  <div id="magic-cursor">
+    <div id="ball"></div>
+  </div>
+  <!-- Magic Cursor End -->
 
   <!-- Glow Orbs -->
   <div class="glow-orb glow-orb-1"></div>

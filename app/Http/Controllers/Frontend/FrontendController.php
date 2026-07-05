@@ -38,13 +38,20 @@ class FrontendController extends Controller
         return view('frontend.pages.blog', compact('blogs'));
     }
 
-    public function blogSingle($slug) 
+    public function blogSingle($slug)
 {
     $blog = Blog::where('status', 'active')
                 ->where('slug', $slug)
                 ->firstOrFail();
 
-    return view('frontend.pages.single_blog', compact('blog'));
+    $related = Blog::where('status', 'active')
+        ->where('category', $blog->category)
+        ->where('id', '!=', $blog->id)
+        ->latest()
+        ->take(3)
+        ->get();
+
+    return view('frontend.pages.single_blog', compact('blog', 'related'));
 }
 
 
