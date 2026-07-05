@@ -10,6 +10,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0e1a;
+    overflow-x: hidden;
+  }
+
   .hero {
     position: relative;
     background: #0a0e1a;
@@ -69,24 +81,25 @@
     margin-bottom: 30px;
   }
 
-  /* Button */
+  /* Button - Single Arrow Only */
   .btn-default {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 35px;
+    gap: 12px;
+    padding: 14px 32px;
     background: linear-gradient(135deg, #10b981, #059669);
     color: #ffffff;
     font-size: 15px;
     font-weight: 600;
     border-radius: 50px;
     text-decoration: none;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
     position: relative;
     overflow: hidden;
     cursor: pointer;
     border: none;
+    white-space: nowrap;
   }
 
   .btn-default:hover {
@@ -114,11 +127,14 @@
   .btn-default .btn-arrow {
     position: relative;
     z-index: 1;
-    transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    flex-shrink: 0;
   }
 
   .btn-default:hover .btn-arrow {
-    transform: translateX(5px);
+    transform: translateX(8px) scale(1.1);
   }
 
   /* Hero Image */
@@ -183,6 +199,45 @@
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
+  }
+
+  /* Swiper */
+  .hero-swiper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .swiper-slide {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 -15px;
+  }
+
+  .col-lg-8 {
+    flex: 0 0 66.666%;
+    max-width: 66.666%;
+    padding: 0 15px;
+  }
+
+  .col-lg-4 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+    padding: 0 15px;
   }
 
   /* Swiper Navigation */
@@ -300,6 +355,20 @@
       max-width: 400px;
       margin: 30px auto 0;
     }
+
+    .swiper-slide {
+      padding: 40px 0;
+    }
+
+    .btn-default {
+      padding: 12px 28px;
+      font-size: 14px;
+    }
+
+    .btn-default .btn-arrow {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   @media (max-width: 576px) {
@@ -312,13 +381,34 @@
     }
 
     .btn-default {
-      padding: 12px 25px !important;
+      padding: 12px 24px !important;
       font-size: 14px !important;
+      gap: 10px !important;
+      white-space: nowrap !important;
+    }
+
+    .btn-default .btn-arrow {
+      width: 16px !important;
+      height: 16px !important;
     }
 
     .swiper-button-next,
     .swiper-button-prev {
       display: none !important;
+    }
+
+    .image-badge {
+      bottom: -10px;
+      right: -10px;
+      padding: 8px 14px;
+    }
+
+    .image-badge span {
+      font-size: 10px;
+    }
+
+    .hero-scroll {
+      display: none;
     }
   }
   </style>
@@ -331,14 +421,13 @@
     <div id="three-canvas"></div>
 
     <!-- Swiper -->
-    <div class="swiper hero-swiper" style="position: relative; z-index: 1; width: 100%;">
+    <div class="swiper hero-swiper">
       <div class="swiper-wrapper">
         @forelse($sliders as $slide)
         <div class="swiper-slide">
-          <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="row align-items-center"
-              style="display: flex; flex-wrap: wrap; align-items: center; margin: 0 -15px;">
-              <div class="col-lg-8" style="flex: 0 0 66.666%; max-width: 66.666%; padding: 0 15px;">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
                 <!-- Hero Content Start -->
                 <div class="hero-content">
                   <!-- Section Title Start -->
@@ -346,10 +435,10 @@
                     @if ($slide->subtitle ?? false)
                     <h3>{{ $slide->subtitle }}</h3>
                     @else
-                    <h3>✦ We carry over a decade's worth of experience</h3>
+                    <h3>✦ Welcome To Inoodex</h3>
                     @endif
                     <h1>
-                      {{ $slide->title ?? 'A results-driven company creating robust, unique and tailored software solutions' }}
+                      {{ $slide->title ?? 'Professional Software Development Company In Bangladesh' }}
                     </h1>
                   </div>
                   <!-- Section Title End -->
@@ -367,7 +456,12 @@
                     <a href="{{ url('/contact') }}" class="btn-default">
                       <span class="btn-overlay"></span>
                       <span class="btn-text">{{ $slide->button_text ?? "Let's Talk" }}</span>
-                      <span class="btn-arrow">→</span>
+                      <!-- SINGLE ARROW ONLY -->
+                      <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
                     </a>
                   </div>
                   <!-- Hero Footer End -->
@@ -375,7 +469,7 @@
                 <!-- Hero Left Content End -->
               </div>
 
-              <div class="col-lg-4" style="flex: 0 0 33.333%; max-width: 33.333%; padding: 0 15px;">
+              <div class="col-lg-4">
                 <!-- Hero Image Start -->
                 <div class="hero-image">
                   <div class="image-wrapper">
@@ -402,20 +496,18 @@
         @empty
         <!-- Default Static Slide -->
         <div class="swiper-slide">
-          <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="row align-items-center"
-              style="display: flex; flex-wrap: wrap; align-items: center; margin: 0 -15px;">
-              <div class="col-lg-8" style="flex: 0 0 66.666%; max-width: 66.666%; padding: 0 15px;">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
                 <div class="hero-content">
                   <div class="section-title">
-                    <h3>✦Welcome To Inoodex</h3>
+                    <h3>✦ Welcome To Inoodex</h3>
                     <h1>
                       Professional Software Development Company In Bangladesh
                     </h1>
                   </div>
                   <div class="hero-body">
-
-                    <p class="wow fadeInUp" data-wow-delay="0.5s">
+                    <p>
                       We are dedicated to understanding your vision and working closely with you
                       to bring it to life. Our agile approach ensures that we adapt to changing
                       needs, providing solutions that are scalable and future-proof.
@@ -425,12 +517,17 @@
                     <a href="{{ url('/contact') }}" class="btn-default">
                       <span class="btn-overlay"></span>
                       <span class="btn-text">Let's Talk</span>
-                      <span class="btn-arrow">→</span>
+                      <!-- SINGLE ARROW ONLY -->
+                      <!-- <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round"> -->
+
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
                     </a>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4" style="flex: 0 0 33.333%; max-width: 33.333%; padding: 0 15px;">
+              <div class="col-lg-4">
                 <div class="hero-image">
                   <div class="image-wrapper">
                     <div class="gradient-border"></div>
@@ -465,269 +562,15 @@
     </div>
   </div>
 
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-
-  <script defer>
-  document.addEventListener('DOMContentLoaded', function() {
-    var heroSlider = document.querySelector('.hero-swiper');
-    if (heroSlider) {
-      var slideCount = heroSlider.querySelectorAll('.swiper-slide').length;
-      new Swiper(heroSlider, {
-        loop: slideCount >= 3,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        speed: 800,
-        effect: 'slide',
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-      });
-    }
-  });
-  </script>
-
-  <!-- Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-
-  <!-- GSAP & Lenis -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // ========== THREE.JS BACKGROUND ==========
-    const container = document.getElementById('three-canvas');
-    if (!container || typeof THREE === 'undefined') return;
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-
-    // Scene
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0a0e1a);
-
-    // Camera
-    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 15;
-
-    // Renderer
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true
-    });
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(renderer.domElement);
-
-    // ========== CREATE PARTICLES ==========
-    const particleCount = 600;
-    const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-    const sizes = new Float32Array(particleCount);
-
-    const color1 = new THREE.Color(0x10b981);
-    const color2 = new THREE.Color(0x3b82f6);
-    const color3 = new THREE.Color(0x8b5cf6);
-
-    for (let i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 30;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
-
-      const colorChoice = Math.random();
-      let color;
-      if (colorChoice < 0.33) color = color1;
-      else if (colorChoice < 0.66) color = color2;
-      else color = color3;
-
-      colors[i * 3] = color.r;
-      colors[i * 3 + 1] = color.g;
-      colors[i * 3 + 2] = color.b;
-
-      sizes[i] = Math.random() * 0.08 + 0.02;
-    }
-
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-    geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-    const canvas = document.createElement('canvas');
-    canvas.width = 64;
-    canvas.height = 64;
-    const ctx = canvas.getContext('2d');
-    const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    gradient.addColorStop(0, 'rgba(255,255,255,1)');
-    gradient.addColorStop(0.3, 'rgba(255,255,255,0.8)');
-    gradient.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, 64, 64);
-    const particleTexture = new THREE.CanvasTexture(canvas);
-
-    const material = new THREE.PointsMaterial({
-      size: 0.15,
-      map: particleTexture,
-      blending: THREE.AdditiveBlending,
-      transparent: true,
-      opacity: 0.8,
-      vertexColors: true,
-      depthWrite: false,
-    });
-
-    const particleSystem = new THREE.Points(geometry, material);
-    scene.add(particleSystem);
-
-    // ========== CREATE FLOATING ORBS ==========
-    const orbGroup = new THREE.Group();
-    scene.add(orbGroup);
-
-    const orbColors = [0x10b981, 0x3b82f6, 0x8b5cf6];
-    const orbPositions = [{
-        x: -5,
-        y: 3,
-        z: -3
-      },
-      {
-        x: 6,
-        y: -4,
-        z: -2
-      },
-      {
-        x: -3,
-        y: -5,
-        z: -5
-      },
-      {
-        x: 4,
-        y: 2,
-        z: -4
-      },
-      {
-        x: 0,
-        y: 6,
-        z: -6
-      }
-    ];
-
-    const orbs = [];
-    orbPositions.forEach((pos, i) => {
-      const size = 0.8 + Math.random() * 0.6;
-      const orbGeo = new THREE.SphereGeometry(size, 32, 32);
-      const orbMat = new THREE.MeshBasicMaterial({
-        color: orbColors[i % orbColors.length],
-        transparent: true,
-        opacity: 0.06 + Math.random() * 0.06,
-        wireframe: false,
-      });
-      const orb = new THREE.Mesh(orbGeo, orbMat);
-      orb.position.set(pos.x, pos.y, pos.z);
-      orb.userData = {
-        speed: 0.3 + Math.random() * 0.3,
-        phase: Math.random() * Math.PI * 2,
-        rotSpeed: 0.1 + Math.random() * 0.2,
-        baseX: pos.x,
-        baseY: pos.y,
-        baseZ: pos.z,
-        floatAmp: 0.8 + Math.random() * 0.5,
-      };
-      orbGroup.add(orb);
-      orbs.push(orb);
-
-      const ringGeo = new THREE.TorusGeometry(size * 1.8, 0.03, 16, 32);
-      const ringMat = new THREE.MeshBasicMaterial({
-        color: orbColors[i % orbColors.length],
-        transparent: true,
-        opacity: 0.1,
-        wireframe: true,
-      });
-      const ring = new THREE.Mesh(ringGeo, ringMat);
-      ring.position.copy(orb.position);
-      ring.userData.parent = orb;
-      ring.userData.rotSpeed = 0.2 + Math.random() * 0.3;
-      orbGroup.add(ring);
-      orbs.push(ring);
-    });
-
-    // ========== MOUSE TRACKING ==========
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
-
-    document.addEventListener('mousemove', (event) => {
-      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-    });
-
-    // ========== ANIMATION LOOP ==========
-    const clock = new THREE.Clock();
-
-    function animate() {
-      const time = clock.getElapsedTime();
-
-      targetX += (mouseX - targetX) * 0.03;
-      targetY += (mouseY - targetY) * 0.03;
-
-      particleSystem.rotation.x = Math.sin(time * 0.05) * 0.1;
-      particleSystem.rotation.y = Math.sin(time * 0.03) * 0.1 + targetX * 0.2;
-      particleSystem.rotation.z = Math.sin(time * 0.04) * 0.05;
-
-      const positionsAttr = geometry.attributes.position;
-      const posArray = positionsAttr.array;
-      for (let i = 0; i < particleCount; i++) {
-        const i3 = i * 3;
-        posArray[i3 + 1] += Math.sin(time * 0.5 + i * 0.01) * 0.001;
-        posArray[i3] += Math.cos(time * 0.4 + i * 0.015) * 0.001;
-      }
-      positionsAttr.needsUpdate = true;
-
-      orbs.forEach((obj, i) => {
-        if (obj.type === 'Mesh' && obj.geometry.type === 'SphereGeometry') {
-          const data = obj.userData;
-          obj.position.x = data.baseX + Math.sin(time * data.speed + data.phase) * data.floatAmp;
-          obj.position.y = data.baseY + Math.cos(time * data.speed * 0.7 + data.phase) * data
-            .floatAmp;
-          obj.position.z = data.baseZ + Math.sin(time * data.speed * 0.5 + data.phase * 1.5) * data
-            .floatAmp * 0.5;
-
-          obj.material.opacity = 0.04 + Math.sin(time * 0.5 + data.phase) * 0.03 + 0.03;
-        } else if (obj.type === 'Mesh' && obj.geometry.type === 'TorusGeometry') {
-          obj.rotation.x += obj.userData.rotSpeed * 0.02;
-          obj.rotation.y += obj.userData.rotSpeed * 0.03;
-
-          if (obj.userData.parent) {
-            obj.position.copy(obj.userData.parent.position);
-          }
-        }
-      });
-
-      camera.position.x += (targetX * 0.5 - camera.position.x) * 0.01;
-      camera.position.y += (targetY * 0.3 - camera.position.y) * 0.01;
-      camera.lookAt(0, 0, 0);
-
-      renderer.render(scene, camera);
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    // ========== RESIZE HANDLER ==========
-    window.addEventListener('resize', () => {
-      const newWidth = container.clientWidth;
-      const newHeight = container.clientHeight;
-      camera.aspect = newWidth / newHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(newWidth, newHeight);
-    });
-
     // ========== LENIS SMOOTH SCROLL ==========
     const lenis = new Lenis({
       duration: 1.2,
@@ -741,6 +584,230 @@
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    // ========== THREE.JS BACKGROUND ==========
+    const container = document.getElementById('three-canvas');
+    if (container && typeof THREE !== 'undefined') {
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      // Scene
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x0a0e1a);
+
+      // Camera
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+      camera.position.z = 15;
+
+      // Renderer
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true
+      });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      // ========== CREATE PARTICLES ==========
+      const particleCount = 600;
+      const positions = new Float32Array(particleCount * 3);
+      const colors = new Float32Array(particleCount * 3);
+      const sizes = new Float32Array(particleCount);
+
+      const color1 = new THREE.Color(0x10b981);
+      const color2 = new THREE.Color(0x3b82f6);
+      const color3 = new THREE.Color(0x8b5cf6);
+
+      for (let i = 0; i < particleCount; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 30;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+
+        const colorChoice = Math.random();
+        let color;
+        if (colorChoice < 0.33) color = color1;
+        else if (colorChoice < 0.66) color = color2;
+        else color = color3;
+
+        colors[i * 3] = color.r;
+        colors[i * 3 + 1] = color.g;
+        colors[i * 3 + 2] = color.b;
+
+        sizes[i] = Math.random() * 0.08 + 0.02;
+      }
+
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+      geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+      const canvas = document.createElement('canvas');
+      canvas.width = 64;
+      canvas.height = 64;
+      const ctx = canvas.getContext('2d');
+      const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+      gradient.addColorStop(0, 'rgba(255,255,255,1)');
+      gradient.addColorStop(0.3, 'rgba(255,255,255,0.8)');
+      gradient.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, 64, 64);
+      const particleTexture = new THREE.CanvasTexture(canvas);
+
+      const material = new THREE.PointsMaterial({
+        size: 0.15,
+        map: particleTexture,
+        blending: THREE.AdditiveBlending,
+        transparent: true,
+        opacity: 0.8,
+        vertexColors: true,
+        depthWrite: false,
+      });
+
+      const particleSystem = new THREE.Points(geometry, material);
+      scene.add(particleSystem);
+
+      // ========== CREATE FLOATING ORBS ==========
+      const orbGroup = new THREE.Group();
+      scene.add(orbGroup);
+
+      const orbColors = [0x10b981, 0x3b82f6, 0x8b5cf6];
+      const orbPositions = [{
+          x: -5,
+          y: 3,
+          z: -3
+        },
+        {
+          x: 6,
+          y: -4,
+          z: -2
+        },
+        {
+          x: -3,
+          y: -5,
+          z: -5
+        },
+        {
+          x: 4,
+          y: 2,
+          z: -4
+        },
+        {
+          x: 0,
+          y: 6,
+          z: -6
+        }
+      ];
+
+      const orbs = [];
+      orbPositions.forEach((pos, i) => {
+        const size = 0.8 + Math.random() * 0.6;
+        const orbGeo = new THREE.SphereGeometry(size, 32, 32);
+        const orbMat = new THREE.MeshBasicMaterial({
+          color: orbColors[i % orbColors.length],
+          transparent: true,
+          opacity: 0.06 + Math.random() * 0.06,
+          wireframe: false,
+        });
+        const orb = new THREE.Mesh(orbGeo, orbMat);
+        orb.position.set(pos.x, pos.y, pos.z);
+        orb.userData = {
+          speed: 0.3 + Math.random() * 0.3,
+          phase: Math.random() * Math.PI * 2,
+          rotSpeed: 0.1 + Math.random() * 0.2,
+          baseX: pos.x,
+          baseY: pos.y,
+          baseZ: pos.z,
+          floatAmp: 0.8 + Math.random() * 0.5,
+        };
+        orbGroup.add(orb);
+        orbs.push(orb);
+
+        const ringGeo = new THREE.TorusGeometry(size * 1.8, 0.03, 16, 32);
+        const ringMat = new THREE.MeshBasicMaterial({
+          color: orbColors[i % orbColors.length],
+          transparent: true,
+          opacity: 0.1,
+          wireframe: true,
+        });
+        const ring = new THREE.Mesh(ringGeo, ringMat);
+        ring.position.copy(orb.position);
+        ring.userData.parent = orb;
+        ring.userData.rotSpeed = 0.2 + Math.random() * 0.3;
+        orbGroup.add(ring);
+        orbs.push(ring);
+      });
+
+      // ========== MOUSE TRACKING ==========
+      let mouseX = 0;
+      let mouseY = 0;
+      let targetX = 0;
+      let targetY = 0;
+
+      document.addEventListener('mousemove', (event) => {
+        mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+        mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+      });
+
+      // ========== ANIMATION LOOP ==========
+      const clock = new THREE.Clock();
+
+      function animate() {
+        const time = clock.getElapsedTime();
+
+        targetX += (mouseX - targetX) * 0.03;
+        targetY += (mouseY - targetY) * 0.03;
+
+        particleSystem.rotation.x = Math.sin(time * 0.05) * 0.1;
+        particleSystem.rotation.y = Math.sin(time * 0.03) * 0.1 + targetX * 0.2;
+        particleSystem.rotation.z = Math.sin(time * 0.04) * 0.05;
+
+        const positionsAttr = geometry.attributes.position;
+        const posArray = positionsAttr.array;
+        for (let i = 0; i < particleCount; i++) {
+          const i3 = i * 3;
+          posArray[i3 + 1] += Math.sin(time * 0.5 + i * 0.01) * 0.001;
+          posArray[i3] += Math.cos(time * 0.4 + i * 0.015) * 0.001;
+        }
+        positionsAttr.needsUpdate = true;
+
+        orbs.forEach((obj, i) => {
+          if (obj.type === 'Mesh' && obj.geometry.type === 'SphereGeometry') {
+            const data = obj.userData;
+            obj.position.x = data.baseX + Math.sin(time * data.speed + data.phase) * data.floatAmp;
+            obj.position.y = data.baseY + Math.cos(time * data.speed * 0.7 + data.phase) * data.floatAmp;
+            obj.position.z = data.baseZ + Math.sin(time * data.speed * 0.5 + data.phase * 1.5) * data
+              .floatAmp * 0.5;
+
+            obj.material.opacity = 0.04 + Math.sin(time * 0.5 + data.phase) * 0.03 + 0.03;
+          } else if (obj.type === 'Mesh' && obj.geometry.type === 'TorusGeometry') {
+            obj.rotation.x += obj.userData.rotSpeed * 0.02;
+            obj.rotation.y += obj.userData.rotSpeed * 0.03;
+
+            if (obj.userData.parent) {
+              obj.position.copy(obj.userData.parent.position);
+            }
+          }
+        });
+
+        camera.position.x += (targetX * 0.5 - camera.position.x) * 0.01;
+        camera.position.y += (targetY * 0.3 - camera.position.y) * 0.01;
+        camera.lookAt(0, 0, 0);
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      // ========== RESIZE HANDLER ==========
+      window.addEventListener('resize', () => {
+        const newWidth = container.clientWidth;
+        const newHeight = container.clientHeight;
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(newWidth, newHeight);
+      });
+    }
 
     // ========== SWIPER ==========
     const swiper = new Swiper('.hero-swiper', {
@@ -764,17 +831,18 @@
       }
     });
 
-    // Button Hover Animation
+    // ========== GSAP BUTTON ANIMATION ==========
     document.querySelectorAll('.btn-default').forEach(btn => {
       btn.addEventListener('mouseenter', function() {
         gsap.to(this, {
           scale: 1.05,
-          boxShadow: '0 8px 30px rgba(16,185,129,0.4)',
+          boxShadow: '0 8px 35px rgba(16,185,129,0.4)',
           duration: 0.3,
           ease: "back.out(1.7)"
         });
         gsap.to(this.querySelector('.btn-arrow'), {
           x: 8,
+          scale: 1.1,
           duration: 0.3,
           ease: "power2.out"
         });
@@ -788,6 +856,7 @@
         });
         gsap.to(this.querySelector('.btn-arrow'), {
           x: 0,
+          scale: 1,
           duration: 0.3,
           ease: "power2.out"
         });

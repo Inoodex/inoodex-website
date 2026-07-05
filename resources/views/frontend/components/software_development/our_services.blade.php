@@ -1,5 +1,6 @@
-<div class="our-services" style="position: relative; background: #0a0e1a; padding: 100px 0; overflow: hidden;">
-  <!-- Animated Background -->
+{{-- <div class="our-services" style="position: relative; background: #0a0e1a; padding: 100px 0; overflow: hidden;">
+
+  <!-- ===== ANIMATED BACKGROUND ===== -->
   <div style="position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;">
     <div style="position: absolute; inset: 0; background: #0a0e1a;"></div>
 
@@ -32,40 +33,40 @@
     </div>
   </div>
 
+  <!-- ===== CONTENT ===== -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
     <!-- Section Header -->
     <div style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 50px;">
       <div style="flex: 0 0 58.333%; max-width: 58.333%; padding: 0 15px;">
         <div class="section-title">
           <div
-            style="display: inline-block; padding: 6px 20px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.12); border-radius: 50px; margin-bottom: 15px; animation: fadeInDown 0.6s ease forwards; opacity: 0; transform: translateY(-20px);">
+            style="display: inline-block; padding: 6px 20px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.12); border-radius: 50px; margin-bottom: 15px;"
+            class="anim-reveal">
             <span
               style="color: #10b981; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">✦
               Our Services</span>
           </div>
-          <h2
-            style="font-size: 38px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 0; animation: fadeInUp 0.6s ease forwards 0.1s; opacity: 0; transform: translateY(20px);">
+          <h2 style="font-size: 38px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 0;"
+            class="anim-reveal" style="transition-delay:0.1s;">
             What <span
               style="background: linear-gradient(135deg, #10b981, #34d399, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 300% 300%; animation: gradientMove 5s ease-in-out infinite;">we
               can offer</span> today
           </h2>
         </div>
       </div>
-      <div style="flex: 0 0 41.666%; max-width: 41.666%; padding: 0 15px; text-align: right;">
-        <div style="animation: fadeInUp 0.6s ease forwards 0.2s; opacity: 0; transform: translateY(20px);">
-          <a href="{{ url('/services') }}"
-            style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 35px; background: linear-gradient(135deg, #10b981, #059669); color: #ffffff; font-size: 15px; font-weight: 600; border-radius: 50px; text-decoration: none; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 4px 25px rgba(16,185,129,0.3);"
-            onmouseover="this.style.transform='translateY(-3px) scale(1.03)'; this.style.boxShadow='0 10px 40px rgba(16,185,129,0.4)'"
-            onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 25px rgba(16,185,129,0.3)'">
-            <span>View All Services</span>
-            <span style="transition: transform 0.3s;" onmouseover="this.style.transform='translateX(6px)'"
-              onmouseout="this.style.transform='translateX(0)'">→</span>
-          </a>
-        </div>
+      <div style="flex: 0 0 41.666%; max-width: 41.666%; padding: 0 15px; text-align: right;" class="anim-reveal"
+        style="transition-delay:0.2s;">
+        <a href="{{ url('/services') }}"
+          style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 35px; background: linear-gradient(135deg, #10b981, #059669); color: #ffffff; font-size: 15px; font-weight: 600; border-radius: 50px; text-decoration: none; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 4px 25px rgba(16,185,129,0.3);"
+          class="btn-hover">
+          <span>View All Services</span>
+          <span style="transition: transform 0.3s;" class="arrow-icon">→</span>
+        </a>
       </div>
     </div>
 
-    <!-- Services Grid - Card Style -->
+    <!-- ===== SERVICES GRID ===== -->
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 20px;">
       @php
       $serviceColors = [
@@ -78,47 +79,23 @@
       ];
 
       $services = [
-      [
-      'title' => 'Software Development',
-      'desc' => 'At InooDex, we specialize in delivering custom software solutions tailored to meet the unique needs of
-      businesses across all industries.',
-      'icon' => 'software.png'
-      ],
-      [
-      'title' => 'Apps Development',
-      'desc' => 'We offer custom app development services that are designed to meet the specific needs of your business
-      for iOS and Android platforms.',
-      'icon' => 'apps.png'
-      ],
-      [
-      'title' => 'Web Development',
-      'desc' => 'We understand that every business is unique, which is why we create custom websites tailored to your
-      specific requirements.',
-      'icon' => 'web.png'
-      ],
-      [
-      'title' => 'Digital Marketing',
-      'desc' => 'We help businesses grow online through tailored digital marketing strategies that drive traffic,
-      increase conversions, and boost brand awareness.',
-      'icon' => 'marketing.png'
-      ],
-      [
-      'title' => 'SEO Service',
-      'desc' => 'We focus on both on-page and off-page SEO to ensure your website is fully optimized for search
-      engines.',
-      'icon' => 'seo.png'
-      ],
-      [
-      'title' => 'Graphics Design',
-      'desc' => 'Our talented graphic designers combine creativity with technical expertise to produce high-quality
-      visuals that engage and captivate your audience.',
-      'icon' => 'graphics.png'
-      ]
+      ['title' => 'Software Development', 'desc' => 'At InooDex, we specialize in delivering custom software solutions
+      tailored to meet the unique needs of businesses across all industries.', 'icon' => 'software.png'],
+      ['title' => 'Apps Development', 'desc' => 'We offer custom app development services that are designed to meet the
+      specific needs of your business for iOS and Android platforms.', 'icon' => 'apps.png'],
+      ['title' => 'Web Development', 'desc' => 'We understand that every business is unique, which is why we create
+      custom websites tailored to your specific requirements.', 'icon' => 'web.png'],
+      ['title' => 'Digital Marketing', 'desc' => 'We help businesses grow online through tailored digital marketing
+      strategies that drive traffic, increase conversions, and boost brand awareness.', 'icon' => 'marketing.png'],
+      ['title' => 'SEO Service', 'desc' => 'We focus on both on-page and off-page SEO to ensure your website is fully
+      optimized for search engines.', 'icon' => 'seo.png'],
+      ['title' => 'Graphics Design', 'desc' => 'Our talented graphic designers combine creativity with technical
+      expertise to produce high-quality visuals that engage and captivate your audience.', 'icon' => 'graphics.png']
       ];
       @endphp
 
       @foreach ($services as $index => $service)
-      <div class="service-card" style="
+      <div class="service-card anim-card" data-delay="{{ $index * 0.1 }}" style="
                 background: {{ $serviceColors[$index % count($serviceColors)]['bg'] }}; 
                 border: 1px solid rgba(255,255,255,0.04); 
                 border-radius: 20px; 
@@ -127,17 +104,16 @@
                 transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); 
                 position: relative; 
                 overflow: hidden;
-                animation: cardFadeUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-                animation-delay: {{ $index * 0.1 }}s;
-                opacity: 0;
-                transform: translateY(50px);
                 border-bottom: 3px solid {{ $serviceColors[$index % count($serviceColors)]['border'] }};
                 cursor: pointer;
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
             ">
+
         <!-- Glow Effect -->
         <div
-          style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, {{ $serviceColors[$index % count($serviceColors)]['border'] }}08, transparent 70%); opacity: 0; transition: opacity 0.6s;">
-        </div>
+          style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, {{ $serviceColors[$index % count($serviceColors)]['border'] }}08, transparent 70%); opacity: 0; transition: opacity 0.6s;"
+          class="glow-effect"></div>
 
         <!-- Decorative Elements -->
         <div
@@ -150,14 +126,12 @@
         <!-- Service Number -->
         <div
           style="position: absolute; top: 12px; right: 15px; font-size: 10px; font-weight: 700; color: {{ $serviceColors[$index % count($serviceColors)]['border'] }}; opacity: 0.15; letter-spacing: 1px;">
-          #{{ sprintf('%02d', $index + 1) }}
-        </div>
+          #{{ sprintf('%02d', $index + 1) }}</div>
 
         <!-- Icon -->
         <div
           style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; margin-bottom: 18px; background: {{ $serviceColors[$index % count($serviceColors)]['light'] }}; border-radius: 14px; border: 1px solid {{ $serviceColors[$index % count($serviceColors)]['border'] }}25; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; z-index: 1;"
-          onmouseover="this.style.background='{{ $serviceColors[$index % count($serviceColors)]['border'] }}20'; this.style.transform='scale(1.05) rotate(-5deg)'; this.style.boxShadow='0 10px 30px {{ $serviceColors[$index % count($serviceColors)]['border'] }}20'"
-          onmouseout="this.style.background='{{ $serviceColors[$index % count($serviceColors)]['light'] }}'; this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='none'">
+          class="icon-wrap">
           <img src="{{ asset('frontend/assets/images/services/' . $service['icon']) }}" alt="{{ $service['title'] }}"
             style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1) opacity(0.7); transition: all 0.4s;">
         </div>
@@ -165,33 +139,27 @@
         <!-- Title -->
         <h3
           style="font-size: 18px; font-weight: 700; color: #ffffff; margin: 0 0 12px 0; transition: color 0.3s; position: relative; z-index: 1;"
-          onmouseover="this.style.color='{{ $serviceColors[$index % count($serviceColors)]['border'] }}'"
-          onmouseout="this.style.color='#ffffff'">
-          {{ $service['title'] }}
-        </h3>
+          class="service-title">{{ $service['title'] }}</h3>
 
         <!-- Description -->
         <p
           style="color: #9ca3af; font-size: 14px; line-height: 1.8; margin: 0 0 20px 0; position: relative; z-index: 1;">
-          {{ $service['desc'] }}
-        </p>
+          {{ $service['desc'] }}</p>
 
         <!-- Learn More -->
         <div style="display: flex; align-items: center; gap: 8px; position: relative; z-index: 1;">
           <a href="{{ url('/services') }}"
             style="color: {{ $serviceColors[$index % count($serviceColors)]['border'] }}; font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s;"
-            onmouseover="this.style.gap='14px'" onmouseout="this.style.gap='8px'">
+            class="learn-more">
             <span>Learn More</span>
-            <span style="display: inline-block; transition: transform 0.3s;"
-              onmouseover="this.style.transform='translateX(6px)'"
-              onmouseout="this.style.transform='translateX(0)'">→</span>
+            <span style="display: inline-block; transition: transform 0.3s;" class="arrow">→</span>
           </a>
         </div>
 
         <!-- Bottom Progress Line -->
         <div
-          style="position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, {{ $serviceColors[$index % count($serviceColors)]['border'] }}, {{ $serviceColors[$index % count($serviceColors)]['border'] }}80); transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); border-radius: 0 0 3px 3px;">
-        </div>
+          style="position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, {{ $serviceColors[$index % count($serviceColors)]['border'] }}, {{ $serviceColors[$index % count($serviceColors)]['border'] }}80); transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); border-radius: 0 0 3px 3px;"
+          class="progress-line"></div>
       </div>
       @endforeach
     </div>
@@ -199,7 +167,7 @@
 </div>
 
 <style>
-/* Floating Orbs */
+/* ===== KEYFRAMES ===== */
 @keyframes floatOrb1 {
 
   0%,
@@ -236,7 +204,6 @@
   }
 }
 
-/* Particles */
 @keyframes particle1 {
 
   0%,
@@ -307,31 +274,6 @@
   }
 }
 
-/* Fade Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes gradientMove {
 
   0%,
@@ -344,35 +286,71 @@
   }
 }
 
-/* Card Fade Up Animation */
-@keyframes cardFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px) scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+/* ===== ANIMATION CLASSES ===== */
+.anim-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Service Card Hover */
+.anim-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anim-card {
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.anim-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== CARD HOVER EFFECTS ===== */
 .service-card:hover {
-  transform: translateY(-8px) scale(1.01) !important;
+  transform: translateY(-8px) scale(1.02) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5) !important;
 }
 
-.service-card:hover>div:first-child {
+.service-card:hover .glow-effect {
   opacity: 1 !important;
 }
 
-.service-card:hover>div:last-child {
+.service-card:hover .progress-line {
   width: 100% !important;
 }
 
-/* Responsive */
+.service-card:hover .icon-wrap {
+  background: var(--hover-bg, rgba(16, 185, 129, 0.15)) !important;
+  transform: scale(1.05) rotate(-5deg) !important;
+  box-shadow: 0 10px 30px var(--hover-shadow, rgba(16, 185, 129, 0.2)) !important;
+}
+
+.service-card:hover .service-title {
+  color: var(--hover-color, #10b981) !important;
+}
+
+.service-card:hover .learn-more {
+  gap: 14px !important;
+}
+
+.service-card:hover .learn-more .arrow {
+  transform: translateX(6px) !important;
+}
+
+/* ===== BUTTON HOVER ===== */
+.btn-hover:hover {
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4) !important;
+}
+
+.btn-hover:hover .arrow-icon {
+  transform: translateX(6px) !important;
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .our-services>div>div:first-child>div {
     flex: 0 0 100% !important;
@@ -388,11 +366,25 @@
   .our-services>div>div:last-child {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+
+  .our-services h2 {
+    font-size: 32px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-services {
+    padding: 60px 0 !important;
+  }
+
+  .our-services h2 {
+    font-size: 28px !important;
+  }
 }
 
 @media (max-width: 640px) {
-  .our-services>div>div:first-child h2 {
-    font-size: 28px !important;
+  .our-services h2 {
+    font-size: 24px !important;
   }
 
   .our-services>div>div:last-child {
@@ -401,7 +393,7 @@
   }
 
   .service-card {
-    padding: 25px 20px !important;
+    padding: 24px 18px !important;
   }
 
   .service-card h3 {
@@ -411,5 +403,78 @@
   .service-card p {
     font-size: 13px !important;
   }
+
+  .service-card .icon-wrap {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .service-card .icon-wrap img {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .btn-hover {
+    padding: 10px 24px !important;
+    font-size: 13px !important;
+  }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ===== SCROLL ANIMATION OBSERVER =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Reveal text animations
+        entry.target.querySelectorAll('.anim-reveal').forEach((el, i) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, i * 100);
+        });
+
+        // Reveal cards with stagger
+        entry.target.querySelectorAll('.anim-card').forEach((el, i) => {
+          const delay = parseFloat(el.dataset.delay) || i * 0.1;
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, delay * 1000 + 200);
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  const section = document.querySelector('.our-services');
+  if (section) {
+    observer.observe(section);
+  }
+
+  // ===== CARD HOVER COLORS =====
+  document.querySelectorAll('.service-card').forEach((card) => {
+    const borderColor = card.style.borderBottomColor || '#10b981';
+    card.style.setProperty('--hover-color', borderColor);
+    card.style.setProperty('--hover-bg', borderColor + '20');
+    card.style.setProperty('--hover-shadow', borderColor + '30');
+  });
+
+  // ===== BUTTON HOVER =====
+  document.querySelectorAll('.btn-hover').forEach((btn) => {
+    btn.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-3px) scale(1.03)';
+      this.style.boxShadow = '0 10px 40px rgba(16,185,129,0.4)';
+    });
+    btn.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+      this.style.boxShadow = '0 4px 25px rgba(16,185,129,0.3)';
+    });
+  });
+
+});
+</script> --}}

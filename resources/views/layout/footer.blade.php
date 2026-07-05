@@ -105,7 +105,7 @@
         <div class="footer-copyright">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
                 <div class="footer-copyright-text">
-                    <p>&copy; 2025 <strong>Inoodex</strong>. All rights reserved.</p>
+                    <p>&copy; {{ date('Y') }} <strong>Inoodex</strong>. All rights reserved.</p>
                 </div>
                 <div class="footer-policy-links">
                     <ul>

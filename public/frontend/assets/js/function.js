@@ -1,25 +1,25 @@
 (function ($) {
-    "use strict";
-	
-	var $window = $(window); 
-	var $body = $('body'); 
+	"use strict";
+
+	var $window = $(window);
+	var $body = $('body');
 
 	/* Preloader Effect */
-	$window.on('load', function(){
+	$window.on('load', function () {
 		setHeaderHeight();
 		$(".preloader").fadeOut(600);
 	});
-	
+
 	/* Sticky Header */
-	$window.on('resize', function(){
+	$window.on('resize', function () {
 		setHeaderHeight();
 	});
 
-	function setHeaderHeight(){
+	function setHeaderHeight() {
 		$("header.main-header").css("height", $('header .header-sticky').outerHeight());
-	}	
-	
-	$(window).on("scroll", function() {
+	}
+
+	$(window).on("scroll", function () {
 		var fromTop = $(window).scrollTop();
 		setHeaderHeight();
 		var headerHeight = $('header .header-sticky').outerHeight()
@@ -29,12 +29,12 @@
 
 	/* Slick Menu JS */
 	$('#menu').slicknav({
-		label : '',
-		prependTo : '.responsive-menu'
+		label: '',
+		prependTo: '.responsive-menu'
 	});
 
-	if($("a[href='#top']").length){
-		$("a[href='#top']").click(function() {
+	if ($("a[href='#top']").length) {
+		$("a[href='#top']").click(function () {
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			return false;
 		});
@@ -44,23 +44,23 @@
 	if ($('.testimonial-slider').length) {
 		var testimonialSlides = document.querySelectorAll('.testimonial-slider .swiper-slide').length;
 		new Swiper('.testimonial-slider .swiper', {
-			slidesPerView : 1,
+			slidesPerView: 1,
 			speed: 1000,
 			spaceBetween: 30,
-			loop: testimonialSlides >= 6,
+			loop: testimonialSlides >= 2, // Lower the threshold to 2 for loop
 			autoplay: {
 				delay: 3000,
 			},
 			pagination: {
-				el: '.swiper-pagination',
+				el: '.testimonial-slider .swiper-pagination',
 				clickable: true,
 			},
 			breakpoints: {
-				768:{
-				  	slidesPerView: 2,
+				768: {
+					slidesPerView: 2,
 				},
-				991:{
-				  	slidesPerView: 3,
+				991: {
+					slidesPerView: testimonialSlides >= 3 ? 3 : testimonialSlides,
 				}
 			}
 		});
@@ -71,15 +71,15 @@
 	if (heroSliderEl) {
 		var heroSlides = heroSliderEl.querySelectorAll('.swiper-slide').length;
 		new Swiper('.hero-slider .swiper', {
-			slidesPerView : 1,
+			slidesPerView: 1,
 			speed: 1000,
 			spaceBetween: 10,
-			loop: heroSlides >= 3,
+			loop: heroSlides >= 2, // Lower to 2
 			autoplay: {
 				delay: 4000,
 			},
 			pagination: {
-				el: '.swiper-pagination',
+				el: '.hero-slider .swiper-pagination',
 				clickable: true,
 			},
 		});
@@ -92,77 +92,77 @@
 
 	/* Image Reveal Animation */
 	if ($('.reveal').length) {
-        gsap.registerPlugin(ScrollTrigger);
-        let revealContainers = document.querySelectorAll(".reveal");
-        revealContainers.forEach((container) => {
-            let image = container.querySelector("img");
-            let tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: container,
-                    toggleActions: "play none none none"
-                }
-            });
-            tl.set(container, {
-                autoAlpha: 1
-            });
-            tl.from(container, 1, {
-                xPercent: -100,
-                ease: Power2.out
-            });
-            tl.from(image, 1, {
-                xPercent: 100,
-                scale: 1,
-                delay: -1,
-                ease: Power2.out
-            });
-        });
-    }
+		gsap.registerPlugin(ScrollTrigger);
+		let revealContainers = document.querySelectorAll(".reveal");
+		revealContainers.forEach((container) => {
+			let image = container.querySelector("img");
+			let tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: container,
+					toggleActions: "play none none none"
+				}
+			});
+			tl.set(container, {
+				autoAlpha: 1
+			});
+			tl.from(container, 1, {
+				xPercent: -100,
+				ease: Power2.out
+			});
+			tl.from(image, 1, {
+				xPercent: 100,
+				scale: 1,
+				delay: -1,
+				ease: Power2.out
+			});
+		});
+	}
 
 	/* Text Effect Animation */
 	if ($('.text-anime-style-1').length) {
-		let staggerAmount 	= 0.05,
+		let staggerAmount = 0.05,
 			translateXValue = 0,
-			delayValue 		= 0.5,
-		   animatedTextElements = document.querySelectorAll('.text-anime-style-1');
-		
+			delayValue = 0.5,
+			animatedTextElements = document.querySelectorAll('.text-anime-style-1');
+
 		animatedTextElements.forEach((element) => {
 			let animationSplitText = new SplitText(element, { type: "chars, words" });
-				gsap.from(animationSplitText.words, {
+			gsap.from(animationSplitText.words, {
 				duration: 1,
 				delay: delayValue,
 				x: 20,
 				autoAlpha: 0,
 				stagger: staggerAmount,
 				scrollTrigger: { trigger: element, start: "top 85%" },
-				});
-		});		
+			});
+		});
 	}
-	
-	if ($('.text-anime-style-2').length) {				
-		let	 staggerAmount 		= 0.05,
-			 translateXValue	= 20,
-			 delayValue 		= 0.5,
-			 easeType 			= "power2.out",
-			 animatedTextElements = document.querySelectorAll('.text-anime-style-2');
-		
+
+	if ($('.text-anime-style-2').length) {
+		let staggerAmount = 0.05,
+			translateXValue = 20,
+			delayValue = 0.5,
+			easeType = "power2.out",
+			animatedTextElements = document.querySelectorAll('.text-anime-style-2');
+
 		animatedTextElements.forEach((element) => {
 			let animationSplitText = new SplitText(element, { type: "chars, words" });
-				gsap.from(animationSplitText.chars, {
-					duration: 1,
-					delay: delayValue,
-					x: translateXValue,
-					autoAlpha: 0,
-					stagger: staggerAmount,
-					ease: easeType,
-					scrollTrigger: { trigger: element, start: "top 85%"},
-				});
-		});		
+			gsap.from(animationSplitText.chars, {
+				duration: 1,
+				delay: delayValue,
+				x: translateXValue,
+				autoAlpha: 0,
+				stagger: staggerAmount,
+				ease: easeType,
+				scrollTrigger: { trigger: element, start: "top 85%" },
+			});
+		});
 	}
-	
-	if ($('.text-anime-style-3').length) {		
-		let	animatedTextElements = document.querySelectorAll('.text-anime-style-3');
-		
-		 animatedTextElements.forEach((element) => {
+
+	if ($('.text-anime-style-3').length) {
+		let animatedTextElements = document.querySelectorAll('.text-anime-style-3');
+
+		animatedTextElements.forEach((element) => {
 			//Reset if needed
 			if (element.animation) {
 				element.animation.progress(1).kill();
@@ -181,7 +181,7 @@
 			});
 
 			element.animation = gsap.to(element.split.chars, {
-				scrollTrigger: { trigger: element,	start: "top 90%" },
+				scrollTrigger: { trigger: element, start: "top 90%" },
 				x: "0",
 				y: "0",
 				rotateX: "0",
@@ -190,19 +190,19 @@
 				ease: Back.easeOut,
 				stagger: 0.02,
 			});
-		});		
+		});
 	}
 
 	/* Contact form validation */
 	var $contactform = $("#contactForm");
-	$contactform.validator({focus: false}).on("submit", function (event) {
+	$contactform.validator({ focus: false }).on("submit", function (event) {
 		if (!event.isDefaultPrevented()) {
 			event.preventDefault();
 			submitForm();
 		}
 	});
 
-	function submitForm(){
+	function submitForm() {
 		/* Initiate Variables With Form Content*/
 		var fname = $("#fname").val();
 		var lname = $("#lname").val();
@@ -215,23 +215,23 @@
 			type: "POST",
 			url: "form-process.php",
 			data: "fname=" + fname + "&lname=" + lname + "&email=" + email + "&phone=" + phone + "&subject=" + subject + "&message=" + message,
-			success : function(text){
-				if (text == "success"){
+			success: function (text) {
+				if (text == "success") {
 					formSuccess();
 				} else {
-					submitMSG(false,text);
+					submitMSG(false, text);
 				}
 			}
 		});
 	}
 
-	function formSuccess(){
+	function formSuccess() {
 		$contactform[0].reset();
 		submitMSG(true, "Message Sent Successfully!")
 	}
 
-	function submitMSG(valid, msg){
-		if(valid){
+	function submitMSG(valid, msg) {
+		if (valid) {
 			var msgClasses = "h3 text-success";
 		} else {
 			var msgClasses = "h3 text-danger";
@@ -241,7 +241,7 @@
 	/* Contact form validation end */
 
 
-	/* Animated Wow Js */	
+	/* Animated Wow Js */
 	new WOW().init();
 
 	/* Zoom Gallery screenshot */
@@ -260,8 +260,8 @@
 		zoom: {
 			enabled: true,
 			duration: 300, // don't foget to change the duration also in CSS
-			opener: function(element) {
-			  return element.find('img');
+			opener: function (element) {
+				return element.find('img');
 			}
 		}
 	});
@@ -279,9 +279,9 @@
 	}
 
 	/* Projects (filtering) */
-	$window.on( "load", function(){
-		if( $(".project-item-boxes").length ) {
-				
+	$window.on("load", function () {
+		if ($(".project-item-boxes").length) {
+
 			/* Init Isotope */
 			var $menuitem = $(".project-item-boxes").isotope({
 				itemSelector: ".project-item-box",
@@ -291,25 +291,25 @@
 					columnWidth: 1,
 				}
 			});
-				
+
 			/* Filter items on click */
-			var $menudisesnav=$(".our-projects-nav li a");
-				$menudisesnav.on('click', function (e) { 
-			
+			var $menudisesnav = $(".our-projects-nav li a");
+			$menudisesnav.on('click', function (e) {
+
 				var filterValue = $(this).attr('data-filter');
 				$menuitem.isotope({
 					filter: filterValue
-				}); 
-				
-				$menudisesnav.removeClass("active-btn"); 
+				});
+
+				$menudisesnav.removeClass("active-btn");
 				$(this).addClass("active-btn");
 				e.preventDefault();
 			});
-		
+
 			$menuitem.isotope({ filter: "*" });
 		}
-			
+
 	});
-	
+
 })(jQuery);
 

@@ -108,16 +108,18 @@
     <!-- Footer Start -->
     @include('layout.footer')
     <script>
-    window.addEventListener('load', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             var preloader = document.getElementById('inoodex-preloader');
-            preloader.style.transition = 'all 0.8s ease';
-            preloader.style.opacity = '0';
-            preloader.style.transform = 'scale(1.2)';
-            setTimeout(function() {
-                preloader.style.display = 'none';
-            }, 800);
-        }, 300);
+            if (preloader) {
+                preloader.style.transition = 'all 0.5s ease';
+                preloader.style.opacity = '0';
+                preloader.style.transform = 'scale(1.1)';
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }, 100);
     });
     </script>
 </body>

@@ -63,7 +63,7 @@
 
   /* ===== HERO SECTION ===== */
   .hero-section {
-    padding: 120px 0 80px;
+    padding: 120px 0 60px;
     position: relative;
     z-index: 1;
     text-align: center;
@@ -106,134 +106,140 @@
   .hero-subtitle {
     font-size: 18px;
     color: #94a3b8;
-    max-width: 560px;
-    margin: 0 auto 32px;
+    max-width: 640px;
+    margin: 0 auto 0;
     line-height: 1.8;
+    font-weight: 400;
   }
 
-  .hero-subtitle .highlight-blue {
-    color: #60a5fa;
-    font-weight: 500;
-  }
-
-  .hero-subtitle .highlight-purple {
-    color: #a78bfa;
-    font-weight: 500;
-  }
-
-  .hero-subtitle .highlight-green {
-    color: #34d399;
-    font-weight: 500;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 32px;
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 50px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
-  }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 28px;
-    color: #94a3b8;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 50px;
-    text-decoration: none;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.3s ease;
-  }
-
-  .btn-secondary:hover {
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.15);
-  }
-
-  /* ===== PRODUCTS SECTION ===== */
-  .products-section {
-    padding: 40px 0 80px;
+  /* ===== FILTER SECTION ===== */
+  .filter-section {
+    padding: 30px 0 40px;
     position: relative;
     z-index: 1;
   }
 
-  .section-header {
+  .filter-wrapper {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
-    gap: 16px;
+    gap: 20px;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
   }
 
-  .section-header .label {
+  .filter-categories {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .filter-categories .label {
     font-size: 12px;
     font-weight: 600;
-    color: #60a5fa;
+    color: #64748b;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    margin-right: 4px;
+  }
+
+  .filter-categories a {
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #94a3b8;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .filter-categories a:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .filter-categories a.active {
+    background: rgba(37, 99, 235, 0.1);
+    color: #60a5fa;
+    border-color: rgba(37, 99, 235, 0.15);
+  }
+
+  .filter-actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
 
-  .section-header .label .line {
-    width: 30px;
-    height: 2px;
-    background: linear-gradient(90deg, #60a5fa, transparent);
+  .filter-actions select {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
   }
 
-  .section-header h2 {
-    font-size: 32px;
-    font-weight: 700;
+  .filter-actions select:focus {
+    border-color: rgba(37, 99, 235, 0.3);
+  }
+
+  .filter-actions select option {
+    background: #0a0e1a;
+    color: #e2e8f0;
+  }
+
+  .filter-actions .btn-clear {
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748b;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-actions .btn-clear:hover {
     color: #ffffff;
-    letter-spacing: -0.5px;
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
-  .section-header h2 span {
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .filter-actions .btn-clear i {
+    margin-right: 4px;
   }
 
-  .section-header .count-badge {
+  /* ===== RESULT COUNT ===== */
+  .result-count {
+    padding: 0 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .result-count span {
     font-size: 14px;
     color: #64748b;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 6px 18px;
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
   }
 
-  .section-header .count-badge i {
-    margin-right: 6px;
-    color: #60a5fa;
+  .result-count span strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  /* ===== PRODUCTS SECTION ===== */
+  .products-section {
+    padding: 0 0 80px;
+    position: relative;
+    z-index: 1;
   }
 
   /* ===== PRODUCT GRID ===== */
@@ -264,7 +270,7 @@
     position: relative;
     overflow: hidden;
     background: #0a0e1a;
-    height: 260px;
+    height: 240px;
   }
 
   .product-card .image-wrap img {
@@ -327,14 +333,14 @@
   }
 
   .product-card .card-body {
-    padding: 22px 24px 24px;
+    padding: 20px 22px 22px;
   }
 
   .product-card .card-body h3 {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     letter-spacing: -0.3px;
   }
 
@@ -348,11 +354,19 @@
     color: #60a5fa;
   }
 
+  .product-card .card-body .price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #34d399;
+    margin-bottom: 12px;
+    display: block;
+  }
+
   .product-card .card-body p {
     font-size: 14px;
     color: #94a3b8;
     line-height: 1.7;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -364,8 +378,8 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 12px;
-    padding-top: 16px;
+    gap: 10px;
+    padding-top: 14px;
     border-top: 1px solid rgba(255, 255, 255, 0.04);
   }
 
@@ -373,7 +387,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 20px;
+    padding: 8px 18px;
     background: linear-gradient(135deg, #2563eb, #7c3aed);
     color: #ffffff;
     font-size: 12px;
@@ -391,7 +405,7 @@
   .product-card .meta {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     font-size: 12px;
     color: #475569;
   }
@@ -448,17 +462,32 @@
     }
 
     .product-card .image-wrap {
-      height: 230px;
+      height: 220px;
     }
 
     .hero-title {
       font-size: 42px;
     }
+
+    .filter-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .filter-actions {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .filter-actions select {
+      flex: 1;
+      min-width: 140px;
+    }
   }
 
   @media (max-width: 768px) {
     .hero-section {
-      padding: 100px 0 60px;
+      padding: 100px 0 40px;
     }
 
     .hero-title {
@@ -469,19 +498,36 @@
       font-size: 16px;
     }
 
-    .section-header h2 {
-      font-size: 26px;
+    .filter-section {
+      padding: 20px 0 30px;
+    }
+
+    .filter-wrapper {
+      padding: 16px 18px;
+    }
+
+    .filter-categories {
+      gap: 4px;
+    }
+
+    .filter-categories a {
+      padding: 4px 12px;
+      font-size: 12px;
     }
 
     .product-card .image-wrap {
-      height: 210px;
+      height: 200px;
     }
 
     .product-card .card-body {
-      padding: 18px 18px 20px;
+      padding: 16px 16px 18px;
     }
 
     .product-card .card-body h3 {
+      font-size: 15px;
+    }
+
+    .product-card .card-body .price {
       font-size: 16px;
     }
   }
@@ -489,7 +535,7 @@
   @media (max-width: 640px) {
     .product-grid {
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 18px;
     }
 
     .hero-title {
@@ -497,26 +543,35 @@
     }
 
     .hero-section {
-      padding: 80px 0 40px;
+      padding: 80px 0 30px;
     }
 
-    .btn-primary,
-    .btn-secondary {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .section-header {
+    .filter-actions {
       flex-direction: column;
-      align-items: flex-start;
+      width: 100%;
     }
 
-    .section-header .count-badge {
-      align-self: flex-start;
+    .filter-actions select {
+      width: 100%;
+      min-width: unset;
+    }
+
+    .filter-actions .btn-clear {
+      width: 100%;
+      text-align: center;
+    }
+
+    .filter-categories {
+      gap: 6px;
+    }
+
+    .filter-categories .label {
+      width: 100%;
+      margin-bottom: 2px;
     }
 
     .product-card .image-wrap {
-      height: 200px;
+      height: 190px;
     }
 
     .product-card .card-footer {
@@ -539,7 +594,16 @@
     }
 
     .product-card .image-wrap {
-      height: 180px;
+      height: 170px;
+    }
+
+    .filter-wrapper {
+      padding: 14px;
+    }
+
+    .filter-categories a {
+      font-size: 11px;
+      padding: 4px 10px;
     }
   }
 
@@ -581,103 +645,97 @@
       </div>
 
       <h1 class="hero-title">
-        Our <span>Products</span>
+        Our <span> Products</span>
       </h1>
 
-      <p class="hero-subtitle">
-        Discover our premium collection of
-        <span class="highlight-blue">digital products</span>,
-        <span class="highlight-purple">web applications</span> and
-        <span class="highlight-green">innovative solutions</span>
-        crafted with precision.
+      <p class="hero-subtitle" style="font-normal: 300;">
+        Discover our premium collection of digital products, web applications and innovative solutions crafted with
+        precision.
       </p>
 
     </div>
   </section>
 
-  <!-- ===== PRODUCTS SECTION ===== -->
-  <section id="products" class="products-section">
+  <!-- ===== FILTER SECTION ===== -->
+  <section class="filter-section">
     <div class="container">
+      <div class="filter-wrapper">
 
-      <!-- Section Header -->
-      <div class="section-header">
-        <div>
-          <div class="label">
-            <i class="fa-regular fa-grid-2"></i> Featured Products
-            <span class="line"></span>
+
+
+        <!-- ===== RESULT COUNT ===== -->
+        {{-- <div class="result-count">
+          <div class="container">
+            <span>Showing <strong>{{ $products->count() }}</strong> themes</span>
           </div>
-          <h2>All <span>Products</span></h2>
-        </div>
-        <div class="count-badge">
-          <i class="fa-regular fa-layer-group"></i> {{ $products->count() }} items
-        </div>
-      </div>
+        </div> --}}
 
-      <!-- Product Grid -->
-      <div class="product-grid">
 
-        @forelse ($products as $product)
+        <!-- Product Grid -->
+        <div class="product-grid">
 
-        <div class="product-card">
+          @forelse ($products as $product)
 
-          <!-- Image -->
-          <div class="image-wrap">
-            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->title }}" loading="lazy">
-            <div class="overlay"></div>
+          <div class="product-card">
 
-            <!-- Category Tag -->
-            <span class="category-tag">
-              <i class="fa-regular fa-folder-open" style="margin-right:4px;"></i>
-              {{ $product->category->name ?? 'Uncategorized' }}
-            </span>
+            <!-- Image -->
+            <div class="image-wrap">
+              <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->title }}" loading="lazy">
+              <div class="overlay"></div>
 
-            <!-- Status Tag -->
-            <span class="status-tag">
-              <span class="dot"></span> Live
-            </span>
-          </div>
+              <!-- Category Tag -->
+              <span class="category-tag">
+                <i class="fa-regular fa-folder-open" style="margin-right:4px;"></i>
+                {{ $product->category->name ?? 'Uncategorized' }}
+              </span>
 
-          <!-- Content -->
-          <div class="card-body">
-            <h3>
-              <a href="{{ $product->product_url }}" target="_blank">
-                {{ $product->title }}
-              </a>
-            </h3>
-            <p>{{ Str::limit(strip_tags($product->description), 110) }}</p>
+              <!-- Status Tag -->
+              <span class="status-tag">
+                <span class="dot"></span> Live
+              </span>
+            </div>
 
-            <!-- Footer -->
-            <div class="card-footer">
-              <a href="{{ $product->product_url }}" target="_blank" class="btn-demo">
-                <i class="fa-regular fa-eye"></i> View Product
-                <i class="fa-solid fa-arrow-right" style="font-size:10px;"></i>
-              </a>
-              <div class="meta">
-                <span><i class="fa-regular fa-heart"></i> 124</span>
-                <span class="divider"></span>
-                <span><i class="fa-regular fa-comment"></i> 24</span>
+            <!-- Content -->
+            <div class="card-body">
+              <h3>
+                <a href="{{ $product->product_url }}" target="_blank">
+                  {{ $product->title }}
+                </a>
+              </h3>
+              {{-- <span class="price">$30.00</span> --}}
+              <p>{{ Str::limit(strip_tags($product->description), 80) }}</p>
+
+              <!-- Footer -->
+              <div class="card-footer">
+                <a href="{{ $product->product_url }}" target="_blank" class="btn-demo">
+                  <i class="fa-regular fa-eye"></i> Live Demo
+                </a>
+                <div class="meta">
+                  <span><i class="fa-regular fa-heart"></i> 124</span>
+                  <span class="divider"></span>
+                  <span><i class="fa-regular fa-comment"></i> 24</span>
+                </div>
               </div>
             </div>
+
           </div>
 
-        </div>
+          @empty
 
-        @empty
-
-        <!-- Empty State -->
-        <div class="empty-state">
-          <div class="icon-wrap">
-            <i class="fa-regular fa-box-open"></i>
+          <!-- Empty State -->
+          <div class="empty-state">
+            <div class="icon-wrap">
+              <i class="fa-regular fa-box-open"></i>
+            </div>
+            <h3>No Themes Found</h3>
+            <p>Check back later for new themes.</p>
           </div>
-          <h3>No Products Found</h3>
-          <p>Check back later for new products.</p>
-        </div>
 
-        @endforelse
+          @endforelse
+
+        </div>
 
       </div>
-
-    </div>
   </section>
 
   @include('layout.footer')

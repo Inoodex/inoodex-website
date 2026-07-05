@@ -825,7 +825,7 @@
                 <div class="card-body">
                   <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
                     <h2><a :href="theme.demo_url" target="_blank" x-text="theme.title"></a></h2>
-                    <span class="price" x-text="'$' + theme.price.toFixed(2)"></span>
+                    {{-- <span class="price" x-text="'$' + theme.price.toFixed(2)"></span> --}}
                   </div>
                 </div>
               </div>

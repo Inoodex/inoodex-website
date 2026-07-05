@@ -56,7 +56,7 @@ class FrontendController extends Controller
    public function portfolio()
 {
     $categories = Category::latest()->paginate(10);
-    $portfolios = Portfolio::with('category')->where('status', 'active')->latest()->paginate(12);
+    $portfolios = Portfolio::with('category')->where('status', 'active')->latest()->get();
     return view('frontend.pages.portfolio', compact('portfolios', 'categories'));
 }
 

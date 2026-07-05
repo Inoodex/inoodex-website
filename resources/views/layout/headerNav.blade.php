@@ -14,7 +14,7 @@
 
     <div style="max-width: 1280px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 10;">
       <nav style="display: flex; align-items: center; justify-content: space-between; height: 70px;">
-        <!-- Logo - Original Color Always -->
+        <!-- Logo -->
         <a class="logo-wrap"
           style="display: flex; align-items: center; gap: 12px; flex-shrink: 0; text-decoration: none;"
           href="{{ url('/') }}">
@@ -25,7 +25,6 @@
             <div
               style="position: absolute; inset: -4px; background: #10b981; border-radius: 50%; filter: blur(16px); opacity: 0; transition: opacity 0.5s;">
             </div>
-            <!-- Water drop ripples -->
             <div class="ripple-ring"
               style="position: absolute; inset: -6px; border: 1.5px solid rgba(16,185,129,0.4); border-radius: 50%; animation: waterDrop 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;">
             </div>
@@ -38,7 +37,6 @@
             <img id="navLogo" src="{{ asset('frontend/assets/images/logo.png') }}" alt="Inoodex"
               style="height: 34px; width: auto; position: relative; filter: none !important; transition: all 0.5s; animation: logoFloat 3s ease-in-out infinite;" />
           </div>
-
         </a>
 
         <!-- Desktop Menu -->
@@ -110,19 +108,34 @@
 
         <!-- Right Side Buttons -->
         <div id="desktopBtns" style="display: none; align-items: center; gap: 10px;">
-
           <a href="{{ url('/contact') }}"
-            style="display: inline-flex; align-items: center; padding: 8px 20px; background: rgba(255,255,255,0.04); color: #ffffff; font-size: 13px; font-weight: 600; border-radius: 10px; text-decoration: none; border: 1px solid rgba(255,255,255,0.06); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);"
-            onmouseover="this.style.background='rgba(255,255,255,0.08)'; this.style.transform='translateY(-2px) scale(1.04)'; this.style.borderColor='rgba(16,185,129,0.2)'"
-            onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.transform='translateY(0) scale(1)'; this.style.borderColor='rgba(255,255,255,0.06)'">Get
+            style="display: inline-flex; align-items: center; padding: 8px 20px; background: linear-gradient(135deg, #10b981, #059669); color: #ffffff; font-size: 13px; font-weight: 600; border-radius: 10px; text-decoration: none; border: 1px solid rgba(16,185,129,0.3); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 4px 15px rgba(16,185,129,0.25);"
+            onmouseover="this.style.background='linear-gradient(135deg, #10b981, #047857)'; this.style.transform='translateY(-2px) scale(1.04)'; this.style.boxShadow='0 8px 25px rgba(16,185,129,0.4)'; this.style.borderColor='rgba(16,185,129,0.5)'"
+            onmouseout="this.style.background='linear-gradient(135deg, #10b981, #059669)'; this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 15px rgba(16,185,129,0.25)'; this.style.borderColor='rgba(16,185,129,0.3)'">Get
             Quote</a>
         </div>
 
-        <!-- Mobile Menu Button -->
+        <!-- Mobile Menu Button with Bounce Animation -->
         <button id="mobileMenuBtn"
-          style="display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); cursor: pointer; transition: all 0.3s;">
-          <svg style="width: 22px; height: 22px; color: #ffffff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          style="display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.08)); border: 1.5px solid rgba(16,185,129,0.2); cursor: pointer; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; backdrop-filter: blur(10px);"
+          onmouseover="this.style.background='linear-gradient(135deg, rgba(16,185,129,0.25), rgba(5,150,105,0.15))'; this.style.borderColor='rgba(16,185,129,0.4)'; this.style.transform='scale(1.05)'"
+          onmouseout="this.style.background='linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.08))'; this.style.borderColor='rgba(16,185,129,0.2)'; this.style.transform='scale(1)'">
+
+          <!-- Hamburger Icon -->
+          <svg id="hamburgerIcon"
+            style="width: 24px; height: 24px; color: #10b981; position: absolute; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+
+          <!-- Cross Icon with Bounce Design -->
+          <svg id="crossIcon"
+            style="width: 24px; height: 24px; color: #10b981; position: absolute; display: none; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Rotating circle background -->
+            <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5" opacity="0.2" />
+            <!-- Cross lines with rounded caps -->
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 8L16 16M8 16L16 8" />
           </svg>
         </button>
       </nav>
@@ -270,13 +283,12 @@
               Contact
             </a>
           </li>
-
           <li>
-            <a style="display: flex; align-items: center; justify-content: center; padding: 13px 16px; font-size: 15px; font-weight: 600; color: #ffffff; background: rgba(255,255,255,0.04); border-radius: 12px; text-decoration: none; border: 1px solid rgba(255,255,255,0.06); transition: all 0.4s;"
+            <a style="display: flex; align-items: center; justify-content: center; padding: 13px 16px; font-size: 15px; font-weight: 600; color: #ffffff; background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px; text-decoration: none; border: 1px solid rgba(16,185,129,0.3); transition: all 0.4s; box-shadow: 0 4px 15px rgba(16,185,129,0.25);"
               href="{{ url('/contact') }}"
-              onmouseover="this.style.background='rgba(255,255,255,0.08)'; this.style.transform='translateY(-2px)'"
-              onmouseout="this.style.background='rgba(255,255,255,0.04)'; this.style.transform='translateY(0)'">Get A
-              Quote</a>
+              onmouseover="this.style.background='linear-gradient(135deg, #059669, #047857)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(16,185,129,0.4)'"
+              onmouseout="this.style.background='linear-gradient(135deg, #10b981, #059669)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(16,185,129,0.25)'">Get
+              A Quote</a>
           </li>
         </ul>
       </div>
@@ -354,6 +366,57 @@
   }
 }
 
+/* Cross Icon Bounce Animation */
+@keyframes crossBounce {
+  0% {
+    transform: scale(0) rotate(-90deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.2) rotate(10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(0.9) rotate(-5deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes hamburgerBounce {
+  0% {
+    transform: scale(0) rotate(90deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.2) rotate(-10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(0.9) rotate(5deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.cross-bounce {
+  animation: crossBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
+.hamburger-bounce {
+  animation: hamburgerBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+
 /* Hover dropdown */
 li:hover .services-dropdown {
   opacity: 1 !important;
@@ -367,7 +430,6 @@ li:hover .services-dropdown {
   padding-left: 22px !important;
 }
 
-/* Mobile Menu */
 #mobileMenu::-webkit-scrollbar {
   width: 4px;
 }
@@ -398,15 +460,41 @@ li:hover .services-dropdown {
 document.addEventListener('DOMContentLoaded', function() {
   var menu = document.getElementById('mobileMenu');
   var btn = document.getElementById('mobileMenuBtn');
-  var header = document.getElementById('mainHeader');
+  var hamburgerIcon = document.getElementById('hamburgerIcon');
+  var crossIcon = document.getElementById('crossIcon');
 
-  // Mobile menu toggle
+  // Mobile menu toggle with bounce animation
   if (btn) {
     btn.addEventListener('click', function() {
       if (!menu) return;
       var isOpen = menu.style.display === 'block';
       menu.style.display = isOpen ? 'none' : 'block';
       document.body.style.overflow = isOpen ? '' : 'hidden';
+
+      // Toggle icons with bounce animation
+      if (hamburgerIcon && crossIcon) {
+        if (isOpen) {
+          // Show hamburger with bounce
+          hamburgerIcon.style.display = 'block';
+          crossIcon.style.display = 'none';
+          hamburgerIcon.classList.remove('cross-bounce');
+          hamburgerIcon.classList.add('hamburger-bounce');
+          // Remove animation class after it completes
+          setTimeout(function() {
+            hamburgerIcon.classList.remove('hamburger-bounce');
+          }, 600);
+        } else {
+          // Show cross with bounce
+          hamburgerIcon.style.display = 'none';
+          crossIcon.style.display = 'block';
+          crossIcon.classList.remove('hamburger-bounce');
+          crossIcon.classList.add('cross-bounce');
+          // Remove animation class after it completes
+          setTimeout(function() {
+            crossIcon.classList.remove('cross-bounce');
+          }, 600);
+        }
+      }
     });
   }
 
@@ -430,6 +518,15 @@ document.addEventListener('DOMContentLoaded', function() {
         .target)) {
       menu.style.display = 'none';
       document.body.style.overflow = '';
+      if (hamburgerIcon && crossIcon) {
+        hamburgerIcon.style.display = 'block';
+        crossIcon.style.display = 'none';
+        hamburgerIcon.classList.remove('cross-bounce');
+        hamburgerIcon.classList.add('hamburger-bounce');
+        setTimeout(function() {
+          hamburgerIcon.classList.remove('hamburger-bounce');
+        }, 600);
+      }
     }
   });
 
@@ -438,6 +535,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth >= 1024 && menu) {
       menu.style.display = 'none';
       document.body.style.overflow = '';
+      if (hamburgerIcon && crossIcon) {
+        hamburgerIcon.style.display = 'block';
+        crossIcon.style.display = 'none';
+      }
     }
   });
 });
