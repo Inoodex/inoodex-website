@@ -513,7 +513,7 @@
           <h1>{{ $blog->title }}</h1>
           <div class="meta">
             <span><i class="fa-regular fa-calendar"></i> {{ $blog->created_at->format('d M Y') }}</span>
-            <span><i class="fa-regular fa-clock"></i> {{ $blog->created_at->diffInMinutes() > 60 ? round($blog->created_at->diffInHours()) . 'h ago' : $blog->created_at->diffInMinutes() . ' min read' }}</span>
+            {{-- <span><i class="fa-regular fa-clock"></i> {{ $blog->created_at->diffInMinutes() > 60 ? round($blog->created_at->diffInHours()) . 'h ago' : $blog->created_at->diffInMinutes() . ' min read' }}</span> --}}
           </div>
         </div>
       </div>

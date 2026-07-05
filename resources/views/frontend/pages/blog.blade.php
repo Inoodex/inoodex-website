@@ -109,18 +109,25 @@
   }
 
   .page-header-box .breadcrumb {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
     list-style: none;
-    padding: 0;
+    padding: 2;
     margin: 0;
-    gap: 8px;
+    white-space: nowrap;
   }
 
   .page-header-box .breadcrumb li {
+    display: inline-flex;
+    align-items: center;
     font-size: 14px;
     color: #9ca3af;
+    margin: 0;
+  }
+
+  .page-header-box .breadcrumb li+li {
+    margin-left: 8px;
   }
 
   .page-header-box .breadcrumb li a {
