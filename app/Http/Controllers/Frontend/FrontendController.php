@@ -75,8 +75,9 @@ public function portfolioShow($id)
 
 public function product()
 {
-    $products = Product::with('category')->where('status', 'active')->latest()->paginate(12);
-    return view('frontend.pages.product', compact('products'));
+    $products = Product::with('category')->where('status', 'active')->latest()->get();
+    $categories = Category::all();
+    return view('frontend.pages.product', compact('products', 'categories'));
 }
 
     public function career()

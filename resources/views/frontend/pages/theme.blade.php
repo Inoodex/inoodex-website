@@ -1,959 +1,874 @@
-<!DOCTYPE html>
-<html lang="zxx">
+﻿<!DOCTYPE html>
+<html lang="en">
 
 <head>
   @include('layout.header')
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
+  /* ===== TECHNICAL STUDIO — THEMES ARCHIVE ===== */
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  .theme-page {
-    background: #0a0e1a;
-    min-height: 100vh;
-    padding-top: 80px;
-    position: relative;
+  :root {
+    --bg: #080a0e;
+    --surface: #12161d;
+    --surface-2: #171c24;
+    --ink: #f4f5f7;
+    --muted: #868c99;
+    --muted-2: #4d525d;
+    --accent: #f4a637;
+    --accent-dim: rgba(244, 166, 55, 0.14);
+    --accent-glow: rgba(244, 166, 55, 0.08);
+    --accent-subtle: rgba(244, 166, 55, 0.04);
+    --line: rgba(244, 245, 247, 0.07);
+    --line-strong: rgba(244, 245, 247, 0.16);
+    --transition-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
-  .theme-page::before {
+  body {
+    background:
+      radial-gradient(ellipse 900px 520px at 10% -8%, rgba(244, 166, 55, 0.10), transparent 62%),
+      radial-gradient(ellipse 760px 480px at 92% 6%, rgba(124, 92, 255, 0.10), transparent 60%),
+      radial-gradient(ellipse 820px 540px at 70% 55%, rgba(56, 189, 248, 0.07), transparent 62%),
+      radial-gradient(ellipse 700px 460px at 20% 70%, rgba(236, 72, 153, 0.05), transparent 60%),
+      var(--bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.6;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image:
-      linear-gradient(rgba(34, 197, 94, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(34, 197, 94, 0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
     z-index: 0;
-  }
-
-  .glow-orb {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(120px);
     pointer-events: none;
-    z-index: 0;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
   }
 
-  .glow-orb-1 {
-    width: 500px;
-    height: 500px;
-    top: -10%;
-    right: -5%;
-    background: rgba(34, 197, 94, 0.06);
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 
-  .glow-orb-2 {
-    width: 400px;
-    height: 400px;
-    bottom: -10%;
-    left: -5%;
-    background: rgba(99, 102, 241, 0.05);
-  }
-
-  /* Filter Sidebar */
-  .theme-filter-sidebar {
-    background: rgba(15, 23, 42, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 24px;
-    padding: 32px 28px;
-    position: sticky;
-    top: 100px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    transition: all 0.4s ease;
-  }
-
-  .theme-filter-sidebar:hover {
-    border-color: rgba(34, 197, 94, 0.15);
-    box-shadow: 0 30px 60px -12px rgba(34, 197, 94, 0.05);
-  }
-
-  .theme-filter-group h5 {
-    font-size: 11px;
-    font-weight: 700;
-    color: #94a3b8;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
     position: relative;
-    padding-bottom: 12px;
+    z-index: 1;
   }
 
-  .theme-filter-group h5::after {
-    content: '';
+  /* ===== HERO ===== */
+  .hero-section {
+    padding: 110px 0 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .hero-grid-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 2px;
-    background: linear-gradient(90deg, #22c55e, transparent);
-    border-radius: 2px;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(244, 245, 247, 0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244, 245, 247, 0.028) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 900px 480px at 30% 0%, rgba(0, 0, 0, 0.9), transparent 70%);
+    mask-image: radial-gradient(ellipse 900px 480px at 30% 0%, rgba(0, 0, 0, 0.9), transparent 70%);
   }
 
-  .theme-filter-group label {
-    color: #94a3b8;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 44px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  .theme-filter-group label:hover {
-    color: #f1f5f9;
-  }
-
-  .theme-filter-group input[type="checkbox"] {
-    accent-color: #22c55e;
-    width: 17px;
-    height: 17px;
-    border-radius: 5px;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  /* Sort Dropdown - Category er niche */
-  .sort-dropdown-wrapper {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
-  }
-
-  .sort-dropdown-wrapper .sort-label {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    font-weight: 700;
-    color: #94a3b8;
+    font-weight: 500;
+    color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 14px;
-    position: relative;
-    padding-bottom: 12px;
+    letter-spacing: 3px;
   }
 
-  .sort-dropdown-wrapper .sort-label::after {
+  .hero-eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px 2px var(--accent-dim);
+    animation: pulseDot 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .hero-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== UNIQUE TITLE COMPOSITION ===== */
+  .hero-title-wrap {
+    position: relative;
+  }
+
+  .hero-title-wrap::before {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: -26px;
     left: 0;
-    width: 30px;
-    height: 2px;
-    background: linear-gradient(90deg, #22c55e, transparent);
-    border-radius: 2px;
+    width: 56px;
+    height: 1px;
+    background: var(--accent);
+    box-shadow: 0 0 18px 1px var(--accent-dim);
   }
 
-  .sort-dropdown-container {
+  /* ===== EDITORIAL HEADLINE ===== */
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 4vw, 52px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     position: relative;
-    width: 100%;
-    z-index: 50;
+    z-index: 1;
   }
 
-  .sort-dropdown-container .dropdown-btn {
+  .hero-title .t-word {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(244, 245, 247, 0.5);
+    text-transform: uppercase;
+  }
+
+  .hero-title .t-row {
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(14px, 2vw, 28px);
+    position: relative;
+  }
+
+  .hero-title .t-theme-mark {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.04em;
+  }
+
+  .hero-title .t-theme-mark svg {
+    width: clamp(32px, 4vw, 50px);
+    height: clamp(32px, 4vw, 50px);
+    display: block;
+    filter: drop-shadow(0 12px 32px var(--accent-dim));
+  }
+
+  .hero-title .t-theme-mark .t-mark-ring {
+    position: absolute;
+    inset: -14px;
+    border: 1px solid var(--accent-dim);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-title .t-slash {
+    position: relative;
+    align-self: flex-end;
+    margin-bottom: 0.04em;
+    width: clamp(18px, 2.2vw, 30px);
+    height: clamp(18px, 2.2vw, 30px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-title .t-slash svg {
     width: 100%;
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    color: #e2e8f0;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
+    height: 100%;
+  }
+
+  .hero-title .t-slash line {
+    stroke: var(--accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 10px var(--accent-dim));
+  }
+
+  .hero-title .t-slash circle {
+    fill: var(--accent);
+    filter: drop-shadow(0 0 8px var(--accent-dim));
+  }
+
+  .hero-title .t-slash .pulse-ring {
+    position: absolute;
+    inset: -12%;
+    border: 1px solid var(--accent-dim);
+    border-radius: 50%;
+    animation: ringPulse 2.6s ease-in-out infinite;
+  }
+
+  @keyframes ringPulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(1.3); }
+  }
+
+  @keyframes pulseDash {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.1); }
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 340px;
+    padding-bottom: 6px;
+    border-left: 2px solid var(--accent);
+    padding-left: 18px;
+    line-height: 1.75;
+  }
+
+  /* ===== FILTER BAR ===== */
+  .filter-section {
+    padding: 0 0 34px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .filter-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    transition: all 0.3s ease;
-    font-family: inherit;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 14px;
   }
 
-  .sort-dropdown-container .dropdown-btn:hover {
-    border-color: rgba(34, 197, 94, 0.2);
-    background: rgba(255, 255, 255, 0.06);
-  }
-
-  .sort-dropdown-container .dropdown-menu {
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    right: 0;
-    background: rgba(15, 23, 42, 0.98);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
-    padding: 8px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    max-height: 350px;
-    overflow-y: auto;
-  }
-
-  .sort-dropdown-container .dropdown-menu::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  .sort-dropdown-container .dropdown-menu::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 4px;
-  }
-
-  .sort-dropdown-container .dropdown-menu::-webkit-scrollbar-thumb {
-    background: rgba(34, 197, 94, 0.3);
-    border-radius: 4px;
-  }
-
-  .sort-option {
-    width: 100%;
-    padding: 10px 16px;
-    background: transparent;
-    border: none;
-    border-radius: 10px;
-    color: #94a3b8;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
+  .filter-controls {
     display: flex;
     align-items: center;
     gap: 12px;
-    transition: all 0.3s ease;
-    font-family: inherit;
+    flex-wrap: wrap;
   }
 
-  .sort-option:hover {
-    background: rgba(255, 255, 255, 0.04);
-    color: #e2e8f0;
+  .filter-pills {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
   }
 
-  .sort-option.active {
-    background: rgba(34, 197, 94, 0.08);
-    color: #22c55e;
+  .filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    background: var(--surface);
+    color: var(--muted);
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    user-select: none;
+    white-space: nowrap;
   }
 
-  .sort-option .check-icon {
-    margin-left: auto;
-    color: #22c55e;
+  .filter-pill:hover {
+    color: var(--ink);
+    border-color: var(--accent-dim);
+    background: var(--accent-subtle);
+  }
+
+  .filter-pill.active {
+    background: var(--accent);
+    color: #0a0a0a;
+    border-color: var(--accent);
+    box-shadow: 0 0 24px -6px var(--accent-dim);
+  }
+
+  .filter-pill .pill-count {
+    font-size: 9.5px;
+    opacity: 0.6;
+  }
+
+  .filter-pill.active .pill-count {
+    opacity: 0.7;
+  }
+
+  .filter-actions select {
+    padding: 9px 18px;
+    background: var(--surface);
+    color: var(--muted);
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   }
 
-  .sort-option .option-icon {
-    width: 18px;
-    text-align: center;
+  .filter-actions select:hover,
+  .filter-actions select:focus {
+    border-color: var(--accent);
+    color: var(--ink);
+    background: var(--accent-subtle);
+    box-shadow: 0 0 20px -4px var(--accent-dim);
   }
 
-  /* Theme Card */
+  .filter-actions select option {
+    background: var(--surface);
+    color: var(--ink);
+  }
+
+  /* ===== GRID ===== */
+  .themes-section {
+    padding: 0 0 110px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .themes-section::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -80px;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 640px;
+    background:
+      radial-gradient(ellipse 420px 300px at 18% 40%, rgba(244, 166, 55, 0.16), transparent 65%),
+      radial-gradient(ellipse 460px 320px at 55% 55%, rgba(124, 92, 255, 0.13), transparent 65%),
+      radial-gradient(ellipse 400px 280px at 82% 30%, rgba(56, 189, 248, 0.12), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .theme-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.25s ease;
+  }
+
+  .theme-grid.is-filtering {
+    opacity: 0.4;
+  }
+
+  /* ===== GLASS CARD ===== */
   .theme-card {
-    background: rgba(30, 41, 59, 0.5);
-    border-radius: 20px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015) 45%);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    position: relative;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    opacity: 0;
+    animation: cardFadeIn 0.7s ease forwards;
+    animation-delay: calc(0.06s * var(--i, 0));
     display: flex;
     flex-direction: column;
-    position: relative;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    opacity: 0;
-    animation: cardFadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .theme-card.is-hidden {
+    display: none;
   }
 
   @keyframes cardFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px) scale(0.95);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  .theme-card:nth-child(1) {
-    animation-delay: 0.05s;
-  }
-
-  .theme-card:nth-child(2) {
-    animation-delay: 0.1s;
-  }
-
-  .theme-card:nth-child(3) {
-    animation-delay: 0.15s;
-  }
-
-  .theme-card:nth-child(4) {
-    animation-delay: 0.2s;
-  }
-
-  .theme-card:nth-child(5) {
-    animation-delay: 0.25s;
-  }
-
-  .theme-card:nth-child(6) {
-    animation-delay: 0.3s;
-  }
-
-  .theme-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), transparent, rgba(34, 197, 94, 0.05));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-
-  .theme-card:hover::before {
-    opacity: 1;
+    0% { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
   .theme-card:hover {
-    transform: translateY(-12px) scale(1.01);
-    border-color: rgba(34, 197, 94, 0.2);
-    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5), 0 0 40px rgba(34, 197, 94, 0.03);
-    background: rgba(30, 41, 59, 0.7);
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 60px -12px var(--accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
-  .theme-card .thumb-wrap {
+  /* ===== IMAGE (vertical pan on hover) ===== */
+  .thumb-wrap {
     position: relative;
+    background: var(--surface-2);
+    height: 260px;
     overflow: hidden;
-    border-radius: 20px 20px 0 0;
+    border-radius: 14px 14px 0 0;
   }
 
-  .theme-card .thumb-wrap::after {
+  .thumb-wrap img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    object-position: top;
+    filter: grayscale(40%) saturate(0.95) contrast(1.06) brightness(0.95);
+    transition: transform 1.2s var(--transition-smooth), filter 0.8s ease;
+    will-change: transform;
+  }
+
+  .theme-card:hover .thumb-wrap img {
+    transform: translateY(-260px);
+    filter: grayscale(0%) saturate(1.1) contrast(1.05) brightness(1.02);
+  }
+
+  .thumb-wrap::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 50%, rgba(10, 14, 26, 0.7));
+    background: linear-gradient(180deg, rgba(8, 10, 14, 0.25) 0%, rgba(8, 10, 14, 0) 30%, rgba(8, 10, 14, 0.72) 100%);
     pointer-events: none;
   }
 
-  .theme-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .theme-card:hover img {
-    transform: scale(1.08);
-  }
-
-  .theme-card .demo-badge {
+  .thumb-wrap::before {
+    content: '';
     position: absolute;
-    top: 16px;
-    right: 16px;
-    background: linear-gradient(135deg, #22c55e, #16a34a);
+    top: 0;
+    left: -60%;
+    width: 45%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.10), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s var(--transition-smooth);
+    pointer-events: none;
+  }
+
+  .theme-card:hover .thumb-wrap::before {
+    left: 130%;
+  }
+
+  .plate-index {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 3;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 1px;
     color: #fff;
+    background: rgba(8, 10, 14, 0.55);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    padding: 5px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 6px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .theme-card:hover .plate-index {
+    background: rgba(244, 166, 55, 0.18);
+    border-color: rgba(244, 166, 55, 0.5);
+  }
+
+  .category-tag {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
+    color: #f7c873;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    padding: 6px 16px;
-    border-radius: 50px;
-    z-index: 2;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.2);
   }
 
-  .theme-card .demo-badge:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 12px 30px rgba(34, 197, 94, 0.3);
+  .category-tag::before {
+    content: '';
+    width: 16px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.4s var(--transition-smooth);
   }
 
-  .theme-card .card-body {
-    padding: 24px 22px 22px;
-    flex-grow: 1;
+  .theme-card:hover .category-tag::before {
+    width: 28px;
+  }
+
+  /* ===== CARD BODY ===== */
+  .card-body {
+    padding: 22px 22px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-grow: 1;
+    gap: 18px;
   }
 
-  .theme-card .card-body h2 {
-    font-size: 17px;
+  .card-body h2 {
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    color: #ffffff;
-    margin: 0;
+    font-size: 21px;
     letter-spacing: -0.3px;
+    color: var(--ink);
+    line-height: 1.15;
   }
 
-  .theme-card .card-body h2 a {
+  .card-body h2 a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.3s ease;
-    position: relative;
+    transition: color 0.25s ease;
   }
 
-  .theme-card .card-body h2 a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #22c55e;
-    transition: width 0.3s ease;
+  .card-body h2 a:hover {
+    color: var(--accent);
   }
 
-  .theme-card .card-body h2 a:hover::after {
-    width: 100%;
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
   }
 
-  .theme-card .card-body h2 a:hover {
-    color: #22c55e;
+  /* CTA button with sliding arrow */
+  .btn-demo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 18px;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--ink);
+    text-decoration: none;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, gap 0.35s var(--transition-smooth);
   }
 
-  .theme-card .card-body .price {
-    font-size: 16px;
+  .btn-demo .arrow-ring {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #0a0a0a;
+    font-size: 10px;
+    transition: transform 0.35s var(--transition-smooth), background 0.3s ease;
+  }
+
+  .btn-demo:hover {
+    color: #0a0a0a;
+    background: var(--accent);
+    border-color: var(--accent);
+    gap: 13px;
+    box-shadow: 0 10px 30px -8px var(--accent-dim);
+  }
+
+  .btn-demo:hover .arrow-ring {
+    background: #0a0a0a;
+    color: var(--accent);
+    transform: translateX(2px) rotate(-8deg);
+  }
+
+  /* ===== EMPTY STATE ===== */
+  .empty-state {
+    text-align: center;
+    padding: 110px 24px;
+    grid-column: 1 / -1;
+    background: var(--bg);
+    border: 1px dashed var(--line-strong);
+    display: none;
+  }
+
+  .empty-state.is-show {
+    display: block;
+  }
+
+  .empty-state .icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    border: 1px solid var(--line-strong);
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, transform 0.4s var(--transition-smooth);
+  }
+
+  .empty-state .icon-wrap i {
+    font-size: 22px;
+    color: var(--muted-2);
+  }
+
+  .empty-state h3 {
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    color: #22c55e;
-    letter-spacing: -0.2px;
+    font-size: 19px;
+    color: var(--ink);
+    margin-bottom: 6px;
   }
 
-  /* Header */
-  .premium-header h1 {
-    font-size: 48px;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff 0%, #94a3b8 50%, #22c55e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -2px;
-    position: relative;
-    display: inline-block;
-  }
-
-  .premium-header p {
-    font-size: 17px;
-    color: #64748b;
-    max-width: 520px;
-    margin: 12px auto 0;
-    font-weight: 400;
-    letter-spacing: 0.2px;
-  }
-
-  .clear-filter-btn {
-    width: 100%;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    color: #94a3b8;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    letter-spacing: 0.5px;
-    font-family: inherit;
-  }
-
-  .clear-filter-btn:hover {
-    border-color: #ef4444;
-    color: #ef4444;
-    background: rgba(239, 68, 68, 0.05);
+  .empty-state p {
+    color: var(--muted);
+    font-size: 14px;
   }
 
   /* ===== RESPONSIVE ===== */
-  @media (max-width:1200px) {
-    .theme-page>div {
-      padding-left: 24px !important;
-      padding-right: 24px !important;
+  @media (max-width: 1024px) {
+    .theme-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-title {
+      font-size: 34px;
     }
   }
 
-  @media (max-width:1024px) {
-    .theme-card img {
-      height: 220px;
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 90px 0 0;
     }
 
-    .theme-filter-sidebar {
-      position: static;
-      margin-bottom: 24px;
+    .hero-title {
+      font-size: 26px;
     }
 
-    .theme-page>div>div {
-      flex-direction: column !important;
+    .hero-title .t-slash {
+      width: 26px;
+      height: 26px;
     }
 
-    .theme-page>div>div>div:first-child {
-      flex: 1 1 100% !important;
-      max-width: 100% !important;
+    .hero-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
     }
 
-    .theme-page>div>div>div:last-child {
-      flex: 1 1 100% !important;
-      max-width: 100% !important;
+    .filter-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
     }
 
-    .theme-page>div>div>div:last-child>div {
-      grid-template-columns: repeat(3, 1fr) !important;
-    }
-  }
-
-  @media (max-width:820px) {
-    .theme-page>div>div>div:last-child>div {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
-
-    .theme-card img {
+    .thumb-wrap {
       height: 200px;
     }
-
-    .premium-header h1 {
-      font-size: 36px !important;
-    }
   }
 
-  @media (max-width:640px) {
-    .theme-page {
-      padding-top: 70px;
+  @media (max-width: 640px) {
+    .theme-grid {
+      grid-template-columns: 1fr;
     }
 
-    .theme-page>div {
-      padding: 20px 16px 40px !important;
+    .hero-title {
+      font-size: 22px;
+      gap: 0 8px;
     }
 
-    .premium-header h1 {
-      font-size: 30px !important;
+    .hero-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
     }
 
-    .theme-page>div>div>div:last-child>div {
-      grid-template-columns: 1fr !important;
-      gap: 18px !important;
-    }
-
-    .theme-card img {
-      height: 200px;
-    }
-
-    .theme-filter-sidebar {
-      padding: 20px 18px;
-    }
-
-    .theme-filter-group {
-      margin-bottom: 20px;
-    }
-
-    .theme-filter-group h5 {
-      font-size: 12px;
-    }
-
-    .theme-filter-group label {
-      font-size: 13px;
-    }
-
-    .theme-card .card-body h2 {
-      font-size: 15px;
-    }
-
-    .theme-card .card-body .price {
-      font-size: 14px;
-    }
-
-    .theme-card .card-body {
-      padding: 18px 16px 16px;
-    }
-
-    .theme-page>div>div {
-      gap: 20px !important;
-    }
-
-    .premium-header p {
-      font-size: 15px;
-    }
-
-    .sort-dropdown-container .dropdown-menu {
-      max-height: 250px;
-    }
-  }
-
-  @media (max-width:400px) {
-    .theme-page>div {
-      padding: 16px 10px 32px !important;
-    }
-
-    .premium-header h1 {
-      font-size: 26px !important;
-    }
-
-    .theme-card img {
+    .thumb-wrap {
       height: 180px;
     }
+  }
 
-    .theme-filter-sidebar {
-      padding: 16px 14px;
-    }
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
 
-    .theme-filter-group {
-      margin-bottom: 16px;
-    }
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
 
-    .theme-filter-group h5 {
-      font-size: 11px;
-      margin-bottom: 12px;
-    }
+  ::-webkit-scrollbar-thumb {
+    background: var(--surface-2);
+    border: 1px solid var(--line-strong);
+  }
 
-    .theme-filter-group label {
-      font-size: 12px;
-    }
-
-    .theme-filter-group input[type="checkbox"] {
-      width: 15px;
-      height: 15px;
-    }
-
-    .theme-card .card-body h2 {
-      font-size: 14px;
-    }
-
-    .theme-card .card-body .price {
-      font-size: 13px;
-    }
-
-    .theme-card .card-body {
-      padding: 14px 12px 12px;
-    }
-
-    .theme-card .demo-badge {
-      font-size: 9px;
-      padding: 4px 12px;
-      top: 10px;
-      right: 10px;
-    }
-
-    .sort-dropdown-container .dropdown-menu {
-      max-height: 200px;
-    }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #262d38;
   }
   </style>
 </head>
 
-<body class="tt-magic-cursor" style="background:#0a0e1a;color:#e2e8f0;margin:0;padding:0;">
-  <!-- Magic Cursor Start -->
-  <div id="magic-cursor">
-    <div id="ball"></div>
-  </div>
-  <!-- Magic Cursor End -->
+<body>
+  @include('layout.page_transition')
+@include('layout.headerNav')
 
-  <!-- Glow Orbs -->
-  <div class="glow-orb glow-orb-1"></div>
-  <div class="glow-orb glow-orb-2"></div>
-
-  @include('layout.headerNav')
-
-  <canvas id="themeCanvas"
-    style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.6;"></canvas>
-
-  <div class="theme-page" style="position:relative;z-index:1;">
-    <div style="max-width:1200px;margin:0 auto;padding:40px 24px 60px;">
-
-      <!-- Premium Header -->
-      <div class="premium-header" style="text-align:center;margin-bottom:40px;">
-        <h1>Our <span
-            style="background:linear-gradient(135deg,#22c55e,#4ade80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Themes</span>
-        </h1>
-        <p>Handcrafted, responsive, and performance-optimized themes for modern web experiences.</p>
+  <!-- ===== HERO ===== -->
+  <section class="hero-section">
+    <div class="hero-grid-overlay"></div>
+    <div class="container">
+      <div class="hero-top">
+        <div class="hero-eyebrow"><span class="dot"></span> Catalog / All Themes</div>
       </div>
-
-      <div style="display:flex;flex-wrap:wrap;gap:30px;" x-data="{
-                themes: @js(isset($themes) ? $themes->map(fn($t) => ['id'=>$t->id,'title'=>$t->title,'image'=>$t->image,'demo_url'=>$t->demo_url,'category_id'=>(int)$t->category_id,'price'=>(float)$t->price]) : []),
-                selectedCategories: [],
-                sortType: 'newest',
-                dropdownOpen: false,
-                
-                get filteredThemes() {
-                    let result = this.themes.filter(t => {
-                        if (this.selectedCategories.length > 0 && !this.selectedCategories.includes(t.category_id)) return false;
-                        return true;
-                    });
-                    
-                    if (this.sortType === 'newest') return result;
-                    if (this.sortType === 'oldest') return [...result].reverse();
-                    if (this.sortType === 'price_low') return [...result].sort((a, b) => a.price - b.price);
-                    if (this.sortType === 'price_high') return [...result].sort((a, b) => b.price - a.price);
-                    if (this.sortType === 'az') return [...result].sort((a, b) => a.title.localeCompare(b.title));
-                    if (this.sortType === 'za') return [...result].sort((a, b) => b.title.localeCompare(a.title));
-                    return result;
-                },
-                
-                get totalCount() {
-                    return this.filteredThemes.length;
-                },
-                
-                setSort(type) {
-                    this.sortType = type;
-                    this.dropdownOpen = false;
-                },
-                
-                toggleDropdown() {
-                    this.dropdownOpen = !this.dropdownOpen;
-                },
-                
-                closeDropdown() {
-                    this.dropdownOpen = false;
-                }
-            }" @click.away="closeDropdown()">
-
-        <!-- Sidebar -->
-        <div style="flex:0 0 260px;min-width:0;max-width:100%;">
-          <div class="theme-filter-sidebar">
-
-            <!-- Category Section -->
-            <div class="theme-filter-group">
-              <h5><i class="fas fa-tag" style="margin-right:8px;font-size:11px;"></i> Category</h5>
-              @if(isset($categories) && $categories->count() > 0)
-              @foreach ($categories as $cat)
-              <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-                <input type="checkbox" id="cat_{{ $cat->id }}" value="{{ $cat->id }}"
-                  x-model.number="selectedCategories">
-                <label for="cat_{{ $cat->id }}">{{ $cat->name }}</label>
-              </div>
-              @endforeach
-              @else
-              <div style="color:#64748b;font-size:13px;">No categories available</div>
-              @endif
-            </div>
-
-            <!-- ===== SORT DROPDOWN - Category er NICHE ===== -->
-            <div class="sort-dropdown-wrapper">
-              <span class="sort-label"><i class="fas fa-arrow-up-wide-short" style="margin-right:8px;"></i> Sort
-                By</span>
-
-              <div class="sort-dropdown-container">
-                <button class="dropdown-btn" @click="toggleDropdown()">
-                  <span style="display:flex;align-items:center;gap:10px;">
-                    <i class="fas" :class="{
-                      'fa-clock': sortType === 'newest',
-                      'fa-history': sortType === 'oldest',
-                      'fa-arrow-up': sortType === 'price_low',
-                      'fa-arrow-down': sortType === 'price_high',
-                      'fa-sort-alpha-down': sortType === 'az',
-                      'fa-sort-alpha-up': sortType === 'za'
-                    }" style="color:#22c55e;"></i>
-                    <span x-text="{
-                      'newest': 'Newest First',
-                      'oldest': 'Oldest First',
-                      'price_low': 'Price: Low → High',
-                      'price_high': 'Price: High → Low',
-                      'az': 'A → Z',
-                      'za': 'Z → A'
-                    }[sortType]"></span>
-                  </span>
-                  <i class="fas fa-chevron-down" style="font-size:12px;color:#64748b;transition:transform 0.3s;"
-                    :style="{ transform: dropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }"></i>
-                </button>
-
-                <!-- Dropdown Menu -->
-                <div class="dropdown-menu" x-show="dropdownOpen" x-transition:enter.duration.200ms>
-                  <button class="sort-option" :class="{ 'active': sortType === 'newest' }" @click="setSort('newest')">
-                    <i class="fas fa-clock option-icon"></i> Newest First
-                    <i class="fas fa-check check-icon" x-show="sortType === 'newest'"></i>
-                  </button>
-
-                  <button class="sort-option" :class="{ 'active': sortType === 'oldest' }" @click="setSort('oldest')">
-                    <i class="fas fa-history option-icon"></i> Oldest First
-                    <i class="fas fa-check check-icon" x-show="sortType === 'oldest'"></i>
-                  </button>
-
-                  <div style="height:1px;background:rgba(255,255,255,0.04);margin:4px 12px;"></div>
-
-                  <button class="sort-option" :class="{ 'active': sortType === 'price_low' }"
-                    @click="setSort('price_low')">
-                    <i class="fas fa-arrow-up option-icon"></i> Price: Low → High
-                    <i class="fas fa-check check-icon" x-show="sortType === 'price_low'"></i>
-                  </button>
-
-                  <button class="sort-option" :class="{ 'active': sortType === 'price_high' }"
-                    @click="setSort('price_high')">
-                    <i class="fas fa-arrow-down option-icon"></i> Price: High → Low
-                    <i class="fas fa-check check-icon" x-show="sortType === 'price_high'"></i>
-                  </button>
-
-                  <div style="height:1px;background:rgba(255,255,255,0.04);margin:4px 12px;"></div>
-
-                  <button class="sort-option" :class="{ 'active': sortType === 'az' }" @click="setSort('az')">
-                    <i class="fas fa-sort-alpha-down option-icon"></i> A → Z
-                    <i class="fas fa-check check-icon" x-show="sortType === 'az'"></i>
-                  </button>
-
-                  <button class="sort-option" :class="{ 'active': sortType === 'za' }" @click="setSort('za')">
-                    <i class="fas fa-sort-alpha-up option-icon"></i> Z → A
-                    <i class="fas fa-check check-icon" x-show="sortType === 'za'"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Clear Filter Button -->
-            <button class="clear-filter-btn" @click="selectedCategories=[]; sortType='newest'" style="margin-top:20px;">
-              <i class="fas fa-undo-alt" style="margin-right:8px;"></i> Clear Filters
-            </button>
-          </div>
-        </div>
-
-        <!-- Grid -->
-        <div style="flex:1;min-width:0;max-width:100%;">
-
-          <!-- Results Count Header -->
-          <div
-            style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;padding:0 4px;">
-            <span style="font-size:14px;color:#94a3b8;">
-              Showing <span style="color:#22c55e;font-weight:700;" x-text="totalCount"></span>
-              <span x-text="totalCount !== 1 ? 'themes' : 'theme'"></span>
+      <div class="hero-bottom">
+        <div class="hero-title-wrap">
+          <h1 class="hero-title">
+            <span class="t-word">Theme</span>
+     =
+              <span class="t-theme-mark" aria-hidden="true">
+                <svg viewBox="0 0 100 100" fill="none">
+                  <rect x="4" y="4" width="46" height="46" rx="8" stroke="rgba(244,245,247,0.22)" stroke-width="2.5" />
+                  <rect x="28" y="28" width="46" height="46" rx="8" stroke="rgba(244,166,55,0.5)" stroke-width="2.5" />
+                  <rect x="52" y="52" width="42" height="42" rx="8" fill="url(#themeMarkGrad)" stroke="#f4a637" stroke-width="2.5" />
+                  <circle cx="73" cy="73" r="2.2" fill="#0a0a0a" />
+                  <defs>
+                    <!-- <linearGradient id="themeMarkGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop stop-color="#f4a637" />
+                      <stop offset="1" stop-color="#f7c873" />
+                    </linearGradient> -->
+                  </defs>
+                </svg>
+          
+              </span>
+          
             </span>
-          </div>
-
-          <!-- ===== THEMES GRID ===== -->
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-            <template x-for="(theme, index) in filteredThemes" :key="theme.id">
-              <div class="theme-card" :style="{ animationDelay: (index * 0.05) + 's' }">
-                <div class="thumb-wrap">
-                  <a :href="theme.demo_url" target="_blank" rel="noopener noreferrer">
-                    <img :src="'{{ asset('storage') }}/' + theme.image" :alt="theme.title" loading="lazy">
-                  </a>
-                  <a :href="theme.demo_url" target="_blank" class="demo-badge">
-                    <i class="fas fa-external-link-alt" style="margin-right:6px;font-size:9px;"></i> Live Demo
-                  </a>
-                </div>
-                <div class="card-body">
-                  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
-                    <h2><a :href="theme.demo_url" target="_blank" x-text="theme.title"></a></h2>
-                    {{-- <span class="price" x-text="'$' + theme.price.toFixed(2)"></span> --}}
-                  </div>
-                </div>
-              </div>
-            </template>
-
-            <!-- Empty State -->
-            <div style="grid-column:1/-1;text-align:center;padding:60px 0;" x-show="filteredThemes.length === 0">
-              <i class="fas fa-search" style="font-size:40px;color:#334155;margin-bottom:16px;display:block;"></i>
-              <p style="color:#64748b;font-size:17px;">No themes found matching your filters.</p>
-              <button
-                style="margin-top:14px;padding:12px 28px;background:linear-gradient(135deg,rgba(34,197,94,0.1),rgba(34,197,94,0.05));color:#22c55e;border:1px solid rgba(34,197,94,0.1);border-radius:12px;cursor:pointer;font-size:14px;font-weight:600;transition:all 0.3s;font-family:inherit;"
-                @click="selectedCategories=[]; sortType='newest'">
-                <i class="fas fa-undo-alt" style="margin-right:8px;"></i> Clear Filters
-              </button>
-            </div>
-          </div>
-
+          </h1>
         </div>
+        <p class="hero-subtitle">Handcrafted, responsive, and performance-optimized themes — engineered with precision, ready to deploy.</p>
       </div>
     </div>
+  </section>
+
+  <!-- ===== FILTER + THEMES (shared Alpine root) ===== -->
+  <div x-data="{
+    themes: @js(isset($themes) ? $themes->map(fn($t) => ['id'=>$t->id,'title'=>$t->title,'image'=>$t->image,'demo_url'=>$t->demo_url,'category_id'=>(int)$t->category_id,'category_name'=>$t->category->name ?? 'Uncategorized','price'=>(float)$t->price]) : []),
+    selectedCategories: [],
+    sortType: 'newest',
+    get filtered() {
+      let result = this.themes.filter(t => {
+        if (this.selectedCategories.length > 0 && !this.selectedCategories.includes(t.category_id)) return false;
+        return true;
+      });
+      if (this.sortType === 'oldest') return [...result].reverse();
+      if (this.sortType === 'price_low') return [...result].sort((a, b) => a.price - b.price);
+      if (this.sortType === 'price_high') return [...result].sort((a, b) => b.price - a.price);
+      if (this.sortType === 'az') return [...result].sort((a, b) => a.title.localeCompare(b.title));
+      if (this.sortType === 'za') return [...result].sort((a, b) => b.title.localeCompare(a.title));
+      return result;
+    }
+  }">
+
+    <!-- ===== FILTER BAR ===== -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-wrapper">
+          <div class="filter-controls">
+            <div class="filter-pills">
+              <button class="filter-pill" :class="selectedCategories.length === 0 && 'active'" @click="selectedCategories = []">All <span class="pill-count">({{ $themes->total() }})</span></button>
+              @foreach ($categories as $category)
+              <button class="filter-pill" :class="selectedCategories.includes({{ $category->id }}) && 'active'" @click="selectedCategories = selectedCategories.includes({{ $category->id }}) ? selectedCategories.filter(c => c !== {{ $category->id }}) : [...selectedCategories, {{ $category->id }}]">{{ $category->name }} <span class="pill-count">({{ $themes->where('category_id', $category->id)->count() }})</span></button>
+              @endforeach
+            </div>
+            <div class="filter-actions">
+              <select x-model="sortType">
+                <option value="newest">Sort — Newest</option>
+                <option value="oldest">Sort — Oldest</option>
+                <option value="az">Sort — A → Z</option>
+                <option value="za">Sort — Z → A</option>
+                <option value="price_low">Sort — Price ↑</option>
+                <option value="price_high">Sort — Price ↓</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THEMES ===== -->
+    <section class="themes-section">
+      <div class="container">
+        <div class="theme-grid">
+
+          <template x-for="(theme, index) in filtered" :key="theme.id">
+            <div class="theme-card" :style="{ '--i': index }">
+
+              <div class="thumb-wrap">
+                <span class="plate-index" x-text="String(index + 1).padStart(2, '0')"></span>
+                <span class="category-tag" x-text="theme.category_name"></span>
+                <a :href="theme.demo_url" target="_blank">
+                  <img :src="'{{ asset('storage') }}/' + theme.image" :alt="theme.title" loading="lazy" onerror="this.parentElement.style.display='none'">
+                </a>
+              </div>
+
+              <div class="card-body">
+                <h2><a :href="theme.demo_url" target="_blank" x-text="theme.title"></a></h2>
+                <div class="card-footer">
+                  <a :href="theme.demo_url" target="_blank" class="btn-demo">
+                    View demo <span class="arrow-ring"><i class="fa-solid fa-arrow-right"></i></span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </template>
+
+          <div class="empty-state" x-show="filtered.length === 0">
+            <div class="icon-wrap">
+              <i class="fa-regular fa-layer-group"></i>
+            </div>
+            <h3>No themes found</h3>
+            <p>No themes match the selected filters.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </div>
 
   @include('layout.footer')
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <script>
-  (function() {
-    var canvas = document.getElementById('themeCanvas');
-    if (!canvas) return;
-
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-    var renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-      alpha: true,
-      antialias: true
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    var count = 200;
-    var positions = new Float32Array(count * 3);
-    for (var i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 30;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 20 - 5;
-    }
-    var pGeom = new THREE.BufferGeometry();
-    pGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    var pMat = new THREE.PointsMaterial({
-      color: 0x22c55e,
-      size: 0.03,
-      transparent: true,
-      opacity: 0.2,
-      blending: THREE.AdditiveBlending
-    });
-    scene.add(new THREE.Points(pGeom, pMat));
-
-    var cubes = [];
-    var colors = [0x22c55e, 0x16a34a, 0x4ade80, 0x34d399];
-    for (var i = 0; i < 6; i++) {
-      var size = 0.2 + Math.random() * 0.25;
-      var geom = new THREE.OctahedronGeometry(size);
-      var mat = new THREE.MeshBasicMaterial({
-        color: colors[Math.floor(Math.random() * colors.length)],
-        wireframe: true,
-        transparent: true,
-        opacity: 0.08 + Math.random() * 0.1,
-      });
-      var mesh = new THREE.Mesh(geom, mat);
-      mesh.position.set((Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20, (Math.random() - 0.5) * 12 - 4);
-      mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
-      mesh.userData = {
-        rot: {
-          x: (Math.random() - 0.5) * 0.01,
-          y: (Math.random() - 0.5) * 0.01,
-          z: (Math.random() - 0.5) * 0.01
-        },
-        phase: Math.random() * Math.PI * 2,
-        baseY: mesh.position.y,
-        floatSpeed: 0.001 + Math.random() * 0.002
-      };
-      scene.add(mesh);
-      cubes.push(mesh);
-    }
-
-    camera.position.z = 7;
-
-    var mouseX = 0,
-      mouseY = 0;
-    document.addEventListener('mousemove', function(e) {
-      mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-      mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-    });
-
-    var time = 0;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      time += 0.005;
-
-      cubes.forEach(function(mesh) {
-        mesh.rotation.x += mesh.userData.rot.x || 0.002;
-        mesh.rotation.y += mesh.userData.rot.y || 0.003;
-        mesh.rotation.z += mesh.userData.rot.z || 0.001;
-        mesh.position.y = (mesh.userData.baseY || 0) + Math.sin(time * 4 + mesh.userData.phase) * 0.2;
-      });
-
-      camera.position.x += (mouseX * 0.3 - camera.position.x) * 0.015;
-      camera.position.y += (-mouseY * 0.25 - camera.position.y) * 0.015;
-      camera.lookAt(scene.position);
-
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    window.addEventListener('resize', function() {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  })();
-  </script>
 </body>
 
 </html>

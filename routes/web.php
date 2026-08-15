@@ -5,7 +5,11 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 
 
+
 Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::redirect('/education.inoodex.com', 'https://education.inoodex.com', 301);
+Route::redirect('/inoodex.com/portfolio', 'https://inoodex.com/portfolio', 301);
+Route::redirect('/electronicspartsbd.com', 'https://www.electronicspartsbd.com', 301);
 // Route::get('/', function () {
 //     return view('frontend.pages.index');
 // });
@@ -55,8 +59,8 @@ Route::
             Route::get('/apps-development', 'FrontendController@appsDevelopment');
             Route::get('/web-development', 'FrontendController@webDevelopment');
 
-            Route::get('/portfolio', [FrontendController::class, 'portfolio'])->name('portfolio.index');
-            Route::get('/portfolio/{id}', [FrontendController::class, 'portfolioShow'])->name('portfolio.show');
+            // Route::get('/portfolio', [FrontendController::class, 'portfolio'])->name('portfolio.index');
+            // Route::get('/portfolio/{id}', [FrontendController::class, 'portfolioShow'])->name('portfolio.show');
 
             Route::get('/blogs', [FrontendController::class, 'blogAll'])->name('blogs');
             Route::get('/blogs/{slug}', [FrontendController::class, 'blogSingle'])->name('blogs.show');

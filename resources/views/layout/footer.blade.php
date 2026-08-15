@@ -14,7 +14,7 @@
     left: 50%;
     font-size: clamp(120px, 20vw, 300px);
     font-weight: 900;
-    color: rgba(34,197,94,0.025);
+    color: rgba(244,166,55,0.025);
     pointer-events: none;
     white-space: nowrap;
     letter-spacing: 20px;
@@ -45,33 +45,12 @@
                         SEO, and e-commerce solutions to help businesses grow and
                         thrive in today's competitive landscape.
                     </p>
-                    <div class="footer-about-address">
-                        {!! $contacts->address !!}
-                    </div>
-                    <div class="footer-contact-info">
-                        <a href="#">{{ $contacts->email }}</a>
-                        <a href="#">{{ $contacts->phone }}</a>
-                    </div>
                     <div class="footer-social">
                         <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
                         <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     </div>
-                </div>
-            </div>
-
-            <div class="footer-links-col">
-                <div class="footer-links">
-                    <h2>pages</h2>
-                    <ul>
-                        <li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ url('/about') }}">About Us</a></li>
-                        <li><a href="{{ url('/services') }}">Services</a></li>
-                        <li><a href="{{ url('/career') }}">Career</a></li>
-                        <li><a href="{{ url('/blogs') }}">Blog</a></li>
-                        <li><a href="{{ url('/contact') }}">Contact Us</a></li>
-                    </ul>
                 </div>
             </div>
 
@@ -100,6 +79,19 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="footer-links-col">
+                <div class="footer-links">
+                    <h2>address</h2>
+                    <div class="footer-about-address">
+                        {!! $contacts->address !!}
+                    </div>
+                    <div class="footer-contact-info">
+                        <a href="#">{{ $contacts->email }}</a>
+                        <a href="#">{{ $contacts->phone }}</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="footer-copyright">
@@ -109,8 +101,8 @@
                 </div>
                 <div class="footer-policy-links">
                     <ul>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">terms of service</a></li>
+                        <!-- <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">terms of service</a></li> -->
                         <li><a href="#top" class="go-top" aria-label="Go to top"><i class="fa-solid fa-arrow-up"></i></a></li>
                     </ul>
                 </div>
@@ -135,7 +127,6 @@
 <script src="{{ asset('frontend/assets/js/wow.js') }}" defer></script>
 <script src="{{ asset('frontend/assets/js/function.js') }}" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
-<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
 
 <script defer>
 document.addEventListener('DOMContentLoaded', function() {
@@ -152,20 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
             var filterValue = $(this).attr('data-filter');
             $grid.isotope({ filter: filterValue });
         });
-    }
-
-    if (typeof Lenis !== 'undefined') {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            orientation: 'vertical',
-            smoothWheel: true,
-        });
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
     }
 });
 </script>

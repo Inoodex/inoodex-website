@@ -1,4 +1,4 @@
-<style>
+﻿<style>
     .our-work {
         background: #0f172a;
         padding: 80px 0;
@@ -6,7 +6,7 @@
     }
     .work-label {
         font-size: 14px;
-        color: #22c55e;
+        color: #f4a637;
         text-transform: uppercase;
         letter-spacing: 3px;
         font-weight: 600;
@@ -19,7 +19,7 @@
         margin-bottom: 20px;
         line-height: 1.2;
     }
-    .work-heading span { color: #22c55e; }
+    .work-heading span { color: #f4a637; }
 
     .work-grid {
         display: grid;
@@ -39,8 +39,8 @@
         background: #1e293b;
     }
     .work-card:hover {
-        border-color: #22c55e;
-        box-shadow: 0 0 20px rgba(34,197,94,0.15), 0 0 60px rgba(34,197,94,0.05);
+        border-color: #f4a637;
+        box-shadow: 0 0 20px rgba(244,166,55,0.15), 0 0 60px rgba(244,166,55,0.05);
         transform: translateY(-4px);
     }
 
@@ -81,7 +81,7 @@
         bottom: -1px;
         border-radius: 16px;
         border: 2px solid transparent;
-        background: linear-gradient(135deg, #22c55e, #16a34a, #22c55e) border-box;
+        background: linear-gradient(135deg, #f4a637, #d18f2b, #f4a637) border-box;
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
@@ -102,15 +102,15 @@
     .work-overlay .category {
         display: inline-block;
         padding: 4px 14px;
-        background: rgba(34,197,94,0.15);
-        color: #22c55e;
+        background: rgba(244,166,55,0.15);
+        color: #f4a637;
         font-size: 12px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
         border-radius: 20px;
         margin-bottom: 12px;
-        border: 1px solid rgba(34,197,94,0.2);
+        border: 1px solid rgba(244,166,55,0.2);
         align-self: flex-start;
     }
     .work-overlay h3 {
@@ -125,7 +125,7 @@
         text-decoration: none;
         transition: color 0.3s ease;
     }
-    .work-overlay h3 a:hover { color: #22c55e; }
+    .work-overlay h3 a:hover { color: #f4a637; }
     .work-overlay .client {
         font-size: 14px;
         color: #94a3b8;
@@ -136,7 +136,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        color: #22c55e;
+        color: #f4a637;
         font-size: 13px;
         font-weight: 600;
         text-decoration: none;
@@ -146,21 +146,21 @@
     }
     .work-overlay .discover-link:hover {
         gap: 14px;
-        text-shadow: 0 0 20px rgba(34,197,94,0.5);
+        text-shadow: 0 0 20px rgba(244,166,55,0.5);
     }
     .work-overlay .discover-link .arrow-circle {
         width: 32px;
         height: 32px;
-        background: #22c55e;
+        background: #f4a637;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;
-        box-shadow: 0 0 10px rgba(34,197,94,0.3);
+        box-shadow: 0 0 10px rgba(244,166,55,0.3);
     }
     .work-overlay .discover-link:hover .arrow-circle {
-        box-shadow: 0 0 20px rgba(34,197,94,0.6);
+        box-shadow: 0 0 20px rgba(244,166,55,0.6);
         transform: scale(1.1);
     }
     .work-overlay .discover-link .arrow-circle svg {
@@ -194,7 +194,7 @@
                 <h2 class="work-heading wow fadeInUp" data-wow-delay="0.1s">Our <span>Latest Works</span></h2>
             </div>
             <div class="work-btn-wrap">
-                <a href="{{ url('/portfolio') }}" class="services-btn" style="display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#ffffff;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;border-radius:50px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 30px rgba(34,197,94,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">All Portfolio</a>
+                <a href="{{ url('/portfolio') }}" class="services-btn" style="display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#f4a637,#d18f2b);color:#ffffff;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;border-radius:50px;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 30px rgba(244,166,55,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">All Portfolio</a>
             </div>
         </div>
 
@@ -205,9 +205,9 @@
                         <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}">
                         <div class="work-overlay">
                             <span class="category">{{ $portfolio->category->name ?? 'Other' }}</span>
-                            <h3><a href="{{ route('portfolio.show', $portfolio->id) }}">{{ $portfolio->title }}</a></h3>
+                            <h3><a href="{{ $portfolio->demo_url ?: '#' }}">{{ $portfolio->title }}</a></h3>
                             <p class="client">{{ $portfolio->client_name }}</p>
-                            <a href="{{ route('portfolio.show', $portfolio->id) }}" class="discover-link">
+                            <a href="{{ $portfolio->demo_url ?: '#' }}" class="discover-link">
                                 <span class="arrow-circle">
                                     <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>

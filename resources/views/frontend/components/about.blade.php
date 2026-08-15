@@ -14,14 +14,14 @@
   right: -20%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(34, 197, 94, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(244,166,55, 0.06) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .about-title {
   font-size: 14px;
-  color: #22c55e;
+  color: #f4a637;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: 600;
@@ -37,7 +37,7 @@
 }
 
 .about-heading span {
-  color: #22c55e;
+  color: #f4a637;
 }
 
 .about-text {
@@ -67,11 +67,11 @@
 }
 
 .about-features li::before {
-  content: '✓';
+  content: '\2713';
   position: absolute;
   left: 0;
   top: 8px;
-  color: #22c55e;
+  color: #f4a637;
   font-weight: 700;
   font-size: 16px;
   transition: transform 0.3s ease;
@@ -89,7 +89,7 @@
 .about-btn {
   display: inline-block;
   padding: 14px 36px;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, #f4a637, #d18f2b);
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
@@ -124,7 +124,7 @@
 
 .about-btn:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(34, 197, 94, 0.4);
+  box-shadow: 0 12px 40px rgba(244,166,55, 0.4);
   color: #ffffff;
 }
 
@@ -142,7 +142,7 @@
 }
 
 .about-image-wrap:hover {
-  box-shadow: 0 30px 80px rgba(34, 197, 94, 0.15);
+  box-shadow: 0 30px 80px rgba(244,166,55, 0.15);
 }
 
 .about-image-wrap img {
@@ -161,14 +161,14 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), transparent 60%);
+  background: linear-gradient(135deg, rgba(244,166,55, 0.1), transparent 60%);
   border-radius: 16px;
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
 
 .about-image-wrap:hover::after {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), transparent 60%);
+  background: linear-gradient(135deg, rgba(244,166,55, 0.15), transparent 60%);
 }
 
 /* ===== ANIMATION CLASSES ===== */
@@ -287,10 +287,10 @@
 }
 
 .about-us .fs-close:hover {
-  background: #22c55e;
-  border-color: #22c55e;
+  background: #f4a637;
+  border-color: #f4a637;
   transform: rotate(90deg) scale(1.1);
-  box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 0 30px rgba(244,166,55, 0.3);
 }
 
 .about-us.fullscreen .fs-close {

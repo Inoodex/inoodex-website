@@ -59,15 +59,10 @@
                 Services <span style="color: #6b7280; font-size: 10px;">▾</span>
               </a>
               <div class="services-dropdown"
-                style="position: absolute; left: 0; top: 100%; margin-top: 8px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); transform: translateY(16px);">
+                style="position: absolute; left: 0; top: 100%; margin-top: 16px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); transform: translateY(16px);">
                 <div
                   style="background: #131b2e; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border-radius: 14px; min-width: 220px; padding: 8px 0; border: 1px solid rgba(255,255,255,0.05);">
-                  <div
-                    style="padding: 0 16px 10px; margin-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.04);">
-                    <span
-                      style="font-size: 11px; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.8px;">✦
-                      Our Services</span>
-                  </div>
+               
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/software-development') }}">Software Development</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
@@ -83,16 +78,38 @@
                 </div>
               </div>
             </li>
-            <li>
+            <!-- <li style="display:none;">
               <a class="nav-link"
                 style="padding: 8px 14px; font-size: 14px; font-weight: 500; color: #9ca3af; border-radius: 10px; text-decoration: none; transition: all 0.3s; position: relative;"
                 href="{{ url('/portfolio') }}">Portfolio</a>
-            </li>
-            <li>
+            </li> -->
+            <li style="position: relative;">
               <a class="nav-link"
-                style="padding: 8px 14px; font-size: 14px; font-weight: 500; color: #9ca3af; border-radius: 10px; text-decoration: none; transition: all 0.3s; position: relative;"
-                href="{{ url('/products') }}">Products</a>
+                style="padding: 8px 14px; font-size: 14px; font-weight: 500; color: #9ca3af; border-radius: 10px; text-decoration: none; transition: all 0.3s; position: relative; display: inline-flex; align-items: center; gap: 4px;"
+                href="{{ url('/products') }}">
+                Products <span style="color: #6b7280; font-size: 10px;">▾</span>
+              </a>
+              <div class="Products-dropdown"
+                style="position: absolute; left: 0; top: 100%; margin-top: 16px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); transform: translateY(16px);">
+                <div
+                  style="background: #131b2e; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border-radius: 14px; min-width: 220px; padding: 8px 0; border: 1px solid rgba(255,255,255,0.05);">
+                  
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/software-development') }}">Construction ERP</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/apps-development') }}">Education Consultancy CRM</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/inoodex.com/portfolio') }}">Inventory Management</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/digital-marketing') }}">POS Software</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/electronicspartsbd.com') }}">E-Commerce</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/education.inoodex.com') }}">School Management</a>
+                </div>
+              </div>
             </li>
+
             <li>
               <a class="nav-link"
                 style="padding: 8px 14px; font-size: 14px; font-weight: 500; color: #9ca3af; border-radius: 10px; text-decoration: none; transition: all 0.3s; position: relative;"
@@ -228,7 +245,7 @@
                   onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Data Analysis</a></li>
             </ul>
           </li>
-          <li>
+          <li style="display:none;">
             <a style="display: flex; align-items: center; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; text-decoration: none; transition: all 0.3s;"
               href="{{ url('/portfolio') }}"
               onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
@@ -417,12 +434,7 @@
   animation: hamburgerBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
 }
 
-/* Hover dropdown */
-li:hover .services-dropdown {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateY(0) !important;
-}
+/* Click dropdown */
 
 .dropdown-item:hover {
   background: rgba(16, 185, 129, 0.06) !important;
@@ -509,6 +521,32 @@ document.addEventListener('DOMContentLoaded', function() {
       var isOpen = subMenu.style.display === 'block';
       subMenu.style.display = isOpen ? 'none' : 'block';
       if (arrow) arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  });
+
+  // Desktop dropdown on hover (Services / Products)
+  document.querySelectorAll('li').forEach(function(li) {
+    var link = li.querySelector('a[href]');
+    var dd = li.querySelector('.services-dropdown, .Products-dropdown');
+    if (!link || !dd) return;
+
+    function open() {
+      dd.style.opacity = '1';
+      dd.style.visibility = 'visible';
+      dd.style.transform = 'translateY(0)';
+    }
+
+    function close() {
+      dd.style.opacity = '0';
+      dd.style.visibility = 'hidden';
+      dd.style.transform = 'translateY(16px)';
+    }
+
+    li.addEventListener('mouseenter', open);
+    li.addEventListener('mouseleave', function() {
+      setTimeout(function() {
+        if (!li.matches(':hover')) close();
+      }, 150);
     });
   });
 

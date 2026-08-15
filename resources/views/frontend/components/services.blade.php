@@ -1,4 +1,4 @@
-<style>
+﻿<style>
 .our-services {
   background: #0f172a;
   padding: 80px 0;
@@ -7,7 +7,7 @@
 
 .services-label {
   font-size: 14px;
-  color: #22c55e;
+  color: #f4a637;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: 600;
@@ -23,7 +23,7 @@
 }
 
 .services-heading span {
-  background: linear-gradient(135deg, #22c55e, #4ade80, #3b82f6);
+  background: linear-gradient(135deg, #f4a637, #f7c873, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -54,7 +54,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #22c55e, #4ade80, #3b82f6);
+  background: linear-gradient(90deg, #f4a637, #f7c873, #3b82f6);
   transform: scaleX(0);
   transition: transform 0.4s ease;
   transform-origin: left;
@@ -66,14 +66,14 @@
 
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(34, 197, 94, 0.2);
+  border-color: rgba(244,166,55, 0.2);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .service-card-icon {
   width: 56px;
   height: 56px;
-  background: rgba(34, 197, 94, 0.1);
+  background: rgba(244,166,55, 0.1);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -84,7 +84,7 @@
 }
 
 .service-card:hover .service-card-icon {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
+  background: linear-gradient(135deg, rgba(244,166,55, 0.2), rgba(59, 130, 246, 0.2));
 }
 
 .service-card-icon svg {
@@ -95,11 +95,11 @@
 
 /* Gradient icons with different color stops per card */
 .service-card:nth-child(1) .service-card-icon svg {
-  color: #22c55e;
+  color: #f4a637;
 }
 
 .service-card:nth-child(1):hover .service-card-icon svg {
-  color: #4ade80;
+  color: #f7c873;
 }
 
 .service-card:nth-child(2) .service-card-icon svg {
@@ -151,7 +151,7 @@
 }
 
 .service-card:hover h3 {
-  background: linear-gradient(135deg, #22c55e, #4ade80);
+  background: linear-gradient(135deg, #f4a637, #f7c873);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -168,7 +168,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, #f4a637, #d18f2b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -186,7 +186,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #22c55e, #4ade80);
+  background: linear-gradient(90deg, #f4a637, #f7c873);
   transition: width 0.3s ease;
   border-radius: 2px;
 }
@@ -201,8 +201,8 @@
 
 .service-card-link svg {
   transition: transform 0.3s ease;
-  -webkit-text-fill-color: #22c55e;
-  color: #22c55e;
+  -webkit-text-fill-color: #f4a637;
+  color: #f4a637;
 }
 
 .service-card-link:hover svg {
@@ -212,7 +212,7 @@
 .services-btn {
   display: inline-block;
   padding: 14px 36px;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, #f4a637, #d18f2b);
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
@@ -225,7 +225,7 @@
 
 .services-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 10px 30px rgba(244,166,55, 0.3);
   color: #ffffff;
 }
 

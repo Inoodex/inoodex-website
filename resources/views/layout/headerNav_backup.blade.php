@@ -55,9 +55,7 @@
               <div
                 class="absolute left-0 top-full mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
                 <div class="bg-gray-800 shadow-2xl rounded-2xl min-w-[220px] py-3 border border-gray-700">
-                  <div class="px-4 pb-3 mb-2 border-b border-gray-700">
-                    <span class="text-xs font-bold text-green-400 uppercase tracking-wider">Our Services</span>
-                  </div>
+                  
                   <a class="flex items-center px-5 py-2.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 transition-all duration-300"
                     href="{{ url('/software-development') }}">
                     Software Development

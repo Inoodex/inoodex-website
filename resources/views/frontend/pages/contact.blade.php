@@ -1,515 +1,1050 @@
-<!DOCTYPE html>
-<html lang="zxx">
-@include('layout.header')
+﻿<!DOCTYPE html>
+<html lang="en">
 
-<body class="tt-magic-cursor" style="background:#0f172a;color:#e2e8f0;">
-  <!-- Magic Cursor Start -->
-  <div id="magic-cursor">
-    <div id="ball"></div>
-  </div>
-  <!-- Magic Cursor End -->
+<head>
+  @include('layout.header')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+  /* ===== TECHNICAL STUDIO — CONTACT ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg: #0a0e1a;
+    --surface: #131829;
+    --surface-2: #171d31;
+    --surface-3: #1b2236;
+    --surface-focus: #1a2030;
+    --ink: #f4f5f7;
+    --muted: #868c99;
+    --muted-2: #4d525d;
+    --accent: #f4a637;
+    --accent-dim: rgba(244, 166, 55, 0.14);
+    --accent-glow: rgba(244, 166, 55, 0.08);
+    --accent-subtle: rgba(244, 166, 55, 0.04);
+    --line: rgba(244, 245, 247, 0.07);
+    --line-strong: rgba(244, 245, 247, 0.16);
+    --transition-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  body {
+    background:
+      radial-gradient(ellipse 1000px 560px at 12% -8%, rgba(244, 166, 55, 0.07), transparent 60%),
+      radial-gradient(ellipse 900px 560px at 100% 5%, rgba(80, 100, 160, 0.09), transparent 55%),
+      var(--bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    line-height: 1.6;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  ::selection {
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  ::-moz-selection {
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  /* ===== HERO ===== */
+  .hero-section {
+    padding: 110px 0 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(244, 245, 247, 0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244, 245, 247, 0.028) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 900px 480px at 30% 0%, rgba(0, 0, 0, 0.9), transparent 70%);
+    mask-image: radial-gradient(ellipse 900px 480px at 30% 0%, rgba(0, 0, 0, 0.9), transparent 70%);
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 44px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  .hero-eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px 2px var(--accent-dim);
+    animation: pulseDot 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .hero-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted-2);
+    letter-spacing: 1px;
+  }
+
+  .hero-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== UNIQUE TITLE COMPOSITION ===== */
+  .hero-title-wrap {
+    position: relative;
+  }
+
+  .hero-title-wrap::before {
+    content: '';
+    position: absolute;
+    top: -26px;
+    left: 0;
+    width: 56px;
+    height: 1px;
+    background: var(--accent);
+    box-shadow: 0 0 18px 1px var(--accent-dim);
+  }
+
+  /* ===== EDITORIAL HEADLINE ===== */
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(20px, 3.8vw, 48px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title .t-word {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(244, 245, 247, 0.5);
+    text-transform: uppercase;
+  }
+
+  .hero-title .t-row {
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(14px, 2vw, 28px);
+    position: relative;
+  }
+
+  .hero-title .t-grad {
+    position: relative;
+    background: linear-gradient(120deg, #f4a637 0%, #f7c873 45%, #f4a637 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 12px 32px var(--accent-dim));
+    animation: floatWord 5s ease-in-out infinite;
+  }
+
+  .hero-title .t-grad::after {
+    content: '';
+    position: absolute;
+    left: 0.04em;
+    bottom: -0.08em;
+    width: 62%;
+    height: 0.05em;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    border-radius: 2px;
+  }
+
+  @keyframes floatWord {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .hero-title .t-slash {
+    position: relative;
+    align-self: flex-end;
+    margin-bottom: 0.04em;
+    width: clamp(30px, 3.4vw, 46px);
+    height: clamp(30px, 3.4vw, 46px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-title .t-slash svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-title .t-slash line {
+    stroke: var(--accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 10px var(--accent-dim));
+  }
+
+  .hero-title .t-slash circle {
+    fill: var(--accent);
+    filter: drop-shadow(0 0 8px var(--accent-dim));
+  }
+
+  .hero-title .t-slash .pulse-ring {
+    position: absolute;
+    inset: -12%;
+    border: 1px solid var(--accent-dim);
+    border-radius: 50%;
+    animation: ringPulse 2.6s ease-in-out infinite;
+  }
+
+  @keyframes ringPulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(1.3); }
+  }
+
+  .hero-title-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .hero-title-index {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    background: var(--accent-subtle);
+    padding: 4px 12px;
+  }
+
+  .hero-title-pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .hero-title-pre i {
+    color: var(--muted-2);
+    font-style: normal;
+    margin: 0 4px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 340px;
+    padding-bottom: 6px;
+    border-left: 2px solid var(--accent);
+    padding-left: 18px;
+    line-height: 1.75;
+  }
+
+  /* ===== INFO PLATES ===== */
+  .info-section {
+    padding: 0 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 24px;
+  }
+
+  .section-head .lbl {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-head .lbl::before {
+    content: '';
+    width: 22px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .section-head .idx {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    color: var(--muted-2);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    position: relative;
+    padding: 18px 18px 16px;
+    transition: border-color 0.35s ease, transform 0.4s var(--transition-smooth), box-shadow 0.4s var(--transition-smooth);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .info-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--line-strong);
+    box-shadow: 0 16px 56px -12px rgba(0, 0, 0, 0.6), 0 0 60px -12px var(--accent-glow);
+  }
+
+  .info-card:hover::before {
+    opacity: 1;
+  }
+
+  .info-card .corner {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .info-card:hover .corner {
+    opacity: 1;
+  }
+
+  .info-card .corner.tl { top: 8px; left: 8px; border-top: 1.5px solid var(--accent); border-left: 1.5px solid var(--accent); }
+  .info-card .corner.tr { top: 8px; right: 8px; border-top: 1.5px solid var(--accent); border-right: 1.5px solid var(--accent); }
+  .info-card .corner.bl { bottom: 8px; left: 8px; border-bottom: 1.5px solid var(--accent); border-left: 1.5px solid var(--accent); }
+  .info-card .corner.br { bottom: 8px; right: 8px; border-bottom: 1.5px solid var(--accent); border-right: 1.5px solid var(--accent); }
+
+  .info-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .info-icon {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line-strong);
+    background: var(--accent-subtle);
+    color: var(--accent);
+    font-size: 13px;
+    transition: all 0.35s ease;
+  }
+
+  .info-card:hover .info-icon {
+    border-color: var(--accent);
+    box-shadow: 0 0 24px -6px var(--accent-dim);
+  }
+
+  .info-plate {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted-2);
+  }
+
+  .info-card h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .info-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    word-break: break-word;
+    line-height: 1.5;
+    margin-top: auto;
+  }
+
+  .info-value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 2px;
+  }
+
+  .info-value a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ===== MAP + FORM ===== */
+  .contact-grid {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 110px;
+  }
+
+  .map-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map-form-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .map-card .map-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+
+  .map-card .map-head .lbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .map-card .map-head .lbl i {
+    color: var(--accent);
+  }
+
+  .map-card .map-head .live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .map-card .map-head .live .b {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px 1px var(--accent-dim);
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+
+  .map-frame {
+    flex: 1;
+    position: relative;
+    min-height: 480px;
+    background: var(--surface-2);
+  }
+
+  .map-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: grayscale(0.35) invert(0.92) contrast(0.9);
+    transition: filter 0.4s ease;
+  }
+
+  .map-card:hover .map-frame iframe {
+    filter: grayscale(0.1) invert(0.92) contrast(0.95);
+  }
+
+  .map-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(244, 166, 55, 0);
+    pointer-events: none;
+    transition: border-color 0.35s ease;
+  }
+
+  .map-card:hover .map-frame::after {
+    border-color: rgba(244, 166, 55, 0.28);
+  }
+
+  .form-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    position: relative;
+    padding: clamp(22px, 3vw, 34px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    pointer-events: none;
+    transition: border-color 0.35s ease;
+  }
+
+  .form-card:hover::after {
+    border-color: rgba(244, 166, 55, 0.18);
+  }
+
+  .form-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .form-title h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+  }
+
+  .form-title h3 span {
+    color: var(--accent);
+  }
+
+  .form-title .ref {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted-2);
+  }
+
+  .form-card form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .field label i {
+    color: var(--accent);
+    font-size: 8px;
+  }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+    background: var(--surface-2);
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    resize: vertical;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: var(--muted-2);
+  }
+
+  .field input:hover,
+  .field textarea:hover {
+    border-color: rgba(244, 245, 247, 0.28);
+  }
+
+  .field input:focus,
+  .field textarea:focus {
+    border-color: var(--accent);
+    background: var(--surface-focus);
+    box-shadow: 0 0 22px -8px var(--accent-dim);
+  }
+
+  .field textarea {
+    min-height: 110px;
+    flex: 1;
+  }
+
+  .form-bottom {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .social-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .social-row .slbl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin-right: 2px;
+  }
+
+  .social-row a {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line-strong);
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.3s ease;
+  }
+
+  .social-row a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-subtle);
+    box-shadow: 0 0 20px -8px var(--accent-dim);
+    transform: translateY(-2px);
+  }
+
+  .btn-send {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent);
+    color: #0a0e1a;
+    border: 1px solid var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 13px 26px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+  }
+
+  .btn-send .arrow-ring {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(10, 14, 26, 0.45);
+    font-size: 11px;
+    transition: transform 0.4s var(--transition-smooth), background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .btn-send:hover {
+    background: #f7c873;
+    border-color: #f7c873;
+    box-shadow: 0 12px 40px -10px var(--accent-dim);
+    transform: translateY(-2px);
+  }
+
+  .btn-send:hover .arrow-ring {
+    transform: translate(3px, -3px);
+    background: rgba(10, 14, 26, 0.1);
+  }
+
+  .form-status {
+    margin-top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--surface-2); border: 1px solid var(--line-strong); transition: background 0.3s ease; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); border-color: var(--accent); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1080px) {
+    .hero-title {
+      font-size: 36px;
+    }
+
+    .contact-grid .map-form-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .map-card {
+      min-height: auto;
+    }
+
+    .map-frame {
+      min-height: 340px;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .info-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 28px;
+    }
+
+    .hero-bottom {
+      align-items: flex-start;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .info-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .t-slash {
+      width: 22px;
+      height: 22px;
+      margin-bottom: 4px;
+    }
+
+    .container {
+      padding: 0 18px;
+    }
+
+    .form-bottom {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-send {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  @media (hover: none) {
+    .info-card:hover,
+    .btn-send:hover,
+    .social-row a:hover {
+      transform: none;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  @include('layout.page_transition')
   @include('layout.headerNav')
 
-  <!-- Three.js Hero -->
-  <div style="position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding-top:70px;">
-    <canvas id="threeCanvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+  <!-- ===== HERO ===== -->
+  <section class="hero-section">
+    <div class="hero-grid-overlay"></div>
+    <div class="container">
+      <div class="hero-top">
+        <div class="hero-eyebrow"><span class="dot"></span> Contact / Reach Us</div>
 
-    <!-- Decorative images -->
-    <img src="{{ asset('frontend/assets/images/laptop.png') }}" alt=""
-      style="position:absolute;left:3%;top:25%;width:clamp(80px,12vw,180px);opacity:0.12;pointer-events:none;z-index:1;transform:rotate(-8deg);display:none;">
-    <img src="{{ asset('frontend/assets/images/world.png') }}" alt=""
-      style="position:absolute;right:3%;bottom:20%;width:clamp(70px,10vw,160px);opacity:0.1;pointer-events:none;z-index:1;transform:rotate(5deg);display:none;">
+      </div>
+      <div class="hero-bottom">
+        <div class="hero-title-wrap">
+          <div class="hero-title-row">
 
-    <div style="position:relative;z-index:2;width:100%;">
-      <div style="max-width:1200px;margin:0 auto;padding:40px 16px 20px;">
+       
+          </div>
+          <h1 class="hero-title">
+            <span class="t-word">Contact</span>
+            <span class="t-row">
+              <span class="t-grad">Us</span>
+              <span class="t-slash">
+             
+           
+              </span>
+            </span>
+          </h1>
+        </div>
+        <p class="hero-subtitle">Have a project in mind? We'd love to hear from you — drop us a line and our team will respond shortly.</p>
+      </div>
+    </div>
+  </section>
 
-        <!-- Header -->
-        <div style="text-align:center;">
-          <span
-            style="display:inline-block;background:rgba(34,197,94,0.1);color:#22c55e;font-size:clamp(11px,1.5vw,13px);font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:5px 14px;border-radius:50px;margin-bottom:12px;">Contact
-            Us</span>
-          <h1
-            style="font-size:clamp(28px,6vw,52px);font-weight:800;color:#ffffff;margin:0 0 12px;letter-spacing:-1px;line-height:1.2;">
-            Get In <span style="color:#22c55e;">Touch</span></h1>
-          <p
-            style="font-size:clamp(14px,1.8vw,18px);color:#94a3b8;max-width:500px;margin:0 auto 30px;line-height:1.7;padding:0 16px;">
-            Have a project in mind? We'd love to hear from you.</p>
+  @php $c = $contacts->first(); @endphp
+
+  <!-- ===== INFO PLATES ===== -->
+  <section class="info-section">
+    <div class="container">
+    
+      <div class="info-grid">
+
+        <div class="info-card">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="info-top">
+            <span class="info-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <span class="info-plate">// 01</span>
+          </div>
+          <h3>Address</h3>
+          <p class="info-value">{!! $c->address ?? '' !!}</p>
         </div>
 
-        <!-- Contact Info Cards -->
-        @php $c = $contacts->first(); @endphp
-        <div class="contact-cards"
-          style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:40px;">
-
-          <!-- Address Card -->
-          <div
-            style="background:rgba(30,41,59,0.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:clamp(16px,2.5vw,28px) clamp(14px,2vw,20px);text-align:center;transition:all 0.4s ease;"
-            onmouseover="this.style.borderColor='#22c55e';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 40px rgba(34,197,94,0.1)'"
-            onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='';this.style.boxShadow=''">
-            <div
-              style="width:clamp(40px,5vw,50px);height:clamp(40px,5vw,50px);background:rgba(34,197,94,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
-              <svg style="width:clamp(18px,2.5vw,22px);height:clamp(18px,2.5vw,22px);color:#22c55e;" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
-            <h3
-              style="font-size:clamp(12px,1.5vw,14px);font-weight:700;color:#ffffff;margin:0 0 4px;text-transform:uppercase;letter-spacing:0.5px;">
-              Address</h3>
-            <p style="font-size:clamp(12px,1.3vw,14px);color:#94a3b8;margin:0;line-height:1.6;word-break:break-word;">
-              {!! $c->address ?? '' !!}</p>
+        <div class="info-card">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="info-top">
+            <span class="info-icon"><i class="fa-solid fa-phone"></i></span>
+            <span class="info-plate">// 02</span>
           </div>
-
-          <!-- Phone Card -->
-          <div
-            style="background:rgba(30,41,59,0.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:clamp(16px,2.5vw,28px) clamp(14px,2vw,20px);text-align:center;transition:all 0.4s ease;"
-            onmouseover="this.style.borderColor='#22c55e';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 40px rgba(34,197,94,0.1)'"
-            onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='';this.style.boxShadow=''">
-            <div
-              style="width:clamp(40px,5vw,50px);height:clamp(40px,5vw,50px);background:rgba(34,197,94,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
-              <svg style="width:clamp(18px,2.5vw,22px);height:clamp(18px,2.5vw,22px);color:#22c55e;" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-            </div>
-            <h3
-              style="font-size:clamp(12px,1.5vw,14px);font-weight:700;color:#ffffff;margin:0 0 4px;text-transform:uppercase;letter-spacing:0.5px;">
-              Phone</h3>
-            <p style="font-size:clamp(12px,1.3vw,14px);color:#94a3b8;margin:0;line-height:1.6;">{{ $c->phone ?? '' }}
-            </p>
-          </div>
-
-          <!-- Email Card -->
-          <div
-            style="background:rgba(30,41,59,0.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:clamp(16px,2.5vw,28px) clamp(14px,2vw,20px);text-align:center;transition:all 0.4s ease;"
-            onmouseover="this.style.borderColor='#22c55e';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 40px rgba(34,197,94,0.1)'"
-            onmouseout="this.style.borderColor='rgba(255,255,255,0.06)';this.style.transform='';this.style.boxShadow=''">
-            <div
-              style="width:clamp(40px,5vw,50px);height:clamp(40px,5vw,50px);background:rgba(34,197,94,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
-              <svg style="width:clamp(18px,2.5vw,22px);height:clamp(18px,2.5vw,22px);color:#22c55e;" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3
-              style="font-size:clamp(12px,1.5vw,14px);font-weight:700;color:#ffffff;margin:0 0 4px;text-transform:uppercase;letter-spacing:0.5px;">
-              Email</h3>
-            <p style="font-size:clamp(12px,1.3vw,14px);color:#94a3b8;margin:0;line-height:1.6;word-break:break-word;">
-              {{ $c->email ?? '' }}</p>
-          </div>
+          <h3>Phone</h3>
+          <p class="info-value"><a href="tel:{{ $c->phone ?? '' }}">{{ $c->phone ?? '' }}</a></p>
         </div>
 
-        <!-- Map + Form - Map on LEFT, Form on RIGHT -->
-        <div class="contact-grid" style="display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:stretch;">
-
-          <!-- LEFT: Map -->
-          <div class="map-wrapper" style="display:flex;">
-            <div class="map-container"
-              style="background:rgba(30,41,59,0.5);border:1px solid rgba(255,255,255,0.05);border-radius:16px;overflow:hidden;width:100%;position:relative;display:flex;align-items:stretch;min-height:500px;">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.8596995503444!2d90.35103507608738!3d23.823587585961263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c1006cb54f2d%3A0x970526e9c2b197c6!2sInoodex!5e0!3m2!1sen!2sbd!4v1751177416023!5m2!1sen!2sbd"
-                width="100%" height="100%"
-                style="border:0;display:block;position:absolute;top:0;left:0;width:100%;height:100%;" allowfullscreen=""
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
+        <div class="info-card">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="info-top">
+            <span class="info-icon"><i class="fa-solid fa-envelope"></i></span>
+            <span class="info-plate">// 03</span>
           </div>
-
-          <!-- RIGHT: Form -->
-          <div class="form-wrapper" style="display:flex;">
-            <div class="form-card"
-              style="background:rgba(30,41,59,0.5);border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:clamp(18px,3vw,36px);width:100%;display:flex;flex-direction:column;">
-              <form action="{{ route('contact.store') }}" method="POST"
-                style="flex:1;display:flex;flex-direction:column;">
-                @csrf
-                <!-- Name + Email -->
-                <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
-                  <div>
-                    <label
-                      style="display:block;font-size:clamp(10px,1.2vw,12px);font-weight:600;color:#94a3b8;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;">Name
-                      *</label>
-                    <input type="text" name="name" value="{{ old('name') }}" required
-                      style="width:100%;padding:clamp(8px,1.2vw,11px) clamp(10px,1.5vw,14px);background:#1e293b;border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:#ffffff;font-size:clamp(12px,1.3vw,14px);outline:none;transition:border-color 0.3s;box-sizing:border-box;"
-                      onfocus="this.style.borderColor='#22c55e'"
-                      onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
-                  </div>
-                  <div>
-                    <label
-                      style="display:block;font-size:clamp(10px,1.2vw,12px);font-weight:600;color:#94a3b8;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;">Email
-                      *</label>
-                    <input type="email" name="email" value="{{ old('email') }}" required
-                      style="width:100%;padding:clamp(8px,1.2vw,11px) clamp(10px,1.5vw,14px);background:#1e293b;border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:#ffffff;font-size:clamp(12px,1.3vw,14px);outline:none;transition:border-color 0.3s;box-sizing:border-box;"
-                      onfocus="this.style.borderColor='#22c55e'"
-                      onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
-                  </div>
-                </div>
-
-                <!-- Phone + Subject -->
-                <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
-                  <div>
-                    <label
-                      style="display:block;font-size:clamp(10px,1.2vw,12px);font-weight:600;color:#94a3b8;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;">Phone</label>
-                    <input type="text" name="phone" value="{{ old('phone') }}"
-                      style="width:100%;padding:clamp(8px,1.2vw,11px) clamp(10px,1.5vw,14px);background:#1e293b;border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:#ffffff;font-size:clamp(12px,1.3vw,14px);outline:none;transition:border-color 0.3s;box-sizing:border-box;"
-                      onfocus="this.style.borderColor='#22c55e'"
-                      onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
-                  </div>
-                  <div>
-                    <label
-                      style="display:block;font-size:clamp(10px,1.2vw,12px);font-weight:600;color:#94a3b8;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;">Subject</label>
-                    <input type="text" name="subject" value="{{ old('subject') }}"
-                      style="width:100%;padding:clamp(8px,1.2vw,11px) clamp(10px,1.5vw,14px);background:#1e293b;border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:#ffffff;font-size:clamp(12px,1.3vw,14px);outline:none;transition:border-color 0.3s;box-sizing:border-box;"
-                      onfocus="this.style.borderColor='#22c55e'"
-                      onblur="this.style.borderColor='rgba(255,255,255,0.08)'">
-                  </div>
-                </div>
-
-                <!-- Message -->
-                <div style="margin-bottom:16px;flex:1;">
-                  <label
-                    style="display:block;font-size:clamp(10px,1.2vw,12px);font-weight:600;color:#94a3b8;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px;">Message
-                    *</label>
-                  <textarea name="message" rows="4" required
-                    style="width:100%;padding:clamp(8px,1.2vw,11px) clamp(10px,1.5vw,14px);background:#1e293b;border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:#ffffff;font-size:clamp(12px,1.3vw,14px);outline:none;transition:border-color 0.3s;resize:vertical;min-height:clamp(80px,10vw,120px);box-sizing:border-box;"
-                    onfocus="this.style.borderColor='#22c55e'"
-                    onblur="this.style.borderColor='rgba(255,255,255,0.08)'">{{ old('message') }}</textarea>
-                </div>
-
-                <!-- Social Follow -->
-                <div style="margin-bottom:16px;">
-                  <h3
-                    style="font-size:clamp(11px,1.2vw,13px);font-weight:700;color:#ffffff;margin:0 0 8px;text-transform:uppercase;letter-spacing:0.5px;">
-                    Follow Us</h3>
-                  <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                    <a href="#"
-                      style="display:flex;align-items:center;justify-content:center;width:clamp(32px,4vw,38px);height:clamp(32px,4vw,38px);background:rgba(255,255,255,0.05);border-radius:8px;color:#94a3b8;text-decoration:none;transition:all 0.3s;font-size:clamp(14px,1.8vw,16px);"
-                      onmouseover="this.style.background='#22c55e';this.style.color='#fff'"
-                      onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.color='#94a3b8'"><i
-                        class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#"
-                      style="display:flex;align-items:center;justify-content:center;width:clamp(32px,4vw,38px);height:clamp(32px,4vw,38px);background:rgba(255,255,255,0.05);border-radius:8px;color:#94a3b8;text-decoration:none;transition:all 0.3s;font-size:clamp(14px,1.8vw,16px);"
-                      onmouseover="this.style.background='#22c55e';this.style.color='#fff'"
-                      onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.color='#94a3b8'"><i
-                        class="fa-brands fa-instagram"></i></a>
-                    <a href="#"
-                      style="display:flex;align-items:center;justify-content:center;width:clamp(32px,4vw,38px);height:clamp(32px,4vw,38px);background:rgba(255,255,255,0.05);border-radius:8px;color:#94a3b8;text-decoration:none;transition:all 0.3s;font-size:clamp(14px,1.8vw,16px);"
-                      onmouseover="this.style.background='#22c55e';this.style.color='#fff'"
-                      onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.color='#94a3b8'"><i
-                        class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="#"
-                      style="display:flex;align-items:center;justify-content:center;width:clamp(32px,4vw,38px);height:clamp(32px,4vw,38px);background:rgba(255,255,255,0.05);border-radius:8px;color:#94a3b8;text-decoration:none;transition:all 0.3s;font-size:clamp(14px,1.8vw,16px);"
-                      onmouseover="this.style.background='#22c55e';this.style.color='#fff'"
-                      onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.color='#94a3b8'"><i
-                        class="fa-brands fa-twitter"></i></a>
-                  </div>
-                </div>
-
-                <button type="submit"
-                  style="width:100%;padding:clamp(10px,1.5vw,13px);background:linear-gradient(135deg,#22c55e,#16a34a);color:#ffffff;font-size:clamp(12px,1.4vw,14px);font-weight:600;border:none;border-radius:10px;cursor:pointer;transition:all 0.3s;text-transform:uppercase;letter-spacing:0.5px;margin-top:auto;"
-                  onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 30px rgba(34,197,94,0.3)'"
-                  onmouseout="this.style.transform='';this.style.boxShadow=''">Send Message</button>
-              </form>
-            </div>
-          </div>
-
+          <h3>Email</h3>
+          <p class="info-value"><a href="mailto:{{ $c->email ?? '' }}">{{ $c->email ?? '' }}</a></p>
         </div>
 
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- ===== MAP + FORM ===== -->
+  <section class="contact-grid">
+    <div class="container">
+      <div class="section-head">
+        <span class="lbl">Map / Get Directions</span>
+        <span class="idx">VISIT OR MESSAGE — 02/02</span>
+      </div>
+      <div class="map-form-grid">
+
+      <!-- LEFT: MAP -->
+      <div class="map-card">
+        <div class="map-head">
+          <span class="lbl"><i class="fa-solid fa-map-location-dot"></i> Location / Headquarter</span>
+          <span class="live"><span class="b"></span> Live</span>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.8596995503444!2d90.35103507608738!3d23.823587585961263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c1006cb54f2d%3A0x970526e9c2b197c6!2sInoodex!5e0!3m2!1sen!2sbd!4v1751177416023!5m2!1sen!2sbd"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="form-card">
+        <div class="form-title">
+          <h3>Send a <span>Message</span></h3>
+          <span class="ref">[ INQ-{{ date('Y') }} ]</span>
+        </div>
+        <form action="{{ route('contact.store') }}" method="POST">
+          @csrf
+          <div class="form-row">
+            <div class="field">
+              <label><i class="fa-solid fa-circle"></i> Name *</label>
+              <input type="text" name="name" value="{{ old('name') }}" placeholder="Your full name" required>
+            </div>
+            <div class="field">
+              <label><i class="fa-solid fa-circle"></i> Email *</label>
+              <input type="email" name="email" value="{{ old('email') }}" placeholder="you@domain.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label><i class="fa-regular fa-circle"></i> Phone</label>
+              <input type="text" name="phone" value="{{ old('phone') }}" placeholder="+880 ...">
+            </div>
+            <div class="field">
+              <label><i class="fa-regular fa-circle"></i> Subject</label>
+              <input type="text" name="subject" value="{{ old('subject') }}" placeholder="Project inquiry">
+            </div>
+          </div>
+          <div class="field" style="flex:1;margin-bottom:16px;">
+            <label><i class="fa-solid fa-circle"></i> Message *</label>
+            <textarea name="message" placeholder="Tell us about your project..." required>{{ old('message') }}</textarea>
+          </div>
+
+          <div class="form-bottom">
+            <div class="social-row">
+              <span class="slbl">Follow</span>
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <button type="submit" class="btn-send">Send Message <span class="arrow-ring"><i class="fa-solid fa-arrow-right"></i></span></button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    </div>
+  </section>
 
   @include('layout.footer')
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <script>
-  (function() {
-    var canvas = document.getElementById('threeCanvas');
-    if (!canvas) return;
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-    var renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
-      alpha: true,
-      antialias: true
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    // Particles
-    var particleCount = 200;
-    var positions = new Float32Array(particleCount * 3);
-    for (var i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 30;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 15 - 5;
-    }
-    var pGeom = new THREE.BufferGeometry();
-    pGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    var pMat = new THREE.PointsMaterial({
-      color: 0x22c55e,
-      size: 0.03,
-      transparent: true,
-      opacity: 0.4,
-      blending: THREE.AdditiveBlending
-    });
-    var particles = new THREE.Points(pGeom, pMat);
-    scene.add(particles);
-
-    // Load image textures and create floating planes
-    var loader = new THREE.TextureLoader();
-    var baseUrl = "{{ asset('frontend/assets/images') }}";
-    var planes = [];
-
-    function createImagePlane(imgSrc, x, y, z, scale) {
-      loader.load(imgSrc, function(texture) {
-        var aspect = texture.image.width / texture.image.height;
-        var geom = new THREE.PlaneGeometry(scale * aspect, scale);
-        var mat = new THREE.MeshBasicMaterial({
-          map: texture,
-          transparent: true,
-          depthWrite: false,
-          side: THREE.DoubleSide,
-        });
-        var mesh = new THREE.Mesh(geom, mat);
-        mesh.position.set(x, y, z);
-        mesh.userData = {
-          floatSpeed: 0.003 + Math.random() * 0.002,
-          floatPhase: Math.random() * Math.PI * 2,
-          rotSpeedY: (Math.random() - 0.5) * 0.004,
-          rotSpeedX: (Math.random() - 0.5) * 0.002,
-          baseY: y,
-        };
-        scene.add(mesh);
-        planes.push(mesh);
-
-        // Glow ring behind
-        var ringGeom = new THREE.RingGeometry(scale * aspect * 0.45, scale * aspect * 0.55, 32);
-        var ringMat = new THREE.MeshBasicMaterial({
-          color: 0x22c55e,
-          transparent: true,
-          opacity: 0.08,
-          side: THREE.DoubleSide,
-          depthWrite: false,
-        });
-        var ring = new THREE.Mesh(ringGeom, ringMat);
-        ring.position.set(x, y, z - 0.05);
-        ring.userData = {
-          parentMesh: mesh
-        };
-        scene.add(ring);
-        planes.push(ring);
-      });
-    }
-
-    createImagePlane(baseUrl + '/laptop.png', -2.5, 0.5, -1, 2.0);
-    createImagePlane(baseUrl + '/world.png', 2.8, -0.8, -1.5, 1.8);
-
-    // Grid floor (subtle)
-    var gridHelper = new THREE.GridHelper(12, 24, 0x22c55e, 0x22c55e);
-    gridHelper.position.y = -3.5;
-    gridHelper.material.transparent = true;
-    gridHelper.material.opacity = 0.06;
-    scene.add(gridHelper);
-
-    camera.position.z = 5.5;
-    camera.position.y = 0.3;
-
-    var mouseX = 0,
-      mouseY = 0;
-    document.addEventListener('mousemove', function(e) {
-      mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-      mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-    });
-
-    var time = 0;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      time += 0.005;
-      particles.rotation.y += 0.0005;
-
-      planes.forEach(function(mesh) {
-        if (mesh.userData.parentMesh) return;
-        mesh.position.y = mesh.userData.baseY + Math.sin(time * 5 + mesh.userData.floatPhase) * 0.15;
-        mesh.rotation.y += mesh.userData.rotSpeedY;
-        mesh.rotation.x += mesh.userData.rotSpeedX;
-      });
-
-      camera.position.x += (mouseX * 0.4 - camera.position.x) * 0.02;
-      camera.position.y += (-mouseY * 0.3 + 0.3 - camera.position.y) * 0.02;
-      camera.lookAt(scene.position);
-
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    window.addEventListener('resize', function() {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  })();
-  </script>
-
-  <style>
-  /* ========== RESPONSIVE STYLES ========== */
-
-  /* Laptop / Desktop (1025px - 1200px) */
-  @media (max-width: 1200px) {
-    .contact-grid {
-      grid-template-columns: 1.1fr 1fr !important;
-      gap: 20px !important;
-    }
-
-    .map-container {
-      min-height: 450px !important;
-    }
-  }
-
-  /* Small Laptop / Tablet (769px - 1024px) */
-  @media (max-width: 1024px) {
-    .contact-grid {
-      grid-template-columns: 1fr 1fr !important;
-      gap: 18px !important;
-    }
-
-    .map-container {
-      min-height: 400px !important;
-    }
-
-    .form-card {
-      padding: clamp(16px, 2.5vw, 28px) !important;
-    }
-
-    .contact-cards {
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 14px !important;
-    }
-  }
-
-  /* Tablet (481px - 768px) */
-  @media (max-width: 768px) {
-    .contact-grid {
-      grid-template-columns: 1fr !important;
-      gap: 20px !important;
-    }
-
-    .map-container {
-      min-height: 300px !important;
-      width: 100% !important;
-    }
-
-    .map-wrapper {
-      order: 1 !important;
-    }
-
-    .form-wrapper {
-      order: 2 !important;
-    }
-
-    .form-row {
-      grid-template-columns: 1fr !important;
-      gap: 10px !important;
-    }
-
-    .contact-cards {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 12px !important;
-    }
-
-    .form-card {
-      padding: 20px !important;
-    }
-  }
-
-  /* Mobile (320px - 480px) */
-  @media (max-width: 480px) {
-    .contact-cards {
-      grid-template-columns: 1fr !important;
-      gap: 10px !important;
-    }
-
-    .map-container {
-      min-height: 220px !important;
-    }
-
-    .form-card {
-      padding: 16px !important;
-    }
-
-    .contact-grid {
-      gap: 16px !important;
-    }
-
-    .contact-cards>div {
-      padding: 16px 14px !important;
-    }
-
-    .form-card input,
-    .form-card textarea {
-      font-size: 14px !important;
-      padding: 10px 12px !important;
-    }
-
-    .form-card button {
-      padding: 12px !important;
-      font-size: 13px !important;
-    }
-  }
-
-  /* Extra Small Mobile (below 320px) */
-  @media (max-width: 320px) {
-    .map-container {
-      min-height: 180px !important;
-    }
-
-    .form-card {
-      padding: 12px !important;
-    }
-
-    .form-card input,
-    .form-card textarea {
-      font-size: 13px !important;
-      padding: 8px 10px !important;
-    }
-
-    .social-icons a {
-      width: 30px !important;
-      height: 30px !important;
-      font-size: 13px !important;
-    }
-  }
-
-  /* Touch-friendly hover states (disable hover on touch devices) */
-  @media (hover: none) {
-    .contact-cards>div:hover {
-      transform: none !important;
-      border-color: rgba(255, 255, 255, 0.06) !important;
-      box-shadow: none !important;
-    }
-
-    .social-icon:hover {
-      background: rgba(255, 255, 255, 0.05) !important;
-      color: #94a3b8 !important;
-    }
-  }
-  </style>
 
   @if (session('success'))
   <script>
   Swal.fire({
     icon: 'success',
     title: 'Thank you!',
-    text: '{{ session('
-    success ') }}',
-    confirmButtonColor: '#22c55e',
-    background: '#1e293b',
-    color: '#fff'
+    text: '{{ session('success') }}',
+    confirmButtonColor: '#f4a637',
+    background: '#131829',
+    color: '#f4f5f7'
   })
   </script>
   @endif
@@ -521,8 +1056,8 @@
     title: 'Oops...',
     html: `{!! implode('<br>', $errors->all()) !!}`,
     confirmButtonColor: '#d33',
-    background: '#1e293b',
-    color: '#fff'
+    background: '#131829',
+    color: '#f4f5f7'
   })
   </script>
   @endif

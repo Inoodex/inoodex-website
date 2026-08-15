@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zxx">
 @include('layout.header')
 
 <body class="tt-magic-cursor" style="background:#05080f;color:#e2e8f0;margin:0;padding:0;box-sizing:border-box;">
-  <!-- Magic Cursor Start -->
+  @include('layout.page_transition')
+<!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>
   </div>

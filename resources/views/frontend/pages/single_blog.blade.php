@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zxx">
 @include('layout.header')
 
@@ -487,7 +487,8 @@
 </head>
 
 <body class="tt-magic-cursor">
-  <!-- Magic Cursor Start -->
+  @include('layout.page_transition')
+<!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>
   </div>

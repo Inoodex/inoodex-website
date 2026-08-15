@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zxx">
 @include('layout.header')
 
 <body class="tt-magic-cursor" style="background:#020617;color:#e2e8f0;">
-
-  <!-- Magic Cursor Start -->
+  @include('layout.page_transition')
+<!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>
   </div>
@@ -112,26 +112,26 @@
     </div>
   </div> --}}
 
-  <div class="scrolling-ticker" style="background:#111827 !important;">
+  <div class="scrolling-ticker" style="background:#0a0a0a !important;">
         <div class="scrolling-ticker-box">
-            <div class="scrolling-content" style="color:#22c55e !important;">
-                <span style="color:#22c55e !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Web Development</span>
-                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Software Development</span>
-                <span style="color:#22c55e !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> App Development</span>
-                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Digital Marketing</span>
-                <span style="color:#22c55e !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> SEO Optimization</span>
-                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Data Analysis</span>
-                <span style="color:#22c55e !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Digital Marketing</span>
+            <div class="scrolling-content" style="color:#f4a637 !important;">
+                <span style="color:#f4a637 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Web Development</span>
+                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Software Development</span>
+                <span style="color:#f4a637 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> App Development</span>
+                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Digital Marketing</span>
+                <span style="color:#f4a637 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> SEO Optimization</span>
+                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Data Analysis</span>
+                <span style="color:#f4a637 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Digital Marketing</span>
             </div>
 
-            <div class="scrolling-content" style="color:#22c55e !important;">
-                <span style="color:#22c55e !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Web Development</span>
-                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Software Development</span>
-                <span style="color:#22c55e !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> App Development</span>
-                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Digital Marketing</span>
-                <span style="color:#22c55e !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> SEO Optimization</span>
-                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Data Analysis</span>
-                <span style="color:#22c55e !important;"><i class="fa-solid fa-circle" style="color:#22c55e !important;font-size:6px;"></i> Digital Marketing</span>
+            <div class="scrolling-content" style="color:#f4a637 !important;">
+                <span style="color:#f4a637 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Web Development</span>
+                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Software Development</span>
+                <span style="color:#f4a637 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> App Development</span>
+                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Digital Marketing</span>
+                <span style="color:#f4a637 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> SEO Optimization</span>
+                <span style="color:#94a3b8 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Data Analysis</span>
+                <span style="color:#f4a637 !important;"><i class="fa-solid fa-circle" style="color:#f4a637 !important;font-size:6px;"></i> Digital Marketing</span>
             </div>
         </div>
     </div> 

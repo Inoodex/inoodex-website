@@ -1,4 +1,4 @@
-<style>
+﻿<style>
 .industry {
   padding: 100px 0;
   background: #0f172a;
@@ -24,7 +24,7 @@
   transform: translateX(-50%);
   width: 0;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+  background: linear-gradient(90deg, transparent, #f4a637, transparent);
   border-radius: 0 0 3px 3px;
   transition: width 0.4s ease;
 }
@@ -34,9 +34,9 @@
 }
 
 .ind-box:hover {
-  border-color: #22c55e !important;
+  border-color: #f4a637 !important;
   transform: translateY(-8px) !important;
-  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.12) !important;
+  box-shadow: 0 20px 40px rgba(244,166,55, 0.12) !important;
   background: linear-gradient(180deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8)) !important;
 }
 
@@ -44,18 +44,18 @@
   width: 72px;
   height: 72px;
   margin: 0 auto 16px;
-  background: rgba(34, 197, 94, 0.08);
+  background: rgba(244,166,55, 0.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(34, 197, 94, 0.12);
+  border: 2px solid rgba(244,166,55, 0.12);
   transition: all 0.4s ease;
 }
 
 .ind-box:hover .ind-icon-wrap {
-  background: #22c55e;
-  border-color: #22c55e;
+  background: #f4a637;
+  border-color: #f4a637;
 }
 
 .ind-box:hover .ind-icon-wrap svg {
@@ -64,7 +64,7 @@
 
 /* --- GREEN HIGHLIGHT FOR "SERVE" --- */
 .industry .highlight-green {
-  color: #22c55e;
+  color: #f4a637;
   position: relative;
 }
 
@@ -75,7 +75,7 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, #22c55e, transparent);
+  background: linear-gradient(90deg, #f4a637, transparent);
   border-radius: 4px;
 }
 
@@ -106,7 +106,7 @@
   <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
     <div style="text-align:center;margin-bottom:60px;">
       <span
-        style="display:inline-block;background:rgba(34,197,94,0.1);color:#22c55e;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:6px 16px;border-radius:50px;margin-bottom:16px;">Industries</span>
+        style="display:inline-block;background:rgba(244,166,55,0.1);color:#f4a637;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:6px 16px;border-radius:50px;margin-bottom:16px;">Industries</span>
       <h2 style="font-size:36px;font-weight:800;color:#f1f5f9;margin:0;letter-spacing:-0.5px;">
         Industry <span class="highlight-green"> We Serve</span>
       </h2>
@@ -117,8 +117,8 @@
     <svg style="position: absolute; width: 0; height: 0;">
       <defs>
         <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+          <stop offset="0%" style="stop-color:#f4a637;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#f4a637;stop-opacity:1" />
         </linearGradient>
       </defs>
     </svg>

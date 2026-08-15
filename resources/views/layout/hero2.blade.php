@@ -50,7 +50,7 @@
   }
 
   .section-title h3 {
-    color: #10b981;
+    color: #f4a637;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -67,10 +67,51 @@
   }
 
   .section-title h1 .highlight {
-    background: linear-gradient(135deg, #10b981, #34d399);
+    background: linear-gradient(135deg, #f4a637, #f7c873);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .hero-slash {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(18px, 2.2vw, 30px);
+    height: clamp(18px, 2.2vw, 30px);
+    margin-left: 12px;
+    vertical-align: middle;
+    position: relative;
+  }
+
+  .hero-slash svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-slash line {
+    stroke: #f4a637;
+    stroke-width: 3;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 10px rgba(244, 166, 55, 0.25));
+  }
+
+  .hero-slash circle {
+    fill: #f4a637;
+    filter: drop-shadow(0 0 8px rgba(244, 166, 55, 0.25));
+  }
+
+  .hero-slash .pulse-ring {
+    position: absolute;
+    inset: -12%;
+    border: 1px solid rgba(244, 166, 55, 0.25);
+    border-radius: 50%;
+    animation: homeRingPulse 2.6s ease-in-out infinite;
+  }
+
+  @keyframes homeRingPulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(1.3); }
   }
 
   .hero-body p {
@@ -87,14 +128,14 @@
     align-items: center;
     gap: 12px;
     padding: 14px 32px;
-    background: linear-gradient(135deg, #10b981, #059669);
+    background: linear-gradient(135deg, #f4a637, #d18f2b);
     color: #ffffff;
     font-size: 15px;
     font-weight: 600;
     border-radius: 50px;
     text-decoration: none;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 4px 20px rgba(244,166,55, 0.3);
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -104,13 +145,13 @@
 
   .btn-default:hover {
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 35px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 8px 35px rgba(244,166,55, 0.4);
   }
 
   .btn-default .btn-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #059669, #047857);
+    background: linear-gradient(135deg, #d18f2b, #c47a1f);
     opacity: 0;
     transition: opacity 0.4s ease;
   }
@@ -152,7 +193,7 @@
   .hero-image .gradient-border {
     position: absolute;
     inset: -2px;
-    background: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
+    background: linear-gradient(135deg, #f4a637, #3b82f6, #8b5cf6);
     border-radius: 16px;
     padding: 2px;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -164,7 +205,7 @@
   .hero-image .image-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.08));
+    background: linear-gradient(135deg, rgba(244,166,55, 0.08), rgba(59, 130, 246, 0.08));
     z-index: 1;
   }
 
@@ -195,7 +236,7 @@
   }
 
   .image-badge span {
-    color: #10b981;
+    color: #f4a637;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -255,8 +296,8 @@
 
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    background: rgba(16, 185, 129, 0.15);
-    border-color: rgba(16, 185, 129, 0.3);
+    background: rgba(244,166,55, 0.15);
+    border-color: rgba(244,166,55, 0.3);
   }
 
   .swiper-button-next::after,
@@ -281,7 +322,7 @@
   }
 
   .swiper-pagination-bullet-active {
-    background: #10b981;
+    background: #f4a637;
     width: 30px;
     border-radius: 10px;
   }
@@ -320,7 +361,7 @@
   .hero-scroll .scroll-dot {
     width: 3px;
     height: 10px;
-    background: #10b981;
+    background: #f4a637;
     border-radius: 2px;
     animation: scroll-bounce 2s ease-in-out infinite;
   }
@@ -439,6 +480,13 @@
                     @endif
                     <h1>
                       {{ $slide->title ?? 'Professional Software Development Company In Bangladesh' }}
+                      <span class="hero-slash">
+                        <svg viewBox="0 0 34 34" fill="none">
+                          <line x1="7" y1="27" x2="27" y2="7" />
+                          <circle cx="27" cy="7" r="2.6" />
+                        </svg>
+                        <span class="pulse-ring"></span>
+                      </span>
                     </h1>
                   </div>
                   <!-- Section Title End -->
@@ -504,6 +552,13 @@
                     <h3>✦ Welcome To Inoodex</h3>
                     <h1>
                       Professional Software Development Company In Bangladesh
+                      <span class="hero-slash">
+                        <svg viewBox="0 0 34 34" fill="none">
+                          <line x1="7" y1="27" x2="27" y2="7" />
+                          <circle cx="27" cy="7" r="2.6" />
+                        </svg>
+                        <span class="pulse-ring"></span>
+                      </span>
                     </h1>
                   </div>
                   <div class="hero-body">
@@ -567,24 +622,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // ========== LENIS SMOOTH SCROLL ==========
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      smoothWheel: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
     // ========== THREE.JS BACKGROUND ==========
     const container = document.getElementById('three-canvas');
     if (container && typeof THREE !== 'undefined') {
@@ -605,11 +645,11 @@
         alpha: true
       });
       renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.2));
       container.appendChild(renderer.domElement);
 
       // ========== CREATE PARTICLES ==========
-      const particleCount = 600;
+      const particleCount = 180;
       const positions = new Float32Array(particleCount * 3);
       const colors = new Float32Array(particleCount * 3);
       const sizes = new Float32Array(particleCount);
@@ -750,8 +790,22 @@
 
       // ========== ANIMATION LOOP ==========
       const clock = new THREE.Clock();
+      let running = true;
+
+      const heroEl = document.querySelector('.hero');
+      if (heroEl && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver(function(entries) {
+          running = entries[0].isIntersecting;
+          if (running) {
+            clock.getDelta();
+            animate();
+          }
+        }, { rootMargin: '200px 0px' });
+        io.observe(heroEl);
+      }
 
       function animate() {
+        if (!running) return;
         const time = clock.getElapsedTime();
 
         targetX += (mouseX - targetX) * 0.03;
@@ -760,15 +814,6 @@
         particleSystem.rotation.x = Math.sin(time * 0.05) * 0.1;
         particleSystem.rotation.y = Math.sin(time * 0.03) * 0.1 + targetX * 0.2;
         particleSystem.rotation.z = Math.sin(time * 0.04) * 0.05;
-
-        const positionsAttr = geometry.attributes.position;
-        const posArray = positionsAttr.array;
-        for (let i = 0; i < particleCount; i++) {
-          const i3 = i * 3;
-          posArray[i3 + 1] += Math.sin(time * 0.5 + i * 0.01) * 0.001;
-          posArray[i3] += Math.cos(time * 0.4 + i * 0.015) * 0.001;
-        }
-        positionsAttr.needsUpdate = true;
 
         orbs.forEach((obj, i) => {
           if (obj.type === 'Mesh' && obj.geometry.type === 'SphereGeometry') {
@@ -836,7 +881,7 @@
       btn.addEventListener('mouseenter', function() {
         gsap.to(this, {
           scale: 1.05,
-          boxShadow: '0 8px 35px rgba(16,185,129,0.4)',
+          boxShadow: '0 8px 35px rgba(244,166,55,0.4)',
           duration: 0.3,
           ease: "back.out(1.7)"
         });
@@ -850,7 +895,7 @@
       btn.addEventListener('mouseleave', function() {
         gsap.to(this, {
           scale: 1,
-          boxShadow: '0 4px 20px rgba(16,185,129,0.3)',
+          boxShadow: '0 4px 20px rgba(244,166,55,0.3)',
           duration: 0.3,
           ease: "power2.out"
         });

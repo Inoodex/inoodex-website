@@ -1,4 +1,4 @@
-<style>
+﻿<style>
 .exclusive-partners {
   background: #0f172a;
   padding: 80px 0;
@@ -16,8 +16,8 @@
 
 .exclusive-badge {
   display: inline-block;
-  background: rgba(34, 197, 94, 0.12);
-  color: #22c55e;
+  background: rgba(244,166,55, 0.12);
+  color: #f4a637;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -25,7 +25,7 @@
   padding: 8px 24px;
   border-radius: 50px;
   margin-bottom: 14px;
-  border: 1px solid rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(244,166,55, 0.15);
   backdrop-filter: blur(4px);
 }
 
@@ -38,7 +38,7 @@
 }
 
 .partner-heading span {
-  color: #22c55e;
+  color: #f4a637;
   position: relative;
 }
 
@@ -49,7 +49,7 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, #22c55e, transparent);
+  background: linear-gradient(90deg, #f4a637, transparent);
   border-radius: 4px;
 }
 
@@ -96,7 +96,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+  background: linear-gradient(90deg, transparent, #f4a637, transparent);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -106,8 +106,8 @@
 }
 
 .partner-card:hover {
-  border-color: rgba(34, 197, 94, 0.3) !important;
-  box-shadow: 0 0 30px rgba(34, 197, 94, 0.08) !important;
+  border-color: rgba(244,166,55, 0.3) !important;
+  box-shadow: 0 0 30px rgba(244,166,55, 0.08) !important;
   transform: translateY(-4px) !important;
 }
 
