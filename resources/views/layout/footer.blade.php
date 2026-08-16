@@ -6,22 +6,181 @@
 .main-footer {
     position: relative;
     overflow: hidden;
+    background: #080a0e;
+    padding: 80px 0 0;
+    color: #94a3b8;
 }
-.main-footer::before {
-    content: 'Inoodex';
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+.footer-about img {
+    margin-bottom: 24px;
+    width: 147px;
+    height: auto;
+}
+.footer-about p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin-bottom: 20px;
+    max-width: 400px;
+}
+.footer-about-address {
+    display: flex;
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+.footer-about-address p {
+    margin: 0;
+}
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-bottom: 14px;
+}
+.footer-contact-info a {
+    color: #94a3b8;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-contact-info a:hover {
+    color: #f4a637;
+}
+.footer-social {
+    display: flex;
+    gap: 12px;
+}
+.footer-social .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    color: #94a3b8;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.footer-social .social-icon:hover {
+    background: #f4a637;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+.footer-links-col {
+    min-width: 0;
+}
+.footer-links h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f1f5f9;
+    text-transform: capitalize;
+    margin-bottom: 24px;
+    position: relative;
+    padding-bottom: 12px;
+}
+.footer-links h2::after {
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: clamp(120px, 20vw, 300px);
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: #f4a637;
+    border-radius: 2px;
+}
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links ul li {
+    margin-bottom: 12px;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+}
+.footer-links ul li a {
+    color: #94a3b8;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.footer-links ul li a::before {
+    content: '\f105';
+    font-family: 'Font Awesome 6 Free';
     font-weight: 900;
-    color: rgba(244,166,55,0.025);
-    pointer-events: none;
-    white-space: nowrap;
-    letter-spacing: 20px;
-    text-transform: uppercase;
-    line-height: 1;
-    z-index: 0;
-    animation: watermarkFloat 8s ease-in-out infinite;
+    font-size: 12px;
+    color: #f4a637;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.3s ease;
+}
+.footer-links ul li:hover a::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+.footer-links ul li:hover a {
+    color: #f4a637;
+    transform: translateX(4px);
+}
+.footer-copyright {
+    padding: 24px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+}
+.footer-copyright-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #64748b;
+}
+.footer-copyright-text p strong {
+    color: #e2e8f0;
+}
+.footer-policy-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.footer-policy-links ul li {
+    text-transform: capitalize;
+}
+.footer-policy-links ul li a {
+    color: #64748b;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-policy-links ul li a:hover {
+    color: #f4a637;
+}
+.footer-policy-links ul li .go-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    color: #94a3b8;
+    transition: all 0.3s;
+}
+.footer-policy-links ul li .go-top:hover {
+    background: #f4a637;
+    color: #ffffff;
 }
 .footer-copyright-bar {
     display: flex;
@@ -49,6 +208,46 @@
         transform: translateX(-50%);
         white-space: nowrap;
     }
+}
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+@media (max-width: 640px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .main-footer {
+        padding: 40px 0 0;
+    }
+    .footer-about {
+        margin-bottom: 30px;
+    }
+    .footer-links h2 {
+        font-size: 20px;
+    }
+    .footer-links ul li {
+        margin-bottom: 10px;
+    }
+}
+.main-footer::before {
+    content: 'Inoodex';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: clamp(120px, 20vw, 300px);
+    font-weight: 900;
+    color: rgba(244,166,55,0.025);
+    pointer-events: none;
+    white-space: nowrap;
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    line-height: 1;
+    z-index: 0;
+    animation: watermarkFloat 8s ease-in-out infinite;
 }
 @keyframes watermarkFloat {
     0% { transform: translate(-50%, -50%) scale(1) translateX(0); opacity: 0.3; }
