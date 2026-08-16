@@ -44,13 +44,13 @@
       <div
         style="display: inline-block; padding: 8px 24px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.12); border-radius: 50px; margin-bottom: 18px; animation: fadeInDown 0.6s ease forwards; opacity: 0; transform: translateY(-20px);">
         <span
-          style="color: #10b981; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">✦
+          style="color: #f4a637; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">✦
           Why Choose Us</span>
       </div>
       <h2
         style="font-size: 40px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 0; animation: fadeInUp 0.6s ease forwards 0.1s; opacity: 0; transform: translateY(20px);">
         Why Choose <span
-          style="background: linear-gradient(135deg, #10b981, #34d399, #3b82f6, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 300% 300%; animation: gradientMove 5s ease-in-out infinite;">InooDex</span>?
+          style="background: linear-gradient(135deg, #f4a637, #f7c873, #d18f2b, #f4a637, #e07b1f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 300% 300%; animation: gradientMove 5s ease-in-out infinite;">InooDex</span>?
       </h2>
     </div>
 
@@ -63,7 +63,7 @@
           style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(16,185,129,0.04), transparent 70%); opacity: 0; transition: opacity 0.5s;">
         </div>
         <div
-          style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7);">
+          style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #f4a637, #f7c873, #f7c873);">
         </div>
         <div
           style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(16,185,129,0.05), transparent 70%); border-radius: 50%;">
@@ -79,7 +79,7 @@
         <p style="color: #9ca3af; font-size: 14px; line-height: 1.8; margin: 0;">Sed ut perspiciatis unde omnis iste
           natus error sit voluptatem accusantium.</p>
         <div class="learn-more"
-          style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #10b981; font-size: 14px; font-weight: 500; cursor: pointer;">
+          style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #f4a637; font-size: 14px; font-weight: 500; cursor: pointer;">
           <span>Learn More</span>
           <span class="arrow" style="transition: transform 0.3s;">→</span>
         </div>
@@ -92,7 +92,7 @@
           style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 60%, rgba(59,130,246,0.04), transparent 70%); opacity: 0; transition: opacity 0.5s;">
         </div>
         <div
-          style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);">
+          style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #d18f2b, #d18f2b, #c47a1f);">
         </div>
         <div
           style="position: absolute; bottom: -50px; left: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(59,130,246,0.05), transparent 70%); border-radius: 50%;">
@@ -108,7 +108,7 @@
         <p style="color: #9ca3af; font-size: 14px; line-height: 1.8; margin: 0;">Sed ut perspiciatis unde omnis iste
           natus error sit voluptatem accusantium.</p>
         <div class="learn-more"
-          style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #3b82f6; font-size: 14px; font-weight: 500; cursor: pointer;">
+          style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #d18f2b; font-size: 14px; font-weight: 500; cursor: pointer;">
           <span>Learn More</span>
           <span class="arrow" style="transition: transform 0.3s;">→</span>
         </div>
@@ -121,7 +121,7 @@
           style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(139,92,246,0.04), transparent 70%); opacity: 0; transition: opacity 0.5s;">
         </div>
         <div
-          style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #8b5cf6, #a78bfa, #c4b5fd);">
+          style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #f4a637, #f7c873, #d18f2b);">
         </div>
         <div
           style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(139,92,246,0.05), transparent 70%); border-radius: 50%;">
@@ -137,7 +137,7 @@
         <p style="color: #9ca3af; font-size: 14px; line-height: 1.8; margin: 0;">Sed ut perspiciatis unde omnis iste
           natus error sit voluptatem accusantium.</p>
         <div class="learn-more"
-          style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #8b5cf6; font-size: 14px; font-weight: 500; cursor: pointer;">
+          style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #f4a637; font-size: 14px; font-weight: 500; cursor: pointer;">
           <span>Learn More</span>
           <span class="arrow" style="transition: transform 0.3s;">→</span>
         </div>

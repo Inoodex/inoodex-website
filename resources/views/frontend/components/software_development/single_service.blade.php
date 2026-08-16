@@ -29,8 +29,8 @@
                             left:35px;
                             bottom:35px;">
 
-              <span style="background:rgba(34,197,94,.15);
-                                color:#22c55e;
+              <span style="background:rgba(244,166,55,.15);
+                                color:#f4a637;
                                 padding:8px 18px;
                                 border-radius:50px;
                                 font-size:13px;
@@ -77,8 +77,8 @@
               Why Our Clients Trust Us
             </h3>
 
-            <div style="background:rgba(34,197,94,.06);
-                            border:1px solid rgba(34,197,94,.15);
+            <div style="background:rgba(244,166,55,.06);
+                            border:1px solid rgba(244,166,55,.15);
                             border-radius:20px;
                             padding:25px;
                             margin-bottom:15px;">
@@ -98,8 +98,8 @@
 
             </div>
 
-            <div style="background:rgba(34,197,94,.06);
-                            border:1px solid rgba(34,197,94,.15);
+            <div style="background:rgba(244,166,55,.06);
+                            border:1px solid rgba(244,166,55,.15);
                             border-radius:20px;
                             padding:25px;
                             margin-bottom:15px;">
@@ -119,8 +119,8 @@
 
             </div>
 
-            <div style="background:rgba(34,197,94,.06);
-                            border:1px solid rgba(34,197,94,.15);
+            <div style="background:rgba(244,166,55,.06);
+                            border:1px solid rgba(244,166,55,.15);
                             border-radius:20px;
                             padding:25px;">
 
@@ -152,7 +152,7 @@
                     border-radius:30px;
                     padding:40px;
                     color:#fff;
-                    border:1px solid rgba(34,197,94,.15);
+                    border:1px solid rgba(244,166,55,.15);
                     box-shadow:0 25px 60px rgba(0,0,0,.3);">
 
           <div style="display:flex;
@@ -163,7 +163,7 @@
             <div style="width:70px;
                           height:70px;
                           border-radius:20px;
-                          background:rgba(34,197,94,.15);
+                          background:rgba(244,166,55,.15);
                           display:flex;
                           align-items:center;
                           justify-content:center;
@@ -175,10 +175,10 @@
 
             <div>
               <span
-                style="font-size:12px;color:#22c55e;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;">Service</span>
+                style="font-size:12px;color:#f4a637;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;">Service</span>
               <h3 style="font-size:28px;
                             font-weight:800;
-                            color:#22c55e;
+                            color:#f4a637;
                             line-height:1.2;">
                 Software<br>Development
               </h3>
@@ -189,12 +189,12 @@
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:25px;">
 
             <div style="background:rgba(255,255,255,.05);border-radius:16px;padding:18px;text-align:center;">
-              <div style="font-size:24px;font-weight:800;color:#22c55e;">1000+</div>
+              <div style="font-size:24px;font-weight:800;color:#f4a637;">1000+</div>
               <div style="font-size:12px;color:#94a3b8;">Projects</div>
             </div>
 
             <div style="background:rgba(255,255,255,.05);border-radius:16px;padding:18px;text-align:center;">
-              <div style="font-size:24px;font-weight:800;color:#22c55e;">24/7</div>
+              <div style="font-size:24px;font-weight:800;color:#f4a637;">24/7</div>
               <div style="font-size:12px;color:#94a3b8;">Support</div>
             </div>
 
@@ -203,29 +203,29 @@
           <div style="display:flex;flex-direction:column;gap:12px;color:#cbd5e1;font-size:14px;">
 
             <div style="display:flex;align-items:center;gap:10px;">
-              <span style="color:#22c55e;font-size:18px;">✦</span> 24/7 Support &amp; Maintenance
+              <span style="color:#f4a637;font-size:18px;">✦</span> 24/7 Support &amp; Maintenance
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <span style="color:#22c55e;font-size:18px;">✦</span> 1,000+ Completed Projects
+              <span style="color:#f4a637;font-size:18px;">✦</span> 1,000+ Completed Projects
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <span style="color:#22c55e;font-size:18px;">✦</span> Content Migration
+              <span style="color:#f4a637;font-size:18px;">✦</span> Content Migration
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <span style="color:#22c55e;font-size:18px;">✦</span> Installation &amp; Customization
+              <span style="color:#f4a637;font-size:18px;">✦</span> Installation &amp; Customization
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <span style="color:#22c55e;font-size:18px;">✦</span> Fast Load Time
+              <span style="color:#f4a637;font-size:18px;">✦</span> Fast Load Time
             </div>
             <div style="display:flex;align-items:center;gap:10px;">
-              <span style="color:#22c55e;font-size:18px;">✦</span> Easy Back-End Admin Panel
+              <span style="color:#f4a637;font-size:18px;">✦</span> Easy Back-End Admin Panel
             </div>
 
           </div>
 
           <a href="{{ url('/contact') }}" style="display:block;
                         text-align:center;
-                        background:linear-gradient(135deg,#16a34a,#22c55e);
+                        background:linear-gradient(135deg,#d18f2b,#f4a637);
                         color:#fff;
                         font-weight:700;
                         padding:16px;
@@ -233,7 +233,7 @@
                         margin-top:30px;
                         text-decoration:none;
                         transition:all 0.3s ease;"
-            onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 8px 30px rgba(34,197,94,.3)';"
+            onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 8px 30px rgba(244,166,55,.3)';"
             onmouseout="this.style.transform='';this.style.boxShadow='';">
             Contact Now →
           </a>

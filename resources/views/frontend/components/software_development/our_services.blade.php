@@ -6,7 +6,7 @@
 
     <!-- Gradient Orbs -->
     <div
-      style="position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%); border-radius: 50%; animation: floatOrb1 12s ease-in-out infinite;">
+      style="position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,166,55,0.06) 0%, transparent 70%); border-radius: 50%; animation: floatOrb1 12s ease-in-out infinite;">
     </div>
     <div
       style="position: absolute; bottom: -15%; left: -5%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%); border-radius: 50%; animation: floatOrb2 16s ease-in-out infinite;">
@@ -17,7 +17,7 @@
 
     <!-- Floating Particles -->
     <div
-      style="position: absolute; width: 3px; height: 3px; background: rgba(16,185,129,0.3); border-radius: 50%; top: 10%; left: 5%; animation: particle1 6s ease-in-out infinite;">
+      style="position: absolute; width: 3px; height: 3px; background: rgba(244,166,55,0.3); border-radius: 50%; top: 10%; left: 5%; animation: particle1 6s ease-in-out infinite;">
     </div>
     <div
       style="position: absolute; width: 5px; height: 5px; background: rgba(59,130,246,0.25); border-radius: 50%; top: 25%; right: 8%; animation: particle2 8s ease-in-out infinite;">
@@ -29,7 +29,7 @@
       style="position: absolute; width: 6px; height: 6px; background: rgba(236,72,153,0.2); border-radius: 50%; top: 55%; right: 15%; animation: particle4 9s ease-in-out infinite;">
     </div>
     <div
-      style="position: absolute; width: 4px; height: 4px; background: rgba(16,185,129,0.2); border-radius: 50%; bottom: 40%; right: 35%; animation: particle5 5s ease-in-out infinite;">
+      style="position: absolute; width: 4px; height: 4px; background: rgba(244,166,55,0.2); border-radius: 50%; bottom: 40%; right: 35%; animation: particle5 5s ease-in-out infinite;">
     </div>
   </div>
 
@@ -41,16 +41,16 @@
       <div style="flex: 0 0 58.333%; max-width: 58.333%; padding: 0 15px;">
         <div class="section-title">
           <div
-            style="display: inline-block; padding: 6px 20px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.12); border-radius: 50px; margin-bottom: 15px;"
+            style="display: inline-block; padding: 6px 20px; background: rgba(244,166,55,0.08); border: 1px solid rgba(244,166,55,0.12); border-radius: 50px; margin-bottom: 15px;"
             class="anim-reveal">
             <span
-              style="color: #10b981; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">✦
+              style="color: #f4a637; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">✦
               Our Services</span>
           </div>
           <h2 style="font-size: 38px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 0;"
             class="anim-reveal" style="transition-delay:0.1s;">
             What <span
-              style="background: linear-gradient(135deg, #10b981, #34d399, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 300% 300%; animation: gradientMove 5s ease-in-out infinite;">we
+              style="background: linear-gradient(135deg, #f4a637, #f7c873, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 300% 300%; animation: gradientMove 5s ease-in-out infinite;">we
               can offer</span> today
           </h2>
         </div>
@@ -58,7 +58,7 @@
       <div style="flex: 0 0 41.666%; max-width: 41.666%; padding: 0 15px; text-align: right;" class="anim-reveal"
         style="transition-delay:0.2s;">
         <a href="{{ url('/services') }}"
-          style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 35px; background: linear-gradient(135deg, #10b981, #059669); color: #ffffff; font-size: 15px; font-weight: 600; border-radius: 50px; text-decoration: none; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 4px 25px rgba(16,185,129,0.3);"
+          style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 35px; background: linear-gradient(135deg, #f4a637, #d18f2b); color: #ffffff; font-size: 15px; font-weight: 600; border-radius: 50px; text-decoration: none; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 4px 25px rgba(244,166,55,0.3);"
           class="btn-hover">
           <span>View All Services</span>
           <span style="transition: transform 0.3s;" class="arrow-icon">→</span>
@@ -70,7 +70,7 @@
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 20px;">
       @php
       $serviceColors = [
-      ['bg' => 'rgba(16,185,129,0.04)', 'border' => '#10b981', 'light' => 'rgba(16,185,129,0.1)'],
+      ['bg' => 'rgba(244,166,55,0.04)', 'border' => '#f4a637', 'light' => 'rgba(244,166,55,0.1)'],
       ['bg' => 'rgba(59,130,246,0.04)', 'border' => '#3b82f6', 'light' => 'rgba(59,130,246,0.1)'],
       ['bg' => 'rgba(139,92,246,0.04)', 'border' => '#8b5cf6', 'light' => 'rgba(139,92,246,0.1)'],
       ['bg' => 'rgba(236,72,153,0.04)', 'border' => '#ec4899', 'light' => 'rgba(236,72,153,0.1)'],
@@ -323,13 +323,13 @@
 }
 
 .service-card:hover .icon-wrap {
-  background: var(--hover-bg, rgba(16, 185, 129, 0.15)) !important;
+  background: var(--hover-bg, rgba(244,166,55, 0.15)) !important;
   transform: scale(1.05) rotate(-5deg) !important;
-  box-shadow: 0 10px 30px var(--hover-shadow, rgba(16, 185, 129, 0.2)) !important;
+  box-shadow: 0 10px 30px var(--hover-shadow, rgba(244,166,55, 0.2)) !important;
 }
 
 .service-card:hover .service-title {
-  color: var(--hover-color, #10b981) !important;
+  color: var(--hover-color, #f4a637) !important;
 }
 
 .service-card:hover .learn-more {
@@ -343,7 +343,7 @@
 /* ===== BUTTON HOVER ===== */
 .btn-hover:hover {
   transform: translateY(-3px) scale(1.03) !important;
-  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4) !important;
+  box-shadow: 0 10px 40px rgba(244,166,55, 0.4) !important;
 }
 
 .btn-hover:hover .arrow-icon {
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ===== CARD HOVER COLORS =====
   document.querySelectorAll('.service-card').forEach((card) => {
-    const borderColor = card.style.borderBottomColor || '#10b981';
+    const borderColor = card.style.borderBottomColor || '#f4a637';
     card.style.setProperty('--hover-color', borderColor);
     card.style.setProperty('--hover-bg', borderColor + '20');
     card.style.setProperty('--hover-shadow', borderColor + '30');
@@ -468,11 +468,11 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.btn-hover').forEach((btn) => {
     btn.addEventListener('mouseenter', function() {
       this.style.transform = 'translateY(-3px) scale(1.03)';
-      this.style.boxShadow = '0 10px 40px rgba(16,185,129,0.4)';
+      this.style.boxShadow = '0 10px 40px rgba(244,166,55,0.4)';
     });
     btn.addEventListener('mouseleave', function() {
       this.style.transform = 'translateY(0) scale(1)';
-      this.style.boxShadow = '0 4px 25px rgba(16,185,129,0.3)';
+      this.style.boxShadow = '0 4px 25px rgba(244,166,55,0.3)';
     });
   });
 

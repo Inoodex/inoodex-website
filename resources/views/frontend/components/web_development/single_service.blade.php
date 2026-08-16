@@ -29,8 +29,8 @@
                             left:35px;
                             bottom:35px;">
 
-              <span style="background:rgba(34,197,94,.15);
-                                color:#22c55e;
+              <span style="background:rgba(244,166,55,.15);
+                                color:#f4a637;
                                 padding:8px 18px;
                                 border-radius:50px;
                                 font-size:13px;
@@ -69,8 +69,8 @@
               Why Our Clients Trust Us
             </h3>
 
-            <div style="background:rgba(34,197,94,.06);
-                            border:1px solid rgba(34,197,94,.15);
+            <div style="background:rgba(244,166,55,.06);
+                            border:1px solid rgba(244,166,55,.15);
                             border-radius:20px;
                             padding:25px;
                             margin-bottom:15px;">
@@ -90,8 +90,8 @@
 
             </div>
 
-            <div style="background:rgba(34,197,94,.06);
-                            border:1px solid rgba(34,197,94,.15);
+            <div style="background:rgba(244,166,55,.06);
+                            border:1px solid rgba(244,166,55,.15);
                             border-radius:20px;
                             padding:25px;
                             margin-bottom:15px;">
@@ -111,8 +111,8 @@
 
             </div>
 
-            <div style="background:rgba(34,197,94,.06);
-                            border:1px solid rgba(34,197,94,.15);
+            <div style="background:rgba(244,166,55,.06);
+                            border:1px solid rgba(244,166,55,.15);
                             border-radius:20px;
                             padding:25px;">
 
@@ -144,13 +144,13 @@
                     border-radius:30px;
                     padding:40px;
                     color:#fff;
-                    border:1px solid rgba(34,197,94,.15);
+                    border:1px solid rgba(244,166,55,.15);
                     box-shadow:0 25px 60px rgba(0,0,0,.3);">
 
           <div style="width:80px;
                         height:80px;
                         border-radius:20px;
-                        background:rgba(34,197,94,.15);
+                        background:rgba(244,166,55,.15);
                         display:flex;
                         align-items:center;
                         justify-content:center;
@@ -163,7 +163,7 @@
           <h3 style="font-size:32px;
                         font-weight:800;
                         margin-bottom:25px;
-                        color:#22c55e;">
+                        color:#f4a637;">
             Apps Development
           </h3>
 
@@ -180,7 +180,7 @@
 
           <a href="{{ url('/contact') }}" style="display:block;
                         text-align:center;
-                        background:linear-gradient(135deg,#16a34a,#22c55e);
+                        background:linear-gradient(135deg,#d18f2b,#f4a637);
                         color:#fff;
                         font-weight:700;
                         padding:16px;
@@ -188,7 +188,7 @@
                         margin-top:30px;
                         text-decoration:none;
                         transition:all 0.3s ease;"
-            onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 8px 30px rgba(34,197,94,.3)';"
+            onmouseover="this.style.transform='scale(1.02)';this.style.boxShadow='0 8px 30px rgba(244,166,55,.3)';"
             onmouseout="this.style.transform='';this.style.boxShadow='';">
             Contact Now →
           </a>

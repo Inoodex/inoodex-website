@@ -5,6 +5,30 @@
 <body class="tt-magic-cursor">
     @include('layout.page_transition')
 
+    <style>
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+    .tt-magic-cursor #ball {
+        will-change: transform;
+    }
+    .home-section {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: opacity, transform;
+    }
+    .home-section.home-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    </style>
+
     <!-- Magic Cursor Start -->
     <div id="magic-cursor">
         <div id="ball"></div>
@@ -46,7 +70,7 @@
     <!-- Scrolling Ticker Section End -->
 
     <!-- About Section Start -->
-     @include('frontend.components.about') 
+     <section class="home-section">@include('frontend.components.about')</section> 
     <!-- About Section End -->
     
     <!-- Our Work Section Start -->
@@ -54,7 +78,7 @@
     <!-- Our Work Section End -->
 
     <!-- Our Services Section Start -->
-    @include('frontend.components.services')
+    <section class="home-section">@include('frontend.components.services')</section>
     <!-- Our Services Section End -->
 
     <!-- Our Work Section Start -->
@@ -62,13 +86,13 @@
     <!-- Our Work Section End -->
 
     <!-- Why Choose Us Section Start -->
-    @include('frontend.components.why_choose_us')
+    <section class="home-section">@include('frontend.components.why_choose_us')</section>
     <!-- Why Choose Us Section End -->
      <!-- Exclusive Partners Section Start -->
-    @include('frontend.components.exclusive_partners')
+    <section class="home-section">@include('frontend.components.exclusive_partners')</section>
     <!-- Exclusive Partners Section End -->
     <!-- industry  area start  -->
-    @include('frontend.components.industry')
+    <section class="home-section">@include('frontend.components.industry')</section>
     <!-- industry  area end -->
 
     <!-- Clients Testimonials Section Start -->
@@ -76,11 +100,29 @@
     <!-- Clients Testimonials Section End -->
 
     <!-- Latest News Section Start -->
-    @include('frontend.components.blog', ['blogs' => $blogs])
+    <section class="home-section">@include('frontend.components.blog', ['blogs' => $blogs])</section>
     <!-- Latest News Section End -->
 
     <!-- Footer Start -->
     @include('layout.footer')
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var sections = document.querySelectorAll('.home-section');
+        if (!('IntersectionObserver' in window)) {
+            sections.forEach(function(s) { s.classList.add('home-visible'); });
+            return;
+        }
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('home-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        sections.forEach(function(s) { observer.observe(s); });
+    });
+    </script>
 </body>
 
 </html>

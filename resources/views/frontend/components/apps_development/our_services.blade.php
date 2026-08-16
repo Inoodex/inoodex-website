@@ -45,7 +45,7 @@
     height: 600px;
     top: -20%;
     right: -10%;
-    background: rgba(34, 197, 94, 0.04);
+    background: rgba(244,166,55, 0.04);
     animation: orbFloat 14s ease-in-out infinite;
   }
 
@@ -105,15 +105,15 @@
 
   .section-title .badge {
     display: inline-block;
-    background: rgba(34, 197, 94, 0.08);
-    color: #22c55e;
+    background: rgba(244,166,55, 0.08);
+    color: #f4a637;
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 6px 18px;
     border-radius: 50px;
-    border: 1px solid rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(244,166,55, 0.05);
     margin-bottom: 12px;
   }
 
@@ -126,7 +126,7 @@
   }
 
   .section-title h2 span {
-    background: linear-gradient(135deg, #22c55e, #3b82f6);
+    background: linear-gradient(135deg, #f4a637, #3b82f6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -148,10 +148,10 @@
   }
 
   .section-btn .btn-outline:hover {
-    background: rgba(34, 197, 94, 0.08);
-    border-color: rgba(34, 197, 94, 0.15);
+    background: rgba(244,166,55, 0.08);
+    border-color: rgba(244,166,55, 0.15);
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.05);
+    box-shadow: 0 8px 30px rgba(244,166,55, 0.05);
   }
 
   .section-btn .btn-outline i {
@@ -187,7 +187,7 @@
     inset: 0;
     border-radius: 24px;
     padding: 1.5px;
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(59, 130, 246, 0.08), transparent);
+    background: linear-gradient(135deg, rgba(244,166,55, 0.12), rgba(59, 130, 246, 0.08), transparent);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -202,7 +202,7 @@
 
   .service-card:hover {
     transform: translateY(-10px) scale(1.01);
-    border-color: rgba(34, 197, 94, 0.06);
+    border-color: rgba(244,166,55, 0.06);
     background: rgba(255, 255, 255, 0.04);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   }
@@ -216,20 +216,20 @@
     width: 52px;
     height: 52px;
     border-radius: 16px;
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(59, 130, 246, 0.04));
-    border: 1px solid rgba(34, 197, 94, 0.04);
+    background: linear-gradient(135deg, rgba(244,166,55, 0.08), rgba(59, 130, 246, 0.04));
+    border: 1px solid rgba(244,166,55, 0.04);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 22px;
-    color: #22c55e;
+    color: #f4a637;
     margin-bottom: 16px;
     transition: all 0.4s ease;
   }
 
   .service-card:hover .card-content .icon-wrap {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(59, 130, 246, 0.08));
-    border-color: rgba(34, 197, 94, 0.08);
+    background: linear-gradient(135deg, rgba(244,166,55, 0.15), rgba(59, 130, 246, 0.08));
+    border-color: rgba(244,166,55, 0.08);
     transform: scale(1.05);
   }
 
@@ -252,7 +252,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #22c55e;
+    color: #f4a637;
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
@@ -261,7 +261,7 @@
 
   .service-card .card-content .learn-more:hover {
     gap: 14px;
-    color: #4ade80;
+    color: #f7c873;
   }
 
   .service-card .card-image {
@@ -361,12 +361,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #22c55e, #3b82f6);
+    background: linear-gradient(180deg, #f4a637, #3b82f6);
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #16a34a, #2563eb);
+    background: linear-gradient(180deg, #d18f2b, #2563eb);
   }
 
   /* ===== REVEAL CLASSES ===== */
@@ -495,9 +495,9 @@
       <p style="color:#64748b;font-size:15px;margin-bottom:16px;">Need a custom solution? Let's build something amazing
         together.</p>
       <a href="#"
-        style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#ffffff;font-weight:600;font-size:15px;border-radius:14px;text-decoration:none;box-shadow:0 4px 24px rgba(34,197,94,0.15);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);"
-        onmouseover="this.style.transform='translateY(-3px) scale(1.04)';this.style.boxShadow='0 12px 40px rgba(34,197,94,0.30)';"
-        onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 4px 24px rgba(34,197,94,0.15)';">
+        style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:linear-gradient(135deg,#f4a637,#d18f2b);color:#ffffff;font-weight:600;font-size:15px;border-radius:14px;text-decoration:none;box-shadow:0 4px 24px rgba(244,166,55,0.15);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);"
+        onmouseover="this.style.transform='translateY(-3px) scale(1.04)';this.style.boxShadow='0 12px 40px rgba(244,166,55,0.30)';"
+        onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 4px 24px rgba(244,166,55,0.15)';">
         <i class="fa-regular fa-comment-dots"></i>
         Start Your Project
         <i class="fa-solid fa-arrow-right"></i>

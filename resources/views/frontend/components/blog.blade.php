@@ -180,7 +180,7 @@
             <h2
               style="font-size: 38px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 0; animation: fadeInUp 0.6s ease forwards 0.1s; opacity: 0; transform: translateY(20px);">
               The latest <span
-                style="background: linear-gradient(135deg, #f4a637, #34d399, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 300% 300%; animation: gradientMove 5s ease-in-out infinite;">insights</span>
+                style="background: linear-gradient(135deg, #f4a637, #f7c873, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 300% 300%; animation: gradientMove 5s ease-in-out infinite;">insights</span>
               you need to know
             </h2>
           </div>

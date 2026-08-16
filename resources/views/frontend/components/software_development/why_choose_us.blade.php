@@ -5,7 +5,7 @@
 
     <!-- Gradient Orbs -->
     <div
-      style="position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%); border-radius: 50%; animation: floatOrb1 12s ease-in-out infinite;">
+      style="position: absolute; top: -15%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,166,55,0.08) 0%, transparent 70%); border-radius: 50%; animation: floatOrb1 12s ease-in-out infinite;">
     </div>
     <div
       style="position: absolute; bottom: -15%; left: -5%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%); border-radius: 50%; animation: floatOrb2 16s ease-in-out infinite;">
@@ -19,7 +19,7 @@
 
     <!-- Floating Particles -->
     <div
-      style="position: absolute; width: 4px; height: 4px; background: rgba(16,185,129,0.3); border-radius: 50%; top: 10%; left: 5%; animation: particleFloat1 6s ease-in-out infinite;">
+      style="position: absolute; width: 4px; height: 4px; background: rgba(244,166,55,0.3); border-radius: 50%; top: 10%; left: 5%; animation: particleFloat1 6s ease-in-out infinite;">
     </div>
     <div
       style="position: absolute; width: 6px; height: 6px; background: rgba(59,130,246,0.25); border-radius: 50%; top: 20%; right: 10%; animation: particleFloat2 8s ease-in-out infinite;">
@@ -31,7 +31,7 @@
       style="position: absolute; width: 5px; height: 5px; background: rgba(236,72,153,0.2); border-radius: 50%; top: 60%; right: 20%; animation: particleFloat4 9s ease-in-out infinite;">
     </div>
     <div
-      style="position: absolute; width: 4px; height: 4px; background: rgba(16,185,129,0.2); border-radius: 50%; bottom: 40%; right: 35%; animation: particleFloat5 5s ease-in-out infinite;">
+      style="position: absolute; width: 4px; height: 4px; background: rgba(244,166,55,0.2); border-radius: 50%; bottom: 40%; right: 35%; animation: particleFloat5 5s ease-in-out infinite;">
     </div>
     <div
       style="position: absolute; width: 6px; height: 6px; background: rgba(251,191,36,0.15); border-radius: 50%; top: 45%; left: 30%; animation: particleFloat6 10s ease-in-out infinite;">
@@ -42,15 +42,15 @@
     <!-- Section Header -->
     <div style="text-align: center; margin-bottom: 60px;">
       <div
-        style="display: inline-block; padding: 8px 24px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.12); border-radius: 50px; margin-bottom: 18px; animation: fadeInDown 0.6s ease forwards; opacity: 0; transform: translateY(-20px);">
+        style="display: inline-block; padding: 8px 24px; background: rgba(244,166,55,0.08); border: 1px solid rgba(244,166,55,0.12); border-radius: 50px; margin-bottom: 18px; animation: fadeInDown 0.6s ease forwards; opacity: 0; transform: translateY(-20px);">
         <span
-          style="color: #10b981; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">✦
+          style="color: #f4a637; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;">✦
           Why Choose Us</span>
       </div>
       <h2
         style="font-size: 40px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 0; animation: fadeInUp 0.6s ease forwards 0.1s; opacity: 0; transform: translateY(20px);">
         Why Choose <span
-          style="background: linear-gradient(135deg, #10b981, #34d399, #3b82f6, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 300% 300%; animation: gradientMove 5s ease-in-out infinite;">InooDex</span>?
+          style="background: linear-gradient(135deg, #f4a637, #f7c873, #3b82f6, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 300% 300%; animation: gradientMove 5s ease-in-out infinite;">InooDex</span>?
       </h2>
     </div>
 
@@ -60,17 +60,17 @@
       <div class="why-card"
         style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 20px; padding: 40px 30px; text-align: center; transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden; animation: fadeInUp 0.6s ease forwards 0.3s; opacity: 0; transform: translateY(30px);">
         <div class="card-glow"
-          style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(16,185,129,0.04), transparent 70%); opacity: 0; transition: opacity 0.5s;">
+          style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(244,166,55,0.04), transparent 70%); opacity: 0; transition: opacity 0.5s;">
         </div>
         <div
-          style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #10b981, #34d399, #6ee7b7);">
+          style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #f4a637, #f7c873, #6ee7b7);">
         </div>
         <div
-          style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(16,185,129,0.05), transparent 70%); border-radius: 50%;">
+          style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(244,166,55,0.05), transparent 70%); border-radius: 50%;">
         </div>
 
         <div class="icon-box"
-          style="display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; margin: 0 auto 20px; background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.04)); border-radius: 20px; border: 1px solid rgba(16,185,129,0.08); transition: all 0.4s;">
+          style="display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; margin: 0 auto 20px; background: linear-gradient(135deg, rgba(244,166,55,0.12), rgba(244,166,55,0.04)); border-radius: 20px; border: 1px solid rgba(244,166,55,0.08); transition: all 0.4s;">
           <img src="{{ asset('frontend/assets/images/icon-whyus-1.svg') }}" alt=""
             style="width: 38px; height: 38px; filter: brightness(0) invert(1);">
         </div>
@@ -79,7 +79,7 @@
         <p style="color: #9ca3af; font-size: 14px; line-height: 1.8; margin: 0;">Sed ut perspiciatis unde omnis iste
           natus error sit voluptatem accusantium.</p>
         <div class="learn-more"
-          style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #10b981; font-size: 14px; font-weight: 500; cursor: pointer;">
+          style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #f4a637; font-size: 14px; font-weight: 500; cursor: pointer;">
           <span>Learn More</span>
           <span class="arrow" style="transition: transform 0.3s;">→</span>
         </div>
@@ -350,7 +350,7 @@
 /* Card Hover Effect */
 .why-card:hover {
   transform: translateY(-15px) scale(1.02) !important;
-  border-color: rgba(16, 185, 129, 0.2) !important;
+  border-color: rgba(244,166,55, 0.2) !important;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5) !important;
 }
 
@@ -359,9 +359,9 @@
 }
 
 .why-card:hover .icon-box {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(16, 185, 129, 0.1)) !important;
+  background: linear-gradient(135deg, rgba(244,166,55, 0.25), rgba(244,166,55, 0.1)) !important;
   transform: scale(1.1) !important;
-  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.15) !important;
+  box-shadow: 0 10px 40px rgba(244,166,55, 0.15) !important;
 }
 
 .why-card:hover .arrow {

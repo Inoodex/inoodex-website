@@ -45,7 +45,7 @@
     height: 700px;
     top: -20%;
     right: -10%;
-    background: rgba(34, 197, 94, 0.04);
+    background: rgba(244,166,55, 0.04);
     animation: orbFloat 14s ease-in-out infinite;
   }
 
@@ -110,7 +110,7 @@
   }
 
   .breadcrumb a:hover {
-    color: #22c55e;
+    color: #f4a637;
   }
 
   .breadcrumb .separator {
@@ -143,7 +143,7 @@
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.04);
     position: relative;
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.02), rgba(59, 130, 246, 0.02));
+    background: linear-gradient(135deg, rgba(244,166,55, 0.02), rgba(59, 130, 246, 0.02));
   }
 
   .featured-image img {
@@ -197,13 +197,13 @@
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(59, 130, 246, 0.08));
-    border: 1px solid rgba(34, 197, 94, 0.06);
+    background: linear-gradient(135deg, rgba(244,166,55, 0.15), rgba(59, 130, 246, 0.08));
+    border: 1px solid rgba(244,166,55, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 16px;
-    color: #22c55e;
+    color: #f4a637;
   }
 
   .featured-image .floating-badge .text h4 {
@@ -226,15 +226,15 @@
 
   .entry-content .badge {
     display: inline-block;
-    background: rgba(34, 197, 94, 0.08);
-    color: #22c55e;
+    background: rgba(244,166,55, 0.08);
+    color: #f4a637;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 5px 16px;
     border-radius: 50px;
-    border: 1px solid rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(244,166,55, 0.05);
     width: fit-content;
   }
 
@@ -247,7 +247,7 @@
   }
 
   .entry-content h2 span {
-    background: linear-gradient(135deg, #22c55e, #3b82f6, #a78bfa);
+    background: linear-gradient(135deg, #f4a637, #3b82f6, #a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -283,7 +283,7 @@
   }
 
   .entry-content .highlight-box:hover {
-    border-color: rgba(34, 197, 94, 0.06);
+    border-color: rgba(244,166,55, 0.06);
     background: rgba(255, 255, 255, 0.03);
   }
 
@@ -298,7 +298,7 @@
   }
 
   .entry-content .highlight-box h4 i {
-    color: #22c55e;
+    color: #f4a637;
   }
 
   .entry-content .highlight-box ul {
@@ -329,14 +329,14 @@
     content: '\f00c';
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
-    color: #22c55e;
+    color: #f4a637;
     font-size: 13px;
     margin-top: 2px;
     flex-shrink: 0;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: rgba(34, 197, 94, 0.06);
+    background: rgba(244,166,55, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -366,7 +366,7 @@
   }
 
   .sidebar-card:hover {
-    border-color: rgba(34, 197, 94, 0.06);
+    border-color: rgba(244,166,55, 0.06);
     background: rgba(255, 255, 255, 0.03);
     transform: translateY(-4px);
   }
@@ -375,13 +375,13 @@
     width: 56px;
     height: 56px;
     border-radius: 16px;
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(59, 130, 246, 0.04));
-    border: 1px solid rgba(34, 197, 94, 0.04);
+    background: linear-gradient(135deg, rgba(244,166,55, 0.08), rgba(59, 130, 246, 0.04));
+    border: 1px solid rgba(244,166,55, 0.04);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    color: #22c55e;
+    color: #f4a637;
     margin-bottom: 16px;
   }
 
@@ -420,7 +420,7 @@
     content: '\f111';
     font-family: 'Font Awesome 6 Free';
     font-weight: 400;
-    color: #22c55e;
+    color: #f4a637;
     font-size: 7px;
     flex-shrink: 0;
     opacity: 0.5;
@@ -438,7 +438,7 @@
     gap: 10px;
     width: 100%;
     padding: 14px 24px;
-    background: linear-gradient(135deg, #22c55e, #16a34a);
+    background: linear-gradient(135deg, #f4a637, #d18f2b);
     color: #ffffff;
     font-weight: 600;
     font-size: 15px;
@@ -446,13 +446,13 @@
     text-decoration: none;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 24px rgba(34, 197, 94, 0.15);
+    box-shadow: 0 4px 24px rgba(244,166,55, 0.15);
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .btn-primary-glow:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 40px rgba(34, 197, 94, 0.30);
+    box-shadow: 0 12px 40px rgba(244,166,55, 0.30);
   }
 
   /* ===== QUICK CONTACT ===== */
@@ -469,18 +469,18 @@
 
   .quick-contact:hover {
     background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(34, 197, 94, 0.06);
+    border-color: rgba(244,166,55, 0.06);
   }
 
   .quick-contact .icon-box {
     width: 44px;
     height: 44px;
     border-radius: 12px;
-    background: rgba(34, 197, 94, 0.06);
+    background: rgba(244,166,55, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #22c55e;
+    color: #f4a637;
     font-size: 18px;
     flex-shrink: 0;
   }
@@ -497,7 +497,7 @@
   }
 
   .quick-contact .text a {
-    color: #22c55e;
+    color: #f4a637;
     text-decoration: none;
     font-weight: 500;
     font-size: 13px;
@@ -505,7 +505,7 @@
   }
 
   .quick-contact .text a:hover {
-    color: #4ade80;
+    color: #f7c873;
   }
 
   /* ===== RESPONSIVE ===== */
@@ -609,12 +609,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #22c55e, #3b82f6);
+    background: linear-gradient(180deg, #f4a637, #3b82f6);
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #16a34a, #2563eb);
+    background: linear-gradient(180deg, #d18f2b, #2563eb);
   }
 
   /* ===== REVEAL CLASSES ===== */
@@ -711,8 +711,8 @@
             </ul>
           </div>
 
-          <p class="reveal-up" style="font-style:italic;color:#64748b;border-left:3px solid #22c55e;padding-left:16px;">
-            <i class="fa-solid fa-quote-left" style="color:#22c55e;margin-right:8px;"></i>
+          <p class="reveal-up" style="font-style:italic;color:#64748b;border-left:3px solid #f4a637;padding-left:16px;">
+            <i class="fa-solid fa-quote-left" style="color:#f4a637;margin-right:8px;"></i>
             Contact us today to discuss your app development project and get started!
           </p>
 

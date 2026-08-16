@@ -6,13 +6,13 @@
       <div class="w-full px-4 text-center">
 
         <span
-          style="display:inline-block;padding:10px 20px;border-radius:50px;background:rgba(34,197,94,.1);color:#22c55e;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
+          style="display:inline-block;padding:10px 20px;border-radius:50px;background:rgba(244,166,55,.1);color:#f4a637;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
           FAQ'S
         </span>
 
         <h2 style="font-size:56px;font-weight:800;color:#fff;margin-top:20px;margin-bottom:15px;">
           Frequently Asked
-          <span style="color:#22c55e;">Questions</span>
+          <span style="color:#f4a637;">Questions</span>
         </h2>
 
         <p style="max-width:700px;margin:auto;color:#94a3b8;font-size:16px;line-height:1.8;margin-bottom:60px;">

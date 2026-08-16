@@ -45,12 +45,7 @@
                         SEO, and e-commerce solutions to help businesses grow and
                         thrive in today's competitive landscape.
                     </p>
-                    <div class="footer-social">
-                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    </div>
+                 
                 </div>
             </div>
 
@@ -89,6 +84,12 @@
                     <div class="footer-contact-info">
                         <a href="#">{{ $contacts->email }}</a>
                         <a href="#">{{ $contacts->phone }}</a>
+                    </div>
+                       <div class="footer-social">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
             </div>

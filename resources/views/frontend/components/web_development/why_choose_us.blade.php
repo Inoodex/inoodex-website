@@ -7,12 +7,12 @@
       <div class="w-full px-4 text-center">
 
         <span
-          style="display:inline-block;padding:10px 20px;border-radius:50px;background:rgba(34,197,94,.1);color:#22c55e;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
+          style="display:inline-block;padding:10px 20px;border-radius:50px;background:rgba(244,166,55,.1);color:#f4a637;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">
           WHY CHOOSE US
         </span>
 
         <h2 style="font-size:56px;font-weight:800;color:#fff;margin-top:20px;margin-bottom:60px;line-height:1.2;">
-          Why Choose <span style="color:#22c55e;">Inoodex?</span>
+          Why Choose <span style="color:#f4a637;">Inoodex?</span>
         </h2>
 
       </div>
@@ -25,7 +25,7 @@
         style="background:rgba(255,255,255,.04);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:30px;padding:45px 30px;text-align:center;transition:.4s;box-shadow:0 20px 40px rgba(0,0,0,.2);">
 
         <div
-          style="width:90px;height:90px;margin:auto;margin-bottom:25px;background:rgba(34,197,94,.1);border-radius:24px;display:flex;align-items:center;justify-content:center;">
+          style="width:90px;height:90px;margin:auto;margin-bottom:25px;background:rgba(244,166,55,.1);border-radius:24px;display:flex;align-items:center;justify-content:center;">
           <img src="{{ asset('frontend/assets/images/icon-whyus-1.svg') }}" alt="" style="width:45px;">
         </div>
 
