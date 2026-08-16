@@ -23,6 +23,33 @@
     z-index: 0;
     animation: watermarkFloat 8s ease-in-out infinite;
 }
+.footer-copyright-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    position: relative;
+    text-align: center;
+}
+.footer-copyright-bar .footer-copyright-text {
+    margin: 0;
+}
+.footer-copyright-bar .footer-policy-links {
+    margin: 0;
+}
+@media (min-width: 1024px) {
+    .footer-copyright-bar {
+        justify-content: space-between;
+        text-align: left;
+    }
+    .footer-copyright-bar .footer-copyright-text {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+}
 @keyframes watermarkFloat {
     0% { transform: translate(-50%, -50%) scale(1) translateX(0); opacity: 0.3; }
     25% { transform: translate(-45%, -52%) scale(1.02) translateX(20px); opacity: 0.6; }
@@ -96,7 +123,7 @@
         </div>
 
         <div class="footer-copyright">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+            <div class="footer-copyright-bar">
                 <div class="footer-copyright-text">
                     <p>&copy; {{ date('Y') }} <strong>Inoodex</strong>. All rights reserved.</p>
                 </div>
