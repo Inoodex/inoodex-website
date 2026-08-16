@@ -192,8 +192,7 @@
               onmouseover="this.style.transform='translateY(-3px) scale(1.03)'; this.style.boxShadow='0 10px 40px rgba(244,166,55,0.4)'"
               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 25px rgba(244,166,55,0.3)'">
               <span>View All Blogs</span>
-              <span style="transition: transform 0.3s;" onmouseover="this.style.transform='translateX(6px)'"
-                onmouseout="this.style.transform='translateX(0)'">→</span>
+              <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
             </a>
           </div>
         </div>
@@ -264,8 +263,7 @@
                 onmouseover="this.style.boxShadow='0 12px 40px rgba(244,166,55,0.35)'; this.style.transform='translateY(-2px) scale(1.02)'; this.style.gap='12px'"
                 onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0) scale(1)'; this.style.gap='8px'">
                 <span>Read More</span>
-                <span style="transition: transform 0.3s;" onmouseover="this.style.transform='translateX(6px)'"
-                  onmouseout="this.style.transform='translateX(0)'">→</span>
+                <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
               </a>
             </div>
           </div>

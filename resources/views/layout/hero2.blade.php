@@ -77,8 +77,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: clamp(18px, 2.2vw, 30px);
-    height: clamp(18px, 2.2vw, 30px);
+    width: clamp(20px, 2.4vw, 32px);
+    height: clamp(20px, 2.4vw, 32px);
     margin-left: 12px;
     vertical-align: middle;
     position: relative;
@@ -87,23 +87,39 @@
   .hero-slash svg {
     width: 100%;
     height: 100%;
+    overflow: visible;
   }
 
-  .hero-slash line {
+  .hero-slash .t-slash-echo {
     stroke: #f4a637;
-    stroke-width: 3;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.35;
+    stroke-dasharray: 2 3;
+  }
+
+  .hero-slash .t-slash-main {
+    stroke: #f4a637;
+    stroke-width: 3.2;
     stroke-linecap: round;
     filter: drop-shadow(0 0 10px rgba(244, 166, 55, 0.25));
   }
 
-  .hero-slash circle {
+  .hero-slash .t-slash-dot {
     fill: #f4a637;
     filter: drop-shadow(0 0 8px rgba(244, 166, 55, 0.25));
   }
 
+  .hero-slash .t-slash-cut {
+    stroke: #f4a637;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    opacity: 0.85;
+  }
+
   .hero-slash .pulse-ring {
     position: absolute;
-    inset: -12%;
+    inset: -14%;
     border: 1px solid rgba(244, 166, 55, 0.25);
     border-radius: 50%;
     animation: homeRingPulse 2.6s ease-in-out infinite;
@@ -482,8 +498,10 @@
                       {{ $slide->title ?? 'Professional Software Development Company In Bangladesh' }}
                       <span class="hero-slash">
                         <svg viewBox="0 0 34 34" fill="none">
-                          <line x1="7" y1="27" x2="27" y2="7" />
-                          <circle cx="27" cy="7" r="2.6" />
+                          <line class="t-slash-echo" x1="12" y1="30" x2="31" y2="11" />
+                          <line class="t-slash-main" x1="7" y1="27" x2="27" y2="7" />
+                          <circle class="t-slash-dot" cx="27" cy="7" r="2.6" />
+                          <path class="t-slash-cut" d="M5 22h7" />
                         </svg>
                         <span class="pulse-ring"></span>
                       </span>
@@ -554,8 +572,10 @@
                       Professional Software Development Company In Bangladesh
                       <span class="hero-slash">
                         <svg viewBox="0 0 34 34" fill="none">
-                          <line x1="7" y1="27" x2="27" y2="7" />
-                          <circle cx="27" cy="7" r="2.6" />
+                          <line class="t-slash-echo" x1="12" y1="30" x2="31" y2="11" />
+                          <line class="t-slash-main" x1="7" y1="27" x2="27" y2="7" />
+                          <circle class="t-slash-dot" cx="27" cy="7" r="2.6" />
+                          <path class="t-slash-cut" d="M5 22h7" />
                         </svg>
                         <span class="pulse-ring"></span>
                       </span>
