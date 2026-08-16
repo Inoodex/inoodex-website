@@ -197,8 +197,8 @@
     position: relative;
     align-self: flex-end;
     margin-bottom: 0.04em;
-    width: clamp(18px, 2.2vw, 30px);
-    height: clamp(18px, 2.2vw, 30px);
+    width: clamp(20px, 2.4vw, 32px);
+    height: clamp(20px, 2.4vw, 32px);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -207,23 +207,39 @@
   .hero-title .t-slash svg {
     width: 100%;
     height: 100%;
+    overflow: visible;
   }
 
-  .hero-title .t-slash line {
+  .t-slash-echo {
     stroke: var(--accent);
-    stroke-width: 3;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.35;
+    stroke-dasharray: 2 3;
+  }
+
+  .t-slash-main {
+    stroke: var(--accent);
+    stroke-width: 3.2;
     stroke-linecap: round;
     filter: drop-shadow(0 0 10px var(--accent-dim));
   }
 
-  .hero-title .t-slash circle {
+  .t-slash-dot {
     fill: var(--accent);
     filter: drop-shadow(0 0 8px var(--accent-dim));
   }
 
+  .t-slash-cut {
+    stroke: var(--accent);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    opacity: 0.85;
+  }
+
   .hero-title .t-slash .pulse-ring {
     position: absolute;
-    inset: -12%;
+    inset: -14%;
     border: 1px solid var(--accent-dim);
     border-radius: 50%;
     animation: ringPulse 2.6s ease-in-out infinite;
@@ -289,18 +305,24 @@
   }
 
   .filter-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+    flex-direction: column;
     gap: 14px;
+    padding-bottom: 6px;
   }
 
   .filter-controls {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
   }
 
   .filter-pills {
@@ -308,6 +330,12 @@
     align-items: center;
     gap: 8px;
     flex-wrap: wrap;
+  }
+
+  .filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .filter-pill {
@@ -352,9 +380,9 @@
   .filter-actions select {
     padding: 9px 18px;
     background: var(--surface);
-    color: var(--muted);
-    border: 1px solid var(--line-strong);
-    border-radius: 2px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 50px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     letter-spacing: 0.5px;
@@ -366,13 +394,98 @@
   .filter-actions select:hover,
   .filter-actions select:focus {
     border-color: var(--accent);
-    color: var(--ink);
+    color: var(--accent);
+    background: var(--accent-glow);
     box-shadow: 0 0 20px -4px var(--accent-dim);
   }
 
   .filter-actions select option {
     background: var(--surface);
     color: var(--ink);
+  }
+
+  /* ===== SHOP SIDEBAR LAYOUT ===== */
+  .shop-section {
+    padding: 0 0 110px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .shop-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+
+  .shop-sidebar {
+    position: sticky;
+    top: 110px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .sidebar-head {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
+  }
+
+  .sidebar-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .sidebar-head h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .sidebar-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sidebar-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .shop-sidebar .filter-actions select {
+    width: 100%;
+  }
+
+  .shop-sidebar .filter-pills {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .shop-sidebar .filter-pill {
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+
+  .shop-main {
+    min-width: 0;
   }
 
   /* ===== GRID ===== */
@@ -385,7 +498,7 @@
   .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 24px;
     transition: opacity 0.25s ease;
   }
 
@@ -463,7 +576,7 @@
   .product-card .image-wrap {
     position: relative;
     background: var(--surface-2);
-    height: 240px;
+    height: 220px;
     overflow: hidden;
   }
 
@@ -602,7 +715,7 @@
 
   /* ===== CARD BODY ===== */
   .product-card .card-body {
-    padding: 24px 22px 20px;
+    padding: 22px 20px 18px;
   }
 
   .product-card .card-body h3 {
@@ -807,6 +920,15 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
+    .shop-layout {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .shop-sidebar {
+      position: static;
+    }
+
     .hero-title {
       font-size: 34px;
     }
@@ -833,8 +955,8 @@
     }
 
     .filter-wrapper {
-      flex-direction: column;
       align-items: flex-start;
+      flex-direction: column;
     }
 
     .product-card .image-wrap {
@@ -929,8 +1051,10 @@
               <span class="t-grad">s</span>
               <span class="t-slash">
                 <svg viewBox="0 0 34 34" fill="none">
-                  <line x1="7" y1="27" x2="27" y2="7" />
-                  <circle cx="27" cy="7" r="2.6" />
+                  <line class="t-slash-echo" x1="12" y1="30" x2="31" y2="11" />
+                  <line class="t-slash-main" x1="7" y1="27" x2="27" y2="7" />
+                  <circle class="t-slash-dot" cx="27" cy="7" r="2.6" />
+                  <path class="t-slash-cut" d="M5 22h7" />
                 </svg>
                 <span class="pulse-ring"></span>
               </span>
@@ -942,89 +1066,102 @@
     </div>
   </section>
 
-  <!-- ===== FILTER BAR ===== -->
-  <section class="filter-section">
+  <!-- ===== FILTER + PRODUCTS (shop layout) ===== -->
+  <section class="shop-section">
     <div class="container">
-      <div class="filter-wrapper">
-        <div class="filter-controls">
-          <div class="filter-pills" id="filterPills">
-            <button class="filter-pill active" data-cat="all">All <span class="pill-count">({{ $products->count() }})</span></button>
-            @foreach ($categories as $category)
-            <button class="filter-pill" data-cat="{{ $category->id }}">{{ $category->name }} <span class="pill-count">({{ $products->where('category_id', $category->id)->count() }})</span></button>
-            @endforeach
-          </div>
-          <div class="filter-actions">
-            <select id="sortSelect">
-              <option value="newest">Sort — Newest</option>
-              <option value="oldest">Sort — Oldest</option>
-              <option value="az">Sort — A → Z</option>
-              <option value="za">Sort — Z → A</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="shop-layout">
 
-  <!-- ===== PRODUCTS ===== -->
-  <section class="products-section">
-    <div class="container">
-      <div class="product-grid" id="productGrid">
-
-        @forelse ($products as $product)
-
-        <div class="product-card" style="--i: {{ $loop->index }}" data-cat="{{ $product->category_id }}" data-name="{{ strtolower($product->name) }}" data-created="{{ $product->created_at->timestamp }}" data-index="{{ $loop->index }}">
-
-          <div class="image-wrap">
-            <span class="plate-index">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
-            <a class="ext-badge" href="{{ $product->product_url }}" target="_blank" aria-label="Open demo">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-            <span class="category-tag">
-              {{ $product->category->name ?? 'Uncategorized' }}
-              <span class="count-badge"></span>
-            </span>
-            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <!-- ===== LEFT SIDEBAR ===== -->
+        <aside class="shop-sidebar">
+          <div class="sidebar-head">
+            <span class="sidebar-label">Filters</span>
+            <h4>Browse Catalog</h4>
           </div>
 
-          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-
-          <div class="card-body">
-            <h3>
-              <a href="{{ $product->product_url }}" target="_blank">
-                {{ $product->name }}
-              </a>
-            </h3>
-            <p>{{ Str::limit(strip_tags($product->description), 80) }}</p>
-
-            <div class="card-footer">
-              <a href="{{ $product->product_url }}" target="_blank" class="btn-demo">
-                View demo <span class="arrow-ring"><i class="fa-solid fa-arrow-right"></i></span>
-              </a>
+          <div class="sidebar-block">
+            <span class="sidebar-title">Sort By</span>
+            <div class="filter-actions">
+              <select id="sortSelect">
+                <option value="newest">Sort — Newest</option>
+                <option value="oldest">Sort — Oldest</option>
+                <option value="az">Sort — A → Z</option>
+                <option value="za">Sort — Z → A</option>
+              </select>
             </div>
           </div>
 
-        </div>
-
-        @empty
-
-        <div class="empty-state is-show">
-          <div class="icon-wrap">
-            <i class="fa-regular fa-box-open"></i>
+          <div class="sidebar-block">
+            <span class="sidebar-title">Category</span>
+            <div class="filter-pills" id="filterPills">
+              <button class="filter-pill active" data-cat="all">All <span class="pill-count">({{ $products->count() }})</span></button>
+              @foreach ($categories as $category)
+              <button class="filter-pill" data-cat="{{ $category->id }}">{{ $category->name }} <span class="pill-count">({{ $products->where('category_id', $category->id)->count() }})</span></button>
+              @endforeach
+            </div>
           </div>
-          <h3>No items yet</h3>
-          <p>Check back later for new work in the catalog.</p>
+        </aside>
+
+        <!-- ===== RIGHT GRID ===== -->
+        <div class="shop-main">
+          <div class="product-grid" id="productGrid">
+
+            @forelse ($products as $product)
+
+            <div class="product-card" style="--i: {{ $loop->index }}" data-cat="{{ $product->category_id }}" data-name="{{ strtolower($product->name) }}" data-created="{{ $product->created_at->timestamp }}" data-index="{{ $loop->index }}">
+
+              <div class="image-wrap">
+                <span class="plate-index">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
+                <a class="ext-badge" href="{{ $product->product_url }}" target="_blank" aria-label="Open demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <span class="category-tag">
+                  {{ $product->category->name ?? 'Uncategorized' }}
+                  <span class="count-badge"></span>
+                </span>
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" loading="lazy" onerror="this.parentElement.style.display='none'">
+              </div>
+
+              <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+              <div class="card-body">
+                <h3>
+                  <a href="{{ $product->product_url }}" target="_blank">
+                    {{ $product->name }}
+                  </a>
+                </h3>
+                <p>{{ Str::limit(strip_tags($product->description), 80) }}</p>
+
+                <div class="card-footer">
+                  <a href="{{ $product->product_url }}" target="_blank" class="btn-demo">
+                    View demo <span class="arrow-ring"><i class="fa-solid fa-arrow-right"></i></span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            @empty
+
+            <div class="empty-state is-show">
+              <div class="icon-wrap">
+                <i class="fa-regular fa-box-open"></i>
+              </div>
+              <h3>No items yet</h3>
+              <p>Check back later for new work in the catalog.</p>
+            </div>
+
+            @endforelse
+
+          </div>
+
+          <div class="viewall-wrap" id="viewAllWrap">
+            <button class="btn-viewall" id="btnViewAll">
+              <span id="viewAllLabel">View All</span> <span class="viewall-count" id="viewAllCount"></span>
+              <i class="fa-solid fa-angles-down" id="viewAllIcon"></i>
+            </button>
+          </div>
         </div>
 
-        @endforelse
-
-      </div>
-
-      <div class="viewall-wrap" id="viewAllWrap">
-        <button class="btn-viewall" id="btnViewAll">
-          <span id="viewAllLabel">View All</span> <span class="viewall-count" id="viewAllCount"></span>
-          <i class="fa-solid fa-angles-down" id="viewAllIcon"></i>
-        </button>
       </div>
     </div>
   </section>
@@ -1039,7 +1176,7 @@
     var emptyState = grid.querySelector('.empty-state');
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.product-card'));
 
-    var LIMIT = 5;
+    var LIMIT = 6;
     var expanded = false;
     var viewAllWrap = document.getElementById('viewAllWrap');
     var btnViewAll = document.getElementById('btnViewAll');

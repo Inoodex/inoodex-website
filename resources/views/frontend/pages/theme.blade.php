@@ -210,8 +210,8 @@
     position: relative;
     align-self: flex-end;
     margin-bottom: 0.04em;
-    width: clamp(18px, 2.2vw, 30px);
-    height: clamp(18px, 2.2vw, 30px);
+    width: clamp(20px, 2.4vw, 32px);
+    height: clamp(20px, 2.4vw, 32px);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -220,23 +220,39 @@
   .hero-title .t-slash svg {
     width: 100%;
     height: 100%;
+    overflow: visible;
   }
 
-  .hero-title .t-slash line {
+  .t-slash-echo {
     stroke: var(--accent);
-    stroke-width: 3;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.35;
+    stroke-dasharray: 2 3;
+  }
+
+  .t-slash-main {
+    stroke: var(--accent);
+    stroke-width: 3.2;
     stroke-linecap: round;
     filter: drop-shadow(0 0 10px var(--accent-dim));
   }
 
-  .hero-title .t-slash circle {
+  .t-slash-dot {
     fill: var(--accent);
     filter: drop-shadow(0 0 8px var(--accent-dim));
   }
 
+  .t-slash-cut {
+    stroke: var(--accent);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    opacity: 0.85;
+  }
+
   .hero-title .t-slash .pulse-ring {
     position: absolute;
-    inset: -12%;
+    inset: -14%;
     border: 1px solid var(--accent-dim);
     border-radius: 50%;
     animation: ringPulse 2.6s ease-in-out infinite;
@@ -270,18 +286,24 @@
   }
 
   .filter-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+    flex-direction: column;
     gap: 14px;
+    padding-bottom: 6px;
   }
 
   .filter-controls {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
   }
 
   .filter-pills {
@@ -289,6 +311,12 @@
     align-items: center;
     gap: 8px;
     flex-wrap: wrap;
+  }
+
+  .filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .filter-pill {
@@ -335,9 +363,9 @@
   .filter-actions select {
     padding: 9px 18px;
     background: var(--surface);
-    color: var(--muted);
-    border: 1px solid var(--line-strong);
-    border-radius: 8px;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 50px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     letter-spacing: 0.5px;
@@ -349,14 +377,98 @@
   .filter-actions select:hover,
   .filter-actions select:focus {
     border-color: var(--accent);
-    color: var(--ink);
-    background: var(--accent-subtle);
+    color: var(--accent);
+    background: var(--accent-glow);
     box-shadow: 0 0 20px -4px var(--accent-dim);
   }
 
   .filter-actions select option {
     background: var(--surface);
     color: var(--ink);
+  }
+
+  /* ===== SHOP SIDEBAR LAYOUT ===== */
+  .shop-section {
+    padding: 0 0 110px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .shop-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+
+  .shop-sidebar {
+    position: sticky;
+    top: 110px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .sidebar-head {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
+  }
+
+  .sidebar-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .sidebar-head h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .sidebar-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sidebar-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .shop-sidebar .filter-actions select {
+    width: 100%;
+  }
+
+  .shop-sidebar .filter-pills {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .shop-sidebar .filter-pill {
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+
+  .shop-main {
+    min-width: 0;
   }
 
   /* ===== GRID ===== */
@@ -432,14 +544,14 @@
   .thumb-wrap {
     position: relative;
     background: var(--surface-2);
-    height: 260px;
+    height: 240px;
     overflow: hidden;
     border-radius: 14px 14px 0 0;
   }
 
   .thumb-wrap img {
     width: 100%;
-    height: 520px;
+    height: 480px;
     object-fit: cover;
     object-position: top;
     filter: grayscale(40%) saturate(0.95) contrast(1.06) brightness(0.95);
@@ -448,7 +560,7 @@
   }
 
   .theme-card:hover .thumb-wrap img {
-    transform: translateY(-260px);
+    transform: translateY(-240px);
     filter: grayscale(0%) saturate(1.1) contrast(1.05) brightness(1.02);
   }
 
@@ -532,7 +644,7 @@
 
   /* ===== CARD BODY ===== */
   .card-body {
-    padding: 22px 22px 20px;
+    padding: 22px 20px 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -663,6 +775,15 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
+    .shop-layout {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .shop-sidebar {
+      position: static;
+    }
+
     .hero-title {
       font-size: 34px;
     }
@@ -689,8 +810,8 @@
     }
 
     .filter-wrapper {
-      flex-direction: column;
       align-items: flex-start;
+      flex-direction: column;
     }
 
     .thumb-wrap {
@@ -799,66 +920,79 @@
     }
   }">
 
-    <!-- ===== FILTER BAR ===== -->
-    <section class="filter-section">
+    <!-- ===== FILTER + THEMES ===== -->
+    <section class="shop-section">
       <div class="container">
-        <div class="filter-wrapper">
-          <div class="filter-controls">
-            <div class="filter-pills">
-              <button class="filter-pill" :class="selectedCategories.length === 0 && 'active'" @click="selectedCategories = []">All <span class="pill-count">({{ $themes->total() }})</span></button>
-              @foreach ($categories as $category)
-              <button class="filter-pill" :class="selectedCategories.includes({{ $category->id }}) && 'active'" @click="selectedCategories = selectedCategories.includes({{ $category->id }}) ? selectedCategories.filter(c => c !== {{ $category->id }}) : [...selectedCategories, {{ $category->id }}]">{{ $category->name }} <span class="pill-count">({{ $themes->where('category_id', $category->id)->count() }})</span></button>
-              @endforeach
+        <div class="shop-layout">
+
+          <!-- ===== LEFT SIDEBAR ===== -->
+          <aside class="shop-sidebar">
+            <div class="sidebar-head">
+              <span class="sidebar-label">Filters</span>
+              <h4>Browse Themes</h4>
             </div>
-            <div class="filter-actions">
-              <select x-model="sortType">
-                <option value="newest">Sort — Newest</option>
-                <option value="oldest">Sort — Oldest</option>
-                <option value="az">Sort — A → Z</option>
-                <option value="za">Sort — Z → A</option>
-                <option value="price_low">Sort — Price ↑</option>
-                <option value="price_high">Sort — Price ↓</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ===== THEMES ===== -->
-    <section class="themes-section">
-      <div class="container">
-        <div class="theme-grid">
-
-          <template x-for="(theme, index) in filtered" :key="theme.id">
-            <div class="theme-card" :style="{ '--i': index }">
-
-              <div class="thumb-wrap">
-                <span class="plate-index" x-text="String(index + 1).padStart(2, '0')"></span>
-                <span class="category-tag" x-text="theme.category_name"></span>
-                <a :href="theme.demo_url" target="_blank">
-                  <img :src="'{{ asset('storage') }}/' + theme.image" :alt="theme.title" loading="lazy" onerror="this.parentElement.style.display='none'">
-                </a>
+            <div class="sidebar-block">
+              <span class="sidebar-title">Sort By</span>
+              <div class="filter-actions">
+                <select x-model="sortType">
+                  <option value="newest">Sort — Newest</option>
+                  <option value="oldest">Sort — Oldest</option>
+                  <option value="az">Sort — A → Z</option>
+                  <option value="za">Sort — Z → A</option>
+                  <option value="price_low">Sort — Price ↑</option>
+                  <option value="price_high">Sort — Price ↓</option>
+                </select>
               </div>
+            </div>
 
-              <div class="card-body">
-                <h2><a :href="theme.demo_url" target="_blank" x-text="theme.title"></a></h2>
-                <div class="card-footer">
-                  <a :href="theme.demo_url" target="_blank" class="btn-demo">
-                    View demo <span class="arrow-ring"><i class="fa-solid fa-arrow-right"></i></span>
-                  </a>
+            <div class="sidebar-block">
+              <span class="sidebar-title">Category</span>
+              <div class="filter-pills">
+                <button class="filter-pill" :class="selectedCategories.length === 0 && 'active'" @click="selectedCategories = []">All <span class="pill-count">({{ $themes->total() }})</span></button>
+                @foreach ($categories as $category)
+                <button class="filter-pill" :class="selectedCategories.includes({{ $category->id }}) && 'active'" @click="selectedCategories = selectedCategories.includes({{ $category->id }}) ? selectedCategories.filter(c => c !== {{ $category->id }}) : [...selectedCategories, {{ $category->id }}]">{{ $category->name }} <span class="pill-count">({{ $themes->where('category_id', $category->id)->count() }})</span></button>
+                @endforeach
+              </div>
+            </div>
+          </aside>
+
+          <!-- ===== RIGHT GRID ===== -->
+          <div class="shop-main">
+            <div class="theme-grid">
+
+              <template x-for="(theme, index) in filtered" :key="theme.id">
+                <div class="theme-card" :style="{ '--i': index }">
+
+                  <div class="thumb-wrap">
+                    <span class="plate-index" x-text="String(index + 1).padStart(2, '0')"></span>
+                    <span class="category-tag" x-text="theme.category_name"></span>
+                    <a :href="theme.demo_url" target="_blank">
+                      <img :src="'{{ asset('storage') }}/' + theme.image" :alt="theme.title" loading="lazy" onerror="this.parentElement.style.display='none'">
+                    </a>
+                  </div>
+
+                  <div class="card-body">
+                    <h2><a :href="theme.demo_url" target="_blank" x-text="theme.title"></a></h2>
+                    <div class="card-footer">
+                      <a :href="theme.demo_url" target="_blank" class="btn-demo">
+                        View demo <span class="arrow-ring"><i class="fa-solid fa-arrow-right"></i></span>
+                      </a>
+                    </div>
+                  </div>
+
                 </div>
+              </template>
+
+              <div class="empty-state" x-show="filtered.length === 0">
+                <div class="icon-wrap">
+                  <i class="fa-regular fa-layer-group"></i>
+                </div>
+                <h3>No themes found</h3>
+                <p>No themes match the selected filters.</p>
               </div>
 
             </div>
-          </template>
-
-          <div class="empty-state" x-show="filtered.length === 0">
-            <div class="icon-wrap">
-              <i class="fa-regular fa-layer-group"></i>
-            </div>
-            <h3>No themes found</h3>
-            <p>No themes match the selected filters.</p>
           </div>
 
         </div>

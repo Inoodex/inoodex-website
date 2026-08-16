@@ -228,18 +228,34 @@
   .hero-title .t-slash svg {
     width: 100%;
     height: 100%;
+    overflow: visible;
   }
 
-  .hero-title .t-slash line {
+  .t-slash-echo {
     stroke: var(--accent);
-    stroke-width: 2.5;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.35;
+    stroke-dasharray: 2 3;
+  }
+
+  .t-slash-main {
+    stroke: var(--accent);
+    stroke-width: 3.2;
     stroke-linecap: round;
     filter: drop-shadow(0 0 8px var(--accent-dim));
   }
 
-  .hero-title .t-slash circle {
+  .t-slash-dot {
     fill: var(--accent);
     filter: drop-shadow(0 0 6px var(--accent-dim));
+  }
+
+  .t-slash-cut {
+    stroke: var(--accent);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    opacity: 0.85;
   }
 
   .hero-title .t-slash .pulse-ring {
@@ -676,8 +692,10 @@
             <span class="t-solid-box">s</span>
             <span class="t-slash">
               <svg viewBox="0 0 34 34" fill="none">
-                <line x1="7" y1="27" x2="27" y2="7" />
-                <circle cx="27" cy="7" r="2.6" />
+                <line class="t-slash-echo" x1="12" y1="30" x2="31" y2="11" />
+                <line class="t-slash-main" x1="7" y1="27" x2="27" y2="7" />
+                <circle class="t-slash-dot" cx="27" cy="7" r="2.6" />
+                <path class="t-slash-cut" d="M5 22h7" />
               </svg>
  
             </span>

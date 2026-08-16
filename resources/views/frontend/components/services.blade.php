@@ -1,4 +1,4 @@
-﻿<style>
+<style>
 .our-services {
   background: #0f172a;
   padding: 80px 0;
@@ -168,44 +168,50 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  padding: 10px 24px;
   background: linear-gradient(135deg, #f4a637, #d18f2b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-size: 14px;
+  color: #ffffff;
+  font-size: 13px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
+  overflow: hidden;
 }
 
 .service-card-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 0;
+  top: 50%;
+  left: 50%;
   width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #f4a637, #f7c873);
-  transition: width 0.3s ease;
-  border-radius: 2px;
+  height: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
 }
 
 .service-card-link:hover::after {
-  width: 100%;
+  width: 300px;
+  height: 300px;
 }
 
 .service-card-link:hover {
-  gap: 14px;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(244,166,55, 0.35);
+  gap: 12px;
 }
 
-.service-card-link svg {
+.service-card-link i {
+  font-size: 14px;
   transition: transform 0.3s ease;
-  -webkit-text-fill-color: #f4a637;
-  color: #f4a637;
 }
 
-.service-card-link:hover svg {
+.service-card-link:hover i {
   transform: translateX(4px);
 }
 
@@ -280,9 +286,7 @@
           enterprise applications to specialized tools.</p>
         <a href="{{ url('/software-development') }}" class="service-card-link">
           Learn More
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
         </a>
       </div>
 
@@ -299,9 +303,7 @@
           enhance user engagement.</p>
         <a href="{{ url('/apps-development') }}" class="service-card-link">
           Learn More
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
         </a>
       </div>
 
@@ -318,9 +320,7 @@
           build your web presence.</p>
         <a href="{{ url('/web-development') }}" class="service-card-link">
           Learn More
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
         </a>
       </div>
 
@@ -339,9 +339,7 @@
           measurable results.</p>
         <a href="{{ url('/digital-marketing') }}" class="service-card-link">
           Learn More
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
         </a>
       </div>
 
@@ -358,9 +356,7 @@
           high-quality backlinks.</p>
         <a href="{{ url('/seo') }}" class="service-card-link">
           Learn More
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
         </a>
       </div>
 
@@ -377,9 +373,7 @@
           for your brand.</p>
         <a href="{{ url('/contact') }}" class="service-card-link">
           Learn More
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
         </a>
       </div>
     </div>

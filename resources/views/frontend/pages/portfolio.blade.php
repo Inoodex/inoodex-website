@@ -52,20 +52,20 @@
   <div style="position:relative;z-index:1;padding-top:70px;">
     <div style="max-width:1200px;margin:0 auto;padding:40px 16px;">
 
-      <div style="text-align:center;margin-bottom:40px;">
+      <div style="text-align:left;margin-bottom:40px;">
         <h1 style="font-size:clamp(28px,5vw,48px);font-weight:900;color:#ffffff;margin-bottom:20px;">
           Featured <span
             style="background:linear-gradient(135deg,#22c55e,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Projects</span>
         </h1>
 
-        <!-- Desktop Filter -->
+<!-- Desktop Filter -->
         <div class="filter-tabs-desktop"
-          style="justify-content:center;gap:10px;background:rgba(255,255,255,0.03);padding:8px;border-radius:50px;border:1px solid rgba(255,255,255,0.05);max-width:fit-content;margin:0 auto;">
+          style="flex-direction:column;align-items:flex-start;gap:10px;background:rgba(255,255,255,0.03);padding:8px;border-radius:20px;border:1px solid rgba(255,255,255,0.05);max-width:fit-content;margin:0 auto 0 0;">
           <a href="#" class="pf-filter active-btn" data-filter="all"
-            style="padding:10px 25px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;border-radius:50px;text-decoration:none;font-size:12px;font-weight:600;text-transform:uppercase;">All</a>
+            style="padding:10px 25px;background:linear-gradient(135deg,#f4a637,#d18f2b);color:#fff;border-radius:50px;text-decoration:none;font-size:12px;font-weight:600;text-transform:uppercase;text-align:left;">All</a>
           @foreach ($categories as $cat)
           <a href="#" class="pf-filter" data-filter="{{ Str::slug($cat->name) }}"
-            style="padding:10px 25px;background:rgba(255,255,255,0.05);color:#94a3b8;border-radius:50px;text-decoration:none;font-size:12px;font-weight:600;text-transform:uppercase;">{{ $cat->name }}</a>
+            style="padding:10px 25px;background:rgba(255,255,255,0.05);color:#94a3b8;border-radius:50px;text-decoration:none;font-size:12px;font-weight:600;text-transform:uppercase;text-align:left;">{{ $cat->name }}</a>
           @endforeach
         </div>
 

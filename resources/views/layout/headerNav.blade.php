@@ -20,22 +20,22 @@
           href="{{ url('/') }}">
           <div style="position: relative; display: flex; align-items: center; justify-content: center;">
             <div
-              style="position: absolute; inset: -8px; background: rgba(244,166,55,0.15); border-radius: 50%; filter: blur(32px); animation: pulse-slow 4s ease-in-out infinite;">
+              style="position: absolute; inset: -8px; background: rgba(244,166,55,0.15); border-radius: 50%; filter: blur(32px); animation: pulse-slow 2.4s ease-in-out infinite;">
             </div>
             <div
               style="position: absolute; inset: -4px; background: #f4a637; border-radius: 50%; filter: blur(16px); opacity: 0; transition: opacity 0.5s;">
             </div>
             <div class="ripple-ring"
-              style="position: absolute; inset: -6px; border: 1.5px solid rgba(244,166,55,0.4); border-radius: 50%; animation: waterDrop 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;">
+              style="position: absolute; inset: -6px; border: 1.5px solid rgba(244,166,55,0.4); border-radius: 50%; animation: waterDrop 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;">
             </div>
             <div class="ripple-ring"
-              style="position: absolute; inset: -6px; border: 1.5px solid rgba(244,166,55,0.3); border-radius: 50%; animation: waterDrop 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 0.6s;">
+              style="position: absolute; inset: -6px; border: 1.5px solid rgba(244,166,55,0.3); border-radius: 50%; animation: waterDrop 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 0.4s;">
             </div>
             <div class="ripple-ring"
-              style="position: absolute; inset: -6px; border: 1.5px solid rgba(244,166,55,0.2); border-radius: 50%; animation: waterDrop 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 1.2s;">
+              style="position: absolute; inset: -6px; border: 1.5px solid rgba(244,166,55,0.2); border-radius: 50%; animation: waterDrop 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite 0.8s;">
             </div>
             <img id="navLogo" src="{{ asset('frontend/assets/images/logo.png') }}" alt="Inoodex"
-              style="height: 34px; width: auto; position: relative; filter: none !important; transition: all 0.5s; animation: logoFloat 3s ease-in-out infinite;" />
+              style="height: 34px; width: auto; position: relative; filter: none !important; transition: all 0.5s; animation: logoFloat 2s ease-in-out infinite;" />
           </div>
         </a>
 

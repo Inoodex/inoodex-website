@@ -260,8 +260,9 @@
 
               <!-- Read More Link -->
               <a href="{{ route('blogs.show', $blog->slug) }}"
-                style="display: inline-flex; align-items: center; gap: 8px; color: #f4a637; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.3s;"
-                onmouseover="this.style.gap='12px'" onmouseout="this.style.gap='8px'">
+                style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: linear-gradient(135deg, #f4a637, #d18f2b); color: #ffffff; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 50px; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; overflow: hidden;"
+                onmouseover="this.style.boxShadow='0 12px 40px rgba(244,166,55,0.35)'; this.style.transform='translateY(-2px) scale(1.02)'; this.style.gap='12px'"
+                onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0) scale(1)'; this.style.gap='8px'">
                 <span>Read More</span>
                 <span style="transition: transform 0.3s;" onmouseover="this.style.transform='translateX(6px)'"
                   onmouseout="this.style.transform='translateX(0)'">→</span>

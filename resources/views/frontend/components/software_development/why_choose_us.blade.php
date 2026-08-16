@@ -108,9 +108,9 @@
         <p style="color: #9ca3af; font-size: 14px; line-height: 1.8; margin: 0;">Sed ut perspiciatis unde omnis iste
           natus error sit voluptatem accusantium.</p>
         <div class="learn-more"
-          style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #3b82f6; font-size: 14px; font-weight: 500; cursor: pointer;">
+          style="margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: linear-gradient(135deg, #f4a637, #d18f2b); color: #ffffff; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-radius: 50px; cursor: pointer; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
           <span>Learn More</span>
-          <span class="arrow" style="transition: transform 0.3s;">→</span>
+          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
         </div>
       </div>
 
@@ -370,6 +370,14 @@
 
 .why-card:hover .learn-more {
   color: #ffffff !important;
+}
+
+.why-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Responsive */
