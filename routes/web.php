@@ -10,6 +10,8 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::redirect('/education.inoodex.com', 'https://education.inoodex.com', 301);
 Route::redirect('/inoodex.com/portfolio', 'https://inoodex.com/portfolio', 301);
 Route::redirect('/electronicspartsbd.com', 'https://www.electronicspartsbd.com', 301);
+Route::redirect('/construction.inoodex.com', 'https://construction.inoodex.com/', 301);
+Route::redirect('/sms.inoodex.com', 'https://sms.inoodex.com/', 301);
 // Route::get('/', function () {
 //     return view('frontend.pages.index');
 // });

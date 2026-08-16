@@ -95,13 +95,13 @@
                   style="background: #131b2e; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border-radius: 14px; min-width: 220px; padding: 8px 0; border: 1px solid rgba(255,255,255,0.05);">
                   
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ url('/software-development') }}">Construction ERP</a>
+                    href="{{ url('/construction.inoodex.com') }}">Construction ERP</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/apps-development') }}">Education Consultancy CRM</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/inoodex.com/portfolio') }}">Inventory Management</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ url('/digital-marketing') }}">POS Software</a>
+                    href="{{ url('/sms.inoodex.com') }}">POS Software</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/electronicspartsbd.com') }}">E-Commerce</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
