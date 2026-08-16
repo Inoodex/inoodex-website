@@ -1,33 +1,15 @@
-@extends('admin.layout.main')
+@extends('admin.layout.admin_dashboard')
 
-@section('title', 'Admin Dashboard')
+@section('title', 'Dashboard')
 
-@section('content')
-    <div class="flex flex-col flex-root">
-        <div class="flex flex-row flex-column-fluid page">
-            @include('layouts.sidebar')
-
-            <div class="flex flex-col flex-1 wrapper" id="kt_wrapper">
-
-                <div class="w-full flex items-stretch justify-between">
-                    @include('layouts.header_menu_wrapper')
-                    @include('layouts.topbar')
-                </div>
-
-                <div class="content flex flex-col flex-column-fluid" id="kt_content">
-                    <div class="container">
-                        @yield('admin_content')
-                    </div>
-                </div>
-
-                {{-- Panels --}}
-                @include('layouts.user_panel')
-                @include('layouts.quick_panel')
-                @include('layouts.chat_panel')
-
-                {{-- Footer --}}
-                @include('layouts.footer')
-            </div>
+@section('admin_content')
+    <div class="card card-custom gutter-b">
+        <div class="card-body">
+            <h3 class="card-title font-weight-bolder text-dark">Welcome Back, {{ auth()->user()->name ?? 'User' }}!</h3>
+            <p class="text-muted mb-4">You are logged into the Inoodex Admin Panel.</p>
+            <a href="{{ route('admin.dashboard') }}" class="btn btn-primary font-weight-bolder">
+                Go to Main Dashboard
+            </a>
         </div>
     </div>
 @endsection
