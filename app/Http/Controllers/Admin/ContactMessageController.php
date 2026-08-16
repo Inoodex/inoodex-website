@@ -24,7 +24,7 @@ class ContactMessageController extends Controller
     }
     public function index()
     {
-        $messages = ContactMessage::latest()->paginate(10);
+        $messages = ContactMessage::latest()->paginate(25);
         return view('admin.messages.index', compact('messages'));
     }
 

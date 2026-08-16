@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="zxx">
-@include('layout.header')
+@include('frontend.layout.header')
 
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
@@ -487,13 +487,13 @@
 </head>
 
 <body class="tt-magic-cursor">
-  @include('layout.page_transition')
+  @include('frontend.layout.page_transition')
 <!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>
   </div>
   <!-- Magic Cursor End -->
-  @include('layout.headerNav')
+  @include('frontend.layout.headerNav')
 
   <canvas id="blogCanvas" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.3;"></canvas>
 
@@ -589,7 +589,7 @@
     @endif
   </div>
 
-  @include('layout.footer')
+  @include('frontend.layout.footer')
 
   <script>
   (function() {

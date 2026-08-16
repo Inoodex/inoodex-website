@@ -1,4 +1,4 @@
-@extends('layouts.admin_dashboard')
+@extends('admin.layout.admin_dashboard')
 @section('admin_content')
     <div class="container mx-auto mt-4 px-4">
         <div class="bg-white rounded-lg shadow-sm border border-gray-200">
@@ -11,7 +11,7 @@
                 <p class="mb-2">
                     <strong>Email:</strong>
                     <a href="mailto:{{ $message->email }}" id="emailText">{{ $message->email }}</a>
-                    <button type="button" class="inline-flex items-center px-3 py-1.5 border border-gray-300 text-gray-700 rounded hover:bg-gray-100 text-sm ml-2"
+                    <button type="button" class="inline-flex items-center px-3 py-1.5 border border-gray-300 text-gray-700 rounded hover:bg-gray-100 text-sm ml-2 gap-2"
                         onclick="copyToClipboard('emailText')">
                         <i class="fas fa-copy"></i> Copy
                     </button>
@@ -21,7 +21,7 @@
                     <strong>Phone:</strong>
                     @if ($message->phone)
                         <a href="tel:{{ $message->phone }}" id="phoneText">{{ $message->phone }}</a>
-                        <button type="button" class="inline-flex items-center px-3 py-1.5 border border-gray-300 text-gray-700 rounded hover:bg-gray-100 text-sm ml-2"
+                        <button type="button" class="inline-flex items-center px-3 py-1.5 border border-gray-300 text-gray-700 rounded hover:bg-gray-100 text-sm ml-2 gap-2"
                             onclick="copyToClipboard('phoneText')">
                             <i class="fas fa-copy"></i> Copy
                         </button>
@@ -47,14 +47,14 @@
 
             <div class="px-6 py-4 border-t border-gray-200">
                 <a href="{{ route('admin.contact.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">
-                    <i class="fa fa-arrow-left"></i> Back
+                    Back
                 </a>
                 <form action="{{ route('admin.contact.destroy', $message->id) }}" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
                         onclick="return confirm('Are you sure you want to delete this message?')">
-                        <i class="fa fa-trash"></i> Delete
+                         Delete
                     </button>
                 </form>
             </div>
@@ -64,7 +64,7 @@
     <script>
         function copyToClipboard(elementId) {
             const text = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(text).then(() => {
+            navigator.clipboard.writeText(text).then(() => {    
                 showToast('Copied: ' + text);
             }).catch(() => {
                 showToast('Failed to copy');

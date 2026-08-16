@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  @include('layout.header')
+  @include('frontend.layout.header')
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -862,8 +862,8 @@
 </head>
 
 <body>
-  @include('layout.page_transition')
-@include('layout.headerNav')
+  @include('frontend.layout.page_transition')
+@include('frontend.layout.headerNav')
 
   <!-- ===== HERO ===== -->
   <section class="hero-section">
@@ -1001,7 +1001,7 @@
 
   </div>
 
-  @include('layout.footer')
+  @include('frontend.layout.footer')
 
 </body>
 

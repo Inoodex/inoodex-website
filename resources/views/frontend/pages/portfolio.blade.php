@@ -1,15 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="zxx">
-@include('layout.header')
+@include('frontend.layout.header')
 
 <body class="tt-magic-cursor" style="background:#05080f;color:#e2e8f0;margin:0;padding:0;box-sizing:border-box;">
-  @include('layout.page_transition')
+  @include('frontend.layout.page_transition')
 <!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>
   </div>
   <!-- Magic Cursor End -->
-  @include('layout.headerNav')
+  @include('frontend.layout.headerNav')
 
   <style>
   .pf-grid {
@@ -112,7 +112,7 @@
     </div>
   </div>
 
-  @include('layout.footer')
+  @include('frontend.layout.footer')
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {

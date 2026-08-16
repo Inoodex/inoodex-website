@@ -31,11 +31,12 @@ class DashboardController extends Controller
             ];
         });
 
-        return view('layouts.main_content', array_merge($stats, [
+        return view('admin.layout.main_content', array_merge($stats, [
             'portfolioItems' => Portfolio::latest()->take(5)->get(),
             'products' => Product::latest()->take(5)->get(),
             'blogPosts' => Blog::latest()->take(5)->get(),
             'messages' => ContactMessage::latest()->take(5)->get(),
+            'recentMessages' => ContactMessage::latest()->take(5)->get(),
             'teamMembers' => Team::latest()->take(6)->get(),
             'categories' => Category::latest()->take(5)->get(),
             'partners' => Partner::latest()->take(4)->get(),

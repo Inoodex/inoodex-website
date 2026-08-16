@@ -1,9 +1,9 @@
 <div class="aside aside-left aside-fixed flex flex-col flex-row-auto" id="kt_aside">
     <!--begin::Brand-->
-    <div class="brand flex-column-auto" id="kt_brand">
+    <div class="brand flex-column-auto px-6 py-4" id="kt_brand" style="background: #1e1e2d;">
         <!--begin::Logo-->
-        <a href="#" class="brand-logo">
-            <img alt="Logo" class="w-65px" src="{{ asset('assets/media/logos/logo-letter-13.png') }}" />
+        <a href="{{ route('admin.dashboard') }}" class="brand-logo flex items-center">
+            <img alt="Inoodex" style="max-height: 32px; width: auto; object-fit: contain;" src="{{ asset('frontend/assets/images/logo.png') }}" />
         </a>
         <!--end::Logo-->
     </div>

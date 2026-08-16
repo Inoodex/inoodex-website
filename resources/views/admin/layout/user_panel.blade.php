@@ -12,28 +12,26 @@
        <!--begin::Content-->
        <div class="offcanvas-content pr-5 mr-n5">
            <!--begin::Header-->
-            <div class="flex items-center mt-5">
-               <div class="symbol symbol-100 mr-5">
-                   <div class="symbol-label" style="background-image:url('assets/media/users/300_21.jpg')">
-                   </div>
-                   <i class="symbol-badge bg-success"></i>
-               </div>
-                <div class="flex flex-col">
-                   <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James
-                       Jones</a>
-                   <div class="text-muted mt-1">Admin</div>
-                   <div class="navi mt-2">
-                       <form method="POST" action="{{ route('logout') }}">
-                           @csrf
-                           <button type="submit" class="btn btn-sm btn-light-primary py-2 px-5">
-                               Sign Out
-                           </button>
-                       </form>
-
-                   </div>
-
-               </div>
-           </div>
+             <div class="flex items-center mt-5">
+                <div class="symbol symbol-60 mr-5">
+                    <div class="symbol-label font-size-h3 font-weight-bold bg-primary text-white flex items-center justify-center rounded-lg" style="width: 50px; height: 50px;">
+                        {{ strtoupper(substr(auth()->user()->name ?? 'A', 0, 1)) }}
+                    </div>
+                    <i class="symbol-badge bg-success"></i>
+                </div>
+                 <div class="flex flex-col">
+                    <a href="{{ route('profile.edit') }}" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{ auth()->user()->name ?? 'Admin' }}</a>
+                    <div class="text-muted mt-1 font-size-sm">{{ auth()->user()->email ?? 'admin@inoodex.com' }}</div>
+                    <div class="navi mt-2">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-sm btn-light-primary py-2 px-5 font-weight-bold">
+                                Sign Out
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
            <!--end::Header-->
            <!--begin::Separator-->
            <div class="separator separator-dashed mt-8 mb-5"></div>

@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
  public function boot()
 {
-    View::composer('layout.footer', function ($view) {
+    View::composer(['frontend.layout.footer', 'layout.footer'], function ($view) {
         $contacts = Cache::remember('footer_contacts', 3600, function () {
             return Contact::first();
         });

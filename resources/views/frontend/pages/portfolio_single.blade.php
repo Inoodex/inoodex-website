@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-@include('layout.header')
+@include('frontend.layout.header')
 
 <head>
   <meta charset="UTF-8">
@@ -87,13 +87,13 @@
 </head>
 
 <body class="tt-magic-cursor overflow-x-hidden">
-  @include('layout.page_transition')
+  @include('frontend.layout.page_transition')
 <!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>
   </div>
   <!-- Magic Cursor End -->
-  @include('layout.headerNav')
+  @include('frontend.layout.headerNav')
   <!-- Header -->
   <header class="py-16 text-center">
     <h1 class="text-4xl md:text-6xl font-extrabold mb-4 gradient-text">{{ $portfolio->title }}</h1>
@@ -176,7 +176,7 @@
     </div>
     @endif
   </main>
-  @include('layout.footer')
+  @include('frontend.layout.footer')
 
 </body>
 

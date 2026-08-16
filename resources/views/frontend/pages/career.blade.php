@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="zxx">
-  @include('layout.header')
+  @include('frontend.layout.header')
 
   <body class="tt-magic-cursor" style="background:#0f172a;color:#e2e8f0;">
-  @include('layout.page_transition')
+  @include('frontend.layout.page_transition')
 <!-- Magic Cursor Start -->
     <div id="magic-cursor">
       <div id="ball"></div>
     </div>
     <!-- Magic Cursor End -->
     <!-- Header Start -->
-    @include('layout.headerNav')
+    @include('frontend.layout.headerNav')
     <!-- Header End -->
 
     <!-- Main body content start -->
@@ -104,6 +104,6 @@
     <!-- Main body content End --> 
 
     <!-- Footer Start -->
-    @include('layout.footer')
+    @include('frontend.layout.footer')
   </body>
 </html>

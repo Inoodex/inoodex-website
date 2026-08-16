@@ -1,4 +1,4 @@
-@extends('layouts.admin_dashboard')
+@extends('admin.layout.admin_dashboard')
 @section('admin_content')
     <div class="container-fluid py-5">
         <div class="flex items-center justify-between mb-4">
@@ -28,7 +28,7 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach ($messages as $msg)
                         <tr class="hover:bg-gray-50">
-                            <td class="px-4 py-3 text-sm text-gray-700">{{ $loop->iteration }}</td>
+                            <td class="px-4 py-3 text-sm text-gray-700">{{ $messages->firstItem() ? ($messages->firstItem() + $loop->index) : $loop->iteration }}</td>
                             <td class="px-4 py-3 text-sm text-gray-700">{{ $msg->name }}</td>
                             <td class="px-4 py-3 text-sm text-gray-700">{{ $msg->email }}</td>
                             <td class="px-4 py-3 text-sm text-gray-700">{{ $msg->subject }}</td>

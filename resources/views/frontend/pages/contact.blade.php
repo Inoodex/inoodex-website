@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  @include('layout.header')
+  @include('frontend.layout.header')
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -903,8 +903,8 @@
 </head>
 
 <body>
-  @include('layout.page_transition')
-  @include('layout.headerNav')
+  @include('frontend.layout.page_transition')
+  @include('frontend.layout.headerNav')
 
   <!-- ===== HERO ===== -->
   <section class="hero-section">
@@ -1055,7 +1055,7 @@
     </div>
   </section>
 
-  @include('layout.footer')
+  @include('frontend.layout.footer')
 
   @if (session('success'))
   <script>
