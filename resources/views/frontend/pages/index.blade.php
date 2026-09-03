@@ -1,15 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zxx">
 @include('frontend.layout.header')
 
 <body class="tt-magic-cursor">
-<<<<<<< HEAD
-<style>
-=======
-    @include('frontend.layout.page_transition')
 
     <style>
->>>>>>> 28b00a05669e670b75bcb2fbadfe3d73a4455046
+
     html {
         scroll-behavior: auto;
     }

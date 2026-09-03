@@ -487,10 +487,6 @@
 </head>
 
 <body class="tt-magic-cursor">
-<<<<<<< HEAD
-=======
-  @include('frontend.layout.page_transition')
->>>>>>> 28b00a05669e670b75bcb2fbadfe3d73a4455046
 <!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>

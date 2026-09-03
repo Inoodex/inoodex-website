@@ -412,11 +412,10 @@
   }
 
   .shop-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 36px;
-    align-items: start;
+    display: block;
   }
+
+  /* sidebar removed */
 
   .shop-sidebar {
     position: sticky;
@@ -508,8 +507,8 @@
 
   /* ===== CARD ===== */
   .product-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     position: relative;
     transition: background 0.35s ease, transform 0.4s var(--transition-smooth), box-shadow 0.4s var(--transition-smooth), border-color 0.35s ease;
     opacity: 0;
@@ -545,7 +544,7 @@
     background: var(--surface);
     transform: translateY(-4px);
     border-color: var(--line-strong);
-    box-shadow: 0 16px 56px -12px rgba(0, 0, 0, 0.7), 0 0 60px -12px var(--accent-glow);
+    box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.3), 0 0 30px -12px var(--accent-glow);
   }
 
   .product-card:hover::after {
@@ -576,16 +575,22 @@
   .product-card .image-wrap {
     position: relative;
     background: var(--surface-2);
-    height: 220px;
+    height: 280px;
     overflow: hidden;
   }
 
   .product-card .image-wrap img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(45%) saturate(0.9) contrast(1.06) brightness(0.94);
-    transition: transform 0.7s var(--transition-smooth), filter 0.7s ease;
+    transition: transform 0.7s var(--transition-smooth);
+  }
+
+  .product-card .image-wrap a {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .product-card:hover .image-wrap img {
@@ -1029,12 +1034,9 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-@include('layout.headerNav')
-=======
-  @include('frontend.layout.page_transition')
-@include('frontend.layout.headerNav')
->>>>>>> 28b00a05669e670b75bcb2fbadfe3d73a4455046
+
+  @include('frontend.layout.headerNav')
+
 
   <!-- ===== HERO ===== -->
   <section class="hero-section">
@@ -1075,36 +1077,6 @@
     <div class="container">
       <div class="shop-layout">
 
-        <!-- ===== LEFT SIDEBAR ===== -->
-        <aside class="shop-sidebar">
-          <div class="sidebar-head">
-            <span class="sidebar-label">Filters</span>
-            <h4>Browse Catalog</h4>
-          </div>
-
-          <div class="sidebar-block">
-            <span class="sidebar-title">Sort By</span>
-            <div class="filter-actions">
-              <select id="sortSelect">
-                <option value="newest">Sort — Newest</option>
-                <option value="oldest">Sort — Oldest</option>
-                <option value="az">Sort — A → Z</option>
-                <option value="za">Sort — Z → A</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="sidebar-block">
-            <span class="sidebar-title">Category</span>
-            <div class="filter-pills" id="filterPills">
-              <button class="filter-pill active" data-cat="all">All <span class="pill-count">({{ $products->count() }})</span></button>
-              @foreach ($categories as $category)
-              <button class="filter-pill" data-cat="{{ $category->id }}">{{ $category->name }} <span class="pill-count">({{ $products->where('category_id', $category->id)->count() }})</span></button>
-              @endforeach
-            </div>
-          </div>
-        </aside>
-
         <!-- ===== RIGHT GRID ===== -->
         <div class="shop-main">
           <div class="product-grid" id="productGrid">
@@ -1114,14 +1086,6 @@
             <div class="product-card" style="--i: {{ $loop->index }}" data-cat="{{ $product->category_id }}" data-name="{{ strtolower($product->name) }}" data-created="{{ $product->created_at->timestamp }}" data-index="{{ $loop->index }}">
 
               <div class="image-wrap">
-                <span class="plate-index">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
-                <a class="ext-badge" href="{{ $product->product_url }}" target="_blank" aria-label="Open demo">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-                <span class="category-tag">
-                  {{ $product->category->name ?? 'Uncategorized' }}
-                  <span class="count-badge"></span>
-                </span>
                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" loading="lazy" onerror="this.parentElement.style.display='none'">
               </div>
 

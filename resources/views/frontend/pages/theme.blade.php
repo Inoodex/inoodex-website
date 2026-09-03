@@ -651,7 +651,8 @@
 
   /* CTA button with sliding arrow */
   .btn-demo {
-    display: inline-flex;
+    display: inline-flex;.
+    
     align-items: center;
     gap: 9px;
     padding: 11px 18px;
@@ -831,12 +832,7 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-@include('layout.headerNav')
-=======
-  @include('frontend.layout.page_transition')
-@include('frontend.layout.headerNav')
->>>>>>> 28b00a05669e670b75bcb2fbadfe3d73a4455046
+  @include('frontend.layout.headerNav')
 
   <!-- ===== HERO ===== -->
   <section class="hero-section">

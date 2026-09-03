@@ -3,10 +3,6 @@
 @include('frontend.layout.header')
 
 <body class="tt-magic-cursor" style="background:#05080f;color:#e2e8f0;margin:0;padding:0;box-sizing:border-box;">
-<<<<<<< HEAD
-=======
-  @include('frontend.layout.page_transition')
->>>>>>> 28b00a05669e670b75bcb2fbadfe3d73a4455046
 <!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>
