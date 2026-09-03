@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="zxx">
-@include('layout.header')
+@include('frontend.layout.header')
 
 <body class="tt-magic-cursor">
+<<<<<<< HEAD
 <style>
+=======
+    @include('frontend.layout.page_transition')
+
+    <style>
+>>>>>>> 28b00a05669e670b75bcb2fbadfe3d73a4455046
     html {
         scroll-behavior: auto;
     }
@@ -34,11 +40,11 @@
     <!-- Magic Cursor End -->
 
     <!-- Header Start -->
-    @include('layout.headerNav')
+    @include('frontend.layout.headerNav')
     <!-- Header End -->
 
     <!-- Hero Section Start -->
-    @include('layout.hero2')
+    @include('frontend.layout.hero2')
     <!-- Hero Section End -->
 
     <!-- Scrolling Ticker Section Start -->
@@ -102,7 +108,7 @@
     <!-- Latest News Section End -->
 
     <!-- Footer Start -->
-    @include('layout.footer')
+    @include('frontend.layout.footer')
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         var sections = document.querySelectorAll('.home-section');

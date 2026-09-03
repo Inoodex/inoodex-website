@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layout.main')
 
 @section('title', 'Admin Dashboard')
 
@@ -6,14 +6,14 @@
     <div class="flex flex-col flex-root">
         <div class="flex flex-row flex-column-fluid page">
             {{-- Sidebar --}}
-            @include('layouts.sidebar')
+            @include('admin.layout.sidebar')
 
             <div class="flex flex-col flex-1 wrapper" id="kt_wrapper">
 
                 <div class="w-full flex items-stretch justify-between">
                     {{-- Header --}}
-                    @include('layouts.header_menu_wrapper')
-                    @include('layouts.topbar')
+                    @include('admin.layout.header_menu_wrapper')
+                    @include('admin.layout.topbar')
                 </div>
 
                 {{-- Content --}}
@@ -24,12 +24,12 @@
                 </div>
 
                 {{-- Panels --}}
-                @include('layouts.user_panel')
-                @include('layouts.quick_panel')
-                @include('layouts.chat_panel')
+                @include('admin.layout.user_panel')
+                @include('admin.layout.quick_panel')
+                @include('admin.layout.chat_panel')
 
                 {{-- Footer --}}
-                @include('layouts.footer')
+                @include('admin.layout.footer')
             </div>
         </div>
     </div>

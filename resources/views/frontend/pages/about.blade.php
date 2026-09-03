@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="zxx">
-@include('layout.header')
+@include('frontend.layout.header')
 
 <body class="tt-magic-cursor" style="background:#020617;color:#e2e8f0;">
+<<<<<<< HEAD
+=======
+  @include('frontend.layout.page_transition')
+>>>>>>> 28b00a05669e670b75bcb2fbadfe3d73a4455046
 <!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>
@@ -10,7 +14,7 @@
   <!-- Magic Cursor End -->
 
   <!-- Header Start -->
-  @include('layout.headerNav')
+  @include('frontend.layout.headerNav')
   <!-- Header End -->
 
   <!-- Hero Section Start -->
@@ -184,7 +188,7 @@
   <!-- Main body content End -->
 
   <!-- Footer Start -->
-  @include('layout.footer')
+  @include('frontend.layout.footer')
 </body>
 
 </html>

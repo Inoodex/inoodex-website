@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-@include('layout.header')
+@include('frontend.layout.header')
 
 <head>
   <!-- GSAP & Lenis -->
@@ -399,13 +399,17 @@
 </head>
 
 <body class="tt-magic-cursor" style="background:#0f172a;color:#e2e8f0;">
+<<<<<<< HEAD
+=======
+  @include('frontend.layout.page_transition')
+>>>>>>> 28b00a05669e670b75bcb2fbadfe3d73a4455046
 <!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>
   </div>
   <!-- Magic Cursor End -->
   <!-- Header Start -->
-  @include('layout.headerNav')
+  @include('frontend.layout.headerNav')
 
   <!-- ========== PAGE HEADER ========== -->
   <div class="page-header">
@@ -470,7 +474,7 @@
   </div>
 
   <!-- Footer Start -->
-  @include('layout.footer')
+  @include('frontend.layout.footer')
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {

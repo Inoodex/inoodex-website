@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('admin.layout.header')
 
 <div class="main-wrapper">
     @yield('content')
