@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -395,10 +395,7 @@
   }
 
   .shop-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 36px;
-    align-items: start;
+    display: block;
   }
 
   .shop-sidebar {
@@ -497,7 +494,7 @@
   .theme-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 16px;
     position: relative;
     z-index: 1;
     transition: opacity 0.25s ease;
@@ -509,14 +506,14 @@
 
   /* ===== GLASS CARD ===== */
   .theme-card {
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015) 45%);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05) 45%);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 16px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    box-shadow: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     opacity: 0;
     animation: cardFadeIn 0.7s ease forwards;
@@ -537,7 +534,7 @@
   .theme-card:hover {
     transform: translateY(-8px);
     border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 60px -12px var(--accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-shadow: none;
   }
 
   /* ===== IMAGE (vertical pan on hover) ===== */
@@ -550,25 +547,29 @@
   }
 
   .thumb-wrap img {
+    display: block;
     width: 100%;
-    height: 480px;
+    height: 100%;
     object-fit: cover;
-    object-position: top;
-    filter: grayscale(40%) saturate(0.95) contrast(1.06) brightness(0.95);
-    transition: transform 1.2s var(--transition-smooth), filter 0.8s ease;
-    will-change: transform;
+    object-position: top center;
+    transition: transform 0.8s ease;
+  }
+
+  .thumb-wrap a {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .theme-card:hover .thumb-wrap img {
-    transform: translateY(-240px);
-    filter: grayscale(0%) saturate(1.1) contrast(1.05) brightness(1.02);
+    transform: scale(1.06);
   }
 
   .thumb-wrap::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(8, 10, 14, 0.25) 0%, rgba(8, 10, 14, 0) 30%, rgba(8, 10, 14, 0.72) 100%);
+    background: none;
     pointer-events: none;
   }
 
@@ -591,42 +592,11 @@
   }
 
   .plate-index {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 3;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 1px;
-    color: #fff;
-    background: rgba(8, 10, 14, 0.55);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-    padding: 5px 11px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 6px;
-    transition: background 0.3s ease, border-color 0.3s ease;
-  }
-
-  .theme-card:hover .plate-index {
-    background: rgba(244, 166, 55, 0.18);
-    border-color: rgba(244, 166, 55, 0.5);
+    display: none;
   }
 
   .category-tag {
-    position: absolute;
-    bottom: 14px;
-    left: 14px;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    color: #f7c873;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    display: none;
   }
 
   .category-tag::before {
@@ -639,26 +609,25 @@
   }
 
   .theme-card:hover .category-tag::before {
-    width: 28px;
+    width: 20px;
   }
 
   /* ===== CARD BODY ===== */
   .card-body {
-    padding: 22px 20px 18px;
+    padding: 10px 10px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-    gap: 18px;
+    justify-content: flex-start;
+    gap: 10px;
   }
 
   .card-body h2 {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    font-size: 21px;
+    font-size: 16px;
     letter-spacing: -0.3px;
     color: var(--ink);
-    line-height: 1.15;
+    line-height: 1.2;
   }
 
   .card-body h2 a {
@@ -675,9 +644,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 14px;
+    gap: 10px;
     padding-top: 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    /* border-top: 1px solid rgba(255, 255, 255, 0.07); */
   }
 
   /* CTA button with sliding arrow */
@@ -862,7 +831,6 @@
 </head>
 
 <body>
-  @include('layout.page_transition')
 @include('layout.headerNav')
 
   <!-- ===== HERO ===== -->
@@ -920,44 +888,12 @@
     }
   }">
 
-    <!-- ===== FILTER + THEMES ===== -->
+<!-- ===== FILTER + THEMES ===== -->
     <section class="shop-section">
       <div class="container">
         <div class="shop-layout">
 
-          <!-- ===== LEFT SIDEBAR ===== -->
-          <aside class="shop-sidebar">
-            <div class="sidebar-head">
-              <span class="sidebar-label">Filters</span>
-              <h4>Browse Themes</h4>
-            </div>
-
-            <div class="sidebar-block">
-              <span class="sidebar-title">Sort By</span>
-              <div class="filter-actions">
-                <select x-model="sortType">
-                  <option value="newest">Sort — Newest</option>
-                  <option value="oldest">Sort — Oldest</option>
-                  <option value="az">Sort — A → Z</option>
-                  <option value="za">Sort — Z → A</option>
-                  <option value="price_low">Sort — Price ↑</option>
-                  <option value="price_high">Sort — Price ↓</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="sidebar-block">
-              <span class="sidebar-title">Category</span>
-              <div class="filter-pills">
-                <button class="filter-pill" :class="selectedCategories.length === 0 && 'active'" @click="selectedCategories = []">All <span class="pill-count">({{ $themes->total() }})</span></button>
-                @foreach ($categories as $category)
-                <button class="filter-pill" :class="selectedCategories.includes({{ $category->id }}) && 'active'" @click="selectedCategories = selectedCategories.includes({{ $category->id }}) ? selectedCategories.filter(c => c !== {{ $category->id }}) : [...selectedCategories, {{ $category->id }}]">{{ $category->name }} <span class="pill-count">({{ $themes->where('category_id', $category->id)->count() }})</span></button>
-                @endforeach
-              </div>
-            </div>
-          </aside>
-
-          <!-- ===== RIGHT GRID ===== -->
+          <!-- ===== THEMES GRID ===== -->
           <div class="shop-main">
             <div class="theme-grid">
 
@@ -965,8 +901,7 @@
                 <div class="theme-card" :style="{ '--i': index }">
 
                   <div class="thumb-wrap">
-                    <span class="plate-index" x-text="String(index + 1).padStart(2, '0')"></span>
-                    <span class="category-tag" x-text="theme.category_name"></span>
+
                     <a :href="theme.demo_url" target="_blank">
                       <img :src="'{{ asset('storage') }}/' + theme.image" :alt="theme.title" loading="lazy" onerror="this.parentElement.style.display='none'">
                     </a>
@@ -997,7 +932,7 @@
 
         </div>
       </div>
-    </section>
+    </section> -->
 
   </div>
 

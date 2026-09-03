@@ -91,12 +91,6 @@
     }
     .work-card:hover .work-overlay::before {
         opacity: 1;
-        animation: neonPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes neonPulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
     }
 
     .work-overlay .category {

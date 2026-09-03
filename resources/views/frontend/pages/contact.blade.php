@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -903,8 +903,7 @@
 </head>
 
 <body>
-  @include('layout.page_transition')
-  @include('layout.headerNav')
+@include('layout.headerNav')
 
   <!-- ===== HERO ===== -->
   <section class="hero-section">

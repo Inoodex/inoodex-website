@@ -1,13 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zxx">
 @include('layout.header')
 
 <body class="tt-magic-cursor">
-    @include('layout.page_transition')
-
-    <style>
+<style>
     html {
-        scroll-behavior: smooth;
+        scroll-behavior: auto;
     }
     body {
         -webkit-font-smoothing: antialiased;

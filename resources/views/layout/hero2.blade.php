@@ -122,7 +122,7 @@
     inset: -14%;
     border: 1px solid rgba(244, 166, 55, 0.25);
     border-radius: 50%;
-    animation: homeRingPulse 2.6s ease-in-out infinite;
+    animation: none;
   }
 
   @keyframes homeRingPulse {
@@ -379,7 +379,7 @@
     height: 10px;
     background: #f4a637;
     border-radius: 2px;
-    animation: scroll-bounce 2s ease-in-out infinite;
+    animation: none;
   }
 
   @keyframes scroll-bounce {
@@ -810,7 +810,7 @@
 
       // ========== ANIMATION LOOP ==========
       const clock = new THREE.Clock();
-      let running = true;
+      let running = false;
 
       const heroEl = document.querySelector('.hero');
       if (heroEl && 'IntersectionObserver' in window) {
@@ -896,52 +896,8 @@
       }
     });
 
-    // ========== GSAP BUTTON ANIMATION ==========
-    document.querySelectorAll('.btn-default').forEach(btn => {
-      btn.addEventListener('mouseenter', function() {
-        gsap.to(this, {
-          scale: 1.05,
-          boxShadow: '0 8px 35px rgba(244,166,55,0.4)',
-          duration: 0.3,
-          ease: "back.out(1.7)"
-        });
-        gsap.to(this.querySelector('.btn-arrow'), {
-          x: 8,
-          scale: 1.1,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      });
-      btn.addEventListener('mouseleave', function() {
-        gsap.to(this, {
-          scale: 1,
-          boxShadow: '0 4px 20px rgba(244,166,55,0.3)',
-          duration: 0.3,
-          ease: "power2.out"
-        });
-        gsap.to(this.querySelector('.btn-arrow'), {
-          x: 0,
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      });
-    });
-
-    // Image Hover Effect
-    document.querySelectorAll('.hero-image img').forEach(img => {
-      img.addEventListener('mouseenter', function() {
-        gsap.to(this, {
-          scale: 1.08,
-          duration: 0.6,
-          ease: "power2.out"
-        });
-      });
-      img.addEventListener('mouseleave', function() {
-        gsap.to(this, {
-          scale: 1,
-          duration: 0.6,
-          ease: "power2.out"
+    // ========== GSAP BUTTON ANIMATION (disabled) ==========
+    
         });
       });
     });
