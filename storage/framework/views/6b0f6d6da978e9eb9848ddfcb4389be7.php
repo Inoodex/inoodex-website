@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  @include('frontend.layout.header')
+  <?php echo $__env->make('frontend.layout.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -835,7 +835,7 @@
 </head>
 
 <body>
-  @include('frontend.layout.headerNav')
+  <?php echo $__env->make('frontend.layout.headerNav', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
   <!-- ===== HERO ===== -->
   <section class="hero-section">
@@ -875,7 +875,7 @@
 
   <!-- ===== FILTER + THEMES (shared Alpine root) ===== -->
   <div x-data="{
-    themes: @js(isset($themes) ? $themes->map(fn($t) => ['id'=>$t->id,'title'=>$t->title,'image'=>$t->image,'demo_url'=>$t->demo_url,'category_id'=>(int)$t->category_id,'category_name'=>$t->category->name ?? 'Uncategorized','price'=>(float)$t->price]) : []),
+    themes: <?php echo \Illuminate\Support\Js::from(isset($themes) ? $themes->map(fn($t) => ['id'=>$t->id,'title'=>$t->title,'image'=>$t->image,'demo_url'=>$t->demo_url,'category_id'=>(int)$t->category_id,'category_name'=>$t->category->name ?? 'Uncategorized','price'=>(float)$t->price]) : [])->toHtml() ?>,
     selectedCategories: [],
     sortType: 'newest',
     get filtered() {
@@ -907,7 +907,7 @@
                   <div class="thumb-wrap">
 
                     <a :href="theme.demo_url" target="_blank">
-                      <img :src="'{{ asset('storage') }}/' + theme.image" :alt="theme.title" loading="lazy" onerror="this.parentElement.style.display='none'">
+                      <img :src="'<?php echo e(asset('storage')); ?>/' + theme.image" :alt="theme.title" loading="lazy" onerror="this.parentElement.style.display='none'">
                     </a>
                   </div>
 
@@ -940,8 +940,9 @@
 
   </div>
 
-  @include('frontend.layout.footer')
+  <?php echo $__env->make('frontend.layout.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
 </body>
 
 </html>
+<?php /**PATH C:\laragon\www\inoodex_latest\resources\views/frontend/pages/theme.blade.php ENDPATH**/ ?>
