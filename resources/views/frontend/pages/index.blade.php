@@ -88,12 +88,18 @@
     <!-- Why Choose Us Section Start -->
     <section class="home-section">@include('frontend.components.why_choose_us')</section>
     <!-- Why Choose Us Section End -->
+     
      <!-- Exclusive Partners Section Start -->
-    <section class="home-section">@include('frontend.components.exclusive_partners')</section>
+     {{--<section class="home-section">@include('frontend.components.exclusive_partners')</section> --}}
     <!-- Exclusive Partners Section End -->
+
     <!-- industry  area start  -->
     <section class="home-section">@include('frontend.components.industry')</section>
     <!-- industry  area end -->
+
+    <!-- Global Presence Section Start -->
+    <section class="home-section">@include('frontend.components.global_presence')</section>
+    <!-- Global Presence Section End -->
 
     <!-- Clients Testimonials Section Start -->
     {{-- @include('frontend.components.testimonial') --}}

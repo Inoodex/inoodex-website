@@ -78,11 +78,6 @@
                 </div>
               </div>
             </li>
-            <!-- <li style="display:none;">
-              <a class="nav-link"
-                style="padding: 8px 14px; font-size: 14px; font-weight: 500; color: #9ca3af; border-radius: 10px; text-decoration: none; transition: all 0.3s; position: relative;"
-                href="{{ url('/portfolio') }}">Portfolio</a>
-            </li> -->
             <li style="position: relative;">
               <a class="nav-link"
                 style="padding: 8px 14px; font-size: 14px; font-weight: 500; color: #9ca3af; border-radius: 10px; text-decoration: none; transition: all 0.3s; position: relative; display: inline-flex; align-items: center; gap: 4px;"
@@ -99,7 +94,7 @@
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/apps-development') }}">Education Consultancy CRM</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ url('/inoodex.com/portfolio') }}">Inventory Management</a>
+                    href=" {{ url('/inventory-management') }}">Inventory Management</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/sms.inoodex.com') }}">POS Software</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
@@ -245,7 +240,7 @@
                   onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Data Analysis</a></li>
             </ul>
           </li>
-          <li style="display:none;">
+          <li>
             <a style="display: flex; align-items: center; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; text-decoration: none; transition: all 0.3s;"
               href="{{ url('/portfolio') }}"
               onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"

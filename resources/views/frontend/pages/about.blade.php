@@ -174,7 +174,7 @@
   <!-- industry  area end -->
 
   <!-- Exclusive Partners Section Start -->
-  @include('frontend.components.exclusive_partners')
+  <!-- {{-- @include('frontend.components.exclusive_partners') --}} -->
   <!-- Exclusive Partners Section End -->
 
   <!-- Our Team Section Start -->
