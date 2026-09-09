@@ -88,11 +88,19 @@
                 style="position: absolute; left: 0; top: 100%; margin-top: 16px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); transform: translateY(16px);">
                 <div
                   style="background: #131b2e; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border-radius: 14px; min-width: 220px; padding: 8px 0; border: 1px solid rgba(255,255,255,0.05);">
-                  @php $navProducts = \App\Models\Product::with('category')->where('status', 'active')->latest()->take(8)->get(); @endphp
-                  @foreach($navProducts as $np)
+                  
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ $np->product_url }}">{{ $np->name }}</a>
-                  @endforeach
+                    href="{{ url('/construction.inoodex.com') }}">Construction ERP</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/crm.inoodex.com') }}">Education Consultancy CRM</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href=" {{ url('/inventory-management') }}">Inventory Management</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/sms.inoodex.com') }}">POS Software</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/electronicspartsbd.com') }}">E-Commerce</a>
+                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
+                    href="{{ url('/education.inoodex.com') }}">School Management</a>
                 </div>
               </div>
             </li>
@@ -232,6 +240,7 @@
                   onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Data Analysis</a></li>
             </ul>
           </li>
+          {{--
           <li>
             <a style="display: flex; align-items: center; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; text-decoration: none; transition: all 0.3s;"
               href="{{ url('/portfolio') }}"
@@ -246,18 +255,49 @@
               Portfolio
             </a>
           </li>
+          --}}
           <li>
-            <a style="display: flex; align-items: center; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; text-decoration: none; transition: all 0.3s;"
-              href="{{ url('/products') }}"
+            <button class="mobile-prod-btn"
+              style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; background: transparent; border: none; cursor: pointer; transition: all 0.3s;"
               onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
               onmouseout="this.style.background='transparent'; this.style.color='#d1d5db'">
-              <svg style="width: 18px; height: 18px; margin-right: 12px; color: #f4a637;" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-              </svg>
-              Products
-            </a>
+              <span style="display: flex; align-items: center;">
+                <svg style="width: 18px; height: 18px; margin-right: 12px; color: #f4a637;" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                </svg>
+                Products
+              </span>
+              <span class="mobile-sub-arrow"
+                style="color: #6b7280; font-size: 12px; transition: transform 0.4s;">▾</span>
+            </button>
+            <div class="mobile-submenu" style="display: none; margin: 4px 0 0 0; padding: 4px 0; list-style: none; background: rgba(255,255,255,0.02); border-radius: 10px; overflow: hidden;">
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="{{ url('/construction.inoodex.com') }}"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Construction ERP</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="{{ url('/apps-development') }}"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Education Consultancy CRM</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="{{ url('/inventory-management') }}"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Inventory Management</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="{{ url('/sms.inoodex.com') }}"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">POS Software</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="{{ url('/electronicspartsbd.com') }}"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">E-Commerce</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="{{ url('/education.inoodex.com') }}"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">School Management</a>
+            </div>
           </li>
           <li>
             <a style="display: flex; align-items: center; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; text-decoration: none; transition: all 0.3s;"
@@ -498,7 +538,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Mobile Services submenu toggle
-  var svcBtns = document.querySelectorAll('.mobile-svc-btn');
+  var svcBtns = document.querySelectorAll('.mobile-svc-btn, .mobile-prod-btn');
   svcBtns.forEach(function(svcBtn) {
     svcBtn.addEventListener('click', function(e) {
       e.stopPropagation();

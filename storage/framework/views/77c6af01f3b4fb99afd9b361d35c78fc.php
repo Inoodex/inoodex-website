@@ -92,7 +92,7 @@
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="<?php echo e(url('/construction.inoodex.com')); ?>">Construction ERP</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="<?php echo e(url('/apps-development')); ?>">Education Consultancy CRM</a>
+                    href="<?php echo e(url('/crm.inoodex.com')); ?>">Education Consultancy CRM</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href=" <?php echo e(url('/inventory-management')); ?>">Inventory Management</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
@@ -240,32 +240,49 @@
                   onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Data Analysis</a></li>
             </ul>
           </li>
+          
           <li>
-            <a style="display: flex; align-items: center; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; text-decoration: none; transition: all 0.3s;"
-              href="<?php echo e(url('/portfolio')); ?>"
+            <button class="mobile-prod-btn"
+              style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; background: transparent; border: none; cursor: pointer; transition: all 0.3s;"
               onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
               onmouseout="this.style.background='transparent'; this.style.color='#d1d5db'">
-              <svg style="width: 18px; height: 18px; margin-right: 12px; color: #f4a637;" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                </path>
-              </svg>
-              Portfolio
-            </a>
-          </li>
-          <li>
-            <a style="display: flex; align-items: center; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; text-decoration: none; transition: all 0.3s;"
-              href="<?php echo e(url('/products')); ?>"
-              onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
-              onmouseout="this.style.background='transparent'; this.style.color='#d1d5db'">
-              <svg style="width: 18px; height: 18px; margin-right: 12px; color: #f4a637;" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-              </svg>
-              Products
-            </a>
+              <span style="display: flex; align-items: center;">
+                <svg style="width: 18px; height: 18px; margin-right: 12px; color: #f4a637;" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                </svg>
+                Products
+              </span>
+              <span class="mobile-sub-arrow"
+                style="color: #6b7280; font-size: 12px; transition: transform 0.4s;">▾</span>
+            </button>
+            <div class="mobile-submenu" style="display: none; margin: 4px 0 0 0; padding: 4px 0; list-style: none; background: rgba(255,255,255,0.02); border-radius: 10px; overflow: hidden;">
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="<?php echo e(url('/construction.inoodex.com')); ?>"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Construction ERP</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="<?php echo e(url('/apps-development')); ?>"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Education Consultancy CRM</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="<?php echo e(url('/inventory-management')); ?>"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Inventory Management</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="<?php echo e(url('/sms.inoodex.com')); ?>"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">POS Software</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="<?php echo e(url('/electronicspartsbd.com')); ?>"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">E-Commerce</a>
+              <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
+                href="<?php echo e(url('/education.inoodex.com')); ?>"
+                onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
+                onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">School Management</a>
+            </div>
           </li>
           <li>
             <a style="display: flex; align-items: center; padding: 12px 16px; font-size: 15px; font-weight: 500; color: #d1d5db; border-radius: 12px; text-decoration: none; transition: all 0.3s;"
@@ -506,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Mobile Services submenu toggle
-  var svcBtns = document.querySelectorAll('.mobile-svc-btn');
+  var svcBtns = document.querySelectorAll('.mobile-svc-btn, .mobile-prod-btn');
   svcBtns.forEach(function(svcBtn) {
     svcBtn.addEventListener('click', function(e) {
       e.stopPropagation();

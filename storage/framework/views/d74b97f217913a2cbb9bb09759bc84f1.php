@@ -320,6 +320,78 @@
     display: none !important;
   }
 
+  /* ===== CONTINUOUS FLOATING ANIMATIONS ===== */
+
+  /* Header badge float */
+  .gp-badge-pill {
+    animation: gpBadgeFloat 4s ease-in-out infinite alternate;
+  }
+  @keyframes gpBadgeFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+  }
+
+  /* Title glow pulse */
+  .gp-title .gp-highlight {
+    animation: gpHighlightGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes gpHighlightGlow {
+    0% { filter: brightness(1) drop-shadow(0 0 0px rgba(244,166,55,0)); }
+    100% { filter: brightness(1.15) drop-shadow(0 0 12px rgba(244,166,55,0.35)); }
+  }
+
+  /* Hotspot badges staggered float */
+  .gp-hotspot:nth-child(1) { animation: gpSpotFloat 5s ease-in-out 0s infinite alternate; }
+  .gp-hotspot:nth-child(2) { animation: gpSpotFloat 5.5s ease-in-out 0.4s infinite alternate; }
+  .gp-hotspot:nth-child(3) { animation: gpSpotFloat 4.8s ease-in-out 0.8s infinite alternate; }
+  .gp-hotspot:nth-child(4) { animation: gpSpotFloat 5.2s ease-in-out 1.2s infinite alternate; }
+  .gp-hotspot:nth-child(5) { animation: gpSpotFloat 5.8s ease-in-out 0.6s infinite alternate; }
+  .gp-hotspot:nth-child(6) { animation: gpSpotFloat 4.5s ease-in-out 1.0s infinite alternate; }
+  .gp-hotspot:nth-child(7) { animation: gpSpotFloat 5s ease-in-out 1.4s infinite alternate; }
+
+  @keyframes gpSpotFloat {
+    0% { transform: translate(-50%, -50%) translateY(0px); }
+    100% { transform: translate(-50%, -50%) translateY(-6px); }
+  }
+
+  .gp-hotspot:hover {
+    animation-play-state: paused;
+  }
+
+  /* Marker dot breathe */
+  .gp-marker-dot {
+    animation: gpDotBreathe 2.5s ease-in-out infinite alternate;
+  }
+  @keyframes gpDotBreathe {
+    0% { box-shadow: 0 0 16px #f4a637, 0 0 28px rgba(244,166,55,0.85); }
+    100% { box-shadow: 0 0 22px #f4a637, 0 0 40px rgba(244,166,55,1); }
+  }
+
+  .gp-hotspot.gp-spot-hq .gp-marker-dot {
+    animation: gpHQDotBreathe 2s ease-in-out infinite alternate;
+  }
+  @keyframes gpHQDotBreathe {
+    0% { box-shadow: 0 0 24px #f4a637, 0 0 45px rgba(244,166,55,1); }
+    100% { box-shadow: 0 0 32px #f4a637, 0 0 60px rgba(244,166,55,0.9); }
+  }
+
+  /* Background glow slow pulse */
+  .gp-bg-glow {
+    animation: gpGlowPulse 8s ease-in-out infinite alternate;
+  }
+  @keyframes gpGlowPulse {
+    0% { opacity: 0.8; transform: translate(-50%, -46%) scale(1); }
+    100% { opacity: 1; transform: translate(-50%, -46%) scale(1.08); }
+  }
+
+  .gp-bg-glow-secondary {
+    animation: gpGlowPulse2 10s ease-in-out 2s infinite alternate;
+  }
+  @keyframes gpGlowPulse2 {
+    0% { opacity: 0.7; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.12); }
+  }
+
   /* Responsive */
   @media (max-width: 860px) {
     .gp-connections-svg { display: none; }
