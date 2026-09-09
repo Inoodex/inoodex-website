@@ -664,7 +664,7 @@
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 1px;
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     background: rgba(244, 166, 55, 0.1);
@@ -686,7 +686,7 @@
   }
 
   .btn-demo:hover {
-    color: #0a0a0a;
+    color: #000000;
     background: var(--accent);
     border-color: var(--accent);
     gap: 13px;

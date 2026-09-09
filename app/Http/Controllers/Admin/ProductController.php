@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::latest()->paginate(10);
+        $categories = Category::latest()->get();
         return view('admin.products.create', compact('categories'));
     }
 
@@ -27,9 +27,9 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'category_id' => 'required|string|max:255',
+            'category_id' => 'required|integer',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'product_url' => 'nullable|url',
+            'product_url' => 'nullable|string|max:500',
             'status' => 'required|in:active,inactive',
         ]);
 
@@ -65,9 +65,9 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'category_id' => 'required|string|max:255',
+            'category_id' => 'required|integer',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'product_url' => 'nullable|url',
+            'product_url' => 'nullable|string|max:500',
             'status' => 'required|in:active,inactive',
         ]);
 

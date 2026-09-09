@@ -88,19 +88,11 @@
                 style="position: absolute; left: 0; top: 100%; margin-top: 16px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); transform: translateY(16px);">
                 <div
                   style="background: #131b2e; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border-radius: 14px; min-width: 220px; padding: 8px 0; border: 1px solid rgba(255,255,255,0.05);">
-                  
+                  @php $navProducts = \App\Models\Product::with('category')->where('status', 'active')->latest()->take(8)->get(); @endphp
+                  @foreach($navProducts as $np)
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ url('/construction.inoodex.com') }}">Construction ERP</a>
-                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ url('/apps-development') }}">Education Consultancy CRM</a>
-                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href=" {{ url('/inventory-management') }}">Inventory Management</a>
-                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ url('/sms.inoodex.com') }}">POS Software</a>
-                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ url('/electronicspartsbd.com') }}">E-Commerce</a>
-                  <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ url('/education.inoodex.com') }}">School Management</a>
+                    href="{{ $np->product_url }}">{{ $np->name }}</a>
+                  @endforeach
                 </div>
               </div>
             </li>
