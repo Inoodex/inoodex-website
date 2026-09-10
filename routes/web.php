@@ -14,6 +14,10 @@ Route::redirect('/construction.inoodex.com', 'https://construction.inoodex.com/'
 Route::redirect('/sms.inoodex.com', 'https://sms.inoodex.com/', 301);
 Route::redirect('/crm.inoodex.com', 'https://crm.inoodex.com/', 301);
 Route::redirect('/inventory.inoodex.com', 'https://inventory.inoodex.com/login', 301);
+Route::redirect('/ecom.inoodex.com', 'https://ecom.inoodex.com/', 301);
+
+
+
 // Route::get('/', function () {
 //     return view('frontend.pages.index');
 // });

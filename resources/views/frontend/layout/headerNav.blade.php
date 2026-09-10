@@ -98,7 +98,7 @@
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/sms.inoodex.com') }}">POS Software</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href="{{ url('/electronicspartsbd.com') }}">E-Commerce</a>
+                    href="{{ url('/ecom.inoodex.com') }}">E-Commerce</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/education.inoodex.com') }}">School Management</a>
                 </div>

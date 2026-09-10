@@ -1,1 +1,0 @@
-<?php /**PATH C:\laragon\www\inoodex_latest\resources\views/admin/layout/footer.blade.php ENDPATH**/ ?>
