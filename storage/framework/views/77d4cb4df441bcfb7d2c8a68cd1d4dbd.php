@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  @include('frontend.layout.header')
+  <?php echo $__env->make('frontend.layout.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -906,7 +906,7 @@
 </head>
 
 <body>
-  @include('frontend.layout.headerNav')
+  <?php echo $__env->make('frontend.layout.headerNav', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
   <!-- ===== HERO ===== -->
   <section class="hero-section">
@@ -943,7 +943,7 @@
     </div>
   </section>
 
-  @php $c = $contacts->first(); @endphp
+  <?php $c = $contacts->first(); ?>
 
   <!-- ===== INFO PLATES ===== -->
   <section class="info-section">
@@ -958,7 +958,7 @@
             <span class="info-plate">// 01</span>
           </div>
           <h3>Address</h3>
-          <p class="info-value">{!! $c->address ?? '' !!}</p>
+          <p class="info-value"><?php echo $c->address ?? ''; ?></p>
         </div>
 
         <div class="info-card">
@@ -968,7 +968,7 @@
             <span class="info-plate">// 02</span>
           </div>
           <h3>Phone</h3>
-          <p class="info-value"><a href="tel:{{ $c->phone ?? '' }}">{{ $c->phone ?? '' }}</a></p>
+          <p class="info-value"><a href="tel:<?php echo e($c->phone ?? ''); ?>"><?php echo e($c->phone ?? ''); ?></a></p>
         </div>
 
         <div class="info-card">
@@ -978,7 +978,7 @@
             <span class="info-plate">// 03</span>
           </div>
           <h3>Email</h3>
-          <p class="info-value"><a href="mailto:{{ $c->email ?? '' }}">{{ $c->email ?? '' }}</a></p>
+          <p class="info-value"><a href="mailto:<?php echo e($c->email ?? ''); ?>"><?php echo e($c->email ?? ''); ?></a></p>
         </div>
 
       </div>
@@ -1011,33 +1011,33 @@
       <div class="form-card">
         <div class="form-title">
           <h3>Send a <span>Message</span></h3>
-          <span class="ref">[ INQ-{{ date('Y') }} ]</span>
+          <span class="ref">[ INQ-<?php echo e(date('Y')); ?> ]</span>
         </div>
-        <form action="{{ route('contact.store') }}" method="POST">
-          @csrf
+        <form action="<?php echo e(route('contact.store')); ?>" method="POST">
+          <?php echo csrf_field(); ?>
           <div class="form-row">
             <div class="field">
               <label><i class="fa-solid fa-circle"></i> Name *</label>
-              <input type="text" name="name" value="{{ old('name') }}" placeholder="Your full name" required>
+              <input type="text" name="name" value="<?php echo e(old('name')); ?>" placeholder="Your full name" required>
             </div>
             <div class="field">
               <label><i class="fa-solid fa-circle"></i> Email *</label>
-              <input type="email" name="email" value="{{ old('email') }}" placeholder="you@domain.com" required>
+              <input type="email" name="email" value="<?php echo e(old('email')); ?>" placeholder="you@domain.com" required>
             </div>
           </div>
           <div class="form-row">
             <div class="field">
               <label><i class="fa-regular fa-circle"></i> Phone</label>
-              <input type="text" name="phone" value="{{ old('phone') }}" placeholder="+880 ...">
+              <input type="text" name="phone" value="<?php echo e(old('phone')); ?>" placeholder="+880 ...">
             </div>
             <div class="field">
               <label><i class="fa-regular fa-circle"></i> Subject</label>
-              <input type="text" name="subject" value="{{ old('subject') }}" placeholder="Project inquiry">
+              <input type="text" name="subject" value="<?php echo e(old('subject')); ?>" placeholder="Project inquiry">
             </div>
           </div>
           <div class="field" style="flex:1;margin-bottom:16px;">
             <label><i class="fa-solid fa-circle"></i> Message *</label>
-            <textarea name="message" placeholder="Tell us about your project..." required>{{ old('message') }}</textarea>
+            <textarea name="message" placeholder="Tell us about your project..." required><?php echo e(old('message')); ?></textarea>
           </div>
 
           <div class="form-bottom">
@@ -1057,33 +1057,33 @@
     </div>
   </section>
 
-  @include('frontend.layout.footer')
+  <?php echo $__env->make('frontend.layout.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
-  @if (session('success'))
+  <?php if(session('success')): ?>
   <script>
   Swal.fire({
     icon: 'success',
     title: 'Thank you!',
-    text: '{{ session('success') }}',
+    text: '<?php echo e(session('success')); ?>',
     confirmButtonColor: '#f4a637',
     background: '#131829',
     color: '#f4f5f7'
   })
   </script>
-  @endif
+  <?php endif; ?>
 
-  @if ($errors->any())
+  <?php if($errors->any()): ?>
   <script>
   Swal.fire({
     icon: 'error',
     title: 'Oops...',
-    html: `{!! implode('<br>', $errors->all()) !!}`,
+    html: `<?php echo implode('<br>', $errors->all()); ?>`,
     confirmButtonColor: '#d33',
     background: '#131829',
     color: '#f4f5f7'
   })
   </script>
-  @endif
+  <?php endif; ?>
 </body>
 
-</html>
+</html><?php /**PATH C:\laragon\www\inoodex_latest\resources\views/frontend/pages/contact.blade.php ENDPATH**/ ?>

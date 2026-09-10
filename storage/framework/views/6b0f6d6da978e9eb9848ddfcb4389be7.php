@@ -163,14 +163,14 @@
     line-height: 0.85;
     letter-spacing: -0.04em;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: flex-end;
     position: relative;
     z-index: 1;
   }
 
   .hero-title .t-word {
-    display: block;
+    display: inline;
     color: transparent;
     -webkit-text-stroke: 2px rgba(244, 245, 247, 0.5);
     text-transform: uppercase;
@@ -631,12 +631,12 @@
     font-weight: 700;
     font-size: 16px;
     letter-spacing: -0.3px;
-    color: #000000;
+    color: var(--accent);
     line-height: 1.2;
   }
 
   .card-body h2 a {
-    color: #000000;
+    color: var(--accent);
     text-decoration: none;
     transition: color 0.25s ease;
   }
@@ -848,7 +848,7 @@
         <div class="hero-title-wrap">
           <h1 class="hero-title">
             <span class="t-word">Theme </span>
-     =
+            <span class="t-row">
               <span class="t-theme-mark" aria-hidden="true">
                 <svg viewBox="0 0 100 100" fill="none">
                   <rect x="4" y="4" width="46" height="46" rx="8" stroke="rgba(244,245,247,0.22)" stroke-width="2.5" />
@@ -862,9 +862,16 @@
                     </linearGradient> -->
                   </defs>
                 </svg>
-          
               </span>
-          
+              <span class="t-slash">
+                <svg viewBox="0 0 34 34" fill="none">
+                  <line class="t-slash-echo" x1="12" y1="30" x2="31" y2="11" />
+                  <line class="t-slash-main" x1="7" y1="27" x2="27" y2="7" />
+                  <circle class="t-slash-dot" cx="27" cy="7" r="2.6" />
+                  <path class="t-slash-cut" d="M5 22h7" />
+                </svg>
+                <span class="pulse-ring"></span>
+              </span>
             </span>
           </h1>
         </div>

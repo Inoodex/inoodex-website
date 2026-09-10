@@ -183,8 +183,16 @@
   }
 
   .gp-hotspot:hover {
-    transform: translate(-50%, -50%) scale(1.15);
+    transform: translate(-50%, -50%) scale(1.2);
     z-index: 30;
+  }
+
+  .gp-hotspot:hover .gp-marker-dot {
+    transform: scale(1.3);
+  }
+
+  .gp-hotspot:hover .gp-loc-badge {
+    transform: translateX(4px);
   }
 
   /* Radar Pulse */
@@ -234,7 +242,7 @@
     position: relative;
     z-index: 2;
     flex-shrink: 0;
-    transition: all 0.3s ease;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .gp-hotspot:hover .gp-marker-dot {
@@ -256,7 +264,7 @@
     white-space: nowrap;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.65), 0 0 14px rgba(244, 166, 55, 0.18);
     pointer-events: none;
-    transition: all 0.35s ease;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .gp-hotspot:hover .gp-loc-badge {
@@ -402,7 +410,7 @@
     .gp-header { margin-bottom: 20px; }
     .gp-globe-stage {
       width: 100%;
-      height: clamp(360px, 94vw, 440px);
+      height: clamp(400px, 94vw, 480px);
       aspect-ratio: auto;
       overflow: visible;
     }
@@ -422,11 +430,22 @@
     .gp-hotspot.gp-spot-hq .gp-marker-dot { width: 16px; height: 16px; }
     .gp-hotspot.gp-spot-hq .gp-loc-badge { padding: 5px 12px; }
     .gp-hotspot.gp-spot-hq .gp-loc-badge .gp-loc-name { font-size: 12px; }
+    .gp-hotspot[title="Denmark"] { left: 25%; top: 10%; }
+    .gp-hotspot[title="Romania"] { left: 55%; top: 15%; }
+    .gp-hotspot[title="USA"] { left: 8%; top: 48%; }
+    .gp-hotspot[title="Saudi Arabia"] { left: 30%; top: 60%; }
+    .gp-hotspot[title="Dubai (UAE)"] { left: 68%; top: 55%; }
+    .gp-hotspot.gp-spot-hq { left: 80%; top: 38%; }
+    .gp-hotspot[title="Australia"] { left: 80%; top: 80%; }
+    .gp-hotspot[title="Denmark"] .gp-loc-badge,
+    .gp-hotspot[title="Romania"] .gp-loc-badge,
+    .gp-hotspot[title="USA"] .gp-loc-badge,
+    .gp-hotspot[title="Saudi Arabia"] .gp-loc-badge { transform: translateX(-80%); }
   }
 
   @media (max-width: 480px) {
     .gp-section { padding: 50px 12px 0px; }
-    .gp-globe-stage { height: clamp(340px, 96vw, 400px); }
+    .gp-globe-stage { height: clamp(380px, 96vw, 440px); }
     .gp-globe-stage img.gp-main-img { transform: scale(1.44); }
     @keyframes gpGlobeFloatMobile {
       0% { transform: scale(1.44) translateY(0px); }
@@ -435,6 +454,17 @@
     .gp-loc-badge { padding: 3.5px 8px; }
     .gp-loc-badge .gp-loc-name { font-size: 10px; }
     .gp-hotspot.gp-spot-hq .gp-loc-badge .gp-loc-name { font-size: 11px; }
+    .gp-hotspot[title="Denmark"] { left: 22%; top: 8%; }
+    .gp-hotspot[title="Romania"] { left: 58%; top: 12%; }
+    .gp-hotspot[title="USA"] { left: 5%; top: 45%; }
+    .gp-hotspot[title="Saudi Arabia"] { left: 28%; top: 62%; }
+    .gp-hotspot[title="Dubai (UAE)"] { left: 72%; top: 52%; }
+    .gp-hotspot.gp-spot-hq { left: 82%; top: 35%; }
+    .gp-hotspot[title="Australia"] { left: 82%; top: 82%; }
+    .gp-hotspot[title="Denmark"] .gp-loc-badge,
+    .gp-hotspot[title="Romania"] .gp-loc-badge,
+    .gp-hotspot[title="USA"] .gp-loc-badge,
+    .gp-hotspot[title="Saudi Arabia"] .gp-loc-badge { transform: translateX(-80%); }
   }
 </style>
 
@@ -507,7 +537,7 @@
       </div>
 
       <!-- Dubai -->
-      <div class="gp-hotspot" style="left: 61%; top: 44%;" title="Dubai (UAE)">
+      <div class="gp-hotspot" style="left: 65%; top: 52%;" title="Dubai (UAE)">
         <div class="gp-marker-dot"></div>
         <div class="gp-loc-badge">
           <span class="gp-loc-icon"><i class="fa-solid fa-location-dot"></i></span>

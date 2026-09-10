@@ -13,6 +13,7 @@ Route::redirect('/electronicspartsbd.com', 'https://www.electronicspartsbd.com',
 Route::redirect('/construction.inoodex.com', 'https://construction.inoodex.com/', 301);
 Route::redirect('/sms.inoodex.com', 'https://sms.inoodex.com/', 301);
 Route::redirect('/crm.inoodex.com', 'https://crm.inoodex.com/', 301);
+Route::redirect('/inventory.inoodex.com', 'https://inventory.inoodex.com/login', 301);
 // Route::get('/', function () {
 //     return view('frontend.pages.index');
 // });

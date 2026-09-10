@@ -94,7 +94,7 @@
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/crm.inoodex.com') }}">Education Consultancy CRM</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
-                    href=" {{ url('/inventory-management') }}">Inventory Management</a>
+                    href=" {{ url('/inventory.inoodex.com') }}">Inventory Management</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
                     href="{{ url('/sms.inoodex.com') }}">POS Software</a>
                   <a style="display: flex; align-items: center; padding: 8px 16px; font-size: 14px; color: #d1d5db; text-decoration: none; transition: all 0.3s;"
@@ -278,11 +278,11 @@
                 onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
                 onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Construction ERP</a>
               <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
-                href="{{ url('/apps-development') }}"
+                href="{{ url('/crm.inoodex.com') }}"
                 onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
                 onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Education Consultancy CRM</a>
               <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"
-                href="{{ url('/inventory-management') }}"
+                href="{{ url('/inventory.inoodex.com') }}"
                 onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.color='#ffffff'"
                 onmouseout="this.style.background='transparent'; this.style.color='#9ca3af'">Inventory Management</a>
               <a style="display: block; padding: 10px 16px 10px 46px; font-size: 14px; color: #9ca3af; border-radius: 6px; text-decoration: none; transition: all 0.3s;"

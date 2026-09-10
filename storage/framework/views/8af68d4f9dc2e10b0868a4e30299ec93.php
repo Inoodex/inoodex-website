@@ -149,8 +149,8 @@
     line-height: 0.85;
     letter-spacing: -0.04em;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: flex-end;
     position: relative;
     z-index: 1;
   }
