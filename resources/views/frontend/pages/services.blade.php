@@ -8,10 +8,66 @@
 
     /* ===== SERVICES SECTION (matches homepage component) ===== */
     .our-services {
-      background: #f8f9fb;
+      background: #ffffff;
       padding: 80px 0 100px;
       position: relative;
+      overflow: hidden;
     }
+    .bg-shape {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .blob-top-left {
+      top: -40px; left: -60px;
+      width: 320px; height: 280px;
+      opacity: 0.6;
+    }
+    .blob-top-right {
+      top: -60px; right: -80px;
+      width: 350px; height: 300px;
+      opacity: 0.45;
+    }
+    .blob-bottom-left {
+      bottom: -50px; left: -40px;
+      width: 300px; height: 260px;
+      opacity: 0.5;
+    }
+    .blob-bottom-right {
+      bottom: -40px; right: -60px;
+      width: 340px; height: 290px;
+      opacity: 0.55;
+    }
+    .decor-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(100,180,220,0.3);
+      background: transparent;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .decor-circle-1 { width: 30px; height: 30px; top: 80px; left: 28%; }
+    .decor-circle-2 { width: 20px; height: 20px; top: 140px; right: 32%; }
+    .decor-circle-3 { width: 24px; height: 24px; bottom: 120px; left: 35%; }
+    .decor-circle-4 { width: 16px; height: 16px; bottom: 200px; right: 28%; }
+    .decor-plus {
+      position: absolute;
+      color: rgba(100,180,220,0.35);
+      font-size: 18px;
+      font-weight: 300;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .decor-plus-1 { top: 120px; left: 40%; }
+    .decor-plus-2 { bottom: 160px; right: 40%; }
+    .decor-dots {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .decor-dots-1 { top: 100px; left: 18%; }
+    .decor-dots-2 { bottom: 140px; right: 18%; }
+    .our-services .container { position: relative; z-index: 1; }
     .our-services .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -43,6 +99,8 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      position: relative;
+      z-index: 1;
     }
     .service-card {
       background: #ffffff;
@@ -53,7 +111,8 @@
       flex-direction: column;
       transition: all 0.3s ease;
       text-decoration: none;
-      display: flex;
+      position: relative;
+      z-index: 1;
     }
     .service-card:hover {
       transform: translateY(-4px);
@@ -136,6 +195,17 @@
       background-position: center;
       opacity: 0.12;
     }
+    .svc-cta::after {
+      content: '';
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,166,55,0.15) 0%, transparent 70%);
+      bottom: -60px;
+      right: -40px;
+      pointer-events: none;
+    }
     .svc-cta-inner { position: relative; z-index: 1; max-width: 650px; margin: 0 auto; }
     .svc-cta h2 {
       font-family: 'Playfair Display', serif;
@@ -178,6 +248,51 @@
 
   <!-- SERVICES -->
   <section class="our-services">
+    <!-- Blob shapes -->
+    <svg class="bg-shape blob-top-left" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M-20-30C40-40 120-10 160 40C200 90 180 160 140 200C100 240 30 230-10 180C-50 130-60 50-20-30Z" fill="rgba(100,190,230,0.35)"/>
+      <path d="M-40-10C20-50 100-30 140 20C180 70 170 140 130 180C90 220 10 210-30 160C-70 110-80 30-40-10Z" fill="rgba(130,200,240,0.25)"/>
+    </svg>
+    <svg class="bg-shape blob-top-right" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M420-20C360-40 280-10 240 40C200 90 220 160 260 200C300 240 370 230 410 180C450 130 460 50 420-20Z" fill="rgba(100,190,230,0.3)"/>
+      <path d="M440-10C380-40 300-20 260 30C220 80 240 150 280 190C320 230 390 220 430 170C470 120 460 20 440-10Z" fill="rgba(160,210,240,0.2)"/>
+    </svg>
+    <svg class="bg-shape blob-bottom-left" viewBox="0 0 350 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M-20 320C40 330 120 300 160 250C200 200 180 130 140 90C100 50 30 60-10 110C-50 160-60 240-20 320Z" fill="rgba(100,190,230,0.3)"/>
+      <path d="M-30 300C30 320 110 290 150 240C190 190 170 120 130 80C90 40 20 50-20 100C-60 150-70 230-30 300Z" fill="rgba(130,200,240,0.2)"/>
+    </svg>
+    <svg class="bg-shape blob-bottom-right" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M420 370C360 380 280 350 240 300C200 250 220 180 260 140C300 100 370 110 410 160C450 210 460 290 420 370Z" fill="rgba(100,190,230,0.32)"/>
+      <path d="M440 350C380 370 300 340 260 290C220 240 240 170 280 130C320 90 390 100 430 150C470 200 460 280 440 350Z" fill="rgba(160,210,240,0.22)"/>
+    </svg>
+
+    <!-- Decorative circles -->
+    <div class="decor-circle decor-circle-1"></div>
+    <div class="decor-circle decor-circle-2"></div>
+    <div class="decor-circle decor-circle-3"></div>
+    <div class="decor-circle decor-circle-4"></div>
+
+    <!-- Decorative plus signs -->
+    <span class="decor-plus decor-plus-1">+</span>
+    <span class="decor-plus decor-plus-2">+</span>
+
+    <!-- Decorative dots -->
+    <svg class="decor-dots decor-dots-1" width="40" height="40" viewBox="0 0 40 40">
+      <circle cx="5" cy="5" r="3" fill="rgba(100,180,220,0.3)"/>
+      <circle cx="20" cy="5" r="3" fill="rgba(100,180,220,0.2)"/>
+      <circle cx="35" cy="5" r="3" fill="rgba(100,180,220,0.3)"/>
+      <circle cx="5" cy="20" r="3" fill="rgba(100,180,220,0.2)"/>
+      <circle cx="20" cy="20" r="3" fill="rgba(100,180,220,0.15)"/>
+      <circle cx="35" cy="20" r="3" fill="rgba(100,180,220,0.2)"/>
+    </svg>
+    <svg class="decor-dots decor-dots-2" width="40" height="40" viewBox="0 0 40 40">
+      <circle cx="5" cy="5" r="3" fill="rgba(100,180,220,0.3)"/>
+      <circle cx="20" cy="5" r="3" fill="rgba(100,180,220,0.2)"/>
+      <circle cx="35" cy="5" r="3" fill="rgba(100,180,220,0.3)"/>
+      <circle cx="5" cy="20" r="3" fill="rgba(100,180,220,0.2)"/>
+      <circle cx="20" cy="20" r="3" fill="rgba(100,180,220,0.15)"/>
+    </svg>
+
     <div class="container">
 
       <div class="services-top">

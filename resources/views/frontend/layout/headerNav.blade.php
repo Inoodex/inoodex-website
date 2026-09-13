@@ -7,9 +7,18 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 9999;
-    background: transparent;
-    border-bottom: 1px solid transparent;
+    background: linear-gradient(135deg, rgba(100,180,230,0.15) 0%, rgba(180,210,240,0.1) 50%, rgba(230,240,250,0.12) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(100,180,230,0.1);
     transition: all 0.4s ease;
+  }
+  body.no-hero .inx-nav {
+    background: #ffffff !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid #e5e7eb !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06) !important;
   }
   .inx-nav.scrolled {
     background: #ffffff !important;
@@ -370,11 +379,9 @@
   .inx-hamburger.open {
     background: transparent;
     border-color: transparent;
-    opacity: 0;
-    pointer-events: none;
   }
   .inx-hamburger.open svg {
-    color: #ffffff;
+    color: #374151;
   }
   .inx-hamburger.open .menu-icon {
     display: none;
@@ -400,12 +407,7 @@
     padding: 0 28px 40px;
   }
   .inx-mobile-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 20px 0;
-    border-bottom: 1px solid #e5e7eb;
-    margin-bottom: 8px;
+    display: none;
   }
   .inx-mobile-header .inx-nav-logo {
     display: none;
@@ -501,6 +503,29 @@
     text-decoration: none;
     transition: all 0.3s ease;
   }
+  .inx-mobile-getintouch {
+    display: inline-flex !important;
+    margin-top: 32px;
+    border-bottom: none !important;
+    background: #f4a637 !important;
+    color: #111827 !important;
+    padding: 10px 10px 10px 20px !important;
+    border-radius: 100px !important;
+    font-size: 14px !important;
+  }
+  .inx-mobile-getintouch .cta-icon {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 32px !important;
+    height: 32px !important;
+    background: #111827 !important;
+    border-radius: 50% !important;
+  }
+  .inx-mobile-getintouch .cta-icon i {
+    font-size: 11px !important;
+    color: #ffffff !important;
+  }
   .inx-mobile-cta:hover {
     background: #e89a2e;
   }
@@ -519,12 +544,15 @@
   }
 
   @media (max-width: 1023px) {
-    .inx-nav-links,
-    .inx-nav-cta {
+    .inx-nav-inner .inx-nav-cta,
+    .inx-nav-links {
       display: none !important;
     }
     .inx-hamburger {
       display: flex;
+    }
+    .inx-mobile-getintouch {
+      display: inline-flex !important;
     }
   }
 </style>
@@ -610,11 +638,8 @@
       </li>
     </ul>
 
-    <!-- Right: Search + CTA + Hamburger -->
+    <!-- Right: CTA + Hamburger -->
     <div style="display: flex; align-items: center; gap: 16px;">
-      <button style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:none;border:none;cursor:pointer;color:#374151;transition:color 0.3s;" aria-label="Search" onmouseover="this.style.color='#111827'" onmouseout="this.style.color='#374151'">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="M21 21l-4.35-4.35"/></svg>
-      </button>
       <a class="inx-nav-cta" href="{{ url('/contact') }}">
         Get In Touch <span class="cta-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
       </a>
@@ -676,6 +701,10 @@
 
     <a href="{{ url('/themes') }}">Themes</a>
     <a href="{{ url('/contact') }}">Contact Us</a>
+
+    <a href="{{ url('/contact') }}" class="inx-nav-cta inx-mobile-getintouch">
+      Get In Touch <span class="cta-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+    </a>
   </div>
 </div>
 

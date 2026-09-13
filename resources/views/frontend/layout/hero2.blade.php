@@ -84,8 +84,8 @@
 
   .hero-title {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(32px, 4.2vw, 52px);
-    font-weight: 800;
+    font-size: clamp(20px, 3.2vw, 40px);
+    font-weight: 600;
     color: #1e293b;
     line-height: 1.15;
     letter-spacing: -0.03em;
@@ -199,7 +199,7 @@
       <div class="swiper-slide">
         <div class="hero-container">
           <div class="hero-content">
-            <h1 class="hero-title">{{ $slide->title ?? 'Crafting Digital Excellence From Dhaka to the World' }}</h1>
+            <h1 class="hero-title">{{ $slide->title ?? 'Professional Software<br>Development Company In Bangladesh' }}</h1>
             @if ($slide->description ?? false)
             <p class="hero-desc">{!! $slide->description !!}</p>
             @else
@@ -222,7 +222,7 @@
       <div class="swiper-slide">
         <div class="hero-container">
           <div class="hero-content">
-            <h1 class="hero-title">Build Bold. Scale Fearlessly.</h1>
+            <h1 class="hero-title">Professional Software<br>Development Company In Bangladesh</h1>
             <p class="hero-desc">From ideation to deployment, we craft high-performance software that fuels growth. Partner with a team that turns complex challenges into elegant, revenue-driving digital experiences.</p>
             <a href="{{ url('/contact') }}" class="hero-btn">
                   Let's Talk <i class="fa-solid fa-arrow-right"></i>

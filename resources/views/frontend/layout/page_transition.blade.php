@@ -93,8 +93,8 @@
     transform: translateY(0);
     transition: transform 0.25s cubic-bezier(0.77, 0, 0.175, 1);
 }
-.pt-curtain.left { left: 0; background: #A15948; }
-.pt-curtain.right { right: 0; background: #A15948; }
+.pt-curtain.left { left: 0; background: #ffffff; }
+.pt-curtain.right { right: 0; background: #ffffff; }
 #pt-wrap.pt-done .pt-curtain.left { transform: translateX(-101%); }
 #pt-wrap.pt-done .pt-curtain.right { transform: translateX(101%); }
 #pt-wrap.pt-done {

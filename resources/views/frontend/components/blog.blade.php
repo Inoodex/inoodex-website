@@ -3,7 +3,6 @@
   position: relative;
   background: #ffffff;
   padding: 60px 0 120px;
-  overflow: hidden;
 }
 
 .blog-header {

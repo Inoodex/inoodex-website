@@ -456,6 +456,13 @@
     justify-content: flex-end;
     gap: 8px;
     z-index: 2;
+    transition: all 0.4s var(--transition-smooth);
+  }
+
+  .theme-card:hover .card-body {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
   }
 
   .card-body h2 {
@@ -463,18 +470,20 @@
     font-weight: 700;
     font-size: 16px;
     letter-spacing: -0.3px;
-    color: var(--accent);
+    color: #f4a637;
     line-height: 1.2;
+    text-align: center;
+    transition: transform 0.4s var(--transition-smooth);
   }
 
   .card-body h2 a {
-    color: var(--accent);
+    color: #f4a637;
     text-decoration: none;
     transition: color 0.25s ease;
   }
 
   .card-body h2 a:hover {
-    color: #c62e2e;
+    color: #e0952d;
   }
 
   .card-footer {
@@ -482,6 +491,12 @@
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
+    width: 100%;
+    transition: all 0.4s var(--transition-smooth);
+  }
+
+  .theme-card:hover .card-footer {
+    justify-content: flex-start;
   }
 
   /* CTA button with sliding arrow */
