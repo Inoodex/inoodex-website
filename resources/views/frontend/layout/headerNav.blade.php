@@ -691,6 +691,7 @@
       Products <span class="plus-icon">+</span>
     </button>
     <div class="mobile-sub" id="prod-sub">
+      <a href="{{ url('/products') }}">All Products</a>
       <a href="{{ url('/construction.inoodex.com') }}">Construction ERP</a>
       <a href="{{ url('/crm.inoodex.com') }}">Education Consultancy CRM</a>
       <a href="{{ url('/inventory.inoodex.com') }}">Inventory Management</a>

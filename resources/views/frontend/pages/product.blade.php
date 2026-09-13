@@ -137,20 +137,31 @@
     .prod-cta-btn:hover { background: #2563eb; color: #fff; transform: translateY(-2px); box-shadow: 0 12px 30px -8px rgba(37,99,235,0.4); }
 
     @media (max-width: 991px) {
-      .col-lg-6 { flex: 0 0 100%; max-width: 100%; }
-      .card-inner { flex-direction: column !important; min-height: auto; }
-      .stacking-card { position: relative; top: auto; }
-      .card-img-side img { min-height: 260px; }
-      .card-text-side { padding: 28px; }
+      .col-lg-6 { flex: 0 0 100% !important; max-width: 100% !important; }
+      .card-inner { flex-direction: column !important; min-height: auto !important; }
+      .stacking-card { position: relative !important; top: auto !important; overflow: visible !important; }
+      .card-img-side img { min-height: 200px !important; }
+      .card-text-side { padding: 24px !important; }
+      .row { margin-left: 0 !important; margin-right: 0 !important; }
+      .whitebg { padding: 0.75rem !important; }
+      .gx-4 > [class*="col-"] { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
     }
-    @media (max-width: 768px) { .prod-hero { height: 280px; } }
+    @media (max-width: 768px) {
+      .prod-hero { height: 240px; }
+      .prod-header h2 { font-size: clamp(22px, 6vw, 32px); }
+      .card-text-side { padding: 16px !important; }
+      .card-title { font-size: 20px !important; }
+      .card-desc { font-size: 14px !important; }
+      .prod-section { padding: 80px 0 60px !important; }
+      .prod-container { padding: 0 12px !important; }
+    }
   </style>
 </head>
 
 <body class="no-hero">
   @include('frontend.layout.headerNav')
 
-  <section class="prod-section">
+  <section class="prod-section" style="padding-top: 100px;">
     <div class="prod-container">
       <div class="prod-header">
         <div class="prod-badge">Our Products</div>
