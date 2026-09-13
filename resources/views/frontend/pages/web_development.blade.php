@@ -108,7 +108,7 @@
   </style>
 </head>
 
-<body>
+<body class="no-hero">
   @include('frontend.layout.headerNav')
 
   <section class="svc-hero">
