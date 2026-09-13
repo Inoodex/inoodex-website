@@ -18,29 +18,24 @@
   }
 
   :root {
-    --bg: #080a0e;
-    --surface: #12161d;
-    --surface-2: #171c24;
-    --ink: #f4f5f7;
-    --muted: #868c99;
-    --muted-2: #4d525d;
+    --bg: #ffffff;
+    --surface: #f9fafb;
+    --surface-2: #f3f4f6;
+    --ink: #111827;
+    --muted: #6b7280;
+    --muted-2: #9ca3af;
     --accent: #f4a637;
-    --accent-dim: rgba(244, 166, 55, 0.14);
-    --accent-glow: rgba(244, 166, 55, 0.08);
-    --accent-subtle: rgba(244, 166, 55, 0.04);
-    --line: rgba(244, 245, 247, 0.07);
-    --line-strong: rgba(244, 245, 247, 0.16);
+    --accent-dim: rgba(224, 62, 62, 0.14);
+    --accent-glow: rgba(224, 62, 62, 0.08);
+    --accent-subtle: rgba(224, 62, 62, 0.04);
+    --line: rgba(0, 0, 0, 0.06);
+    --line-strong: rgba(0, 0, 0, 0.12);
     --transition-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   body {
-    background:
-      radial-gradient(ellipse 900px 520px at 10% -8%, rgba(244, 166, 55, 0.10), transparent 62%),
-      radial-gradient(ellipse 760px 480px at 92% 6%, rgba(124, 92, 255, 0.10), transparent 60%),
-      radial-gradient(ellipse 820px 540px at 70% 55%, rgba(56, 189, 248, 0.07), transparent 62%),
-      radial-gradient(ellipse 700px 460px at 20% 70%, rgba(236, 72, 153, 0.05), transparent 60%),
-      var(--bg);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    font-family: 'Playfair Display', serif;
     color: var(--ink);
     line-height: 1.6;
     position: relative;
@@ -53,9 +48,7 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.35;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-    mix-blend-mode: overlay;
+    opacity: 0;
   }
 
   .mono {
@@ -71,212 +64,53 @@
   }
 
   /* ===== HERO ===== */
-  .hero-section {
-    padding: 110px 0 0;
+  /* ===== HERO ===== */
+  .theme-hero {
     position: relative;
-    z-index: 1;
+    height: 380px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0000;
   }
-
-  .hero-grid-overlay {
+  .theme-hero-bg {
     position: absolute;
     inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background-image:
-      linear-gradient(rgba(244, 245, 247, 0.028) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(244, 245, 247, 0.028) 1px, transparent 1px);
-    background-size: 64px 64px;
-    -webkit-mask-image: radial-gradient(ellipse 900px 480px at 30% 0%, rgba(0, 0, 0, 0.9), transparent 70%);
-    mask-image: radial-gradient(ellipse 900px 480px at 30% 0%, rgba(0, 0, 0, 0.9), transparent 70%);
-  }
-
-  .hero-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 26px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 44px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-  }
-
-  .hero-eyebrow .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 12px 2px var(--accent-dim);
-    animation: pulseDot 2.4s ease-in-out infinite;
-  }
-
-  @keyframes pulseDot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.8); }
-  }
-
-  .hero-bottom {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 28px;
-    padding-bottom: 40px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ===== UNIQUE TITLE COMPOSITION ===== */
-  .hero-title-wrap {
-    position: relative;
-  }
-
-  .hero-title-wrap::before {
-    content: '';
-    position: absolute;
-    top: -26px;
-    left: 0;
-    width: 56px;
-    height: 1px;
-    background: var(--accent);
-    box-shadow: 0 0 18px 1px var(--accent-dim);
-  }
-
-  /* ===== EDITORIAL HEADLINE ===== */
-  .hero-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: clamp(22px, 4vw, 52px);
-    line-height: 0.85;
-    letter-spacing: -0.04em;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-title .t-word {
-    display: inline;
-    color: transparent;
-    -webkit-text-stroke: 2px rgba(244, 245, 247, 0.5);
-    text-transform: uppercase;
-  }
-
-  .hero-title .t-row {
-    display: flex;
-    align-items: flex-end;
-    gap: clamp(14px, 2vw, 28px);
-    position: relative;
-  }
-
-  .hero-title .t-theme-mark {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.04em;
-  }
-
-  .hero-title .t-theme-mark svg {
-    width: clamp(32px, 4vw, 50px);
-    height: clamp(32px, 4vw, 50px);
-    display: block;
-    filter: drop-shadow(0 12px 32px var(--accent-dim));
-  }
-
-  .hero-title .t-theme-mark .t-mark-ring {
-    position: absolute;
-    inset: -14px;
-    border: 1px solid var(--accent-dim);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .hero-title .t-slash {
-    position: relative;
-    align-self: flex-end;
-    margin-bottom: 0.04em;
-    width: clamp(20px, 2.4vw, 32px);
-    height: clamp(20px, 2.4vw, 32px);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-title .t-slash svg {
     width: 100%;
     height: 100%;
-    overflow: visible;
+    object-fit: cover;
+    opacity: 0.7;
   }
-
-  .t-slash-echo {
-    stroke: var(--accent);
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    opacity: 0.35;
-    stroke-dasharray: 2 3;
-  }
-
-  .t-slash-main {
-    stroke: var(--accent);
-    stroke-width: 3.2;
-    stroke-linecap: round;
-    filter: drop-shadow(0 0 10px var(--accent-dim));
-  }
-
-  .t-slash-dot {
-    fill: var(--accent);
-    filter: drop-shadow(0 0 8px var(--accent-dim));
-  }
-
-  .t-slash-cut {
-    stroke: var(--accent);
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    opacity: 0.85;
-  }
-
-  .hero-title .t-slash .pulse-ring {
+  .theme-hero-overlay {
     position: absolute;
-    inset: -14%;
-    border: 1px solid var(--accent-dim);
-    border-radius: 50%;
-    animation: ringPulse 2.6s ease-in-out infinite;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,0,0,0.55) 0%, rgba(10,0,0,0.70) 100%);
   }
-
-  @keyframes ringPulse {
-    0%, 100% { opacity: 0.8; transform: scale(1); }
-    50% { opacity: 0.25; transform: scale(1.3); }
+  .theme-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
   }
-
-  @keyframes pulseDash {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.3; transform: scale(1.1); }
+  .theme-hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
   }
-
-  .hero-subtitle {
-    font-size: 15px;
-    color: var(--muted);
-    max-width: 340px;
-    padding-bottom: 6px;
-    border-left: 2px solid var(--accent);
-    padding-left: 18px;
-    line-height: 1.75;
+  .theme-hero-content h1 span { color: #f4a637; }
+  .theme-breadcrumb {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 14px;
   }
+  .theme-breadcrumb li { color: rgba(255,255,255,0.55); }
+  .theme-breadcrumb li a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+  .theme-breadcrumb li a:hover { color: #f4a637; }
+  .theme-breadcrumb li.active { color: #fff; font-weight: 500; }
+  .theme-breadcrumb .sep { color: rgba(255,255,255,0.3); }
 
   /* ===== FILTER BAR ===== */
   .filter-section {
@@ -506,15 +340,13 @@
 
   /* ===== GLASS CARD ===== */
   .theme-card {
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05) 45%);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
     position: relative;
     overflow: hidden;
-    box-shadow: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     opacity: 0;
     animation: cardFadeIn 0.7s ease forwards;
     animation-delay: calc(0.06s * var(--i, 0));
@@ -532,8 +364,8 @@
 
   .theme-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: none;
+    border-color: rgba(224, 62, 62, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 
   /* ===== IMAGE (vertical pan on hover) ===== */
@@ -618,7 +450,7 @@
     left: 0;
     right: 0;
     padding: 40px 14px 14px;
-    background: linear-gradient(0deg, rgba(8,10,14,0.95) 0%, rgba(8,10,14,0.6) 60%, transparent 100%);
+    background: linear-gradient(0deg, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.5) 60%, transparent 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -642,7 +474,7 @@
   }
 
   .card-body h2 a:hover {
-    color: #fcd34d;
+    color: #c62e2e;
   }
 
   .card-footer {
@@ -654,8 +486,7 @@
 
   /* CTA button with sliding arrow */
   .btn-demo {
-    display: inline-flex;.
-    
+    display: inline-flex;
     align-items: center;
     gap: 9px;
     padding: 11px 18px;
@@ -834,51 +665,13 @@
   </style>
 </head>
 
-<body>
+<body class="no-hero">
   @include('frontend.layout.headerNav')
 
-  <!-- ===== HERO ===== -->
-  <section class="hero-section">
-    <div class="hero-grid-overlay"></div>
-    <div class="container">
-      <div class="hero-top">
-        <div class="hero-eyebrow"><span class="dot"></span> Catalog / All Themes</div>
-      </div>
-      <div class="hero-bottom">
-        <div class="hero-title-wrap">
-          <h1 class="hero-title">
-            <span class="t-word">Theme </span>
-            <span class="t-row">
-              <span class="t-theme-mark" aria-hidden="true">
-                <svg viewBox="0 0 100 100" fill="none">
-                  <rect x="4" y="4" width="46" height="46" rx="8" stroke="rgba(244,245,247,0.22)" stroke-width="2.5" />
-                  <rect x="28" y="28" width="46" height="46" rx="8" stroke="rgba(244,166,55,0.5)" stroke-width="2.5" />
-                  <rect x="52" y="52" width="42" height="42" rx="8" fill="url(#themeMarkGrad)" stroke="#f4a637" stroke-width="2.5" />
-                  <circle cx="73" cy="73" r="2.2" fill="#0a0a0a" />
-                  <defs>
-                    <!-- <linearGradient id="themeMarkGrad" x1="0" y1="0" x2="1" y2="1">
-                      <stop stop-color="#f4a637" />
-                      <stop offset="1" stop-color="#f7c873" />
-                    </linearGradient> -->
-                  </defs>
-                </svg>
-              </span>
-              <span class="t-slash">
-                <svg viewBox="0 0 34 34" fill="none">
-                  <line class="t-slash-echo" x1="12" y1="30" x2="31" y2="11" />
-                  <line class="t-slash-main" x1="7" y1="27" x2="27" y2="7" />
-                  <circle class="t-slash-dot" cx="27" cy="7" r="2.6" />
-                  <path class="t-slash-cut" d="M5 22h7" />
-                </svg>
-                <span class="pulse-ring"></span>
-              </span>
-            </span>
-          </h1>
-        </div>
-        <p class="hero-subtitle">Handcrafted, responsive, and performance-optimized themes — engineered with precision, ready to deploy.</p>
-      </div>
-    </div>
-  </section>
+  <!-- ===== TITLE ===== -->
+  <div style="text-align:center; padding:50px 24px 30px;">
+    <h1 style="font-family:'Playfair Display',serif; font-size:clamp(30px,4vw,44px); font-weight:800; color:#111827; margin:0;">Our <span style="color:#f4a637;">Themes</span></h1>
+  </div>
 
   <!-- ===== FILTER + THEMES (shared Alpine root) ===== -->
   <div x-data="{

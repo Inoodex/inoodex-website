@@ -1,264 +1,369 @@
 <style>
-  /* ================= WHY CHOOSE US SECTION ================= */
-  .why-choose-us {
-    position: relative;
-    background: #0a0e1a;
-    padding: 100px 20px;
-    overflow: hidden;
-    font-family: 'Inter', sans-serif;
-  }
+.why-choose-us {
+  position: relative;
+  background: #ffffff;
+  padding: 100px 20px;
+  overflow: hidden;
+}
 
-  .why-choose-us .max-w-7xl {
-    max-width: 1280px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 10;
-  }
+.why-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
 
-  .why-header {
-    text-align: center;
-    margin-bottom: 50px;
-  }
+.why-shape-1 {
+  top: 60px;
+  left: 40px;
+  width: 80px;
+  height: 80px;
+  background: rgba(244, 166, 55, 0.18);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
 
-  .why-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 22px;
-    background: rgba(244, 166, 55, 0.08);
-    border: 1px solid rgba(244, 166, 55, 0.25);
-    border-radius: 50px;
-    margin-bottom: 18px;
-    backdrop-filter: blur(8px);
-  }
+.why-shape-2 {
+  top: 40px;
+  right: 80px;
+  width: 60px;
+  height: 120px;
+  background: rgba(244, 166, 55, 0.15);
+  border-radius: 30px 30px 0 0;
+}
 
-  .why-badge span {
-    color: #f4a637;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-  }
+.why-shape-3 {
+  bottom: 80px;
+  right: 60px;
+  width: 50px;
+  height: 50px;
+  background: rgba(17, 24, 39, 0.12);
+  border-radius: 0 25px 25px 25px;
+  transform: rotate(45deg);
+}
 
-  .why-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.25;
-    margin: 0;
-    letter-spacing: -0.5px;
-  }
+.why-shape-4 {
+  bottom: 100px;
+  left: 80px;
+  width: 40px;
+  height: 100px;
+  background: rgba(244, 166, 55, 0.16);
+  border-radius: 20px;
+}
 
-  .why-title .why-highlight {
-    background: linear-gradient(135deg, #f4a637 0%, #fcd34d 50%, #d18f2b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+.why-shape-5 {
+  top: 50%;
+  left: 20px;
+  width: 70px;
+  height: 70px;
+  border: 3px solid rgba(244, 166, 55, 0.28);
+  border-radius: 50%;
+}
 
-  /* Responsive Cards Grid */
-  .why-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 20px;
-  }
+.why-shape-6 {
+  top: 30%;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: rgba(17, 24, 39, 0.10);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
 
-  .why-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 20px;
-    padding: 40px 30px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.why-shape-7 {
+  bottom: 40px;
+  left: 30%;
+  width: 90px;
+  height: 30px;
+  background: rgba(244, 166, 55, 0.14);
+  border-radius: 15px;
+}
 
-  .why-card:hover {
-    border-color: rgba(244, 166, 55, 0.45);
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(244, 166, 55, 0.1);
-    background: linear-gradient(180deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.5) 100%);
-  }
+.why-shape-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  pointer-events: none;
+}
 
-  .why-card-top-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3.5px;
-    background: linear-gradient(90deg, #f4a637, #fcd34d, #d18f2b);
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-  }
+.why-shape-wave svg {
+  width: 100%;
+  height: 100px;
+  display: block;
+}
 
-  .why-card:hover .why-card-top-bar {
-    opacity: 1;
-    height: 4px;
-  }
+.why-choose-us .max-w-7xl {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
 
-  .why-icon-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 22px;
-    background: linear-gradient(135deg, rgba(244, 166, 55, 0.12), rgba(244, 166, 55, 0.03));
-    border-radius: 20px;
-    border: 1px solid rgba(244, 166, 55, 0.2);
-    transition: all 0.4s ease;
-  }
+.why-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
 
-  .why-card:hover .why-icon-box {
-    transform: scale(1.08);
-    background: #f4a637;
-    border-color: #f4a637;
-    box-shadow: 0 10px 25px rgba(244, 166, 55, 0.35);
-  }
+.why-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 22px;
+  background: rgba(244, 166, 55, 0.1);
+  border: 1px solid rgba(244, 166, 55, 0.3);
+  border-radius: 50px;
+  margin-bottom: 18px;
+  transition: all 0.3s ease;
+}
 
-  .why-card:hover .why-icon-box img {
-    filter: brightness(0);
-  }
+.why-badge:hover {
+  background: rgba(244, 166, 55, 0.18);
+  transform: translateY(-2px);
+}
 
-  .why-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 21px;
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 12px 0;
-  }
+.why-badge span {
+  color: #f4a637;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
 
-  .why-card p {
-    color: #94a3b8;
-    font-size: 14.5px;
-    line-height: 1.8;
-    margin: 0;
-    flex-grow: 1;
-  }
+.why-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.25;
+  margin: 0;
+}
 
-  .why-learn-more {
-    margin-top: 26px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 24px;
-    background: linear-gradient(135deg, #f4a637, #d18f2b);
-    color: #ffffff;
-    font-size: 12.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    border-radius: 50px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.35s ease;
-    box-shadow: 0 4px 15px rgba(244, 166, 55, 0.25);
-  }
+.why-title .why-highlight {
+  color: #f4a637;
+}
 
-  .why-learn-more:hover {
-    background: linear-gradient(135deg, #ffb648, #e0972b);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(244, 166, 55, 0.4);
-    color: #ffffff;
-  }
+.why-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 20px;
+}
 
-  .why-learn-more i {
-    transition: transform 0.3s ease;
-    font-size: 11px;
-  }
+.why-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
-  .why-learn-more:hover i {
-    transform: translateX(4px);
-  }
+.why-item:hover {
+  transform: translateY(-8px);
+}
 
-  /* Responsive Breakpoints */
-  @media (max-width: 1024px) {
-    .why-cards-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-  }
+.why-item-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #f4a637;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: #ffffff;
+}
 
-  @media (max-width: 768px) {
-    .why-choose-us {
-      padding: 60px 16px;
-    }
-    .why-header {
-      margin-bottom: 35px;
-    }
-    .why-cards-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-    .why-card {
-      padding: 32px 22px;
-    }
+.why-item-circle::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 2px dashed rgba(244, 166, 55, 0.3);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.why-item:hover .why-item-circle::before {
+  opacity: 1;
+  inset: -14px;
+}
+
+.why-item:nth-child(2n) .why-item-circle {
+  border-color: #111827;
+}
+
+.why-item:nth-child(2n) .why-item-circle::before {
+  border-color: rgba(17, 24, 39, 0.2);
+}
+
+.why-item:hover .why-item-circle {
+  transform: scale(1.1);
+  box-shadow: 0 12px 36px rgba(244, 166, 55, 0.25);
+}
+
+.why-item:nth-child(2n):hover .why-item-circle {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+.why-item-circle svg {
+  width: 58px;
+  height: 58px;
+  fill: #111827;
+  transition: all 0.4s ease;
+}
+
+.why-item:hover .why-item-circle svg {
+  transform: scale(1.1);
+}
+
+.why-item-line {
+  width: 3px;
+  height: 30px;
+  background: #f4a637;
+  margin: 0;
+  position: relative;
+  transition: height 0.3s ease;
+}
+
+.why-item:hover .why-item-line {
+  height: 36px;
+}
+
+.why-item-line::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 3px;
+  background: #f4a637;
+  transition: width 0.3s ease;
+}
+
+.why-item:hover .why-item-line::after {
+  width: 18px;
+}
+
+.why-item:nth-child(2n) .why-item-line {
+  background: #111827;
+}
+
+.why-item:nth-child(2n) .why-item-line::after {
+  background: #111827;
+}
+
+.why-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 16px 0 8px;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.why-item:hover h3 {
+  color: #f4a637;
+}
+
+.why-item:nth-child(2n):hover h3 {
+  color: #111827;
+}
+
+.why-item p {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 260px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.why-item:hover p {
+  color: #374151;
+}
+
+@media (max-width: 1024px) {
+  .why-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 30px;
   }
+}
+
+@media (max-width: 640px) {
+  .why-choose-us { padding: 60px 16px; }
+  .why-items {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .why-shape {
+    display: none;
+  }
+}
 </style>
 
 <div class="why-choose-us">
+  <div class="why-shape why-shape-1"></div>
+  <div class="why-shape why-shape-2"></div>
+  <div class="why-shape why-shape-3"></div>
+  <div class="why-shape why-shape-4"></div>
+  <div class="why-shape why-shape-5"></div>
+  <div class="why-shape why-shape-6"></div>
+  <div class="why-shape why-shape-7"></div>
   <div class="max-w-7xl">
-    <!-- Section Header -->
     <div class="why-header">
       <div class="why-badge">
-        <span>✦ Why Choose Us</span>
+        <span>Why Choose Us</span>
       </div>
       <h2 class="why-title">
         Why Choose <span class="why-highlight">InooDex</span>?
       </h2>
     </div>
 
-    <!-- Responsive Cards Grid -->
-    <div class="why-cards-grid">
-      <!-- Card 1 - Innovation -->
-      <div class="why-card">
-        <div class="why-card-top-bar"></div>
-        <div class="why-icon-box">
-          <img src="{{ asset('frontend/assets/images/icon-whyus-1.svg') }}" alt="Innovation" style="width: 38px; height: 38px; filter: brightness(0) invert(1);">
+    <div class="why-items">
+
+      <div class="why-item">
+        <div class="why-item-circle">
+          <svg viewBox="0 0 64 64"><path d="M32 4l-8 14h16L32 4zm-16 20l-8 14h16L16 24zm32 0l-8 14h16L48 24zM32 20l-8 14h16L32 20z"/></svg>
         </div>
+        <div class="why-item-line"></div>
         <h3>Innovation</h3>
         <p>Driving digital transformation through cutting-edge technology, creative architecture, and futuristic software craftsmanship.</p>
-        <a href="#services" class="why-learn-more">
-          <span>Learn More</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
       </div>
 
-      <!-- Card 2 - Quality-Focused -->
-      <div class="why-card">
-        <div class="why-card-top-bar"></div>
-        <div class="why-icon-box">
-          <img src="{{ asset('frontend/assets/images/icon-whyus-2.svg') }}" alt="Quality-Focused" style="width: 38px; height: 38px; filter: brightness(0) invert(1);">
+      <div class="why-item">
+        <div class="why-item-circle">
+          <svg viewBox="0 0 64 64"><path d="M6 36h52v6H6v-6zm6-10h6v10h-6V26zm12-8h6v18h-6V18zm12-8h6v26h-6V10zm12-4h6v30h-6V6z"/></svg>
         </div>
+        <div class="why-item-line"></div>
         <h3>Quality-Focused</h3>
         <p>Ensuring rock-solid stability, enterprise-grade security standards, and high-performance user experiences on every build.</p>
-        <a href="#services" class="why-learn-more">
-          <span>Learn More</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
       </div>
 
-      <!-- Card 3 - Value for Money -->
-      <div class="why-card">
-        <div class="why-card-top-bar"></div>
-        <div class="why-icon-box">
-          <img src="{{ asset('frontend/assets/images/icon-whyus-3.svg') }}" alt="Value for Money" style="width: 38px; height: 38px; filter: brightness(0) invert(1);">
+      <div class="why-item">
+        <div class="why-item-circle">
+          <svg viewBox="0 0 64 64"><path d="M32 8C18.7 8 8 18.7 8 32s10.7 24 24 24 24-10.7 24-24S45.3 8 32 8zm4 32h-4v4c0 1.1-.9 2-2 2s-2-.9-2-2v-4h-4c-1.1 0-2-.9-2-2s.9-2 2-2h4v-4c0-1.1.9-2 2-2s2 .9 2 2v4h4c1.1 0 2 .9 2 2s-.9 2-2 2z"/></svg>
         </div>
+        <div class="why-item-line"></div>
         <h3>Value for Money</h3>
         <p>Maximizing ROI with transparent milestones, dedicated engineering teams, and cost-efficient scalable solutions tailored to your scale.</p>
-        <a href="#services" class="why-learn-more">
-          <span>Learn More</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
       </div>
+
+      <div class="why-item">
+        <div class="why-item-circle">
+          <svg viewBox="0 0 64 64"><path d="M32 20c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8zm-16 8c-2.2 0-4 1.8-4 4v4c0 5.5 4.5 10 10 10h12c5.5 0 10-4.5 10-10v-4c0-2.2-1.8-4-4-4H16zm28 20H20c-4.4 0-8-3.6-8-8v-4h48v4c0 4.4-3.6 8-8 8z"/></svg>
+        </div>
+        <div class="why-item-line"></div>
+        <h3>Expert Team</h3>
+        <p>A dedicated team of skilled engineers and designers committed to delivering excellence on every project we undertake.</p>
+      </div>
+
     </div>
+  </div>
+  <div class="why-shape-wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,50 C360,90 720,10 1080,50 C1260,70 1380,65 1440,50 L1440,100 L0,100 Z" fill="#f8f9fb"/>
+    </svg>
   </div>
 </div>

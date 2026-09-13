@@ -2,10 +2,10 @@
   /* ================= GLOBAL PRESENCE SECTION ================= */
   .gp-section {
     position: relative;
-    background: #0a0e1a;
+    background: #0f172a;
     padding: 100px 20px 0px;
     overflow: hidden;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Playfair Display', serif;
   }
 
   .gp-bg-glow {
@@ -90,7 +90,7 @@
   }
 
   .gp-title .gp-highlight {
-    background: linear-gradient(135deg, #f4a637 0%, #fcd34d 50%, #e69522 100%);
+    background: linear-gradient(135deg, #f4a637 0%, #ffc369 50%, #e0952d 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -344,8 +344,8 @@
     animation: gpHighlightGlow 3s ease-in-out infinite alternate;
   }
   @keyframes gpHighlightGlow {
-    0% { filter: brightness(1) drop-shadow(0 0 0px rgba(244,166,55,0)); }
-    100% { filter: brightness(1.15) drop-shadow(0 0 12px rgba(244,166,55,0.35)); }
+    0% { filter: brightness(1) drop-shadow(0 0 0px rgba(37,99,235,0)); }
+    100% { filter: brightness(1.15) drop-shadow(0 0 12px rgba(37,99,235,0.35)); }
   }
 
   /* Hotspot badges staggered float */
@@ -371,16 +371,16 @@
     animation: gpDotBreathe 2.5s ease-in-out infinite alternate;
   }
   @keyframes gpDotBreathe {
-    0% { box-shadow: 0 0 16px #f4a637, 0 0 28px rgba(244,166,55,0.85); }
-    100% { box-shadow: 0 0 22px #f4a637, 0 0 40px rgba(244,166,55,1); }
+    0% { box-shadow: 0 0 16px #f4a637, 0 0 28px rgba(37,99,235,0.85); }
+    100% { box-shadow: 0 0 22px #f4a637, 0 0 40px rgba(37,99,235,1); }
   }
 
   .gp-hotspot.gp-spot-hq .gp-marker-dot {
     animation: gpHQDotBreathe 2s ease-in-out infinite alternate;
   }
   @keyframes gpHQDotBreathe {
-    0% { box-shadow: 0 0 24px #f4a637, 0 0 45px rgba(244,166,55,1); }
-    100% { box-shadow: 0 0 32px #f4a637, 0 0 60px rgba(244,166,55,0.9); }
+    0% { box-shadow: 0 0 24px #f4a637, 0 0 45px rgba(37,99,235,1); }
+    100% { box-shadow: 0 0 32px #f4a637, 0 0 60px rgba(37,99,235,0.9); }
   }
 
   /* Background glow slow pulse */
@@ -432,11 +432,11 @@
     .gp-hotspot.gp-spot-hq .gp-loc-badge .gp-loc-name { font-size: 12px; }
     .gp-hotspot[title="Denmark"] { left: 25%; top: 10%; }
     .gp-hotspot[title="Romania"] { left: 55%; top: 15%; }
-    .gp-hotspot[title="USA"] { left: 8%; top: 48%; }
+    .gp-hotspot[title="USA"] { left: 18%; top: 42%; }
     .gp-hotspot[title="Saudi Arabia"] { left: 30%; top: 60%; }
     .gp-hotspot[title="Dubai (UAE)"] { left: 68%; top: 55%; }
     .gp-hotspot.gp-spot-hq { left: 80%; top: 38%; }
-    .gp-hotspot[title="Australia"] { left: 80%; top: 80%; }
+    .gp-hotspot[title="Australia"] { left: 72%; top: 72%; }
     .gp-hotspot[title="Denmark"] .gp-loc-badge,
     .gp-hotspot[title="Romania"] .gp-loc-badge,
     .gp-hotspot[title="USA"] .gp-loc-badge,
@@ -456,11 +456,11 @@
     .gp-hotspot.gp-spot-hq .gp-loc-badge .gp-loc-name { font-size: 11px; }
     .gp-hotspot[title="Denmark"] { left: 22%; top: 8%; }
     .gp-hotspot[title="Romania"] { left: 58%; top: 12%; }
-    .gp-hotspot[title="USA"] { left: 5%; top: 45%; }
+    .gp-hotspot[title="USA"] { left: 15%; top: 42%; }
     .gp-hotspot[title="Saudi Arabia"] { left: 28%; top: 62%; }
     .gp-hotspot[title="Dubai (UAE)"] { left: 72%; top: 52%; }
     .gp-hotspot.gp-spot-hq { left: 82%; top: 35%; }
-    .gp-hotspot[title="Australia"] { left: 82%; top: 82%; }
+    .gp-hotspot[title="Australia"] { left: 72%; top: 72%; }
     .gp-hotspot[title="Denmark"] .gp-loc-badge,
     .gp-hotspot[title="Romania"] .gp-loc-badge,
     .gp-hotspot[title="USA"] .gp-loc-badge,
@@ -492,16 +492,22 @@
       >
 
       <svg class="gp-connections-svg" viewBox="0 0 1000 562.5" preserveAspectRatio="none">
-        <path d="M 700 242 C 520 70, 320 160, 220 281" class="arc-gold" />
-        <path d="M 700 242 C 610 140, 520 110, 450 124" class="arc-gold" />
-        <path d="M 700 242 C 630 170, 570 150, 510 180" class="arc-cyan" />
-        <path d="M 700 242 C 640 250, 590 270, 540 292" class="arc-gold" />
-        <path d="M 700 242 C 660 235, 635 240, 610 248" class="arc-cyan" />
-        <path d="M 700 242 C 750 260, 800 320, 820 382" class="arc-cyan" />
+        <!-- Bangladesh (700,242) to USA (300,253) -->
+        <path d="M 700 242 C 550 120, 380 150, 300 253" class="arc-gold" />
+        <!-- Bangladesh to Denmark (450,124) -->
+        <path d="M 700 242 C 600 150, 520 120, 450 124" class="arc-gold" />
+        <!-- Bangladesh to Romania (510,180) -->
+        <path d="M 700 242 C 620 180, 560 170, 510 180" class="arc-cyan" />
+        <!-- Bangladesh to Saudi Arabia (540,292) -->
+        <path d="M 700 242 C 640 260, 580 270, 540 292" class="arc-gold" />
+        <!-- Bangladesh to Dubai (650,292) -->
+        <path d="M 700 242 C 680 270, 665 280, 650 292" class="arc-cyan" />
+        <!-- Bangladesh to Australia (720,348) -->
+        <path d="M 700 242 C 710 290, 715 320, 720 348" class="arc-cyan" />
       </svg>
 
       <!-- USA -->
-      <div class="gp-hotspot" style="left: 22%; top: 50%;" title="USA">
+      <div class="gp-hotspot" style="left: 30%; top: 45%;" title="USA">
         <div class="gp-marker-dot"></div>
         <div class="gp-loc-badge">
           <span class="gp-loc-icon"><i class="fa-solid fa-location-dot"></i></span>
@@ -561,7 +567,7 @@
       </div>
 
       <!-- Australia -->
-      <div class="gp-hotspot" style="left: 82%; top: 68%;" title="Australia">
+      <div class="gp-hotspot" style="left: 72%; top: 62%;" title="Australia">
         <div class="gp-marker-dot"></div>
         <div class="gp-loc-badge">
           <span class="gp-loc-icon"><i class="fa-solid fa-location-dot"></i></span>

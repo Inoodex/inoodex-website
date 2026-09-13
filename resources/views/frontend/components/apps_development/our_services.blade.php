@@ -24,7 +24,7 @@
 
   body {
     background: #05080f;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Playfair Display', serif;
     color: #e2e8f0;
     min-height: 100vh;
     padding: 60px 20px;

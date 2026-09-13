@@ -1,247 +1,178 @@
 <style>
 .our-services {
-  background: #0f172a;
-  padding: 80px 0;
+  background: #f8f9fb;
+  padding: 80px 0 100px;
   position: relative;
 }
 
-.services-label {
-  font-size: 14px;
-  color: #f4a637;
+.our-services .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.services-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+
+.services-section-label {
+  font-size: 13px;
+  color: #2563eb;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.services-heading {
-  font-size: 36px;
+.services-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 40px);
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 20px;
+  color: #111827;
   line-height: 1.2;
 }
 
-.services-heading span {
-  background: linear-gradient(135deg, #f4a637, #f7c873, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.services-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 36px;
+  background: #111827;
+  color: #f4a637;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.services-view-all:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+}
+
+.services-view-all i {
+  font-size: 11px;
+  transition: transform 0.3s ease;
+}
+
+.services-view-all:hover i {
+  transform: translateX(4px);
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-top: 40px;
 }
 
 .service-card {
-  background: #1e293b;
-  border-radius: 20px;
-  padding: 32px;
-  transition: all 0.4s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
-  cursor: default;
-}
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #f4a637, #f7c873, #3b82f6);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-  transform-origin: left;
-}
-
-.service-card:hover::before {
-  transform: scaleX(1);
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(244,166,55, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: #2563eb;
 }
 
 .service-card-icon {
   width: 56px;
   height: 56px;
-  background: rgba(244,166,55, 0.1);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 20px;
-  transition: all 0.4s ease;
-  position: relative;
-}
-
-.service-card:hover .service-card-icon {
-  background: linear-gradient(135deg, rgba(244,166,55, 0.2), rgba(59, 130, 246, 0.2));
 }
 
 .service-card-icon svg {
-  width: 28px;
-  height: 28px;
-  transition: all 0.4s ease;
+  width: 48px;
+  height: 48px;
+  stroke: #2563eb;
+  stroke-width: 1.2;
+  fill: none;
 }
 
-/* Gradient icons with different color stops per card */
-.service-card:nth-child(1) .service-card-icon svg {
-  color: #f4a637;
-}
-
-.service-card:nth-child(1):hover .service-card-icon svg {
-  color: #f7c873;
-}
-
-.service-card:nth-child(2) .service-card-icon svg {
-  color: #3b82f6;
-}
-
-.service-card:nth-child(2):hover .service-card-icon svg {
-  color: #60a5fa;
-}
-
-.service-card:nth-child(3) .service-card-icon svg {
-  color: #a78bfa;
-}
-
-.service-card:nth-child(3):hover .service-card-icon svg {
-  color: #c4b5fd;
-}
-
-.service-card:nth-child(4) .service-card-icon svg {
-  color: #f59e0b;
-}
-
-.service-card:nth-child(4):hover .service-card-icon svg {
-  color: #fbbf24;
-}
-
-.service-card:nth-child(5) .service-card-icon svg {
-  color: #ec4899;
-}
-
-.service-card:nth-child(5):hover .service-card-icon svg {
-  color: #f472b6;
-}
-
-.service-card:nth-child(6) .service-card-icon svg {
-  color: #06b6d4;
-}
-
-.service-card:nth-child(6):hover .service-card-icon svg {
-  color: #22d3ee;
-}
+.service-card:nth-child(1) .service-card-icon svg { stroke: #f4a637; }
+.service-card:nth-child(2) .service-card-icon svg { stroke: #3b82f6; }
+.service-card:nth-child(3) .service-card-icon svg { stroke: #a78bfa; }
+.service-card:nth-child(4) .service-card-icon svg { stroke: #f59e0b; }
+.service-card:nth-child(5) .service-card-icon svg { stroke: #ec4899; }
+.service-card:nth-child(6) .service-card-icon svg { stroke: #06b6d4; }
 
 .service-card h3 {
-  font-size: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
   margin-bottom: 12px;
-  transition: color 0.3s ease;
+  line-height: 1.3;
 }
 
-.service-card:hover h3 {
-  background: linear-gradient(135deg, #f4a637, #f7c873);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.service-card p {
-  color: #94a3b8;
-  line-height: 1.7;
+.service-card-desc {
+  color: #6b7280;
   font-size: 14px;
+  line-height: 1.7;
   margin-bottom: 20px;
 }
 
-.service-card-link {
-  display: inline-flex;
+.service-card-divider {
+  display: none;
+}
+
+.service-card-features {
+  display: none;
+}
+
+.service-card-btn {
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 24px;
-  background: linear-gradient(135deg, #f4a637, #d18f2b);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-decoration: none;
-  border-radius: 50px;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card-link::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.service-card-link:hover::after {
-  width: 300px;
-  height: 300px;
-}
-
-.service-card-link:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(244,166,55, 0.35);
-  gap: 12px;
-}
-
-.service-card-link i {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  background: transparent;
+  color: #111827;
+  font-family: 'Playfair Display', serif;
   font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.service-card-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.service-card-btn i {
+  font-size: 11px;
   transition: transform 0.3s ease;
 }
 
-.service-card-link:hover i {
-  transform: translateX(4px);
-}
-
-.services-btn {
-  display: inline-block;
-  padding: 14px 36px;
-  background: linear-gradient(135deg, #f4a637, #d18f2b);
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.services-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(244,166,55, 0.3);
-  color: #ffffff;
+.service-card-btn:hover i {
+  transform: translateX(3px);
 }
 
 @media (max-width: 1024px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .services-heading {
-    font-size: 28px;
   }
 }
 
@@ -249,133 +180,133 @@
   .services-grid {
     grid-template-columns: 1fr;
   }
-
-  .services-heading {
-    font-size: 24px;
-  }
-
-  .our-services {
-    padding: 50px 0;
+  .services-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 }
 </style>
 
 <div class="our-services">
-  <div style="max-width:1200px;margin:0 auto;padding:0 20px;">
-    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:10px;">
+  <div class="container">
+
+    <div class="services-top">
       <div>
-        <div class="services-label wow fadeInUp">Our Services</div>
-        <h2 class="services-heading wow fadeInUp" data-wow-delay="0.1s">What <span>We Can Offer</span> Today</h2>
+        <div class="services-section-label">Our Services</div>
+        <h2 class="services-section-title">What We Can Offer Today</h2>
       </div>
-      <div>
-        <a href="{{ url('/services') }}" class="services-btn wow fadeInUp" data-wow-delay="0.15s">View All Services</a>
-      </div>
+      <a href="{{ url('/services') }}" class="services-view-all">View All Services <i class="fas fa-chevron-right"></i></a>
     </div>
 
+    <div class="services-spacer">
     <div class="services-grid">
-      <!-- Software Development -->
-      <div class="service-card wow fadeInUp" data-wow-delay="0.2s">
+
+      <div class="service-card">
         <div class="service-card-icon">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          <svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 36l8-28m8 8l8-8-8-8M18 28l-8 8 8 8"/>
           </svg>
         </div>
         <h3>Software Development</h3>
-        <p>Custom software solutions tailored to meet the unique needs of businesses across all industries. From
-          enterprise applications to specialized tools.</p>
-        <a href="{{ url('/software-development') }}" class="service-card-link">
-          Learn More
-          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
-        </a>
+        <p class="service-card-desc">Custom software solutions tailored to meet the unique needs of businesses across all industries. From enterprise applications to specialized tools.</p>
+        <div class="service-card-divider"></div>
+        <ul class="service-card-features">
+          <li>Responsive Design</li>
+          <li>User-Friendly Interface</li>
+          <li>Cross-Browser Compatibility</li>
+        </ul>
+        <a href="{{ url('/software-development') }}" class="service-card-btn">Service Details <i class="fas fa-chevron-right"></i></a>
       </div>
 
-      <!-- Apps Development -->
-      <div class="service-card wow fadeInUp" data-wow-delay="0.3s">
+      <div class="service-card">
         <div class="service-card-icon">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          <svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 36h.02M16 42h16a4 4 0 004-4V10a4 4 0 00-4-4H16a4 4 0 00-4 4v28a4 4 0 004 4z"/>
           </svg>
         </div>
         <h3>Apps Development</h3>
-        <p>Custom mobile app development for iOS and Android. Creating intuitive, high-performance applications that
-          enhance user engagement.</p>
-        <a href="{{ url('/apps-development') }}" class="service-card-link">
-          Learn More
-          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
-        </a>
+        <p class="service-card-desc">Custom mobile app development for iOS and Android. Creating intuitive, high-performance applications that enhance user engagement.</p>
+        <div class="service-card-divider"></div>
+        <ul class="service-card-features">
+          <li>Responsive Design</li>
+          <li>User-Friendly Interface</li>
+          <li>Cross-Browser Compatibility</li>
+        </ul>
+        <a href="{{ url('/apps-development') }}" class="service-card-btn">Service Details <i class="fas fa-chevron-right"></i></a>
       </div>
 
-      <!-- Web Development -->
-      <div class="service-card wow fadeInUp" data-wow-delay="0.4s">
+      <div class="service-card">
         <div class="service-card-icon">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+          <svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M42 24a18 18 0 01-18 18m18-18a18 18 0 00-18-18m18 18H6m18 18a18 18 0 01-18-18m18 18c3.314 0 6-8.06 6-18s-2.686-18-6-18m0 36c-3.314 0-6-8.06-6-18s2.686-18 6-18m-18 18a18 18 0 0118-18"/>
           </svg>
         </div>
         <h3>Web Development</h3>
-        <p>Custom websites tailored to your specific requirements. From engaging design to seamless functionality, we
-          build your web presence.</p>
-        <a href="{{ url('/web-development') }}" class="service-card-link">
-          Learn More
-          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
-        </a>
+        <p class="service-card-desc">Custom websites tailored to your specific requirements. From engaging design to seamless functionality, we build your web presence.</p>
+        <div class="service-card-divider"></div>
+        <ul class="service-card-features">
+          <li>Responsive Design</li>
+          <li>User-Friendly Interface</li>
+          <li>Cross-Browser Compatibility</li>
+        </ul>
+        <a href="{{ url('/web-development') }}" class="service-card-btn">Service Details <i class="fas fa-chevron-right"></i></a>
       </div>
 
-      <!-- Digital Marketing -->
-      <div class="service-card wow fadeInUp" data-wow-delay="0.5s">
+      <div class="service-card">
         <div class="service-card-icon">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+          <svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 6.11A18 18 0 1041.89 26H22V6.11z"/>
+            <path d="M40.976 18H30V6.96A18.025 18.025 0 0140.976 18z"/>
           </svg>
         </div>
         <h3>Digital Marketing</h3>
-        <p>Data-driven marketing strategies that drive traffic, increase conversions, and boost brand awareness with
-          measurable results.</p>
-        <a href="{{ url('/digital-marketing') }}" class="service-card-link">
-          Learn More
-          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
-        </a>
+        <p class="service-card-desc">Data-driven marketing strategies that drive traffic, increase conversions, and boost brand awareness with measurable results.</p>
+        <div class="service-card-divider"></div>
+        <ul class="service-card-features">
+          <li>Responsive Design</li>
+          <li>User-Friendly Interface</li>
+          <li>Cross-Browser Compatibility</li>
+        </ul>
+        <a href="{{ url('/digital-marketing') }}" class="service-card-btn">Service Details <i class="fas fa-chevron-right"></i></a>
       </div>
 
-      <!-- SEO Service -->
-      <div class="service-card wow fadeInUp" data-wow-delay="0.6s">
+      <div class="service-card">
         <div class="service-card-icon">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          <svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="22" cy="22" r="14"/>
+            <path d="M42 42l-12-12"/>
           </svg>
         </div>
         <h3>SEO Service</h3>
-        <p>On-page and off-page SEO to fully optimize your website. Improving site structure, content, and building
-          high-quality backlinks.</p>
-        <a href="{{ url('/seo') }}" class="service-card-link">
-          Learn More
-          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
-        </a>
+        <p class="service-card-desc">On-page and off-page SEO to fully optimize your website. Improving site structure, content, and building high-quality backlinks.</p>
+        <div class="service-card-divider"></div>
+        <ul class="service-card-features">
+          <li>Responsive Design</li>
+          <li>User-Friendly Interface</li>
+          <li>Cross-Browser Compatibility</li>
+        </ul>
+        <a href="{{ url('/seo') }}" class="service-card-btn">Service Details <i class="fas fa-chevron-right"></i></a>
       </div>
 
-      <!-- Graphics Design -->
-      <div class="service-card wow fadeInUp" data-wow-delay="0.7s">
+      <div class="service-card">
         <div class="service-card-icon">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+          <svg viewBox="0 0 48 48" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 42a8 8 0 01-8-8V10a4 4 0 014-4h8a4 4 0 014 4v24a8 8 0 01-8 4zm0 0h24a4 4 0 004-4v-8a4 4 0 00-4-4h-4.686M22 14.686l3.314-3.314a4 4 0 015.656 0l5.656 5.656a4 4 0 010 5.656L30.972 34.658M14 34h.02"/>
           </svg>
         </div>
         <h3>Graphics Design</h3>
-        <p>Creative visuals that engage and captivate your audience. From stunning illustrations to sleek modern designs
-          for your brand.</p>
-        <a href="{{ url('/contact') }}" class="service-card-link">
-          Learn More
-          <i class="fas fa-arrow-right" style="margin-left:2px;transition:transform 0.3s ease;"></i>
-        </a>
+        <p class="service-card-desc">Creative visuals that engage and captivate your audience. From stunning illustrations to sleek modern designs for your brand.</p>
+        <div class="service-card-divider"></div>
+        <ul class="service-card-features">
+          <li>Responsive Design</li>
+          <li>User-Friendly Interface</li>
+          <li>Cross-Browser Compatibility</li>
+        </ul>
+        <a href="{{ url('/contact') }}" class="service-card-btn">Service Details <i class="fas fa-chevron-right"></i></a>
       </div>
+
+    </div>
     </div>
   </div>
 </div>

@@ -31,5 +31,5 @@
     <link href="{{ asset('frontend/assets/css/magnific-popup.css') }}" rel="stylesheet" media="print" onload="this.media='all'" />
     @vite('resources/css/app.css')
     <link href="{{ asset('frontend/assets/css/custom.css') }}" rel="stylesheet" />
-    <style>body { padding-top: 70px; }</style>
+    <style>body { padding-top: 72px; }</style>
 </head>

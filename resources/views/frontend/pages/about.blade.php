@@ -2,7 +2,7 @@
 <html lang="zxx">
 @include('frontend.layout.header')
 
-<body class="tt-magic-cursor" style="background:#020617;color:#e2e8f0;">
+<body class="tt-magic-cursor no-hero" style="background:#020617;color:#e2e8f0;">
 <!-- Magic Cursor Start -->
   <div id="magic-cursor">
     <div id="ball"></div>

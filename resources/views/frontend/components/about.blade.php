@@ -1,528 +1,338 @@
 <style>
 .about-us {
-  background: #0f172a;
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative !important;
+  background: #ffffff !important;
+  padding: 120px 0 !important;
+  font-family: 'Playfair Display', serif;
+  overflow: hidden !important;
 }
-
 .about-us::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(244,166,55, 0.06) 0%, transparent 70%);
-  border-radius: 50%;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
+  z-index: 0;
 }
 
-.about-title {
-  font-size: 14px;
-  color: #f4a637;
+.about-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Left Content */
+.about-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  color: #2563eb;
+  margin-bottom: 20px;
 }
 
 .about-heading {
-  font-size: 36px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 30px;
-  line-height: 1.2;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 32px;
 }
-
 .about-heading span {
   color: #f4a637;
 }
 
-.about-text {
-  color: #94a3b8;
-  line-height: 1.8;
-  margin-bottom: 20px;
-  font-size: 15px;
-  transition: all 0.3s ease;
+.about-divider {
+  width: 60px;
+  height: 3px;
+  background: #f4a637;
+  border-radius: 4px;
+  margin: 0 0 28px;
 }
 
-.about-features {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 30px;
-  padding: 0;
-  list-style: none;
-}
-
-.about-features li {
-  color: #cbd5e1;
-  font-size: 14px;
-  padding: 8px 0 8px 28px;
+.about-content {
   position: relative;
-  transition: all 0.3s ease;
-  cursor: default;
 }
-
-.about-features li::before {
-  content: '\2713';
+.about-shape {
   position: absolute;
-  left: 0;
-  top: 8px;
+  pointer-events: none;
+}
+.about-shape-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f4a637;
+  opacity: 0.25;
+}
+.about-shape-square {
+  width: 14px;
+  height: 14px;
+  background: #2563eb;
+  opacity: 0.2;
+  transform: rotate(45deg);
+}
+.about-shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 14px solid #e03e3e;
+  opacity: 0.2;
+}
+.about-shape-ring {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid #f4a637;
+  opacity: 0.25;
+}
+.about-shape-cross {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+.about-shape-cross::before,
+.about-shape-cross::after {
+  content: '';
+  position: absolute;
+  background: #2563eb;
+  opacity: 0.2;
+}
+.about-shape-cross::before {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.about-shape-cross::after {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.about-text {
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.85;
+  margin: 0 0 12px;
+  position: relative;
+}
+.about-text:last-of-type {
+  margin-bottom: 32px;
+}
+
+/* Features 2-col */
+.about-content ul.about-features {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px 40px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 0 40px !important;
+  flex-wrap: unset !important;
+}
+.about-content ul.about-features li {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  width: auto !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  padding-left: 0 !important;
+  position: relative !important;
+}
+.about-content ul.about-features li:before {
+  display: none !important;
+}
+.about-content ul.about-features li .check {
   color: #f4a637;
+  font-size: 15px;
   font-weight: 700;
-  font-size: 16px;
-  transition: transform 0.3s ease;
-}
-
-.about-features li:hover {
-  color: #ffffff;
-  transform: translateX(5px);
-}
-
-.about-features li:hover::before {
-  transform: scale(1.2);
+  flex-shrink: 0;
 }
 
 .about-btn {
-  display: inline-block;
-  padding: 14px 36px;
-  background: linear-gradient(135deg, #f4a637, #d18f2b);
-  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 36px;
+  background: #111827;
+  color: #f4a637;
+  font-family: 'Playfair Display', serif;
   font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 50px;
+  font-weight: 700;
+  border-radius: 8px;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: none;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
+  transition: all 0.3s ease;
 }
-
-.about-btn::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.about-btn:hover::after {
-  width: 300px;
-  height: 300px;
-}
-
 .about-btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(244,166,55, 0.4);
-  color: #ffffff;
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+}
+.about-btn i {
+  font-size: 11px;
+  transition: transform 0.3s;
+}
+.about-btn:hover i {
+  transform: translateX(4px);
 }
 
-.about-btn:active {
-  transform: scale(0.98);
-}
-
-/* Image wrapper */
-.about-image-wrap {
+/* Right Image */
+.about-visual {
   position: relative;
-  border-radius: 16px;
+}
+
+.about-img-wrap {
+  position: relative;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  transition: box-shadow 0.4s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
 }
-
-.about-image-wrap:hover {
-  box-shadow: 0 30px 80px rgba(244,166,55, 0.15);
-}
-
-.about-image-wrap img {
+.about-img-wrap img {
   width: 100%;
-  height: auto;
+  height: 480px;
+  object-fit: cover;
   display: block;
-  border-radius: 16px;
-  transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.6s ease;
+}
+.about-img-wrap:hover img {
+  transform: scale(1.03);
 }
 
-.about-image-wrap:hover img {
-  transform: scale(1.06);
-}
-
-.about-image-wrap::after {
-  content: '';
+.about-exp-badge {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(244,166,55, 0.1), transparent 60%);
-  border-radius: 16px;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+  bottom: -24px;
+  right: -24px;
+  width: 140px;
+  height: 140px;
+  background: #f4a637;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #111827;
+  box-shadow: 0 16px 40px rgba(244, 166, 55, 0.35);
+  z-index: 2;
+}
+.about-exp-badge .number {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1;
+}
+.about-exp-badge .plus {
+  font-size: 22px;
+  font-weight: 800;
+  position: relative;
+  top: -6px;
+}
+.about-exp-badge .label {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.3;
+  margin-top: -2px;
 }
 
-.about-image-wrap:hover::after {
-  background: linear-gradient(135deg, rgba(244,166,55, 0.15), transparent 60%);
-}
-
-/* ===== ANIMATION CLASSES ===== */
+/* Anim */
 .anim-reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(24px);
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
 .anim-reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.anim-reveal-left {
-  opacity: 0;
-  transform: translateX(-50px) scale(0.95);
-  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.anim-reveal-left.visible {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-}
-
-.anim-reveal-right {
-  opacity: 0;
-  transform: translateX(50px) scale(0.95);
-  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.anim-reveal-right.visible {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-}
-
-.anim-stagger>* {
-  opacity: 0;
-  transform: translateY(25px) scale(0.97);
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.anim-stagger.visible>*:nth-child(1) {
-  transition-delay: 0.05s;
-}
-
-.anim-stagger.visible>*:nth-child(2) {
-  transition-delay: 0.1s;
-}
-
-.anim-stagger.visible>*:nth-child(3) {
-  transition-delay: 0.15s;
-}
-
-.anim-stagger.visible>*:nth-child(4) {
-  transition-delay: 0.2s;
-}
-
-.anim-stagger.visible>*:nth-child(5) {
-  transition-delay: 0.25s;
-}
-
-.anim-stagger.visible>*:nth-child(6) {
-  transition-delay: 0.3s;
-}
-
-.anim-stagger.visible>* {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* ===== FULLSCREEN MODE ===== */
-.about-us.fullscreen {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: 99999 !important;
-  padding: 60px 0 !important;
-  overflow-y: auto !important;
-  display: flex !important;
-  align-items: center !important;
-  transform: scale(1);
-  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  background: #0f172a;
-  cursor: default;
-}
-
-.about-us.fullscreen .about-inner {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.about-us .fs-close {
-  position: fixed;
-  top: 25px;
-  right: 30px;
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  color: #fff;
-  font-size: 22px;
-  cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 100000;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  line-height: 1;
-  backdrop-filter: blur(10px);
-}
-
-.about-us .fs-close:hover {
-  background: #f4a637;
-  border-color: #f4a637;
-  transform: rotate(90deg) scale(1.1);
-  box-shadow: 0 0 30px rgba(244,166,55, 0.3);
-}
-
-.about-us.fullscreen .fs-close {
-  display: flex;
-  animation: fadeInScale 0.4s ease forwards;
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.about-us .fs-hint {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  transition: all 0.4s ease;
-  pointer-events: none;
-  animation: pulse-hint 2s ease-in-out infinite;
-}
-
-@keyframes pulse-hint {
-
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: translateX(-50%) scale(1);
-  }
-
-  50% {
-    opacity: 0.6;
-    transform: translateX(-50%) scale(1.02);
-  }
-}
-
-.about-us:hover .fs-hint {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.about-us.fullscreen .fs-hint {
-  display: none;
-}
-
-/* Fullscreen content animation */
-.about-us.fullscreen .anim-reveal,
-.about-us.fullscreen .anim-reveal-left,
-.about-us.fullscreen .anim-reveal-right {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.about-us.fullscreen .anim-reveal.visible,
-.about-us.fullscreen .anim-reveal-left.visible,
-.about-us.fullscreen .anim-reveal-right.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (min-width: 1025px) {
-  .about-img-col {
-    flex: 0 0 50% !important;
-    max-width: 50% !important;
-    margin-bottom: 0 !important;
-  }
-
-  .about-content-col {
-    flex: 0 0 50% !important;
-    max-width: 50% !important;
-  }
-}
-
-@media (max-width: 1024px) {
-  .about-heading {
-    font-size: 28px;
-  }
-
-  .about-exp-badge {
-    width: 100px;
-    height: 100px;
-    bottom: -15px;
-    right: -15px;
-  }
-
-  .about-exp-badge .number {
-    font-size: 26px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-us {
-    padding: 50px 0;
-  }
-
-  .about-heading {
-    font-size: 24px;
-  }
-
-  .about-features {
+@media (max-width: 900px) {
+  .about-us { padding: 80px 0; }
+  .about-grid {
     grid-template-columns: 1fr;
+    gap: 50px;
   }
-
-  .about-exp-badge {
-    width: 90px;
-    height: 90px;
-    bottom: -10px;
-    right: -10px;
-  }
-
-  .about-exp-badge .number {
-    font-size: 22px;
-  }
-
-  .about-us.fullscreen {
-    padding: 40px 0 !important;
-  }
-
-  .about-us .fs-close {
-    top: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-heading {
-    font-size: 20px;
-  }
-
-  .about-text {
-    font-size: 14px;
-  }
-
-  .about-btn {
-    padding: 12px 28px;
-    font-size: 12px;
-  }
+  .about-img-wrap img { height: 360px; }
 }
 </style>
 
-<div class="about-us" style="cursor:pointer;">
+<div class="about-us">
+  <div class="about-container">
+    <div class="about-grid">
 
-  <!-- Close Button -->
-  <button class="fs-close" id="aboutFsClose" aria-label="Close Fullscreen">
-    <i class="fas fa-times"></i>
-  </button>
+      <div class="about-content">
+        <div class="about-shape about-shape-circle" style="top:10px;right:-30px;"></div>
+        <div class="about-shape about-shape-square" style="top:40%;right:-18px;"></div>
+        <div class="about-shape about-shape-triangle" style="bottom:100px;right:-28px;"></div>
+        <div class="about-shape about-shape-ring" style="top:25%;right:-38px;"></div>
+        <div class="about-shape about-shape-cross" style="bottom:50px;right:-20px;"></div>
+        <div class="about-label anim-reveal">&#10022; Learn About Us</div>
+        <h2 class="about-heading anim-reveal" style="transition-delay:0.1s;">Who <span>We Are</span></h2>
+        <div class="about-divider anim-reveal" style="transition-delay:0.12s;"></div>
 
-  <div class="about-inner" style="max-width:1200px;margin:0 auto;padding:0 20px;">
-    <div style="display:flex;flex-wrap:wrap;margin:0 -15px;align-items:center;">
-      <!-- Image Column -->
-      <div style="flex:0 0 100%;max-width:100%;padding:0 15px;margin-bottom:40px;" class="about-img-col">
-        <div class="about-image-wrap anim-reveal-left" style="max-width:540px;margin:0 auto;">
-          <img src="{{ asset('frontend/assets/images/about-us-img.jpg') }}" alt="About Inoodex" />
+        <p class="about-text shape-1 anim-reveal" style="transition-delay:0.15s;">Welcome to Inoodex, your trusted partner in digital innovation. We specialize in delivering customized web design, software development, SEO, and e-commerce solutions to help businesses grow and thrive in today's competitive landscape. Our mission is simple: to empower businesses by providing reliable, cutting-edge technology services tailored to meet their unique needs.</p>
+
+        <p class="about-text shape-2 anim-reveal" style="transition-delay:0.2s;">At Inoodex, we view every project as a partnership. We are dedicated to understanding your vision and working closely with you to bring it to life. Our agile approach ensures that we adapt to changing needs, providing solutions that are scalable and future-proof.</p>
+
+        <ul class="about-features anim-reveal" style="transition-delay:0.25s;">
+          <li><i class="fa-solid fa-check check"></i> Ease of Scalability</li>
+          <li><i class="fa-solid fa-check check"></i> Instant Impact</li>
+          <li><i class="fa-solid fa-check check"></i> Expertise and Experience</li>
+          <li><i class="fa-solid fa-check check"></i> Time Zone Aligned</li>
+          <li><i class="fa-solid fa-check check"></i> Full Flexibility</li>
+          <li><i class="fa-solid fa-check check"></i> Proactive Support</li>
+        </ul>
+
+        <a href="{{ url('/contact') }}" class="about-btn anim-reveal" style="transition-delay:0.3s;">
+          Free Consultation <i class="fa-solid fa-chevron-right"></i>
+        </a>
+      </div>
+
+      <div class="about-visual anim-reveal" style="transition-delay:0.15s;">
+        <div class="about-img-wrap">
+          @if(!empty($about_image))
+            <img src="{{ asset('storage/' . $about_image) }}" alt="About Inoodex" />
+          @else
+            <img src="{{ asset('frontend/assets/images/about-us-img.jpg') }}" alt="About Inoodex" />
+          @endif
+        </div>
+        <div class="about-exp-badge">
+          <div><span class="number">8</span><span class="plus">+</span></div>
+          <div class="label">Years of<br>experience</div>
         </div>
       </div>
 
-      <!-- Content Column -->
-      <div class="about-content-col" style="flex:0 0 100%;max-width:100%;padding:0 15px;">
-        <div style="max-width:600px;">
-
-          <!-- Section Label -->
-          <div class="about-title anim-reveal">About Us</div>
-
-          <!-- Heading -->
-          <h2 class="about-heading anim-reveal" style="transition-delay:0.1s;">
-            Who <span>We Are</span>
-          </h2>
-
-          <!-- Description -->
-          <p class="about-text anim-reveal" style="transition-delay:0.2s;">
-            Welcome to Inoodex, your trusted partner in digital innovation.
-            We specialize in delivering customized web design, software
-            development, SEO, and e-commerce solutions to help businesses
-            grow and thrive in today's competitive landscape. Our mission is
-            simple: to empower businesses by providing reliable,
-            cutting-edge technology services tailored to meet their unique
-            needs.
-          </p>
-
-          <p class="about-text anim-reveal" style="transition-delay:0.3s;">
-            At Inoodex, we view every project as a partnership. We are
-            dedicated to understanding your vision and working closely with
-            you to bring it to life. Our agile approach ensures that we
-            adapt to changing needs, providing solutions that are scalable
-            and future-proof.
-          </p>
-
-          <!-- Features List -->
-          <ul class="about-features anim-stagger anim-reveal" style="transition-delay:0.35s;">
-            <li>Ease of Scalability</li>
-            <li>Instant Impact</li>
-            <li>Expertise and Experience</li>
-            <li>Time Zone Aligned</li>
-            <li>Full Flexibility</li>
-            <li>Proactive Support</li>
-          </ul>
-
-          <!-- Button -->
-          <a href="{{ url('/contact') }}" class="about-btn anim-reveal" style="transition-delay:0.45s;">
-            Free Consultation
-            <i class="fas fa-arrow-right" style="margin-left:8px;transition:transform 0.3s ease;"></i>
-          </a>
-
-        </div>
-      </div>
     </div>
   </div>
-
-
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var about = document.querySelector('.about-us');
   if (!about) return;
-
-  // ===== SCROLL ANIMATIONS =====
-  var animateItems = about.querySelectorAll('.anim-reveal, .anim-reveal-left, .anim-reveal-right, .anim-stagger');
+  var items = about.querySelectorAll('.anim-reveal');
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -530,91 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -30px 0px'
-  });
-  animateItems.forEach(function(item) {
-    observer.observe(item);
-  });
-
-  // ===== FULLSCREEN TOGGLE =====
-  var fsClose = document.getElementById('aboutFsClose');
-  var isFullscreen = false;
-
-  function enterFullscreen() {
-    if (isFullscreen) return;
-    isFullscreen = true;
-    about.classList.add('fullscreen');
-    document.body.style.overflow = 'hidden';
-
-    // Re-trigger animations
-    setTimeout(function() {
-      about.querySelectorAll('.anim-reveal, .anim-reveal-left, .anim-reveal-right').forEach(function(el) {
-        el.classList.add('visible');
-      });
-      about.querySelectorAll('.anim-stagger').forEach(function(el) {
-        el.classList.add('visible');
-      });
-    }, 200);
-
-    setTimeout(function() {
-      about.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }, 100);
-  }
-
-  function exitFullscreen() {
-    if (!isFullscreen) return;
-    isFullscreen = false;
-    about.classList.remove('fullscreen');
-    document.body.style.overflow = '';
-    setTimeout(function() {
-      about.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
-    }, 100);
-  }
-
-  // Click on about section to enter fullscreen (but not on close button or links)
-  about.addEventListener('click', function(e) {
-    if (e.target === fsClose || fsClose.contains(e.target)) return;
-    if (e.target.closest('a')) return;
-    if (isFullscreen) return;
-    enterFullscreen();
-  });
-
-  // Close button
-  fsClose.addEventListener('click', function(e) {
-    e.stopPropagation();
-    exitFullscreen();
-  });
-
-  // ESC key to exit
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && isFullscreen) {
-      exitFullscreen();
-    }
-  });
-
-  // ===== BUTTON HOVER ARROW =====
-  var btn = document.querySelector('.about-btn');
-  if (btn) {
-    btn.addEventListener('mouseenter', function() {
-      var arrow = this.querySelector('.fa-arrow-right');
-      if (arrow) {
-        arrow.style.transform = 'translateX(6px)';
-      }
-    });
-    btn.addEventListener('mouseleave', function() {
-      var arrow = this.querySelector('.fa-arrow-right');
-      if (arrow) {
-        arrow.style.transform = 'translateX(0)';
-      }
-    });
-  }
+  }, { threshold: 0.15 });
+  items.forEach(function(item) { observer.observe(item); });
 });
 </script>

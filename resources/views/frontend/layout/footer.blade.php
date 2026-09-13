@@ -171,11 +171,15 @@
 .footer-policy-links ul li .go-top {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 16px;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
     background: rgba(255,255,255,0.06);
-    border-radius: 8px;
-    color: #94a3b8;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 16px;
     transition: all 0.3s;
 }
 .footer-policy-links ul li .go-top:hover {
@@ -185,7 +189,7 @@
 .footer-copyright-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 14px;
     position: relative;
@@ -279,24 +283,26 @@
                 <div class="footer-links">
                     <h2>Products</h2>
                     <ul>
-                        <li><a href="#">E-commerce</a></li>
-                        <li><a href="#">Inventory & Pos</a></li>
-                        <li><a href="#">booking software</a></li>
-                        <li><a href="#">CRM & ERP</a></li>
-                        <li><a href="#">School Management</a></li>
+                        <li><a href="{{ url('/construction.inoodex.com') }}">Construction ERP</a></li>
+                        <li><a href="{{ url('/crm.inoodex.com') }}">Education Consultancy CRM</a></li>
+                        <li><a href="{{ url('/inventory.inoodex.com') }}">Inventory Management</a></li>
+                        <li><a href="{{ url('/sms.inoodex.com') }}">POS Software</a></li>
+                        <li><a href="{{ url('/ecom.inoodex.com') }}">E-Commerce</a></li>
+                        <li><a href="{{ url('/education.inoodex.com') }}">School Management</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-links-col">
                 <div class="footer-links">
-                    <h2>services</h2>
+                    <h2>Services</h2>
                     <ul>
-                        <li><a href="{{ url('/software-development') }}">software development</a></li>
-                        <li><a href="{{ url('/apps-development') }}">mobile app development</a></li>
-                        <li><a href="{{ url('/web-development') }}">web development</a></li>
-                        <li><a href="#">digital marketing</a></li>
-                        <li><a href="#">complete seo</a></li>
+                        <li><a href="{{ url('/software-development') }}">Software Development</a></li>
+                        <li><a href="{{ url('/apps-development') }}">Apps Development</a></li>
+                        <li><a href="{{ url('/web-development') }}">Web Development</a></li>
+                        <li><a href="{{ url('/digital-marketing') }}">Digital Marketing</a></li>
+                        <li><a href="{{ url('/seo') }}">SEO</a></li>
+                        <li><a href="{{ url('/data-analysis') }}">Data Analysis</a></li>
                     </ul>
                 </div>
             </div>
