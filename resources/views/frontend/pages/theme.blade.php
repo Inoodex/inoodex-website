@@ -456,10 +456,14 @@
     justify-content: flex-end;
     gap: 8px;
     z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
     transition: all 0.4s var(--transition-smooth);
   }
 
   .theme-card:hover .card-body {
+    opacity: 1;
+    transform: translateY(0);
     align-items: center;
     justify-content: center;
     padding: 0;
@@ -496,7 +500,7 @@
   }
 
   .theme-card:hover .card-footer {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   /* CTA button with sliding arrow */

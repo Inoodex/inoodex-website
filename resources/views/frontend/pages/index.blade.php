@@ -73,9 +73,7 @@
      <section class="home-section">@include('frontend.components.about')</section> 
     <!-- About Section End -->
     
-    <!-- Our Work Section Start -->
-    {{-- @include('frontend.components.our_products')--}}
-    <!-- Our Work Section End -->
+  
 
     <!-- Our Services Section Start -->
     <section class="home-section">@include('frontend.components.services')</section>
@@ -84,6 +82,7 @@
     <!-- Our Work Section Start -->
     <!-- @include('frontend.components.our_work') -->
     <!-- Our Work Section End -->
+     
 
     <!-- Why Choose Us Section Start -->
     <section class="home-section">@include('frontend.components.why_choose_us')</section>
@@ -100,6 +99,9 @@
     <!-- Global Presence Section Start -->
    <section class="home-section">@include('frontend.components.global_presence')</section> 
     <!-- Global Presence Section End -->
+       <!-- Our Products Section Start -->
+    <section class="home-section">@include('frontend.components.our_products')</section>
+    <!-- Our Products Section End -->
 
     <!-- Clients Testimonials Section Start -->
     {{-- @include('frontend.components.testimonial') --}}
