@@ -366,9 +366,9 @@
   }
 
   .theme-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: none;
+    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow: none;
   }
 
   /* ===== IMAGE ===== */
@@ -397,7 +397,7 @@
   }
 
   .theme-card:hover .thumb-wrap img {
-    transform: scale(1.06);
+    transform: none;
   }
 
   /* Label badge on image */
@@ -457,7 +457,7 @@
   }
 
   .theme-card:hover .thumb-wrap::before {
-    left: 130%;
+    left: -60%;
   }
 
   .plate-index {
