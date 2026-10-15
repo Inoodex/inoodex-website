@@ -342,7 +342,7 @@
   .theme-card {
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 16px;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
@@ -350,7 +350,10 @@
     opacity: 0;
     animation: cardFadeIn 0.7s ease forwards;
     animation-delay: calc(0.06s * var(--i, 0));
-    aspect-ratio: 3 / 4;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
   }
 
   .theme-card.is-hidden {
@@ -364,17 +367,18 @@
 
   .theme-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(224, 62, 62, 0.2);
+    border-color: rgba(0, 0, 0, 0.08);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 
-  /* ===== IMAGE (vertical pan on hover) ===== */
+  /* ===== IMAGE ===== */
   .thumb-wrap {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    width: 100%;
     background: var(--surface-2);
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: 14px;
+    aspect-ratio: 4 / 4;
   }
 
   .thumb-wrap img {
@@ -394,6 +398,40 @@
 
   .theme-card:hover .thumb-wrap img {
     transform: scale(1.06);
+  }
+
+  /* Label badge on image */
+  .thumb-label {
+    display: none;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Plus button on image */
+  .thumb-action {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+  }
+  .thumb-action:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: scale(1.1);
   }
 
   .thumb-wrap::after {
@@ -443,110 +481,137 @@
     width: 20px;
   }
 
-  /* ===== CARD BODY ===== */
+  /* ===== CARD INFO (below image) ===== */
   .card-body {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 40px 14px 14px;
-    background: linear-gradient(0deg, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.5) 60%, transparent 100%);
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    padding: 18px 4px 4px;
+    background: none;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    gap: 8px;
+    justify-content: flex-start;
+    gap: 6px;
     z-index: 2;
-    opacity: 0;
-    transform: translateY(20px);
     transition: all 0.4s var(--transition-smooth);
+    opacity: 1;
+    transform: none;
   }
 
   .theme-card:hover .card-body {
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 18px 4px 4px;
     opacity: 1;
-    transform: translateY(0);
-    align-items: center;
-    justify-content: center;
-    padding: 0;
+    transform: none;
   }
 
   .card-body h2 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: -0.3px;
-    color: #f4a637;
-    line-height: 1.2;
-    text-align: center;
-    transition: transform 0.4s var(--transition-smooth);
+    color: var(--ink);
+    line-height: 1.25;
+    text-align: left;
+    margin: 0;
+    transition: color 0.25s ease;
   }
 
   .card-body h2 a {
-    color: #f4a637;
+    color: var(--ink);
     text-decoration: none;
     transition: color 0.25s ease;
   }
 
   .card-body h2 a:hover {
-    color: #e0952d;
+    color: var(--accent);
   }
 
   .card-footer {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 10px;
     width: 100%;
     transition: all 0.4s var(--transition-smooth);
+    margin-top: 8px;
   }
 
   .theme-card:hover .card-footer {
-    justify-content: center;
+    justify-content: space-between;
   }
 
-  /* CTA button with sliding arrow */
+  /* CTA button — golden pill + dark circle arrow */
   .btn-demo {
-    display: inline-flex;
+    display: none;
     align-items: center;
-    gap: 9px;
-    padding: 11px 18px;
-    border-radius: 999px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: #ffffff;
+    gap: 12px;
+    padding: 8px 8px 8px 22px;
+    border-radius: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #111827;
     text-decoration: none;
     text-transform: uppercase;
-    background: rgba(244, 166, 55, 0.1);
-    border: 1px solid rgba(244, 166, 55, 0.3);
-    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, gap 0.35s var(--transition-smooth);
+    background: var(--accent);
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .theme-card:hover .btn-demo {
+    display: inline-flex;
   }
 
   .btn-demo .arrow-ring {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background: var(--accent);
-    color: #0a0a0a;
-    font-size: 10px;
-    transition: transform 0.35s var(--transition-smooth), background 0.3s ease;
+    background: #111827;
+    color: #fff;
+    font-size: 12px;
+    transition: transform 0.3s ease;
   }
 
   .btn-demo:hover {
-    color: #000000;
-    background: var(--accent);
-    border-color: var(--accent);
-    gap: 13px;
-    box-shadow: 0 10px 30px -8px var(--accent-dim);
+    background: #e0952d;
+    gap: 14px;
+    box-shadow: none;
   }
 
   .btn-demo:hover .arrow-ring {
-    background: #0a0a0a;
-    color: var(--accent);
-    transform: translateX(2px) rotate(-8deg);
+    transform: translateX(3px);
+  }
+
+  /* Price / meta row */
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+  }
+  .card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .card-swatches {
+    display: flex;
+    gap: 5px;
+  }
+  .card-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.1);
   }
 
   /* ===== EMPTY STATE ===== */
@@ -724,17 +789,25 @@
                 <div class="theme-card" :style="{ '--i': index }">
 
                   <div class="thumb-wrap">
-
                     <a :href="theme.demo_url" target="_blank">
                       <img :src="'{{ asset('storage') }}/' + theme.image" :alt="theme.title" loading="lazy" onerror="this.parentElement.style.display='none'">
                     </a>
+
                   </div>
 
                   <div class="card-body">
                     <h2><a :href="theme.demo_url" target="_blank" x-text="theme.title"></a></h2>
+                    <div class="card-meta">
+
+                      <div class="card-swatches">
+                        <span class="card-swatch" style="background:#f4a637"></span>
+                        <span class="card-swatch" style="background:#2563eb"></span>
+                        <span class="card-swatch" style="background:#111827"></span>
+                      </div>
+                    </div>
                     <div class="card-footer">
                       <a :href="theme.demo_url" target="_blank" class="btn-demo">
-                        View demo <span class="arrow-ring"><i class="fa-solid fa-arrow-right"></i></span>
+                        View Details <span class="arrow-ring"><i class="fa-solid fa-arrow-right"></i></span>
                       </a>
                     </div>
                   </div>
