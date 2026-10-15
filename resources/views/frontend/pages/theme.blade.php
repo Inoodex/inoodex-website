@@ -342,18 +342,18 @@
   .theme-card {
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 20px;
+    border-radius: 0;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    transition: none;
     opacity: 0;
     animation: cardFadeIn 0.7s ease forwards;
     animation-delay: calc(0.06s * var(--i, 0));
     aspect-ratio: auto;
     display: flex;
     flex-direction: column;
-    padding: 14px;
+    padding: 0;
   }
 
   .theme-card.is-hidden {
@@ -377,7 +377,7 @@
     width: 100%;
     background: var(--surface-2);
     overflow: hidden;
-    border-radius: 14px;
+    border-radius: 0;
     aspect-ratio: 4 / 4;
   }
 
@@ -487,22 +487,20 @@
     left: auto;
     right: auto;
     bottom: auto;
-    padding: 18px 4px 4px;
+    padding: 16px 14px 18px;
     background: none;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
     gap: 6px;
     z-index: 2;
-    transition: all 0.4s var(--transition-smooth);
+    text-align: center;
     opacity: 1;
     transform: none;
   }
 
   .theme-card:hover .card-body {
-    align-items: stretch;
-    justify-content: flex-start;
-    padding: 18px 4px 4px;
     opacity: 1;
     transform: none;
   }
@@ -510,13 +508,12 @@
   .card-body h2 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: -0.3px;
     color: var(--ink);
     line-height: 1.25;
-    text-align: left;
+    text-align: center;
     margin: 0;
-    transition: color 0.25s ease;
   }
 
   .card-body h2 a {
@@ -593,9 +590,9 @@
   .card-meta {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    width: 100%;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 4px;
   }
   .card-price {
     font-family: 'Playfair Display', serif;
